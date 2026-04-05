@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import ScrollToTop from "@/components/scroll-to-top";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/json-ld";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 import "./globals.css";
@@ -98,6 +99,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

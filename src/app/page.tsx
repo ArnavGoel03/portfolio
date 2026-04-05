@@ -141,6 +141,44 @@ export default async function Home() {
       <SkillsTicker />
 
       <Section>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm">
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
+              Currently
+            </p>
+            <p className="mt-2 font-serif text-lg font-semibold tracking-tight">
+              SWE Intern @ UCSD
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Building ML pipelines &amp; research tools
+            </p>
+          </div>
+          <div className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm">
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
+              Building
+            </p>
+            <p className="mt-2 font-serif text-lg font-semibold tracking-tight">
+              Gondilal Saraf Platform
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Full-stack jewelry e-commerce + ERP
+            </p>
+          </div>
+          <div className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm">
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
+              Graduating
+            </p>
+            <p className="mt-2 font-serif text-lg font-semibold tracking-tight">
+              June 2026
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              BS Data Science, Minor in Entrepreneurship
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
         <div className="mb-14 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">

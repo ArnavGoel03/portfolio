@@ -6,6 +6,7 @@ import {
   Award,
 } from "lucide-react";
 import Section from "@/components/section";
+import StatCounter from "@/components/stat-counter";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
@@ -119,6 +120,17 @@ export default function About() {
               </p>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section>
+        <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+            <StatCounter value={3.96} suffix="/4.0" label="GPA at UCSD" decimals={2} />
+            <StatCounter value={6} suffix="+" label="Projects Built" />
+            <StatCounter value={2} suffix="" label="Certifications" />
+            <StatCounter value={110} suffix="+" label="Years of Family Legacy" />
+          </div>
         </div>
       </Section>
 
