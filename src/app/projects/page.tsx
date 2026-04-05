@@ -66,6 +66,18 @@ const staticProjects: Project[] = [
     date: "2022-01",
   },
   {
+    id: "pcod-tracker",
+    title: "PCOD Tracker — AI Health Companion",
+    description:
+      "Built an AI-powered health management app for women with PCOD/PCOS. Users vent freely and Claude AI auto-extracts symptoms, mood, diet, and medications. Upload lab PDFs and AI parses hormone levels, flags abnormals, and detects medications. Features cycle tracking, medication streaks, lab trend charts via Recharts, calendar heatmaps, and Google OAuth. 15 Prisma models, 14 API routes, and a supportive, privacy-first UX.",
+    tags: ["Next.js 16", "Claude AI", "PostgreSQL", "Prisma", "NextAuth", "Recharts"],
+    image: "",
+    github: "",
+    demo: "https://pcod-tracker.vercel.app",
+    featured: true,
+    date: "2025-03",
+  },
+  {
     id: "gondilal-saraf",
     title: "Gondilal Saraf — Full-Stack Jewelry Platform",
     description:

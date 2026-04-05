@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Mail, MapPin } from "lucide-react";
+import { Send, Mail, MapPin, Loader2 } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Section from "@/components/section";
@@ -31,17 +31,40 @@ const socials = [
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:arnav@example.com",
+    href: "mailto:a2goel@ucsd.edu",
     color: "group-hover:text-violet-400",
   },
 ];
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    setSending(false);
+    if (res.ok) {
+      setSubmitted(true);
+    } else {
+      setError("Something went wrong. Please try again or email me directly.");
+    }
   }
 
   return (
@@ -138,13 +161,26 @@ export default function Contact() {
                     className="border-primary/10 bg-primary/5 resize-none focus:border-primary/30 focus:ring-primary/20"
                   />
                 </div>
+                {error && (
+                  <p className="text-sm text-destructive">{error}</p>
+                )}
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full rounded-xl bg-primary text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]"
+                  disabled={sending}
+                  className="w-full rounded-xl bg-primary text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(167,139,250,0.3)] disabled:opacity-50"
                 >
-                  Send Message
-                  <Send size={16} className="ml-2" />
+                  {sending ? (
+                    <>
+                      Sending
+                      <Loader2 size={16} className="ml-2 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send size={16} className="ml-2" />
+                    </>
+                  )}
                 </Button>
               </form>
             )}

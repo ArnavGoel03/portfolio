@@ -62,6 +62,30 @@ Program that classifies common pet animals using their pictures. Trained on a pr
 - **Tags:** CNN, Computer Vision, Deep Learning
 - **Date:** January 2022
 
+### PCOD Tracker — AI Health Companion
+Built an AI-powered health management web application for women managing PCOD/PCOS (Polycystic Ovarian Disease/Syndrome).
+
+**AI-Powered Rant & Vent:** Chat-like interface where users type free-form thoughts about their day. Claude Sonnet 4 analyzes the text and automatically extracts symptoms with severity (1-5), mood, energy levels, sleep hours, diet entries, exercise logs, medications taken/skipped, cycle information, and weight — all without any manual form filling.
+
+**Medical Report Analysis:** Drag-and-drop PDF upload for lab reports. AI extracts and structures lab values (hormone markers like LH, FSH, Testosterone, AMH, metabolic markers, thyroid, vitamins), medications with dosage/frequency, diagnoses, and report dates. Automatically flags abnormal values.
+
+**Health Tracking:** Symptom tracking with calendar heatmap and severity scale. Menstrual cycle logging with flow intensity and cycle length calculations. Mood & energy tracking with 8 mood options and energy slider. Diet logging with meal types and calorie tracking. Exercise logging with type, duration, and intensity.
+
+**Medication Management:** Daily check-off system with streak tracking (last 7 days). Auto-detection of medications from uploaded reports. Active/inactive toggle and past medications archive.
+
+**Lab Visualization:** Interactive grid of latest lab values color-coded by health status. Trend line charts via Recharts for each marker over time with normal ranges as reference lines.
+
+**Tech Stack:** Next.js 16, React 19, TypeScript, TailwindCSS 4, PostgreSQL + Prisma 7 (15 models), NextAuth.js (Google OAuth + credentials with bcryptjs), Anthropic Claude API (Sonnet 4), pdf-parse (PDF text extraction), Recharts (lab trend charts), react-day-picker, Sonner (toasts), date-fns, next-themes.
+
+**Database:** 15 Prisma models including User, Profile, CycleLog, SymptomLog, MoodLog, DietLog, ExerciseLog, LabReport, LabValue, Medication, MedicationLog, Rant.
+
+**Security:** JWT sessions, bcryptjs password hashing, cascade deletes, privacy-first design. PDF text extracted locally, never stored externally.
+
+- **Tags:** Next.js 16, Claude AI, PostgreSQL, Prisma, NextAuth.js, Recharts, TypeScript
+- **Live:** https://pcod-tracker.vercel.app
+- **Date:** March 2025
+- **Status:** Featured Project
+
 ### Gondilal Saraf — Full-Stack Jewelry Platform
 Built a full-stack e-commerce and ERP platform for a century-old family gold & silver jewelry business in Banda, U.P. (est. 1915).
 

@@ -4,6 +4,7 @@ import Section from "@/components/section";
 import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
 import HeroNodes from "@/components/hero-nodes";
+import Typewriter from "@/components/typewriter";
 import { getFeaturedProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
 
@@ -33,6 +34,18 @@ const staticFeatured: Project[] = [
     demo: "",
     featured: true,
     date: "2024-04",
+  },
+  {
+    id: "pcod-tracker",
+    title: "PCOD Tracker — AI Health Companion",
+    description:
+      "AI-powered PCOD/PCOS health app — vent freely and Claude AI auto-extracts symptoms, mood, and meds. Upload lab PDFs for instant hormone parsing. 15 Prisma models, medication streaks, and lab trend charts.",
+    tags: ["Next.js 16", "Claude AI", "PostgreSQL"],
+    image: "",
+    github: "",
+    demo: "https://pcod-tracker.vercel.app",
+    featured: true,
+    date: "2025-03",
   },
   {
     id: "gondilal-saraf",
@@ -72,31 +85,42 @@ export default async function Home() {
 
           <h1 className="font-serif text-6xl font-bold leading-[1.1] tracking-tight md:text-8xl lg:text-9xl">
             <span className="text-foreground">Hi, I&apos;m </span>
-            <span className="heading-gradient text-glow">Arnav</span>
+            <Typewriter
+              text="Arnav"
+              delay={100}
+              startDelay={500}
+              className="heading-gradient text-glow"
+            />
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            UCSD Data Science student building at the intersection of Machine
-            Learning, Graph Theory, and real-world business — from algorithms to
-            jewelry.
+            <span className="font-mono text-xs tracking-wider text-primary/60 uppercase block mb-3">
+              // ucsd &middot; data science &middot; ml &middot; graph theory
+            </span>
+            Building at the intersection of Machine Learning, Graph Theory, and
+            real-world business — from algorithms to jewelry.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/projects"
-              className="group inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]"
+              className="btn-glow group inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-500 hover:bg-primary/90"
             >
               View Projects
               <ArrowRight
                 size={16}
-                className="transition-transform group-hover:translate-x-0.5"
+                className="transition-transform duration-300 group-hover:translate-x-1"
               />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-12 items-center rounded-xl glass px-7 text-sm font-medium transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_20px_rgba(167,139,250,0.1)]"
+              className="btn-border-flow group inline-flex h-12 items-center gap-2 rounded-xl px-7 text-sm font-medium transition-all duration-300"
             >
               Get in Touch
+              <ArrowRight
+                size={14}
+                className="text-primary/70 transition-transform duration-300 group-hover:translate-x-0.5"
+              />
             </Link>
           </div>
         </div>
