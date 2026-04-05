@@ -95,7 +95,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
               >
                 <ExternalLink size={13} />
-                Demo
+                {project.demo.includes("vercel.app") ? "Demo" : "Live Site"}
               </a>
             )}
           </div>
