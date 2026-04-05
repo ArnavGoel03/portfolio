@@ -67,24 +67,22 @@ export default async function Projects() {
 
   return (
     <>
-      <Section className="pt-32 pb-8">
-        <p className="text-sm font-medium uppercase tracking-widest text-primary">
+      <Section className="pt-36 pb-8">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
           Projects
         </p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+        <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
           Things I&apos;ve{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            Built
-          </span>
+          <span className="heading-gradient text-glow">Built</span>
         </h1>
-        <p className="mt-4 max-w-xl text-muted-foreground">
+        <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           A collection of projects spanning Machine Learning, Web Development,
           and Data Science — all driven by curiosity and real-world impact.
         </p>
       </Section>
 
       <Section className="pt-4">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {allProjects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}

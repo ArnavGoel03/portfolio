@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Section from "@/components/section";
 import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
+import HeroNodes from "@/components/hero-nodes";
 import { getFeaturedProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
 
@@ -41,62 +42,78 @@ export default async function Home() {
 
   return (
     <>
-      <Section className="pt-32 pb-16">
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-4 py-1.5 text-sm text-muted-foreground">
-            <Sparkles size={14} className="text-primary" />
-            Data Science + Entrepreneurship
-          </div>
-          <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-            Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-purple-400 via-indigo-400 to-purple-300 bg-clip-text text-transparent">
-              Arnav
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <HeroNodes />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+
+        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-indigo-500/5 blur-[100px]" />
+
+        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full glass px-5 py-2 text-sm">
+            <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
+            <span className="text-muted-foreground">
+              Data Science + Entrepreneurship
             </span>
+          </div>
+
+          <h1 className="font-serif text-6xl font-bold leading-[1.1] tracking-tight md:text-8xl lg:text-9xl">
+            <span className="text-foreground">Hi, I&apos;m </span>
+            <span className="heading-gradient text-glow">Arnav</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             UCSD Data Science student building at the intersection of Machine
             Learning, Graph Theory, and real-world business — from algorithms to
             jewelry.
           </p>
-          <div className="mt-8 flex gap-4">
+
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/projects"
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="group inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(167,139,250,0.3)]"
             >
               View Projects
-              <ArrowRight size={16} />
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-11 items-center rounded-full border border-border bg-background px-6 text-sm font-medium transition-colors hover:bg-muted"
+              className="inline-flex h-12 items-center rounded-xl glass px-7 text-sm font-medium transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_20px_rgba(167,139,250,0.1)]"
             >
               Get in Touch
             </Link>
           </div>
         </div>
-      </Section>
+      </section>
 
       <SkillsTicker />
 
       <Section>
-        <div className="mb-12 flex items-end justify-between">
+        <div className="mb-14 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-medium uppercase tracking-widest text-primary">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
               Featured Work
             </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight">
+            <h2 className="mt-3 font-serif text-4xl font-bold tracking-tight">
               Selected Projects
             </h2>
           </div>
           <Link
             href="/projects"
-            className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground md:flex"
+            className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             View all
-            <ArrowRight size={14} />
+            <ArrowRight
+              size={14}
+              className="transition-transform group-hover:translate-x-0.5"
+            />
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}

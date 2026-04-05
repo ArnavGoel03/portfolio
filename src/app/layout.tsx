@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import "./globals.css";
@@ -14,6 +15,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
 export const metadata: Metadata = {
   title: "Arnav | Data Science & Entrepreneurship",
   description:
@@ -26,10 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`}>
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} dark`}
+    >
       <body className="min-h-screen font-sans antialiased">
         <Navbar />
-        <main className="min-h-screen pt-[73px]">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

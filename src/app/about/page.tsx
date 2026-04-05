@@ -1,4 +1,10 @@
-import { GraduationCap, Globe, Gem, Code2, Award, BookOpen } from "lucide-react";
+import {
+  GraduationCap,
+  Globe,
+  Gem,
+  Code2,
+  Award,
+} from "lucide-react";
 import Section from "@/components/section";
 import { Badge } from "@/components/ui/badge";
 
@@ -36,10 +42,12 @@ const highlights = [
 const education = [
   {
     school: "UC San Diego",
-    degree: "Bachelor of Science — BS, Data Science (Minor: Entrepreneurship & Innovation)",
+    degree:
+      "Bachelor of Science — BS, Data Science (Minor: Entrepreneurship & Innovation)",
     period: "Sep 2022 — Jun 2026",
     grade: "3.960 (out of 4)",
-    activities: "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery",
+    activities:
+      "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery",
     skills: ["Communication", "Coding Experience"],
   },
   {
@@ -69,17 +77,16 @@ const certifications = [
 export default function About() {
   return (
     <>
-      <Section className="pt-32 pb-8">
-        <p className="text-sm font-medium uppercase tracking-widest text-primary">
+      <Section className="pt-36 pb-8">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
           About Me
         </p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
-          The Intersection of Data{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            & Enterprise
-          </span>
+        <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
+          The Intersection of Data
+          <br />
+          <span className="heading-gradient text-glow">& Enterprise</span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           I&apos;m Arnav — a Data Science student at UCSD with roots in India
           and a passion for turning raw data into meaningful action. My journey
           spans from building ML pipelines to running Gondilal Saraf, a jewelry
@@ -92,12 +99,14 @@ export default function About() {
           {highlights.map((item) => (
             <div
               key={item.title}
-              className="gradient-border glow-hover rounded-xl bg-card p-6"
+              className="gradient-border glow-card rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                <item.icon size={20} className="text-primary" />
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
+                <item.icon size={22} className="text-primary icon-glow" />
               </div>
-              <h3 className="text-lg font-semibold">{item.title}</h3>
+              <h3 className="font-serif text-lg font-semibold tracking-tight">
+                {item.title}
+              </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {item.description}
               </p>
@@ -107,9 +116,11 @@ export default function About() {
       </Section>
 
       <Section>
-        <div className="gradient-border rounded-xl bg-card p-8 md:p-12">
-          <h2 className="text-2xl font-bold tracking-tight">My Story</h2>
-          <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+        <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
+          <h2 className="font-serif text-3xl font-bold tracking-tight">
+            My Story
+          </h2>
+          <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed">
             <p>
               Growing up in India, I was always drawn to patterns — whether in
               mathematics, market trends, or the intricate designs of traditional
@@ -142,42 +153,46 @@ export default function About() {
       </Section>
 
       <Section>
-        <div className="mb-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-              <GraduationCap size={20} className="text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold tracking-tight">Education</h2>
+        <div className="mb-10 flex items-center gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
+            <GraduationCap size={22} className="text-primary icon-glow" />
           </div>
+          <h2 className="font-serif text-3xl font-bold tracking-tight">
+            Education
+          </h2>
         </div>
         <div className="space-y-6">
           {education.map((edu) => (
             <div
               key={edu.school}
-              className="gradient-border glow-hover rounded-xl bg-card p-6"
+              className="gradient-border glow-card rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold">{edu.school}</h3>
-                  <p className="text-sm text-primary">{edu.degree}</p>
+                  <h3 className="font-serif text-lg font-semibold tracking-tight">
+                    {edu.school}
+                  </h3>
+                  <p className="text-sm font-medium text-primary">
+                    {edu.degree}
+                  </p>
                 </div>
-                <span className="flex-shrink-0 text-xs text-muted-foreground">
+                <span className="flex-shrink-0 rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs text-muted-foreground">
                   {edu.period}
                 </span>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">
+              <p className="mt-4 text-sm text-muted-foreground">
                 Grade: {edu.grade}
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
                 Activities: {edu.activities}
               </p>
               {edu.skills.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-1.5">
                   {edu.skills.map((skill) => (
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="text-xs font-normal"
+                      className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
                     >
                       {skill}
                     </Badge>
@@ -190,34 +205,36 @@ export default function About() {
       </Section>
 
       <Section>
-        <div className="mb-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-              <Award size={20} className="text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold tracking-tight">
-              Licenses & Certifications
-            </h2>
+        <div className="mb-10 flex items-center gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
+            <Award size={22} className="text-primary icon-glow" />
           </div>
+          <h2 className="font-serif text-3xl font-bold tracking-tight">
+            Certifications
+          </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {certifications.map((cert) => (
             <div
               key={cert.name}
-              className="gradient-border glow-hover rounded-xl bg-card p-6"
+              className="gradient-border glow-card rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
-              <h3 className="text-base font-semibold">{cert.name}</h3>
-              <p className="mt-1 text-sm text-primary">{cert.issuer}</p>
-              <p className="mt-2 text-xs text-muted-foreground">
+              <h3 className="font-serif text-base font-semibold tracking-tight">
+                {cert.name}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-primary">
+                {cert.issuer}
+              </p>
+              <p className="mt-3 text-xs text-muted-foreground">
                 Issued {cert.date}
               </p>
               {cert.skills && cert.skills.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-1.5">
                   {cert.skills.map((skill) => (
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="text-xs font-normal"
+                      className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
                     >
                       {skill}
                     </Badge>

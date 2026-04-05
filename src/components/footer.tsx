@@ -1,57 +1,51 @@
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
-import { Separator } from "@/components/ui/separator";
+
+const socials = [
+  { icon: FaGithub, href: "https://github.com/ArnavGoel03", label: "GitHub" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/arnav-goel--/", label: "LinkedIn" },
+  { icon: FaOrcid, href: "https://orcid.org/0009-0007-6477-6501", label: "ORCID" },
+  { icon: Mail, href: "mailto:arnav@example.com", label: "Email" },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/50">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div>
-            <span className="text-lg font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+    <footer className="border-t border-border/30">
+      <div className="mx-auto max-w-6xl px-6 py-16">
+        <div className="flex flex-col items-center gap-8">
+          <div className="text-center">
+            <span className="font-serif text-2xl font-bold heading-gradient">
               Arnav
             </span>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Data Science &middot; Entrepreneurship &middot; Innovation
+            <p className="mt-2 text-sm text-muted-foreground">
+              Data Science &middot; Machine Learning &middot; Entrepreneurship
             </p>
           </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/ArnavGoel03"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            >
-              <FaGithub size={18} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/arnav-goel--/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            >
-              <FaLinkedinIn size={18} />
-            </a>
-            <a
-              href="https://orcid.org/0009-0007-6477-6501"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            >
-              <FaOrcid size={18} />
-            </a>
-            <a
-              href="mailto:arnav@example.com"
-              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            >
-              <Mail size={18} />
-            </a>
+
+          <div className="flex items-center gap-3">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="group relative flex h-11 w-11 items-center justify-center rounded-xl border border-primary/10 bg-primary/5 transition-all duration-300 hover:border-primary/30 hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(167,139,250,0.2)]"
+              >
+                <social.icon
+                  size={17}
+                  className="text-muted-foreground transition-colors group-hover:text-primary"
+                />
+              </a>
+            ))}
           </div>
+
+          <div className="h-px w-32 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+
+          <p className="text-xs text-muted-foreground/60">
+            &copy; {new Date().getFullYear()} Arnav. Crafted with Next.js & Notion.
+          </p>
         </div>
-        <Separator className="my-6 bg-border/50" />
-        <p className="text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Arnav. Built with Next.js & Notion.
-        </p>
       </div>
     </footer>
   );

@@ -41,7 +41,12 @@ const staticExperience: Experience[] = [
     endDate: "Jun 2026",
     description:
       "GPA: 3.96/4.0. Key coursework: CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), CSE 150A (AI). Activities: Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery.",
-    skills: ["Machine Learning", "Graph Theory", "Data Science", "Communication"],
+    skills: [
+      "Machine Learning",
+      "Graph Theory",
+      "Data Science",
+      "Communication",
+    ],
   },
   {
     id: "dps-rkp",
@@ -63,17 +68,15 @@ export default async function ExperiencePage() {
 
   return (
     <>
-      <Section className="pt-32 pb-8">
-        <p className="text-sm font-medium uppercase tracking-widest text-primary">
+      <Section className="pt-36 pb-8">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
           Experience
         </p>
-        <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+        <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
           My{" "}
-          <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
-            Journey
-          </span>
+          <span className="heading-gradient text-glow">Journey</span>
         </h1>
-        <p className="mt-4 max-w-xl text-muted-foreground">
+        <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           From founding a jewelry business to exploring the frontiers of machine
           learning at UCSD.
         </p>
