@@ -1,7 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, AudioWaveform, Shirt, ScanEye, PawPrint, Gem, HeartPulse } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ExternalLink,
+  AudioWaveform,
+  Shirt,
+  ScanEye,
+  PawPrint,
+  Gem,
+  HeartPulse,
+  X,
+} from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Project } from "@/lib/types";
@@ -20,25 +30,64 @@ interface ProjectCardProps {
   index: number;
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+function ProjectModal({
+  project,
+  onClose,
+}: {
+  project: Project;
+  onClose: () => void;
+}) {
   const Icon = projectIcons[project.id] || ScanEye;
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.12 }}
-      className="card-3d group"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8"
+      onClick={onClose}
     >
-      <div className="card-3d-inner gradient-border glow-card rounded-2xl bg-card overflow-hidden">
-        <div className="relative h-44 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/10">
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-md" />
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto gradient-border rounded-2xl bg-card backdrop-blur-sm"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 rounded-full border border-primary/20 bg-card/80 p-2 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/40 hover:text-foreground"
+        >
+          <X size={16} />
+        </button>
+
+        <div className="relative h-48 overflow-hidden rounded-t-2xl bg-gradient-to-br from-primary/5 via-background to-accent/10">
           {project.image ? (
             <>
               <img
                 src={project.image}
                 alt={project.title}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
             </>
@@ -46,26 +95,34 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="flex h-full w-full items-center justify-center">
               <div className="relative">
                 <div className="absolute inset-0 animate-pulse-glow rounded-full bg-primary/20 blur-2xl" />
-                <div className="relative rounded-2xl border border-primary/20 bg-primary/5 p-5 backdrop-blur-sm">
-                  <Icon
-                    size={40}
-                    className="text-primary icon-glow transition-transform duration-500 group-hover:scale-110"
-                  />
+                <div className="relative rounded-2xl border border-primary/20 bg-primary/5 p-6 backdrop-blur-sm">
+                  <Icon size={48} className="text-primary icon-glow" />
                 </div>
               </div>
             </div>
           )}
         </div>
 
-        <div className="p-6">
-          <h3 className="font-serif text-lg font-semibold tracking-tight">
+        <div className="p-8">
+          <h2 className="font-serif text-2xl font-bold tracking-tight">
             {project.title}
-          </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+          </h2>
+
+          {project.date && (
+            <p className="mt-2 font-mono text-xs text-muted-foreground/60">
+              {new Date(project.date + "-01").toLocaleDateString("en-US", {
+                month: "long",
+                year: "numeric",
+              })}
+            </p>
+          )}
+
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             {project.description}
           </p>
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {project.tags.slice(0, 4).map((tag) => (
+
+          <div className="mt-6 flex flex-wrap gap-1.5">
+            {project.tags.map((tag) => (
               <Badge
                 key={tag}
                 variant="secondary"
@@ -75,16 +132,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               </Badge>
             ))}
           </div>
-          <div className="mt-5 flex items-center gap-3">
+
+          <div className="mt-8 flex items-center gap-3">
             {project.github && (
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-lg border border-primary/10 bg-primary/5 px-3 py-1.5 text-xs font-medium text-foreground/70 transition-all hover:border-primary/30 hover:bg-primary/10 hover:text-foreground"
+                className="flex items-center gap-1.5 rounded-lg border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-medium text-foreground/70 transition-all hover:border-primary/30 hover:bg-primary/10 hover:text-foreground"
               >
-                <FaGithub size={13} />
-                Code
+                <FaGithub size={15} />
+                View Code
               </a>
             )}
             {project.demo && (
@@ -92,15 +150,118 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
+                className="flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
               >
-                <ExternalLink size={13} />
-                {project.demo.includes("vercel.app") ? "Demo" : "Live Site"}
+                <ExternalLink size={15} />
+                {project.demo.includes("vercel.app")
+                  ? "View Demo"
+                  : "Visit Site"}
               </a>
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
+  );
+}
+
+export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const Icon = projectIcons[project.id] || ScanEye;
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.12 }}
+        className="card-3d group cursor-pointer"
+        onClick={() => setOpen(true)}
+      >
+        <div className="card-3d-inner gradient-border glow-card rounded-2xl bg-card overflow-hidden">
+          <div className="relative h-44 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/10">
+            {project.image ? (
+              <>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+              </>
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <div className="relative">
+                  <div className="absolute inset-0 animate-pulse-glow rounded-full bg-primary/20 blur-2xl" />
+                  <div className="relative rounded-2xl border border-primary/20 bg-primary/5 p-5 backdrop-blur-sm">
+                    <Icon
+                      size={40}
+                      className="text-primary icon-glow transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="p-6">
+            <h3 className="font-serif text-lg font-semibold tracking-tight">
+              {project.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+              {project.description}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {project.tags.slice(0, 4).map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                >
+                  {tag}
+                </Badge>
+              ))}
+              {project.tags.length > 4 && (
+                <Badge
+                  variant="secondary"
+                  className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                >
+                  +{project.tags.length - 4}
+                </Badge>
+              )}
+            </div>
+            <div className="mt-5 flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 rounded-lg border border-primary/10 bg-primary/5 px-3 py-1.5 text-xs font-medium text-foreground/70 transition-all hover:border-primary/30 hover:bg-primary/10 hover:text-foreground"
+                >
+                  <FaGithub size={13} />
+                  Code
+                </a>
+              )}
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
+                >
+                  <ExternalLink size={13} />
+                  {project.demo.includes("vercel.app") ? "Demo" : "Live Site"}
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {open && <ProjectModal project={project} onClose={() => setOpen(false)} />}
+      </AnimatePresence>
+    </>
   );
 }
