@@ -18,6 +18,30 @@ export const metadata = {
 
 const staticProjects: Project[] = [
   {
+    id: "pcod-tracker",
+    title: "PCOD Tracker — AI Health Companion",
+    description:
+      "Built an AI-powered health management app for women with PCOD/PCOS. Users vent freely and Claude AI auto-extracts symptoms, mood, diet, and medications. Upload lab PDFs and AI parses hormone levels, flags abnormals, and detects medications. Features cycle tracking, medication streaks, lab trend charts via Recharts, calendar heatmaps, and Google OAuth. 15 Prisma models, 14 API routes, and a supportive, privacy-first UX.",
+    tags: ["Next.js 16", "Claude AI", "PostgreSQL", "Prisma", "NextAuth", "Recharts"],
+    image: "",
+    github: "https://github.com/ArnavGoel03/pcod-tracker",
+    demo: "https://pcod-tracker.vercel.app",
+    featured: true,
+    date: "2025-03",
+  },
+  {
+    id: "gondilal-saraf",
+    title: "Gondilal Saraf — Full-Stack Jewelry Platform",
+    description:
+      "Built a full-stack platform for my family's century-old jewelry business — bilingual storefront with live gold rates, 10-year investment charts, and a cinematic heritage design system. Includes a product catalogue with AR virtual try-on, AI-generated descriptions via Gemini 2.0 Flash, and an admin ERP with image processing pipeline (Photoroom + Sharp). 15 Prisma models, 26 API routes, OTP auth, AES encryption, and 85 tests.",
+    tags: ["Next.js 15", "PostgreSQL", "Gemini AI", "Prisma", "TypeScript", "Framer Motion"],
+    image: "",
+    github: "https://github.com/ArnavGoel03/Gondilal",
+    demo: "https://gondilalsaraf.com",
+    featured: true,
+    date: "2025-01",
+  },
+  {
     id: "vaani",
     title: "Vaani — Multilingual AI Chatbot",
     description:
@@ -65,31 +89,11 @@ const staticProjects: Project[] = [
     featured: false,
     date: "2022-01",
   },
-  {
-    id: "pcod-tracker",
-    title: "PCOD Tracker — AI Health Companion",
-    description:
-      "Built an AI-powered health management app for women with PCOD/PCOS. Users vent freely and Claude AI auto-extracts symptoms, mood, diet, and medications. Upload lab PDFs and AI parses hormone levels, flags abnormals, and detects medications. Features cycle tracking, medication streaks, lab trend charts via Recharts, calendar heatmaps, and Google OAuth. 15 Prisma models, 14 API routes, and a supportive, privacy-first UX.",
-    tags: ["Next.js 16", "Claude AI", "PostgreSQL", "Prisma", "NextAuth", "Recharts"],
-    image: "",
-    github: "https://github.com/ArnavGoel03/pcod-tracker",
-    demo: "https://pcod-tracker.vercel.app",
-    featured: true,
-    date: "2025-03",
-  },
-  {
-    id: "gondilal-saraf",
-    title: "Gondilal Saraf — Full-Stack Jewelry Platform",
-    description:
-      "Built a full-stack platform for my family's century-old jewelry business — bilingual storefront with live gold rates, 10-year investment charts, and a cinematic heritage design system. Includes a product catalogue with AR virtual try-on, AI-generated descriptions via Gemini 2.0 Flash, and an admin ERP with image processing pipeline (Photoroom + Sharp). 15 Prisma models, 26 API routes, OTP auth, AES encryption, and 85 tests.",
-    tags: ["Next.js 15", "PostgreSQL", "Gemini AI", "Prisma", "TypeScript", "Framer Motion"],
-    image: "",
-    github: "https://github.com/ArnavGoel03/Gondilal",
-    demo: "https://gondilalsaraf.com",
-    featured: true,
-    date: "2025-01",
-  },
 ];
+
+function hasLinks(p: Project): boolean {
+  return Boolean(p.github || p.demo);
+}
 
 export default async function Projects() {
   const notionProjects = await getProjects();
@@ -97,10 +101,14 @@ export default async function Projects() {
   const extraStatic = staticProjects.filter(
     (p) => !notionIds.has(p.title.toLowerCase())
   );
-  const allProjects =
+  const merged =
     notionProjects.length > 0
       ? [...notionProjects, ...extraStatic]
       : staticProjects;
+  const allProjects = [
+    ...merged.filter(hasLinks),
+    ...merged.filter((p) => !hasLinks(p)),
+  ];
 
   return (
     <>

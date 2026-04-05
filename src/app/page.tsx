@@ -12,30 +12,6 @@ export const revalidate = 3600;
 
 const staticFeatured: Project[] = [
   {
-    id: "vaani",
-    title: "Vaani — Multilingual AI Chatbot",
-    description:
-      "Real-time, voice-enabled AI chatbot using OpenAI's API supporting 5+ Indian languages with speech-to-text and text-to-speech pipelines.",
-    tags: ["OpenAI API", "Speech Recognition", "NLP"],
-    image: "",
-    github: "https://github.com/ArnavGoel03/vani",
-    demo: "",
-    featured: true,
-    date: "2024-07",
-  },
-  {
-    id: "style-it",
-    title: "Style It — AI Wardrobe Assistant",
-    description:
-      "AI-powered wardrobe assistant with TensorFlow recommendation engine. Boosted recommendation performance by 30% with semantic vector matching.",
-    tags: ["Python", "TensorFlow", "ML"],
-    image: "",
-    github: "",
-    demo: "",
-    featured: true,
-    date: "2024-04",
-  },
-  {
     id: "pcod-tracker",
     title: "PCOD Tracker — AI Health Companion",
     description:
@@ -59,6 +35,30 @@ const staticFeatured: Project[] = [
     featured: true,
     date: "2025-01",
   },
+  {
+    id: "vaani",
+    title: "Vaani — Multilingual AI Chatbot",
+    description:
+      "Real-time, voice-enabled AI chatbot using OpenAI's API supporting 5+ Indian languages with speech-to-text and text-to-speech pipelines.",
+    tags: ["OpenAI API", "Speech Recognition", "NLP"],
+    image: "",
+    github: "https://github.com/ArnavGoel03/vani",
+    demo: "",
+    featured: true,
+    date: "2024-07",
+  },
+  {
+    id: "style-it",
+    title: "Style It — AI Wardrobe Assistant",
+    description:
+      "AI-powered wardrobe assistant with TensorFlow recommendation engine. Boosted recommendation performance by 30% with semantic vector matching.",
+    tags: ["Python", "TensorFlow", "ML"],
+    image: "",
+    github: "",
+    demo: "",
+    featured: true,
+    date: "2024-04",
+  },
 ];
 
 export default async function Home() {
@@ -67,10 +67,15 @@ export default async function Home() {
   const extraStatic = staticFeatured.filter(
     (p) => !notionIds.has(p.title.toLowerCase())
   );
-  const featured =
+  const merged =
     notionFeatured.length > 0
       ? [...notionFeatured, ...extraStatic]
       : staticFeatured;
+  const hasLinks = (p: Project) => Boolean(p.github || p.demo);
+  const featured = [
+    ...merged.filter(hasLinks),
+    ...merged.filter((p) => !hasLinks(p)),
+  ];
 
   return (
     <>
