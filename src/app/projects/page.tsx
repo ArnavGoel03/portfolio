@@ -24,7 +24,7 @@ const staticProjects: Project[] = [
       "Built a real-time, voice-enabled AI chatbot using OpenAI's API to support conversational interactions in 5+ Indian languages. Integrated speech-to-text and text-to-speech pipelines to enable smooth, multilingual voice communication. Designed for accessibility and inclusivity, especially in rural and semi-digital communities.",
     tags: ["OpenAI API", "Real-time Speech Recognition", "NLP", "Python"],
     image: "",
-    github: "",
+    github: "https://github.com/ArnavGoel03/vani",
     demo: "",
     featured: true,
     date: "2024-07",
