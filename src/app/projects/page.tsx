@@ -93,8 +93,14 @@ const staticProjects: Project[] = [
 
 export default async function Projects() {
   const notionProjects = await getProjects();
+  const notionIds = new Set(notionProjects.map((p) => p.title.toLowerCase()));
+  const extraStatic = staticProjects.filter(
+    (p) => !notionIds.has(p.title.toLowerCase())
+  );
   const allProjects =
-    notionProjects.length > 0 ? notionProjects : staticProjects;
+    notionProjects.length > 0
+      ? [...notionProjects, ...extraStatic]
+      : staticProjects;
 
   return (
     <>

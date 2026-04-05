@@ -63,7 +63,14 @@ const staticFeatured: Project[] = [
 
 export default async function Home() {
   const notionFeatured = await getFeaturedProjects();
-  const featured = notionFeatured.length > 0 ? notionFeatured : staticFeatured;
+  const notionIds = new Set(notionFeatured.map((p) => p.title.toLowerCase()));
+  const extraStatic = staticFeatured.filter(
+    (p) => !notionIds.has(p.title.toLowerCase())
+  );
+  const featured =
+    notionFeatured.length > 0
+      ? [...notionFeatured, ...extraStatic]
+      : staticFeatured;
 
   return (
     <>
