@@ -6,7 +6,14 @@ import { Project } from "@/lib/types";
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "Projects | Arnav",
+  title: "Projects",
+  description:
+    "Explore projects by Arnav Goel — from multilingual AI chatbots and ML-powered wardrobe assistants to deep learning classifiers and family business web development.",
+  openGraph: {
+    title: "Projects by Arnav Goel",
+    description:
+      "Machine Learning, AI, and Web Development projects built by Arnav Goel at UCSD.",
+  },
 };
 
 const staticProjects: Project[] = [
@@ -57,6 +64,18 @@ const staticProjects: Project[] = [
     demo: "",
     featured: false,
     date: "2022-01",
+  },
+  {
+    id: "gondilal-saraf",
+    title: "Gondilal Saraf — Full-Stack Jewelry Platform",
+    description:
+      "Built a full-stack platform for my family's century-old jewelry business — bilingual storefront with live gold rates, 10-year investment charts, and a cinematic heritage design system. Includes a product catalogue with AR virtual try-on, AI-generated descriptions via Gemini 2.0 Flash, and an admin ERP with image processing pipeline (Photoroom + Sharp). 15 Prisma models, 26 API routes, OTP auth, AES encryption, and 85 tests.",
+    tags: ["Next.js 15", "PostgreSQL", "Gemini AI", "Prisma", "TypeScript", "Framer Motion"],
+    image: "",
+    github: "",
+    demo: "https://gondilalsaraf.com",
+    featured: true,
+    date: "2025-01",
   },
 ];
 

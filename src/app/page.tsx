@@ -34,6 +34,18 @@ const staticFeatured: Project[] = [
     featured: true,
     date: "2024-04",
   },
+  {
+    id: "gondilal-saraf",
+    title: "Gondilal Saraf — Full-Stack Jewelry Platform",
+    description:
+      "Full-stack platform for a century-old family jewelry business — bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 15 Prisma models, 26 API routes, and 85 tests.",
+    tags: ["Next.js 15", "PostgreSQL", "Gemini AI"],
+    image: "",
+    github: "",
+    demo: "https://gondilalsaraf.com",
+    featured: true,
+    date: "2025-01",
+  },
 ];
 
 export default async function Home() {

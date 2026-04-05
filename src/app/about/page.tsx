@@ -9,7 +9,14 @@ import Section from "@/components/section";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
-  title: "About | Arnav",
+  title: "About",
+  description:
+    "Learn about Arnav Goel — Data Science student at UC San Diego (GPA: 3.96), entrepreneur at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
+  openGraph: {
+    title: "About Arnav Goel",
+    description:
+      "Data Science student at UCSD with a 3.96 GPA, founder of Gondilal Saraf, certified in ML from Stanford and DeepLearning.AI.",
+  },
 };
 
 const highlights = [

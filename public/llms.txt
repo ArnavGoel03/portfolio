@@ -1,0 +1,49 @@
+# Arnav Goel (Yash) — Portfolio
+
+> Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship.
+
+## About
+
+Arnav Goel, also known as Yash, is a Data Science student at UC San Diego (GPA: 3.96/4.0) with a minor in Entrepreneurship & Innovation. He is the founder and operator of Gondilal Saraf, a century-old family jewelry business. His work spans Machine Learning, Graph Theory, Web Development, and data-driven business strategy.
+
+## Education
+
+- **UC San Diego** — BS Data Science (Minor: Entrepreneurship & Innovation), Sep 2022 – Jun 2026, GPA: 3.96/4.0
+- **Delhi Public School, R. K. Puram** — High School, Engineering Science, Apr 2020 – Jun 2022, Grade: 96.75%
+
+## Experience
+
+- **SWE Intern** at UC San Diego (2024 – Present)
+- **Founder & Operator** at Gondilal Saraf (2022 – Present)
+
+## Projects
+
+- **Vaani — Multilingual AI Chatbot**: Real-time, voice-enabled AI chatbot using OpenAI's API supporting 5+ Indian languages with speech-to-text and text-to-speech pipelines.
+- **Style It — AI Wardrobe Assistant**: AI-powered wardrobe assistant with TensorFlow recommendation engine. Boosted recommendation performance by 30% with semantic vector matching.
+- **Handwritten Digits Classifier**: MNIST digit classification using TensorFlow and deep learning.
+- **Pet Classifier Model**: Pet animal classification using CNN framework for image recognition.
+- **Gondilal Saraf — Full-Stack Jewelry Platform**: Full-stack e-commerce platform for a century-old family jewelry business (est. 1915). Next.js 15, React 19, TypeScript, PostgreSQL with 15 Prisma models, 26 API routes. Features: bilingual Hindi/English storefront, live gold rates with 10-year investment charts, product catalogue with AR virtual try-on (MediaPipe), AI-generated descriptions (Gemini 2.0 Flash), AI model images (Replicate SDXL), admin ERP with image pipeline (Photoroom + Sharp), OTP auth via WhatsApp, AES encryption, EMI calculator, and 85 tests. Heritage design system with cinematic gate animation, parallax, glassmorphism, 3 themes. Live at https://gondilalsaraf.com
+
+## Skills
+
+Python, TensorFlow, Machine Learning, Deep Learning, NLP, Computer Vision, Graph Theory, Data Science, React, Next.js, TypeScript, Web Development, Recommendation Systems, Entrepreneurship, Business Strategy
+
+## Certifications
+
+- Neural Networks and Deep Learning — DeepLearning.AI (Jul 2024)
+- Machine Learning Specialization — Stanford University (Jul 2024)
+
+## Contact
+
+- GitHub: https://github.com/ArnavGoel03
+- LinkedIn: https://www.linkedin.com/in/arnav-goel--/
+- ORCID: https://orcid.org/0009-0007-6477-6501
+- Location: San Diego, California
+
+## Links
+
+- Homepage: /
+- About: /about
+- Projects: /projects
+- Experience: /experience
+- Contact: /contact

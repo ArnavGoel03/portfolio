@@ -1,0 +1,117 @@
+# Arnav Goel (Yash) — Full Portfolio Details
+
+> Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship.
+
+## About Arnav
+
+Arnav Goel, also known as Yash, is a Data Science student at the University of California, San Diego (UCSD) with a GPA of 3.96/4.0. He is pursuing a minor in Entrepreneurship & Innovation. Growing up in India, he developed an early interest in patterns — whether in mathematics, market trends, or the intricate designs of traditional jewelry. This curiosity led him to pursue Data Science at UCSD.
+
+At UCSD, courses like CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), and CSE 150A (AI) shaped his approach to problem-solving. He developed a deep appreciation for how graph theory and machine learning can model real-world networks and decision systems.
+
+Alongside his studies, he founded Gondilal Saraf — a jewelry business where he applies data science to inventory optimization, customer segmentation, and demand forecasting. Running a business while studying taught him how to bridge the gap between theory and practice.
+
+## Education
+
+### UC San Diego
+- **Degree:** Bachelor of Science — BS, Data Science (Minor: Entrepreneurship & Innovation)
+- **Period:** Sep 2022 — Jun 2026
+- **GPA:** 3.96/4.0
+- **Key Coursework:** CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), CSE 150A (AI)
+- **Activities:** Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery
+- **Skills:** Machine Learning, Graph Theory, Data Science, Communication
+
+### Delhi Public School — R. K. Puram
+- **Degree:** High School, Engineering Science
+- **Period:** Apr 2020 — Jun 2022
+- **Grade:** 96.75%
+- **Board:** CBSE
+- **Activities:** PhySoc (Physics Society), Mathematics Society, Exun Clan
+- **Skills:** Mathematics, Python, Physics, Computer Science
+
+## Professional Experience
+
+### SWE Intern — UC San Diego (2024 – Present)
+Software Engineering Intern working on undergraduate projects and research at UC San Diego.
+Skills: Python, TypeScript, React
+
+### Founder & Operator — Gondilal Saraf (2022 – Present)
+Founded and operates a jewelry business, applying data-driven strategies to inventory optimization, customer segmentation, and demand forecasting in a traditional industry.
+Skills: Entrepreneurship, Data Analysis, Business Strategy
+
+## Projects (Detailed)
+
+### Vaani — Multilingual AI Chatbot
+Built a real-time, voice-enabled AI chatbot using OpenAI's API to support conversational interactions in 5+ Indian languages. Integrated speech-to-text and text-to-speech pipelines to enable smooth, multilingual voice communication. Designed for accessibility and inclusivity, especially in rural and semi-digital communities.
+- **Tags:** OpenAI API, Real-time Speech Recognition, NLP, Python
+- **Status:** Featured Project
+- **Date:** July 2024
+
+### Style It — AI Wardrobe Assistant
+Developed an AI-powered wardrobe assistant that delivered personalized outfit suggestions based on occasion, color, and mood. Built a recommendation engine using TensorFlow and semantic vector matching to enhance style prediction accuracy. Integrated a dynamic API layer to suggest e-commerce product pairings, boosting recommendation performance by 30%.
+- **Tags:** Python, TensorFlow, Recommendation Systems
+- **Status:** Featured Project
+- **Date:** April 2024
+
+### Handwritten Digits Classifier
+Program that classifies handwritten digits using the MNIST Database. Built with TensorFlow at Delhi Public School, R. K. Puram.
+- **Tags:** TensorFlow, Deep Learning, MNIST
+- **Date:** January 2022
+
+### Pet Classifier Model
+Program that classifies common pet animals using their pictures. Trained on a private database provided by Delhi Public School and utilized the CNN framework for image recognition.
+- **Tags:** CNN, Computer Vision, Deep Learning
+- **Date:** January 2022
+
+### Gondilal Saraf — Full-Stack Jewelry Platform
+Built a full-stack e-commerce and ERP platform for a century-old family gold & silver jewelry business in Banda, U.P. (est. 1915).
+
+**Public Storefront:** Heritage-themed bilingual (Hindi/English) site with live gold/silver rates, 10-year investment charts, cinematic vault gate animation, collections carousel, buying guide, scam protection section, customer reviews, contact form, and shop locator. Design system features parchment textures, antique gold accents, Cormorant Garamond typography, glassmorphism nav, parallax scrolling, and 3 switchable themes.
+
+**Product Catalogue (/shop):** Searchable catalogue with sticky filters, shortlist system, customer accounts via OTP, virtual AR try-on (MediaPipe face landmarks), EMI calculator, WhatsApp ordering, deep linking, and share functionality.
+
+**Admin ERP (/admin):** Dashboard for rate management, catalogue uploads with price auto-fill (weight + purity → auto-calculate), AI-powered product descriptions (Gemini 2.0 Flash), AI model images (Replicate SDXL inpainting), image processing pipeline (Photoroom background removal + Sharp polish), and storefront configuration.
+
+**Tech Stack:** Next.js 15 (App Router), React 19, TypeScript, TailwindCSS, Framer Motion, PostgreSQL + Prisma ORM (15 models), NextAuth.js (OTP via WhatsApp/Twilio + Google OAuth), 26 REST API routes, Razorpay (payments), Sharp + Photoroom (image pipeline), Gemini 2.0 Flash (AI descriptions), Replicate SDXL (AI model images), Zod validation, CryptoJS AES encryption, bwip-js barcodes, Decimal.js precision math, IndexNow SEO, Schema.org JSON-LD.
+
+**Security:** Crypto-secure OTP with 10-min expiry, login lockout, rate limiting (5 login + 100 API per 15min per IP), AES encryption for customer PII, strict CSP, HSTS with preload, CSRF protection, full audit logging.
+
+**Testing:** 85 tests via Vitest + GitHub Actions CI.
+
+- **Tags:** Next.js 15, React 19, TypeScript, PostgreSQL, Prisma, Gemini AI, Replicate SDXL, Framer Motion, TailwindCSS, MediaPipe, NextAuth.js, WhatsApp API
+- **Live:** https://gondilalsaraf.com
+- **Date:** January 2025
+- **Status:** Featured Project
+
+## Technical Skills
+
+- **Languages:** Python, TypeScript, JavaScript
+- **ML/AI:** TensorFlow, Deep Learning, NLP, Computer Vision, Recommendation Systems
+- **Web:** React, Next.js, Tailwind CSS
+- **Data:** Data Science, Graph Theory, Data Analysis
+- **Other:** Entrepreneurship, Business Strategy, Communication
+
+## Certifications
+
+### Neural Networks and Deep Learning
+- **Issuer:** DeepLearning.AI
+- **Date:** July 2024
+
+### Machine Learning Specialization
+- **Issuer:** Stanford University
+- **Date:** July 2024
+- **Skills:** Machine Learning
+
+## Contact & Social
+
+- **GitHub:** https://github.com/ArnavGoel03
+- **LinkedIn:** https://www.linkedin.com/in/arnav-goel--/
+- **ORCID:** https://orcid.org/0009-0007-6477-6501
+- **Location:** San Diego, California (UC San Diego Campus)
+
+## Site Pages
+
+- **Homepage** (/): Hero section, featured projects, skills ticker
+- **About** (/about): Background, education, certifications, personal story
+- **Projects** (/projects): Full project gallery with tags and links
+- **Experience** (/experience): Professional and academic timeline
+- **Contact** (/contact): Contact form, social links, location

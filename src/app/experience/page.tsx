@@ -6,7 +6,14 @@ import { Experience } from "@/lib/types";
 export const revalidate = 3600;
 
 export const metadata = {
-  title: "Experience | Arnav",
+  title: "Experience",
+  description:
+    "Arnav Goel's professional and academic journey — SWE Intern at UCSD, founder of Gondilal Saraf, and Data Science education at UC San Diego and Delhi Public School.",
+  openGraph: {
+    title: "Experience — Arnav Goel",
+    description:
+      "From founding a jewelry business to exploring ML frontiers at UC San Diego.",
+  },
 };
 
 const staticExperience: Experience[] = [

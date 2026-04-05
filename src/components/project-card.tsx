@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, AudioWaveform, Shirt, ScanEye, PawPrint } from "lucide-react";
+import { ExternalLink, AudioWaveform, Shirt, ScanEye, PawPrint, Gem } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Project } from "@/lib/types";
@@ -11,6 +11,7 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   "style-it": Shirt,
   "handwritten-digits": ScanEye,
   "pet-classifier": PawPrint,
+  "gondilal-saraf": Gem,
 };
 
 interface ProjectCardProps {
