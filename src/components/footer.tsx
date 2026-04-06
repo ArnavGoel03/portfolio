@@ -2,31 +2,16 @@ import Link from "next/link";
 import { Mail, ArrowUpRight } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import GemIcon from "@/components/gem-icon";
+import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
 
 const socials = [
-  { icon: FaGithub, href: "https://github.com/ArnavGoel03", label: "GitHub" },
-  {
-    icon: FaLinkedinIn,
-    href: "https://www.linkedin.com/in/arnav-goel--/",
-    label: "LinkedIn",
-  },
-  {
-    icon: FaOrcid,
-    href: "https://orcid.org/0009-0007-6477-6501",
-    label: "ORCID",
-  },
-  { icon: Mail, href: "mailto:a2goel@ucsd.edu", label: "Email" },
+  { icon: FaGithub, href: SOCIAL_LINKS.github, label: "GitHub" },
+  { icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, label: "LinkedIn" },
+  { icon: FaOrcid, href: SOCIAL_LINKS.orcid, label: "ORCID" },
+  { icon: Mail, href: SOCIAL_LINKS.email, label: "Email" },
 ];
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Experience" },
-  { href: "/uses", label: "Uses" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
-];
+const navLinks = NAV_LINKS;
 
 export default function Footer() {
   return (

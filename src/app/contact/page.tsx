@@ -8,30 +8,31 @@ import Section from "@/components/section";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 const socials = [
   {
     icon: FaGithub,
     label: "GitHub",
-    href: "https://github.com/ArnavGoel03",
+    href: SOCIAL_LINKS.github,
     color: "group-hover:text-purple-400",
   },
   {
     icon: FaLinkedinIn,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/arnav-goel--/",
+    href: SOCIAL_LINKS.linkedin,
     color: "group-hover:text-indigo-400",
   },
   {
     icon: FaOrcid,
     label: "ORCID",
-    href: "https://orcid.org/0009-0007-6477-6501",
+    href: SOCIAL_LINKS.orcid,
     color: "group-hover:text-green-400",
   },
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:a2goel@ucsd.edu",
+    href: SOCIAL_LINKS.email,
     color: "group-hover:text-violet-400",
   },
 ];

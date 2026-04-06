@@ -47,4 +47,12 @@ Python, TensorFlow, Machine Learning, Deep Learning, NLP, Computer Vision, Graph
 - About: /about
 - Projects: /projects
 - Experience: /experience
+- Uses: /uses
+- Blog: /blog
 - Contact: /contact
+
+## Blog Posts
+
+- Building a Full-Stack Jewelry Platform for a Century-Old Family Business: /blog/building-gondilal-saraf
+- Why I Built an AI Health Tracker for Women with PCOD: /blog/pcod-tracker-ai-health
+- From Algorithms to Jewelry — My Path Through Data Science & Entrepreneurship: /blog/from-algorithms-to-jewelry

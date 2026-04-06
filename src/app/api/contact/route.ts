@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { EMAIL } from "@/lib/constants";
 
 export async function POST(request: Request) {
   const { name, email, message } = await request.json();
@@ -15,7 +16,7 @@ export async function POST(request: Request) {
 
   const { error } = await resend.emails.send({
     from: "Portfolio Contact <onboarding@resend.dev>",
-    to: "a2goel@ucsd.edu",
+    to: EMAIL,
     replyTo: email,
     subject: `Portfolio message from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\n\n${message}`,

@@ -6,17 +6,10 @@ import { motion } from "framer-motion";
 import { Menu, X, FileText } from "lucide-react";
 import { useState } from "react";
 import GemIcon from "@/components/gem-icon";
+import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Experience" },
-  { href: "/uses", label: "Uses" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
-];
+const links = NAV_LINKS;
 
 export default function Navbar() {
   const pathname = usePathname();

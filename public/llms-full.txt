@@ -134,8 +134,16 @@ Built a full-stack e-commerce and ERP platform for a century-old family gold & s
 
 ## Site Pages
 
-- **Homepage** (/): Hero section, featured projects, skills ticker
-- **About** (/about): Background, education, certifications, personal story
-- **Projects** (/projects): Full project gallery with tags and links
-- **Experience** (/experience): Professional and academic timeline
-- **Contact** (/contact): Contact form, social links, location
+- **Homepage** (/): 3D gem hero, typewriter animation, status cards, skills ticker, featured projects
+- **About** (/about): Animated stat counters, background, education, certifications, personal story
+- **Projects** (/projects): Full project gallery with expandable modals, tags, and links
+- **Experience** (/experience): Professional and academic timeline with active role highlighting
+- **Uses** (/uses): Full tech stack — Languages, ML, Web Dev, Databases, AI Services, Hardware, Design, Dev Tools
+- **Blog** (/blog): Technical writing on building projects and career reflections
+- **Contact** (/contact): Contact form with email delivery via Resend, social links, location
+
+## Blog Posts
+
+- **Building a Full-Stack Jewelry Platform for a Century-Old Family Business** (/blog/building-gondilal-saraf): Deep dive into Gondilal Saraf — tech stack, AI pipeline, heritage design system, bilingual architecture
+- **Why I Built an AI Health Tracker for Women with PCOD** (/blog/pcod-tracker-ai-health): PCOD Tracker story — rant-first logging, Claude AI parsing, lab report analysis, privacy design
+- **From Algorithms to Jewelry: My Path Through Data Science & Entrepreneurship** (/blog/from-algorithms-to-jewelry): Personal essay on combining Data Science with entrepreneurship at UCSD
