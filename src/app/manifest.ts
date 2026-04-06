@@ -8,12 +8,31 @@ export default function manifest(): MetadataRoute.Manifest {
       "Portfolio of Arnav Goel — Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship.",
     start_url: "/",
     display: "standalone",
-    background_color: "#09090b",
+    orientation: "any",
+    background_color: "#06050b",
     theme_color: "#8b5cf6",
+    categories: ["portfolio", "technology", "education"],
     icons: [
       {
+        src: "/icon",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/apple-icon",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
         src: "/favicon.ico",
-        sizes: "any",
+        sizes: "16x16 32x32",
         type: "image/x-icon",
       },
     ],

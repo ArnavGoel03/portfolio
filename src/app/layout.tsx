@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
 import PageTransition from "@/components/page-transition";
+import ServiceWorkerRegister from "@/components/sw-register";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/json-ld";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 import "./globals.css";
@@ -93,6 +94,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} dark`}
     >
       <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Arnav Goel" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="msapplication-TileColor" content="#06050b" />
+        <meta name="msapplication-tap-highlight" content="no" />
         <PersonJsonLd />
         <WebSiteJsonLd />
       </head>
@@ -103,6 +110,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <ScrollToTop />
+        <ServiceWorkerRegister />
       </body>
     </html>
   );
