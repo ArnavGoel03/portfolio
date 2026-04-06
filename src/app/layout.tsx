@@ -4,6 +4,7 @@ import { Playfair_Display } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
+import PageTransition from "@/components/page-transition";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/json-ld";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 import "./globals.css";
@@ -97,7 +98,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen font-sans antialiased">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
         <ScrollToTop />
       </body>
