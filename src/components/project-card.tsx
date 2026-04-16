@@ -10,6 +10,7 @@ import {
   PawPrint,
   Gem,
   HeartPulse,
+  Clapperboard,
   X,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -23,6 +24,7 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   "pet-classifier": PawPrint,
   "pcod-tracker": HeartPulse,
   "gondilal-saraf": Gem,
+  "watch-together": Clapperboard,
 };
 
 interface ProjectCardProps {
@@ -153,7 +155,9 @@ function ProjectModal({
                 className="flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
               >
                 <ExternalLink size={15} />
-                {project.demo.includes("vercel.app")
+                {project.demo.includes("chromewebstore")
+                  ? "Install Extension"
+                  : project.demo.includes("vercel.app")
                   ? "View Demo"
                   : "Visit Site"}
               </a>
@@ -251,7 +255,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
                 >
                   <ExternalLink size={13} />
-                  {project.demo.includes("vercel.app") ? "Demo" : "Live Site"}
+                  {project.demo.includes("chromewebstore")
+                    ? "Install"
+                    : project.demo.includes("vercel.app")
+                    ? "Demo"
+                    : "Live Site"}
                 </a>
               )}
             </div>

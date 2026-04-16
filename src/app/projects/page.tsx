@@ -18,6 +18,18 @@ export const metadata = {
 
 const staticProjects: Project[] = [
   {
+    id: "watch-together",
+    title: "Watch Together — Cross-Site Video Sync",
+    description:
+      "Built a Chrome/Firefox/Safari extension that syncs video playback across any number of devices worldwide. Works on Netflix, YouTube, JioHotstar, Disney+, HBO Max, and Amazon Prime Video — anyone can play, pause, seek, or change speed and it propagates instantly. WebSocket relay server on Render with heartbeat-based drift correction (within 0.5s), per-IP rate limiting, host-only mode, ad detection, and built-in chat. 59 server tests + Puppeteer browser tests. Manifest V3 with site-specific player adapters.",
+    tags: ["Chrome Extension", "WebSocket", "Node.js", "Manifest V3", "Render", "Vitest"],
+    image: "",
+    github: "https://github.com/ArnavGoel03/watch-together",
+    demo: "https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa",
+    featured: true,
+    date: "2026-04",
+  },
+  {
     id: "pcod-tracker",
     title: "PCOD Tracker — AI Health Companion",
     description:

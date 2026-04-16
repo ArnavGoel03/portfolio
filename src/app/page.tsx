@@ -12,6 +12,18 @@ export const revalidate = 3600;
 
 const staticFeatured: Project[] = [
   {
+    id: "watch-together",
+    title: "Watch Together — Cross-Site Video Sync",
+    description:
+      "Chrome/Firefox/Safari extension that syncs playback on Netflix, YouTube, Disney+, Prime Video, and more. WebSocket relay with heartbeat drift correction, host mode, ad detection, and built-in chat. 59 server tests.",
+    tags: ["Chrome Extension", "WebSocket", "Node.js"],
+    image: "",
+    github: "https://github.com/ArnavGoel03/watch-together",
+    demo: "https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa",
+    featured: true,
+    date: "2026-04",
+  },
+  {
     id: "pcod-tracker",
     title: "PCOD Tracker — AI Health Companion",
     description:
