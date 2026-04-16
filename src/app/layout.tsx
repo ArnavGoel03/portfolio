@@ -7,6 +7,8 @@ import ScrollToTop from "@/components/scroll-to-top";
 import PageTransition from "@/components/page-transition";
 import ServiceWorkerRegister from "@/components/sw-register";
 import { PersonJsonLd, WebSiteJsonLd } from "@/components/json-ld";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 import "./globals.css";
 
@@ -79,6 +81,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
+    types: {
+      "application/rss+xml": [
+        { url: `${SITE_URL}/feed.xml`, title: `${SITE_NAME} — Blog RSS` },
+      ],
+    },
   },
   category: "technology",
 };
@@ -111,6 +118,8 @@ export default function RootLayout({
         <Footer />
         <ScrollToTop />
         <ServiceWorkerRegister />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -2,6 +2,41 @@ import { BlogPost } from "./types";
 
 export const posts: BlogPost[] = [
   {
+    slug: "watch-together-cross-site-sync",
+    title: "Engineering Watch Together: Sub-Second Video Sync Across Any Streaming Site",
+    excerpt:
+      "How I built a Chrome/Firefox/Safari extension that keeps Netflix, YouTube, Disney+, and JioHotstar in lockstep across the globe — and the surprisingly tricky problems hiding behind a 'just sync the videos' brief.",
+    date: "2026-04-15",
+    readTime: "9 min read",
+    tags: ["Chrome Extension", "WebSocket", "Manifest V3", "Real-Time Systems"],
+    content: [
+      "Watching a movie 'together' over a call has always been broken. Someone says 'play in 3, 2, 1' and within 30 seconds you're 4 seconds out of sync arguing about whether the next line was 'I am your father' or 'no, I am'. I built Watch Together to make that experience disappear — one extension, any streaming site, any number of devices, anywhere on Earth.",
+      "## The Brief vs. The Reality",
+      "On paper, the spec is one sentence: when one person plays, pauses, or seeks, do the same on every other browser. In practice, every word in that sentence is a trap. 'Plays' depends on which streaming site (Netflix's player exposes nothing useful, YouTube has ads, JioHotstar reloads its video element on quality changes). 'Seeks' fights with browser autoplay policies. 'Every other browser' has to survive Chrome killing your service worker every 30 seconds.",
+      "The system is three pieces: a WebSocket relay server on Render, a Manifest V3 extension with site-specific player adapters, and an injected in-player overlay that lives inside YouTube/Netflix/Disney+ controls so users never have to leave the video.",
+      "## Why WebSockets, Not WebRTC",
+      "The obvious choice for real-time sync is WebRTC — peer-to-peer, no server hop, low latency. I built the first prototype that way and immediately killed it. WebRTC requires NAT traversal, STUN/TURN servers, and falls apart behind corporate firewalls and certain mobile carriers. For our payload — a few bytes per sync event — peer-to-peer's latency advantage is meaningless. WebSocket relay through Render gives me a single TCP connection per client, works behind every firewall, and lets me enforce server-side rules (host mode, rate limits, room TTL) that you can't enforce in a P2P mesh.",
+      "## The Heartbeat Drift Problem",
+      "Sync events handle play/pause/seek, but they don't catch drift. Two browsers playing the 'same' frame will diverge — different decoder pipelines, different buffer pressure, occasional dropped frames. Without correction, you end up 2-3 seconds apart by the end of a 90-minute movie.",
+      "Solution: a 5-second heartbeat carrying the current playback position. Every client compares the heartbeat to its own clock and nudges if it's more than 0.5 seconds off. The naive implementation has a fatal flaw — if every member broadcasts heartbeats, you get N² messages and the room melts at scale. So the server elects a single heartbeat leader per room. When the leader leaves, leadership transfers to the next member.",
+      "The other gotcha: heartbeats fight with sync events. If Alice seeks to 0:30 and Bob's heartbeat from 0:25 arrives 200ms later, Bob will yank everyone back to 0:25. Fix: a 2-second cooldown on heartbeats after every sync event. Simple rule, eliminated an entire class of 'sync ping-pong' bugs.",
+      "## Site-Specific Player Adapters",
+      "Every streaming site lies to you in a different way. The codebase has an `adapters/` folder where each site gets its own module. The generic adapter just attaches to any `<video>` element. The YouTube adapter watches for the `.ad-showing` class and pauses sync during ads (otherwise everyone gets dragged through the same skippable ad five times). The JioHotstar adapter handles their habit of replacing the video element on quality changes — we have to re-attach listeners every time. Netflix needed custom play/pause buttons because their native player API isn't exposed to extensions.",
+      "## Surviving Manifest V3",
+      "MV3 service workers can be killed after 30 seconds of inactivity. Mid-movie, that's a disaster. The fix is paranoid state restoration: `currentRoom` and `userId` are mirrored to `chrome.storage.local` on every change. When the worker wakes back up, it reads storage, reconnects the WebSocket with exponential backoff, and rejoins the room. From the user's perspective, nothing happened. From the server's perspective, the same user disconnected and reconnected — which is why the server keeps room state for 12 hours instead of dropping it on disconnect.",
+      "Port management was another MV3 pitfall. Each tab connects multiple ports to the worker (one for the content script, one for the overlay). Naive keying by port name causes collisions across tabs. The fix: key ports by `tabId:portName`, e.g. `123:content`, `123:overlay`.",
+      "## Auto-Join Without Trust",
+      "The killer UX feature is share links: `youtube.com/watch?v=xyz&wt_room=ABC123`. Click it and you're in the room with the video already loaded. The implementation is more delicate than it looks. YouTube strips unknown query params from the URL within milliseconds of page load. So `auto-join-extract.js` runs at `document_start` (before the page's JS executes), captures `wt_room`, writes it to `chrome.storage.local`, and cleans the URL. Then `content.js` at `document_idle` reads the pending join, connects to the server, and applies whatever playback state the room is in. The user just sees the video appear and start playing in sync.",
+      "## Security as a Default",
+      "Public WebSocket servers are a magnet for abuse. The server enforces: 10 connections per IP max, 20 messages per second per user, 50 members per room cap, 10,000 concurrent rooms cap, 12-hour room TTL with auto-cleanup. URLs are validated to allow only `http://` and `https://` (blocks `javascript:` injection through chat or video URLs). Room codes aren't enumerable — there's no `/stats` endpoint and `/room/{code}` doesn't leak member counts or video URLs to unauthorized requests. The join page sets `X-Frame-Options: DENY` and a strict CSP to block clickjacking.",
+      "## Testing Real-Time Systems",
+      "Unit tests for sync logic are easy. Tests for 'does Alice's pause actually reach Bob's browser within 200ms while Carol is mid-seek' are not. The test suite has 59 vitest tests for the server (rooms, sync, host mode, heartbeats, chat, security, end-to-end) and a Puppeteer suite that launches real Chrome with the extension loaded and verifies two-tab sync, overlay injection, and auto-join. The Puppeteer tests caught a class of race conditions the unit tests missed entirely — specifically, the order in which `document_start` and `document_idle` scripts initialize relative to the WebSocket handshake.",
+      "## What's Next",
+      "The extension is in Chrome Web Store review now. Next on the list: voice chat (WebRTC for the audio peer mesh, but WebSocket signaling), reaction emojis that float across everyone's screens in sync, and a 'watch party' scheduling feature with calendar invites. The server is sitting at <5% CPU even during stress tests, so scaling is a problem for future me.",
+      "If you want to try it, the source is on GitHub. If you want to read the architecture deep-dive, the README has the full sync flow diagrams.",
+    ],
+  },
+  {
     slug: "building-gondilal-saraf",
     title: "Building a Full-Stack Jewelry Platform for a Century-Old Family Business",
     excerpt:

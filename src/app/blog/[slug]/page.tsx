@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import Section from "@/components/section";
 import { Badge } from "@/components/ui/badge";
+import { ArticleJsonLd } from "@/components/json-ld";
+import ReadingProgress from "@/components/reading-progress";
 import { getPost, getAllPosts } from "@/lib/blog";
 
 export async function generateStaticParams() {
@@ -40,6 +42,14 @@ export default async function BlogPost({
 
   return (
     <>
+      <ReadingProgress />
+      <ArticleJsonLd
+        title={post.title}
+        description={post.excerpt}
+        date={post.date}
+        slug={post.slug}
+        tags={post.tags}
+      />
       <Section className="pt-36 pb-4">
         <Link
           href="/blog"

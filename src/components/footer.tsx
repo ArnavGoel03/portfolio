@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, Rss } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import GemIcon from "@/components/gem-icon";
 import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
@@ -9,6 +9,7 @@ const socials = [
   { icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, label: "LinkedIn" },
   { icon: FaOrcid, href: SOCIAL_LINKS.orcid, label: "ORCID" },
   { icon: Mail, href: SOCIAL_LINKS.email, label: "Email" },
+  { icon: Rss, href: "/feed.xml", label: "RSS Feed" },
 ];
 
 const navLinks = NAV_LINKS;

@@ -78,6 +78,55 @@ export function WebSiteJsonLd() {
   );
 }
 
+export function ArticleJsonLd({
+  title,
+  description,
+  date,
+  slug,
+  tags,
+}: {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+  tags: string[];
+}) {
+  const url = `${SITE_URL}/blog/${slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished: date,
+    dateModified: date,
+    author: {
+      "@type": "Person",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    url,
+    image: `${url}/opengraph-image`,
+    keywords: tags.join(", "),
+    inLanguage: "en-US",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export function BreadcrumbJsonLd({
   items,
 }: {

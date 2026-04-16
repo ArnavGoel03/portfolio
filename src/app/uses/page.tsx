@@ -7,6 +7,8 @@ import {
   Cloud,
   Brain,
   Wrench,
+  Radio,
+  TestTube2,
 } from "lucide-react";
 import Section from "@/components/section";
 
@@ -73,6 +75,25 @@ const categories = [
       { name: "Gemini 2.0 Flash", detail: "Gondilal Saraf — product descriptions from photos" },
       { name: "OpenAI API", detail: "Vaani chatbot — multilingual conversations" },
       { name: "Replicate (SDXL)", detail: "Gondilal Saraf — AI model image generation" },
+    ],
+  },
+  {
+    icon: Radio,
+    title: "Real-Time & Extensions",
+    items: [
+      { name: "WebSocket (ws)", detail: "Watch Together — sub-second sync across global clients" },
+      { name: "Chrome Manifest V3", detail: "Service worker extensions with content scripts and overlays" },
+      { name: "Render", detail: "Always-on Node.js relay servers with self-ping keep-alive" },
+      { name: "Service Workers", detail: "Offline caching, MV3 background workers, PWA install" },
+    ],
+  },
+  {
+    icon: TestTube2,
+    title: "Testing & QA",
+    items: [
+      { name: "Vitest", detail: "Fast unit + integration tests for Node servers and TS libraries" },
+      { name: "Puppeteer", detail: "Real-Chrome browser tests for extensions and end-to-end flows" },
+      { name: "Jest", detail: "Legacy projects and React component testing" },
     ],
   },
   {
