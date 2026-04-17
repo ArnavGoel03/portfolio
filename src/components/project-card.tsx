@@ -11,6 +11,7 @@ import {
   Gem,
   HeartPulse,
   Clapperboard,
+  Dice6,
   X,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -25,6 +26,7 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   "pcod-tracker": HeartPulse,
   "gondilal-saraf": Gem,
   "watch-together": Clapperboard,
+  "fair-ludo": Dice6,
 };
 
 interface ProjectCardProps {

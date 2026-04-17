@@ -12,11 +12,11 @@ import { Badge } from "@/components/ui/badge";
 export const metadata = {
   title: "About",
   description:
-    "Learn about Arnav Goel — Data Science student at UC San Diego (GPA: 3.96), entrepreneur at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
+    "Learn about Arnav Goel — Data Science student at UC San Diego (GPA: 3.96), operator at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
   openGraph: {
     title: "About Arnav Goel",
     description:
-      "Data Science student at UCSD with a 3.96 GPA, founder of Gondilal Saraf, certified in ML from Stanford and DeepLearning.AI.",
+      "Data Science student at UCSD with a 3.96 GPA, helping run Gondilal Saraf, certified in ML from Stanford and DeepLearning.AI.",
   },
 };
 
@@ -37,7 +37,7 @@ const highlights = [
     icon: Gem,
     title: "Gondilal Saraf",
     description:
-      "Founder & Operator of a jewelry business — applying data-driven strategies to a traditional industry.",
+      "Took my family's century-old jewelry business online to solidify our legacy and bring transparency to customers.",
   },
   {
     icon: Code2,
@@ -66,9 +66,24 @@ const education = [
     activities: "PhySoc (Physics Society), Mathematics Society, Exun Clan",
     skills: ["Mathematics", "Python", "Physics", "Computer Science"],
   },
+  {
+    school: "GD Goenka Public School, Kanpur",
+    degree: "High School",
+    period: "Apr 2018 — Mar 2020",
+    grade: "97.4%",
+    activities: "Marching band",
+    skills: ["Acting", "Archery"],
+  },
 ];
 
-const certifications = [
+type Certification = {
+  name: string;
+  issuer: string;
+  date: string;
+  skills?: string[];
+};
+
+const certifications: Certification[] = [
   {
     name: "Neural Networks and Deep Learning",
     issuer: "DeepLearning.AI",
@@ -79,6 +94,48 @@ const certifications = [
     issuer: "Stanford University",
     date: "Jul 2024",
     skills: ["Machine Learning"],
+  },
+  {
+    name: "Google AI Essentials",
+    issuer: "Google",
+    date: "Jul 2024",
+    skills: ["Artificial Intelligence (AI)"],
+  },
+  {
+    name: "Google Data Analytics Professional Certificate",
+    issuer: "Google",
+    date: "Jul 2024",
+    skills: ["SQL", "Data Cleaning"],
+  },
+  {
+    name: "Sololearn SQL",
+    issuer: "Sololearn",
+    date: "",
+    skills: ["SQL"],
+  },
+  {
+    name: "Sololearn Python",
+    issuer: "Sololearn",
+    date: "",
+    skills: ["Python"],
+  },
+  {
+    name: "Vigyantram — Senior Mobile App Developer",
+    issuer: "Enactus IIT Delhi",
+    date: "Jun 2021",
+    skills: ["Mobile Application Development"],
+  },
+  {
+    name: "Junior Data Analyst",
+    issuer: "White Hat Jr.",
+    date: "Jan 2021",
+    skills: ["Data Cleaning", "Data Interpretation"],
+  },
+  {
+    name: "Junior Python Developer",
+    issuer: "White Hat Jr.",
+    date: "Oct 2020",
+    skills: ["Data Cleaning"],
   },
 ];
 
@@ -97,8 +154,9 @@ export default function About() {
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           I&apos;m Arnav — a Data Science student at UCSD with roots in India
           and a passion for turning raw data into meaningful action. My journey
-          spans from building ML pipelines to running Gondilal Saraf, a jewelry
-          business where I blend analytical thinking with entrepreneurial grit.
+          spans from building ML pipelines to taking my family&apos;s century-old
+          jewelry business, Gondilal Saraf, online — solidifying our legacy and
+          bringing transparency to customers through technology.
         </p>
       </Section>
 
@@ -128,7 +186,7 @@ export default function About() {
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             <StatCounter value={3.96} suffix="/4.0" label="GPA at UCSD" decimals={2} />
             <StatCounter value={6} suffix="+" label="Projects Built" />
-            <StatCounter value={2} suffix="" label="Certifications" />
+            <StatCounter value={9} suffix="+" label="Certifications" />
             <StatCounter value={110} suffix="+" label="Years of Family Legacy" />
           </div>
         </div>
@@ -155,12 +213,16 @@ export default function About() {
               decision systems.
             </p>
             <p>
-              Alongside my studies, I founded Gondilal Saraf — a jewelry
-              business where I apply data science to inventory optimization,
-              customer segmentation, and demand forecasting. Running a business
-              while studying taught me how to bridge the gap between theory and
-              practice, and gave me a unique perspective on how technology can
-              transform traditional industries.
+              Alongside my studies, I took my family&apos;s century-old jewelry
+              business, Gondilal Saraf, online — building its full-stack digital
+              platform to solidify a generational legacy and bring transparency
+              to customers who have long relied on word-of-mouth and trust. On
+              top of the storefront, I apply data science to inventory
+              optimization, customer segmentation, and demand forecasting.
+              Working inside a generational business while studying taught me
+              how to bridge the gap between theory and practice, and gave me a
+              unique perspective on how technology can transform traditional
+              industries.
             </p>
             <p>
               My minor in Entrepreneurship & Innovation at UCSD further
@@ -244,9 +306,11 @@ export default function About() {
               <p className="mt-1 text-sm font-medium text-primary">
                 {cert.issuer}
               </p>
-              <p className="mt-3 text-xs text-muted-foreground">
-                Issued {cert.date}
-              </p>
+              {cert.date && (
+                <p className="mt-3 text-xs text-muted-foreground">
+                  Issued {cert.date}
+                </p>
+              )}
               {cert.skills && cert.skills.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {cert.skills.map((skill) => (

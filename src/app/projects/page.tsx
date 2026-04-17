@@ -18,6 +18,18 @@ export const metadata = {
 
 const staticProjects: Project[] = [
   {
+    id: "fair-ludo",
+    title: "Fair Ludo — Provably Fair Dice Game (In Progress)",
+    description:
+      "Building a Ludo game for web and mobile around a single principle: no rigged dice, no new-user luck, no hidden handicaps. Server-authoritative rolls using a commit-reveal scheme — the server publishes a hashed seed before each game and reveals it after, so players can replay and verify every roll. Planned stack: Next.js for web, React Native (Expo) for iOS/Android, shared TypeScript game logic, Node.js + WebSockets backend, Postgres for accounts and match history. Core RNG and game logic to be open-sourced so fairness claims are independently auditable.",
+    tags: ["Next.js", "React Native", "Expo", "TypeScript", "WebSockets", "Node.js"],
+    image: "",
+    github: "",
+    demo: "",
+    featured: true,
+    date: "2026-04",
+  },
+  {
     id: "watch-together",
     title: "Watch Together — Cross-Site Video Sync",
     description:
