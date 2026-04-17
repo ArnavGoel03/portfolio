@@ -185,8 +185,21 @@ const groups: Group[] = [
     title: "Entrepreneurship & Innovation (Minor)",
     icon: Briefcase,
     blurb:
-      "Minor coursework bridging technical work with startups, product, and business strategy.",
-    courses: [],
+      "Rady School minor coursework bridging technical work with startups, product, and business strategy.",
+    courses: [
+      {
+        code: "MGT 16",
+        name: "Personal Ethics at Work",
+      },
+      {
+        code: "MGT 121A",
+        name: "Entrepreneurship I",
+      },
+      {
+        code: "MGT 121B",
+        name: "Entrepreneurship II",
+      },
+    ],
   },
   {
     id: "electives",

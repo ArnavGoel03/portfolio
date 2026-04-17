@@ -20,7 +20,7 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-4 left-1/2 z-50 w-[95%] max-w-4xl -translate-x-1/2"
+      className="fixed top-4 left-1/2 z-50 w-[95%] max-w-5xl -translate-x-1/2"
     >
       <div className="glass-strong rounded-2xl px-6 py-3">
         <div className="flex items-center justify-between">
@@ -35,7 +35,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300",
+                  "relative rounded-xl px-3 py-2 text-sm font-medium transition-all duration-300",
                   pathname === link.href
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
