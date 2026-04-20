@@ -18,6 +18,18 @@ export const metadata = {
 
 const staticProjects: Project[] = [
   {
+    id: "buzz",
+    title: "Buzz — College Event Discovery (In Progress)",
+    description:
+      "Building a native event discovery app for US college students, launching first at UCSD. True multiplatform SwiftUI target compiling for iOS 17+ and macOS 14+ from a single codebase (no Catalyst), with an App Clip for instant check-in and an ARKit 'Look Around' mode that anchors events to real-world buildings. Supabase backend (Postgres + PostGIS + Row Level Security + Realtime), Stripe Connect for paid ticketing, and unified push fan-out across APNs / FCM / Web Push. Next.js 16 PWA mirror with JSON-LD structured data, per-campus landing pages, and llms.txt for AEO. Full club admin tools, Greek-life rush flows, textbook marketplace, and safety features baked in.",
+    tags: ["SwiftUI", "Swift 6", "Supabase", "PostGIS", "Stripe Connect", "ARKit", "Next.js 16", "PWA"],
+    image: "",
+    github: "",
+    demo: "",
+    featured: true,
+    date: "2026-04",
+  },
+  {
     id: "fair-ludo",
     title: "Fair Ludo — Provably Fair Dice Game (In Progress)",
     description:

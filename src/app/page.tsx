@@ -12,6 +12,18 @@ export const revalidate = 3600;
 
 const staticFeatured: Project[] = [
   {
+    id: "buzz",
+    title: "Buzz — College Event Discovery",
+    description:
+      "Native iOS + macOS event app for US college students, launching at UCSD. Multiplatform SwiftUI (no Catalyst), Supabase with PostGIS + RLS, Stripe Connect ticketing, App Clip, ARKit 'Look Around', and a Next.js 16 PWA mirror.",
+    tags: ["SwiftUI", "Swift 6", "Supabase"],
+    image: "",
+    github: "",
+    demo: "",
+    featured: true,
+    date: "2026-04",
+  },
+  {
     id: "watch-together",
     title: "Watch Together — Cross-Site Video Sync",
     description:
