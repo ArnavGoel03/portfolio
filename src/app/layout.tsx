@@ -3,7 +3,9 @@ import { Inter, Geist_Mono, Fraunces } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
+import ScrollProgress from "@/components/scroll-progress";
 import PageTransition from "@/components/page-transition";
+import CommandPalette from "@/components/command-palette";
 import ServiceWorkerRegister from "@/components/sw-register";
 import {
   PersonJsonLd,
@@ -129,12 +131,14 @@ export default function RootLayout({
         <ProfilePageJsonLd />
       </head>
       <body className="min-h-screen font-sans antialiased">
+        <ScrollProgress />
         <Navbar />
         <main className="min-h-screen">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
         <ScrollToTop />
+        <CommandPalette />
         <ServiceWorkerRegister />
         <Analytics />
         <SpeedInsights />
