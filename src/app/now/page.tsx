@@ -2,10 +2,6 @@ import Link from "next/link";
 import {
   GraduationCap,
   Code2,
-  BookOpen,
-  Music,
-  Dumbbell,
-  Plane,
   Sparkles,
   ArrowUpRight,
 } from "lucide-react";
@@ -14,73 +10,45 @@ import Section from "@/components/section";
 export const metadata = {
   title: "Now",
   description:
-    "What Arnav Goel is focused on right now — current projects, classes, reading, and life updates. Inspired by nownownow.com.",
+    "What Arnav Goel is focused on right now — current projects, classes, and where his attention is. Inspired by nownownow.com.",
   openGraph: {
     title: "Now — Arnav Goel",
     description:
-      "What I'm working on, learning, and obsessing over right this minute.",
+      "What I'm working on, learning, and building right now.",
   },
 };
 
-const lastUpdated = "April 17, 2026";
+const lastUpdated = "April 2026";
 const location = "San Diego, CA";
 
 const focusAreas = [
   {
     icon: Code2,
     label: "Building",
-    title: "Watch Together v1.1",
+    title: "Watch Together",
     detail:
-      "Pushed the Chrome Web Store submission this week. Next: voice chat over WebRTC, reaction emojis, and a 'watch party' scheduling feature with calendar invites.",
-  },
-  {
-    icon: GraduationCap,
-    label: "Classes",
-    title: "Final quarter at UCSD",
-    detail:
-      "Wrapping up CSE 158 (Recommender Systems & Web Mining), DSC 190 (Graph Theory), and ECON 191 (Senior Capstone). Graduating June 2027 with a BS in Data Science + minor in Entrepreneurship.",
+      "Cross-site video-sync extension. Live on the Chrome Web Store. Iterating on stability and site coverage.",
   },
   {
     icon: Sparkles,
-    label: "Shipping",
-    title: "Gondilal Saraf Q2 release",
+    label: "Operating",
+    title: "Gondilal Saraf",
     detail:
-      "Adding a wholesale portal for partner jewelers and a hi-res certificate viewer for BIS hallmark verification. Real users in Banda waiting on this one.",
+      "Running the full-stack platform for my family's 110-year jewelry business — day-to-day product, data, and growth work.",
   },
   {
-    icon: BookOpen,
-    label: "Reading",
-    title: "Designing Data-Intensive Applications",
+    icon: GraduationCap,
+    label: "Studying",
+    title: "Senior year at UCSD",
     detail:
-      "Kleppmann. Rereading the chapters on stream processing for the third time — finally clicking now that I've built something with real-time sync.",
-  },
-  {
-    icon: Music,
-    label: "Listening",
-    title: "Anuv Jain + The Marías",
-    detail:
-      "On rotation while I code. Switch to lo-fi or classical Indian when I need to think hard.",
-  },
-  {
-    icon: Dumbbell,
-    label: "Training",
-    title: "Half-marathon in October",
-    detail:
-      "Running 30 mpw, lifting 3x a week. Goal is sub-1:45. La Jolla Cove loop is the daily.",
-  },
-  {
-    icon: Plane,
-    label: "Travel",
-    title: "Banda → Delhi → SD",
-    detail:
-      "Home for a few weeks in May to spend time at the shop and ship the wholesale portal in person. Back to San Diego before finals.",
+      "Upper-division ML and data-science coursework through graduation in June 2027. Full transcript on /coursework.",
   },
 ];
 
 const looking = [
-  "New-grad SWE, ML engineer, or applied scientist roles starting summer 2026",
-  "Founding-engineer opportunities at early-stage startups (especially health, commerce, or developer tooling)",
-  "Conversations with people building real-time systems, agentic AI, or platforms for SMBs",
+  "New-grad applied-scientist, ML-engineer, and SWE roles starting summer 2027",
+  "Founding-engineer opportunities at seed → Series A startups (especially health, commerce, or developer tooling)",
+  "Conversations with people building real-time systems, agentic AI, or ML platforms for SMBs",
 ];
 
 export default function Now() {
@@ -96,13 +64,13 @@ export default function Now() {
           Right Now
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          A snapshot of where my attention is — projects, classes, what I&apos;m
-          reading, and what I&apos;m chasing. Inspired by{" "}
+          A snapshot of where my attention is — current builds, studies, and
+          what I&apos;m chasing. Inspired by{" "}
           <a
             href="https://nownownow.com/about"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground/75 underline-offset-4 hover:text-foreground/80 hover:underline"
+            className="text-foreground/80 underline-offset-4 hover:text-foreground hover:underline"
           >
             Derek Sivers&apos; /now movement
           </a>
@@ -157,7 +125,7 @@ export default function Now() {
           <ul className="mt-5 space-y-3">
             {looking.map((item) => (
               <li key={item} className="flex items-start gap-3">
-                <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
+                <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground/50" />
                 <span className="text-sm leading-relaxed text-muted-foreground">
                   {item}
                 </span>
