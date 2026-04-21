@@ -158,7 +158,7 @@ export default async function Home() {
               <p>
                 I&apos;m a senior in the BS Data Science program at UC San Diego
                 (minor in Entrepreneurship &amp; Innovation) graduating June
-                2026 with a 3.96 GPA. My work sits where machine learning meets
+                2026 with a 3.91 GPA. My work sits where machine learning meets
                 systems that actually ship — Flask microservices for a
                 50,000-patient hospital platform at ADA, quantitative research
                 at Triton Quant, and the full-stack platform for{" "}

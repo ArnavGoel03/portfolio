@@ -17,11 +17,11 @@ import { Badge } from "@/components/ui/badge";
 export const metadata = {
   title: "About",
   description:
-    "Learn about Arnav Goel — Data Science student at UC San Diego (GPA: 3.96), operator at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
+    "Learn about Arnav Goel — Data Science student at UC San Diego (GPA: 3.911), operator at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
   openGraph: {
     title: "About Arnav Goel",
     description:
-      "Data Science student at UCSD with a 3.96 GPA, helping run Gondilal Saraf, certified in ML from Stanford and DeepLearning.AI.",
+      "Data Science student at UCSD with a 3.911 GPA, helping run Gondilal Saraf, certified in ML from Stanford and DeepLearning.AI.",
   },
 };
 
@@ -30,7 +30,7 @@ const highlights = [
     icon: GraduationCap,
     title: "UCSD Data Science",
     description:
-      "Pursuing a BS in Data Science with a minor in Entrepreneurship & Innovation at UC San Diego. GPA: 3.96/4.0.",
+      "Pursuing a BS in Data Science with a minor in Entrepreneurship & Innovation at UC San Diego. GPA: 3.911/4.0 (major 3.860, minor 3.950).",
   },
   {
     icon: Globe,
@@ -58,7 +58,7 @@ const education = [
     degree:
       "Bachelor of Science — BS, Data Science (Minor: Entrepreneurship & Innovation)",
     period: "Sep 2022 — Jun 2026",
-    grade: "3.960 (out of 4)",
+    grade: "3.911 (out of 4.0) · Major GPA 3.860 · Minor GPA 3.950",
     activities:
       "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery",
     skills: ["Communication", "Coding Experience"],
@@ -280,7 +280,7 @@ export default function About() {
       <Section>
         <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <StatCounter value={3.96} suffix="/4.0" label="GPA at UCSD" decimals={2} />
+            <StatCounter value={3.911} suffix="/4.0" label="GPA at UCSD" decimals={3} />
             <StatCounter value={6} suffix="+" label="Projects Built" />
             <StatCounter value={9} suffix="+" label="Certifications" />
             <StatCounter value={110} suffix="+" label="Years of Family Legacy" />

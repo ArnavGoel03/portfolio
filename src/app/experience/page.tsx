@@ -117,7 +117,7 @@ const staticExperience: Experience[] = [
     startDate: "Sep 2022",
     endDate: "Jun 2026",
     description:
-      "GPA: 3.96/4.0. Key coursework: CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), CSE 150A (AI). Activities: Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery.",
+      "GPA: 3.911/4.0 (major GPA 3.860, minor GPA 3.950). Key coursework: CSE 150A (AI: Probabilistic Models), CSE 151A (ML: Learning Algorithms), CSE 158R (Recommender Systems & Web Mining), DSC 80 (Practice of Data Science), DSC 100 (Data Management), MATH 183 (Statistical Methods), LIGN 167 (Deep Learning for NLP), MGT 127R (AI & Technology Strategy). Activities: Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery.",
     skills: [
       "Machine Learning",
       "Graph Theory",
