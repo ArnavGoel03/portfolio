@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import {
   ExternalLink,
   AudioWaveform,
@@ -20,11 +21,18 @@ import {
   CreditCard,
   BarChart3,
   Zap,
+  BookOpen,
   X,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Project } from "@/lib/types";
+
+const CASE_STUDY_SLUGS = new Set([
+  "watch-together",
+  "gondilal-saraf",
+  "pcod-tracker",
+]);
 
 const projectIcons: Record<string, typeof AudioWaveform> = {
   vaani: AudioWaveform,
@@ -279,7 +287,16 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 </Badge>
               )}
             </div>
-            <div className="mt-5 flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
+            <div className="mt-5 flex flex-wrap items-center gap-3" onClick={(e) => e.stopPropagation()}>
+              {CASE_STUDY_SLUGS.has(project.id) && (
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="flex items-center gap-1.5 rounded-lg border border-foreground/15 bg-foreground/8 px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-foreground/30 hover:bg-foreground/10"
+                >
+                  <BookOpen size={13} />
+                  Case study
+                </Link>
+              )}
               {project.github && (
                 <a
                   href={project.github}
