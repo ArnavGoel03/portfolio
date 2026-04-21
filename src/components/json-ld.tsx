@@ -5,7 +5,10 @@ export function PersonJsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: SITE_NAME,
-    alternateName: "Yash",
+    alternateName: ["Yash Goel", "Yash"],
+    givenName: "Yash",
+    additionalName: "Arnav",
+    familyName: "Goel",
     url: SITE_URL,
     jobTitle: "Data Science Student & Entrepreneur",
     worksFor: [

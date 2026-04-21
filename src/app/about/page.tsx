@@ -254,6 +254,19 @@ export default function About() {
           jewelry business, Gondilal Saraf, online — solidifying our legacy and
           bringing transparency to customers through technology.
         </p>
+
+        <div className="mt-6 inline-flex max-w-2xl items-start gap-3 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3">
+          <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground shrink-0">
+            A.K.A.
+          </span>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            I go by <span className="text-foreground">Arnav</span> everywhere —
+            on this site, GitHub, and LinkedIn.{" "}
+            <span className="text-foreground">Yash Goel</span> is my legal name,
+            so it&apos;s what shows up on my UCSD transcript, my email
+            (yashgoel0304@gmail.com), and any background checks. Same person.
+          </p>
+        </div>
       </Section>
 
       <Section className="pt-8">
