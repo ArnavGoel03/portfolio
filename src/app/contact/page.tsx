@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Mail, MapPin, Loader2 } from "lucide-react";
+import {
+  Send,
+  Mail,
+  MapPin,
+  Loader2,
+  CalendarClock,
+  ArrowUpRight,
+} from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Section from "@/components/section";
@@ -188,6 +195,37 @@ export default function Contact() {
           </div>
 
           <div className="flex flex-col gap-6 lg:col-span-2">
+            <a
+              href="https://cal.com/arnavgoel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm transition-colors hover:bg-card/80"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+                    <CalendarClock size={18} className="text-foreground/80" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif text-lg font-semibold">
+                      Book 15 minutes
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      Recruiters, teammates, anyone curious
+                    </p>
+                  </div>
+                </div>
+                <ArrowUpRight
+                  size={18}
+                  className="mt-1 flex-shrink-0 text-muted-foreground transition-all group-hover:text-foreground group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                Faster than the form. Pick a slot that works, show up, no
+                back-and-forth.
+              </p>
+            </a>
+
             <div className="gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm">
               <h3 className="font-serif text-lg font-semibold">Find Me</h3>
               <div className="mt-4 flex items-start gap-3">
