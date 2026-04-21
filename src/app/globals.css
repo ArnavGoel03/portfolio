@@ -174,6 +174,48 @@
   }
 }
 
+/* Print styles — for /resume. Strip chrome and enforce a print-safe palette. */
+@media print {
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  nav,
+  footer,
+  [data-scroll-to-top],
+  .motion-reduce\:hidden,
+  .print\:hidden {
+    display: none !important;
+  }
+  a {
+    color: #111 !important;
+    text-decoration: none !important;
+  }
+  .text-muted-foreground,
+  .text-foreground\/75,
+  .text-foreground\/80,
+  .text-foreground\/85 {
+    color: #333 !important;
+  }
+  .border-foreground\/10,
+  .border-foreground\/15,
+  .border-foreground\/20 {
+    border-color: #ddd !important;
+  }
+  .bg-foreground\/5,
+  .bg-foreground\/8 {
+    background: transparent !important;
+  }
+  section,
+  main,
+  article {
+    break-inside: avoid;
+  }
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+}
+
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
