@@ -16,19 +16,22 @@ import {
   Zap,
   Mail,
   Calendar,
-  Github,
-  Linkedin,
   ExternalLink,
   CornerDownLeft,
   Command as CommandIcon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import type { IconType } from "react-icons";
 import { SOCIAL_LINKS } from "@/lib/constants";
+
+type IconComponent = LucideIcon | IconType;
 
 type CommandItem = {
   id: string;
   label: string;
   section: "Navigation" | "Case Studies" | "External" | "Actions";
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: IconComponent;
   href: string;
   external?: boolean;
   keywords?: string[];
@@ -57,8 +60,8 @@ const ITEMS: CommandItem[] = [
   { id: "cs-redbull", label: "Red Bull YouTube Analytics — case study", section: "Case Studies", icon: BookOpen, href: "/projects/redbull-youtube-analytics", keywords: ["vader", "sentiment", "youtube"] },
 
   // External
-  { id: "ext-github", label: "GitHub · ArnavGoel03", section: "External", icon: Github, href: SOCIAL_LINKS.github, external: true },
-  { id: "ext-linkedin", label: "LinkedIn", section: "External", icon: Linkedin, href: SOCIAL_LINKS.linkedin, external: true },
+  { id: "ext-github", label: "GitHub · ArnavGoel03", section: "External", icon: FaGithub, href: SOCIAL_LINKS.github, external: true },
+  { id: "ext-linkedin", label: "LinkedIn", section: "External", icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, external: true },
   { id: "ext-gondilal", label: "gondilalsaraf.com", section: "External", icon: ExternalLink, href: "https://gondilalsaraf.com", external: true, keywords: ["jewelry", "live site"] },
   { id: "ext-pcod", label: "pcod-tracker.vercel.app", section: "External", icon: ExternalLink, href: "https://pcod-tracker.vercel.app", external: true },
   { id: "ext-watch", label: "Watch Together · Chrome Web Store", section: "External", icon: ExternalLink, href: "https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa", external: true },
