@@ -8,6 +8,11 @@ export interface Project {
   demo: string;
   featured: boolean;
   date: string;
+  inProgress?: boolean;
+  team?: {
+    size: number;
+    members?: string[];
+  };
 }
 
 export interface Experience {

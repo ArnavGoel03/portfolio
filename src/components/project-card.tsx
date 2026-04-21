@@ -140,6 +140,14 @@ function ProjectModal({
             </p>
           )}
 
+          {project.team && (
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
+              {project.team.members && project.team.members.length > 0
+                ? `With: ${project.team.members.join(", ")}`
+                : `Team project · ${project.team.size} members`}
+            </p>
+          )}
+
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             {project.description}
           </p>
@@ -242,6 +250,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <h3 className="font-serif text-lg font-semibold tracking-tight">
               {project.title}
             </h3>
+            {project.team && (
+              <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+                {project.team.members && project.team.members.length > 0
+                  ? `With ${project.team.members.join(", ")}`
+                  : `Team of ${project.team.size}`}
+              </p>
+            )}
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">
               {project.description}
             </p>

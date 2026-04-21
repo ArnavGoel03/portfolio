@@ -19,7 +19,7 @@ export const metadata = {
 const staticProjects: Project[] = [
   {
     id: "buzz",
-    title: "Buzz — College Event Discovery (In Progress)",
+    title: "Buzz — College Event Discovery",
     description:
       "Building a native event discovery app for US college students, launching first at UCSD. True multiplatform SwiftUI target compiling for iOS 17+ and macOS 14+ from a single codebase (no Catalyst), with an App Clip for instant check-in and an ARKit 'Look Around' mode that anchors events to real-world buildings. Supabase backend (Postgres + PostGIS + Row Level Security + Realtime), Stripe Connect for paid ticketing, and unified push fan-out across APNs / FCM / Web Push. Next.js 16 PWA mirror with JSON-LD structured data, per-campus landing pages, and llms.txt for AEO. Full club admin tools, Greek-life rush flows, textbook marketplace, and safety features baked in.",
     tags: ["SwiftUI", "Swift 6", "Supabase", "PostGIS", "Stripe Connect", "ARKit", "Next.js 16", "PWA"],
@@ -28,10 +28,11 @@ const staticProjects: Project[] = [
     demo: "",
     featured: true,
     date: "2026-04",
+    inProgress: true,
   },
   {
     id: "fair-ludo",
-    title: "Fair Ludo — Provably Fair Dice Game (In Progress)",
+    title: "Fair Ludo — Provably Fair Dice Game",
     description:
       "Building a Ludo game for web and mobile around a single principle: no rigged dice, no new-user luck, no hidden handicaps. Server-authoritative rolls using a commit-reveal scheme — the server publishes a hashed seed before each game and reveals it after, so players can replay and verify every roll. Planned stack: Next.js for web, React Native (Expo) for iOS/Android, shared TypeScript game logic, Node.js + WebSockets backend, Postgres for accounts and match history. Core RNG and game logic to be open-sourced so fairness claims are independently auditable.",
     tags: ["Next.js", "React Native", "Expo", "TypeScript", "WebSockets", "Node.js"],
@@ -40,6 +41,7 @@ const staticProjects: Project[] = [
     demo: "",
     featured: true,
     date: "2026-04",
+    inProgress: true,
   },
   {
     id: "watch-together",
@@ -76,6 +78,15 @@ const staticProjects: Project[] = [
     demo: "https://youtu.be/nEdCi9loxAI",
     featured: true,
     date: "2026-03",
+    team: {
+      size: 5,
+      members: [
+        "Lincoln Wirschem",
+        "Ricardo Hernandez",
+        "Vedant Patel",
+        "Aleksey Dykhno",
+      ],
+    },
   },
   {
     id: "arkinvest-anduril-mgt127r",
@@ -88,6 +99,7 @@ const staticProjects: Project[] = [
     demo: "https://youtu.be/gMxLb814kPM",
     featured: true,
     date: "2026-03",
+    team: { size: 6 },
   },
   {
     id: "arkinvest-mgt127r",
@@ -100,6 +112,7 @@ const staticProjects: Project[] = [
     demo: "https://youtu.be/iEqXolIMZVE",
     featured: true,
     date: "2026-03",
+    team: { size: 6 },
   },
   {
     id: "har-cse158",
@@ -112,6 +125,7 @@ const staticProjects: Project[] = [
     demo: "https://youtu.be/5Jzb_5LDcEg",
     featured: true,
     date: "2025-12",
+    team: { size: 2 },
   },
   {
     id: "cogs9-final",
@@ -124,6 +138,7 @@ const staticProjects: Project[] = [
     demo: "https://youtu.be/ZcxTi0N75BI",
     featured: false,
     date: "2025-06",
+    team: { size: 2 },
   },
   {
     id: "gondilal-saraf",
@@ -160,6 +175,10 @@ const staticProjects: Project[] = [
     demo: "",
     featured: true,
     date: "2024-12",
+    team: {
+      size: 2,
+      members: ["Paulina Pelayo"],
+    },
   },
   {
     id: "cardranker",
@@ -215,6 +234,21 @@ function hasLinks(p: Project): boolean {
   return Boolean(p.github || p.demo);
 }
 
+// Relevance score for ordering within a section.
+// Higher = more prominent. Rewards live demos, github links, featured status, and recency.
+function relevanceScore(p: Project): number {
+  let score = 0;
+  if (p.demo) score += 50;
+  if (p.github) score += 30;
+  if (p.featured) score += 20;
+  score += new Date(p.date + "-01").getTime() / 1e11;
+  return score;
+}
+
+function sortByRelevance(projects: Project[]): Project[] {
+  return [...projects].sort((a, b) => relevanceScore(b) - relevanceScore(a));
+}
+
 export default async function Projects() {
   const notionProjects = await getProjects();
   const notionIds = new Set(notionProjects.map((p) => p.title.toLowerCase()));
@@ -225,10 +259,14 @@ export default async function Projects() {
     notionProjects.length > 0
       ? [...notionProjects, ...extraStatic]
       : staticProjects;
-  const allProjects = [
-    ...merged.filter(hasLinks),
-    ...merged.filter((p) => !hasLinks(p)),
-  ];
+
+  const inProgress = sortByRelevance(merged.filter((p) => p.inProgress));
+  const personal = sortByRelevance(
+    merged.filter((p) => !p.inProgress && !p.team)
+  );
+  const team = sortByRelevance(
+    merged.filter((p) => !p.inProgress && !!p.team)
+  );
 
   return (
     <>
@@ -241,18 +279,83 @@ export default async function Projects() {
           <span className="heading-gradient text-glow">Built</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          A collection of projects spanning Machine Learning, Web Development,
-          and Data Science — all driven by curiosity and real-world impact.
+          Work spanning machine learning, full-stack platforms, and data science
+          — split into what I&apos;m building now, solo work, and collaborations
+          with named teammates.
         </p>
       </Section>
 
-      <Section className="pt-4">
-        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {allProjects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
-          ))}
-        </div>
-      </Section>
+      {inProgress.length > 0 && (
+        <Section className="pt-4">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Currently Building
+              </p>
+              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight md:text-3xl">
+                In progress
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground/80">
+              Live projects I&apos;m actively working on — specs may shift,
+              links go up when they go up.
+            </p>
+          </div>
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+            {inProgress.map((project, i) => (
+              <ProjectCard key={project.id} project={project} index={i} />
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {personal.length > 0 && (
+        <Section className="pt-4">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Solo Work
+              </p>
+              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight md:text-3xl">
+                Personal projects
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground/80">
+              Shipped by me, from empty folder to live users or open-source
+              repo.
+            </p>
+          </div>
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+            {personal.map((project, i) => (
+              <ProjectCard key={project.id} project={project} index={i} />
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {team.length > 0 && (
+        <Section className="pt-4 pb-20">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Collaborations
+              </p>
+              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight md:text-3xl">
+                Team projects
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-muted-foreground/80">
+              Group work from UCSD classes and research. Teammates credited on
+              each card.
+            </p>
+          </div>
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+            {team.map((project, i) => (
+              <ProjectCard key={project.id} project={project} index={i} />
+            ))}
+          </div>
+        </Section>
+      )}
     </>
   );
 }
