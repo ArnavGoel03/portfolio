@@ -107,14 +107,15 @@ export default async function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-6xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-8xl lg:text-[8.5rem]">
-            Arnav Goel.
+        <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
+          <h1 className="font-serif text-5xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
+            Arnav Goel
           </h1>
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Data science at UC San Diego. Building at the edge of machine
-            learning, real products, and family legacy.
+          <p className="mx-auto mt-7 max-w-xl text-base leading-[1.65] text-muted-foreground md:text-lg">
+            Data science at UC San Diego. I write code and study models, ship
+            products with real users, and help run a jewelry business my family
+            started in 1914.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
