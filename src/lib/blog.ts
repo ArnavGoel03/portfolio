@@ -40,12 +40,12 @@ export const posts: BlogPost[] = [
     slug: "building-gondilal-saraf",
     title: "Building a Full-Stack Jewelry Platform for a Century-Old Family Business",
     excerpt:
-      "How I designed and built gondilalsaraf.com — a bilingual e-commerce platform with AI-powered descriptions, AR try-on, and an admin ERP for my family's 110-year-old gold & silver business.",
+      "How I designed and built gondilalsaraf.com — a bilingual e-commerce platform with AI-powered descriptions, AR try-on, and an admin ERP for my family's 150-year-old gold & silver business.",
     date: "2025-02-15",
     readTime: "8 min read",
     tags: ["Next.js", "Prisma", "Gemini AI", "Full-Stack"],
     content: [
-      "My family has been in the gold and silver jewelry business since 1915 — that's over a century of trust, craftsmanship, and community in Banda, Uttar Pradesh. When I started studying Data Science at UCSD, I saw an opportunity to bridge that legacy with modern technology.",
+      "My family has been in the gold and silver jewelry business since 1873 — that's over a century of trust, craftsmanship, and community in Banda, Uttar Pradesh. When I started studying Data Science at UCSD, I saw an opportunity to bridge that legacy with modern technology.",
       "The challenge was unique: build a platform that respects the heritage aesthetic (think antique gold accents, Cormorant Garamond typography, parchment textures) while packing serious technical firepower under the hood.",
       "## The Tech Stack",
       "I chose Next.js 15 with the App Router for its hybrid rendering — the public storefront is statically generated for speed, while the admin ERP uses server components for real-time data. PostgreSQL with Prisma ORM handles 15 data models covering everything from daily gold rates to customer encrypted PII.",

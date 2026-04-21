@@ -34,7 +34,7 @@ const focusAreas = [
     label: "Operating",
     title: "Gondilal Saraf",
     detail:
-      "Running the full-stack platform for my family's 110-year jewelry business — day-to-day product, data, and growth work.",
+      "Running the full-stack platform for my family's 150-year jewelry business — day-to-day product, data, and growth work.",
   },
   {
     icon: GraduationCap,

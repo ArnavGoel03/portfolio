@@ -67,7 +67,7 @@ const facts: Fact[] = [
     label: "Currently",
     value: "Triton Quantitative Trading · Digital Platform Lead @ Gondilal Saraf",
     detail:
-      "Quant research at UCSD, and running the full-stack platform for my family's 110-year jewelry business.",
+      "Quant research at UCSD, and running the full-stack platform for my family's 150-year jewelry business.",
   },
 ];
 

@@ -87,7 +87,7 @@ Built an AI-powered health management web application for women managing PCOD/PC
 - **Status:** Featured Project
 
 ### Gondilal Saraf — Full-Stack Jewelry Platform
-Built a full-stack e-commerce and ERP platform for a century-old family gold & silver jewelry business in Banda, U.P. (est. 1915).
+Built a full-stack e-commerce and ERP platform for a century-old family gold & silver jewelry business in Banda, U.P. (est. 1873).
 
 **Public Storefront:** Heritage-themed bilingual (Hindi/English) site with live gold/silver rates, 10-year investment charts, cinematic vault gate animation, collections carousel, buying guide, scam protection section, customer reviews, contact form, and shop locator. Design system features parchment textures, antique gold accents, Cormorant Garamond typography, glassmorphism nav, parallax scrolling, and 3 switchable themes.
 

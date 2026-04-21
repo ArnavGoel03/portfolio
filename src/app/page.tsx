@@ -117,7 +117,7 @@ export default async function Home() {
 
           <p className="mx-auto mt-7 max-w-xl text-base leading-[1.65] text-muted-foreground md:text-lg">
             <SplitText
-              text="Data science at UC San Diego. I write code and study models, ship products with real users, and help run a jewelry business my family started in 1914."
+              text="Data science at UC San Diego. I write code and study models, ship products with real users, and help run a jewelry business my family started in 1873."
               delay={0.7}
               duration={0.5}
               stagger={0.008}
@@ -233,7 +233,7 @@ export default async function Home() {
                   Digital Platform Lead · Gondilal Saraf
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Full-stack e-commerce + admin ERP for a 110-year jewelry
+                  Full-stack e-commerce + admin ERP for a 150-year jewelry
                   business. 15 Prisma models, 26 API routes, 85 tests.
                 </p>
               </li>
