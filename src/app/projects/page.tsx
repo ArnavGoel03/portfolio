@@ -1,5 +1,5 @@
 import Section from "@/components/section";
-import ProjectCard from "@/components/project-card";
+import ProjectsView from "./projects-view";
 import { getProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
 
@@ -230,26 +230,113 @@ const staticProjects: Project[] = [
   },
 ];
 
-function hasLinks(p: Project): boolean {
-  return Boolean(p.github || p.demo);
+// Tag-boost lists for ?focus=<x> URL param. When present, projects whose tags
+// match these terms are ranked higher within their section. Fully dynamic —
+// adding a new Project with a matching tag auto-participates.
+const FOCUS_BOOSTS: Record<string, string[]> = {
+  ml: [
+    "machine learning",
+    "deep learning",
+    "cnn",
+    "keras",
+    "tensorflow",
+    "pytorch",
+    "scikit-learn",
+    "transfer learning",
+    "recommender",
+    "mobilenetv2",
+    "vader",
+    "nlp",
+    "claude ai",
+    "gemini ai",
+    "openai api",
+  ],
+  data: [
+    "python",
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "jupyter",
+    "data analysis",
+    "random forest",
+    "permutation testing",
+    "pybaseball",
+    "dsc 80",
+    "cogs 108",
+    "time-series",
+    "signal processing",
+  ],
+  fullstack: [
+    "next.js",
+    "next.js 15",
+    "next.js 16",
+    "typescript",
+    "react",
+    "prisma",
+    "postgresql",
+    "supabase",
+    "flask",
+    "swiftui",
+    "chrome extension",
+    "websocket",
+    "manifest v3",
+    "pwa",
+    "framer motion",
+  ],
+  quant: [
+    "time-series",
+    "backtesting",
+    "monte carlo",
+    "pandas",
+    "python",
+    "quantitative",
+    "numpy",
+  ],
+  strategy: [
+    "mgt 127r",
+    "case study",
+    "technology strategy",
+    "s-curve analysis",
+    "investment analysis",
+    "disruptive innovation",
+    "defense tech",
+  ],
+};
+
+function focusBoost(project: Project, focus?: string): number {
+  if (!focus) return 0;
+  const terms = FOCUS_BOOSTS[focus.toLowerCase()];
+  if (!terms) return 0;
+  const tags = project.tags.map((t) => t.toLowerCase());
+  const matches = terms.filter((term) =>
+    tags.some((t) => t.includes(term))
+  ).length;
+  return matches * 15;
 }
 
-// Relevance score for ordering within a section.
-// Higher = more prominent. Rewards live demos, github links, featured status, and recency.
-function relevanceScore(p: Project): number {
+function relevanceScore(p: Project, focus?: string): number {
   let score = 0;
   if (p.demo) score += 50;
   if (p.github) score += 30;
   if (p.featured) score += 20;
   score += new Date(p.date + "-01").getTime() / 1e11;
+  score += focusBoost(p, focus);
   return score;
 }
 
-function sortByRelevance(projects: Project[]): Project[] {
-  return [...projects].sort((a, b) => relevanceScore(b) - relevanceScore(a));
+function sortByRelevance(projects: Project[], focus?: string): Project[] {
+  return [...projects].sort(
+    (a, b) => relevanceScore(b, focus) - relevanceScore(a, focus)
+  );
 }
 
-export default async function Projects() {
+export default async function Projects({
+  searchParams,
+}: {
+  searchParams: Promise<{ focus?: string }>;
+}) {
+  const { focus } = await searchParams;
+
   const notionProjects = await getProjects();
   const notionIds = new Set(notionProjects.map((p) => p.title.toLowerCase()));
   const extraStatic = staticProjects.filter(
@@ -260,17 +347,22 @@ export default async function Projects() {
       ? [...notionProjects, ...extraStatic]
       : staticProjects;
 
-  const inProgress = sortByRelevance(merged.filter((p) => p.inProgress));
+  const inProgress = sortByRelevance(
+    merged.filter((p) => p.inProgress),
+    focus
+  );
   const personal = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !p.team)
+    merged.filter((p) => !p.inProgress && !p.team),
+    focus
   );
   const team = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !!p.team)
+    merged.filter((p) => !p.inProgress && !!p.team),
+    focus
   );
 
   return (
     <>
-      <Section className="pt-36 pb-8">
+      <Section className="pt-36 pb-6">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Projects
         </p>
@@ -281,81 +373,16 @@ export default async function Projects() {
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           Work spanning machine learning, full-stack platforms, and data science
           — split into what I&apos;m building now, solo work, and collaborations
-          with named teammates.
+          with named teammates. Click a tag to filter.
         </p>
       </Section>
 
-      {inProgress.length > 0 && (
-        <Section className="pt-4">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Currently Building
-              </p>
-              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight md:text-3xl">
-                In progress
-              </h2>
-            </div>
-            <p className="max-w-md text-sm text-muted-foreground/80">
-              Live projects I&apos;m actively working on — specs may shift,
-              links go up when they go up.
-            </p>
-          </div>
-          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {inProgress.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
-            ))}
-          </div>
-        </Section>
-      )}
-
-      {personal.length > 0 && (
-        <Section className="pt-4">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Solo Work
-              </p>
-              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight md:text-3xl">
-                Personal projects
-              </h2>
-            </div>
-            <p className="max-w-md text-sm text-muted-foreground/80">
-              Shipped by me, from empty folder to live users or open-source
-              repo.
-            </p>
-          </div>
-          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {personal.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
-            ))}
-          </div>
-        </Section>
-      )}
-
-      {team.length > 0 && (
-        <Section className="pt-4 pb-20">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Collaborations
-              </p>
-              <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight md:text-3xl">
-                Team projects
-              </h2>
-            </div>
-            <p className="max-w-md text-sm text-muted-foreground/80">
-              Group work from UCSD classes and research. Teammates credited on
-              each card.
-            </p>
-          </div>
-          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {team.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
-            ))}
-          </div>
-        </Section>
-      )}
+      <ProjectsView
+        inProgress={inProgress}
+        personal={personal}
+        team={team}
+        focus={focus}
+      />
     </>
   );
 }
