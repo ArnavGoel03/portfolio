@@ -376,6 +376,118 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
+caseStudies.push({
+  slug: "redbull-youtube-analytics",
+  title: "Red Bull YouTube Sentiment Analytics",
+  subtitle: "500 comments, VADER-scored, told a story",
+  role: "Solo — data collection, analysis, report",
+  period: "Apr 2026 · end-term SMA project",
+  status: "Complete",
+  oneLiner:
+    "Net Sentiment Score of +28.6 pp — roughly 2× the consumer-brand benchmark — with 100% hashtag discipline across a 50-video catalog.",
+  problem: [
+    "Every marketing-ops deck claims \"audience sentiment trending positive.\" Few of them show the math. I wanted to build a sentiment analysis I'd actually trust for a recommendation — starting from the raw comments, with a reproducible pipeline end-to-end.",
+    "Red Bull was the right target: a 27.9-million-subscriber channel, consistent content type, and a brand identity that's either working or it isn't. If the methodology holds on a hard case (stunts, POVs, Formula 1) it holds anywhere.",
+  ],
+  approach: [
+    {
+      heading: "Pipeline, six scripts",
+      body: [
+        "`scrape_youtube.py` pulls 500 comments across the 5 most-commented recent videos via YouTube Data API v3. `fetch_descriptions.py` enriches video metadata with hashtags from 50 video descriptions via yt-dlp — no API quota burned.",
+        "`analysis.py` cleans, scores with VADER (compound ≥ 0.05 → positive, ≤ −0.05 → negative, else neutral), extracts keywords, and categorises complaints. Then `build_excel_dashboard.py`, `build_report.py`, and `build_executive_summary.py` emit the three deliverables: an 8-chart Excel dashboard, a Word report, and a one-page executive PDF.",
+      ],
+    },
+    {
+      heading: "Sampling choices worth defending",
+      body: [
+        "Capped at 100 comments per video × 5 videos = 500 total. A single mega-viral video would dominate if uncapped, and the story I needed was brand-level not video-level.",
+        "Hashtag analysis pulled across a wider 50-video catalog — hashtags are brand policy, not audience reaction, so a bigger sample reveals the discipline pattern. That's how the \"100% hashtag adoption on every video\" finding surfaced.",
+      ],
+    },
+    {
+      heading: "The findings that matter",
+      body: [
+        "Organic keyword frequency: \"gives\" (35) and \"wings\" (31) are the top two, ahead of any adrenaline or F1 term. The slogan has genuine unprompted recall.",
+        "Hashtag discipline: #RedBull and #GivesYouWiiings appear on 100% of the 50-video catalog. That's unusually strict brand-policy enforcement for an entertainment channel.",
+        "The main genuine complaint is viewer anxiety about stunt safety (18 comments), not product taste or price (2). That's a brand-equity signal, not a marketing failure to fix.",
+      ],
+    },
+    {
+      heading: "Why the numbers are defensible",
+      body: [
+        "I chose VADER's official thresholds rather than tuning to taste, deduplicated on comment_id before analysis, and flagged complaint categories by keyword rules that are visible in `analysis.py` — anyone can re-run the pipeline and audit the exact classification rule for any comment.",
+        "YouTube Data API v3 quota usage for the full run: under 250 units of the free 10,000/day budget. Reproducible on a free account.",
+      ],
+    },
+  ],
+  decisions: [
+    {
+      decision: "VADER, not a fine-tuned transformer",
+      rationale:
+        "A fine-tuned BERT-family model would beat VADER on accuracy by maybe 5–10 percentage points. But VADER is deterministic, auditable, runs locally in seconds, and uses published cut-offs. For a brand-sentiment report going to stakeholders, auditability beats incremental accuracy — \"this comment scored negative because its compound score is −0.34\" is a defensible claim.",
+    },
+    {
+      decision: "yt-dlp for descriptions, API for comments",
+      rationale:
+        "The YouTube Data API is rate-limited and expensive when you need 50 video descriptions. yt-dlp parses the public page, no API key, no quota. Using both tools for what each is best at cut the full pipeline quota usage by roughly 80%.",
+    },
+    {
+      decision: "Ship three deliverable formats, not one",
+      rationale:
+        "Excel dashboard for the analyst, Word report for the write-up, one-page PDF for the executive. A single format leaves one audience under-served. The executive PDF is the link I'd share first to a marketing director.",
+    },
+  ],
+  metrics: [
+    { label: "Comments analysed", value: "500" },
+    { label: "Hashtag catalog", value: "50 videos" },
+    { label: "Net Sentiment Score", value: "+28.6 pp", note: "≈2× benchmark" },
+    { label: "Positive / neutral / negative", value: "47 / 34.6 / 18.4" },
+    { label: "Hashtag discipline", value: "100%", note: "#RedBull + #GivesYouWiiings" },
+    { label: "API quota used", value: "< 250 units" },
+  ],
+  stack: [
+    {
+      category: "Collection",
+      items: [
+        "YouTube Data API v3",
+        "yt-dlp",
+        "google-api-python-client",
+      ],
+    },
+    {
+      category: "Analysis",
+      items: [
+        "Python",
+        "pandas",
+        "NumPy",
+        "VADER (vaderSentiment)",
+      ],
+    },
+    {
+      category: "Deliverables",
+      items: [
+        "Matplotlib + Seaborn (9 charts)",
+        "WordCloud",
+        "openpyxl (Excel dashboard)",
+        "python-docx (Word report)",
+        "reportlab (Executive PDF)",
+      ],
+    },
+  ],
+  links: [
+    {
+      label: "Read the Executive Summary (PDF)",
+      href: "/artifacts/redbull-youtube-executive-summary.pdf",
+      kind: "pdf",
+    },
+    {
+      label: "Source on GitHub",
+      href: "https://github.com/ArnavGoel03/redbull-youtube-analytics",
+      kind: "github",
+    },
+  ],
+});
+
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);
 }

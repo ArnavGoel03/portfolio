@@ -32,6 +32,7 @@ const CASE_STUDY_SLUGS = new Set([
   "watch-together",
   "gondilal-saraf",
   "pcod-tracker",
+  "redbull-youtube-analytics",
 ]);
 
 const projectIcons: Record<string, typeof AudioWaveform> = {

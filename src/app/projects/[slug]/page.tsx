@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Section from "@/components/section";
+import RedBullViz from "@/components/redbull-viz";
 import {
   caseStudies,
   getCaseStudy,
@@ -214,6 +215,24 @@ export default async function CaseStudyPage({
           </div>
         </div>
       </Section>
+
+      {cs.slug === "redbull-youtube-analytics" && (
+        <Section className="pt-4">
+          <div className="grid gap-10 md:grid-cols-5 md:gap-14">
+            <div className="md:col-span-1">
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Live Chart
+              </p>
+              <p className="mt-2 text-xs italic text-muted-foreground/70">
+                Rendered from the actual summary.json of the analysis run.
+              </p>
+            </div>
+            <div className="md:col-span-4">
+              <RedBullViz />
+            </div>
+          </div>
+        </Section>
+      )}
 
       <Section className="pt-4 pb-20">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
