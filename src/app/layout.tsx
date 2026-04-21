@@ -5,7 +5,11 @@ import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
 import PageTransition from "@/components/page-transition";
 import ServiceWorkerRegister from "@/components/sw-register";
-import { PersonJsonLd, WebSiteJsonLd } from "@/components/json-ld";
+import {
+  PersonJsonLd,
+  WebSiteJsonLd,
+  ProfilePageJsonLd,
+} from "@/components/json-ld";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
@@ -108,14 +112,20 @@ export default function RootLayout({
       }
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Arnav Goel" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-tap-highlight" content="no" />
+        <link rel="me" href="https://github.com/ArnavGoel03" />
+        <link rel="me" href="https://www.linkedin.com/in/arnav-goel--/" />
+        <link rel="author" href="/humans.txt" />
         <PersonJsonLd />
         <WebSiteJsonLd />
+        <ProfilePageJsonLd />
       </head>
       <body className="min-h-screen font-sans antialiased">
         <Navbar />

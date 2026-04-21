@@ -1,0 +1,17 @@
+/* TEAM */
+Arnav Goel (Yash Goel)
+  Role:     Data Science student, Digital Platform Lead
+  Site:     https://arnavgoel.dev
+  GitHub:   @ArnavGoel03
+  LinkedIn: arnav-goel--
+  Location: San Diego, CA
+  Study:    UC San Diego (BS Data Science, graduating Jun 2026)
+
+/* SITE */
+Last update: 2026/04
+Language:    English
+Doctype:     HTML5
+Standards:   HTML5, CSS3
+IDE:         VS Code
+Stack:       Next.js 16 · TypeScript · Tailwind CSS · Framer Motion · Notion CMS
+Deployed:    Vercel
