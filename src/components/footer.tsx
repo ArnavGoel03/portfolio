@@ -92,7 +92,7 @@ export default function Footer() {
           <p className="text-xs text-muted-foreground/50">
             &copy; {new Date().getFullYear()} Arnav Goel{" "}
             <span className="text-muted-foreground/40">
-              (legal name: Yash Goel)
+              (a.k.a. Yash Goel)
             </span>
             . Built with Next.js &amp; Notion.
           </p>

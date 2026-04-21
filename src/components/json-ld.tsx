@@ -7,8 +7,8 @@ export function PersonJsonLd() {
     "@id": `${SITE_URL}#person`,
     name: SITE_NAME,
     alternateName: ["Yash Goel", "Yash"],
-    givenName: "Yash",
-    additionalName: "Arnav",
+    givenName: "Arnav",
+    additionalName: "Yash",
     familyName: "Goel",
     description:
       "Data Science student at UC San Diego graduating June 2026. UC GPA 3.911. Considering new-grad applied-scientist, ML-engineer, and software-engineer roles for summer 2026 onward.",

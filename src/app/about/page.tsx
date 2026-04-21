@@ -260,11 +260,12 @@ export default function About() {
             A.K.A.
           </span>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            I go by <span className="text-foreground">Arnav</span> everywhere —
-            on this site, GitHub, and LinkedIn.{" "}
-            <span className="text-foreground">Yash Goel</span> is my legal name,
-            so it&apos;s what shows up on my UCSD transcript, my email
-            (yashgoel0304@gmail.com), and any background checks. Same person.
+            <span className="text-foreground">Arnav Goel</span> is my legal
+            name — it&apos;s what I go by on this site, on GitHub, on LinkedIn,
+            and everywhere that matters.{" "}
+            <span className="text-foreground">Yash Goel</span> is an alias I
+            also go by, and it&apos;s still on my email (yashgoel0304@gmail.com)
+            and a handful of older university records. Same person.
           </p>
         </div>
       </Section>

@@ -1,58 +1,67 @@
-# Arnav Goel (Yash) — Portfolio
+# Arnav Goel
 
-> Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship.
+> Data Science student at UC San Diego, graduating June 2026 with a BS in Data Science and a minor in Entrepreneurship & Innovation. UC GPA 3.911, Major GPA 3.860, Minor GPA 3.950. Legal name: Arnav Goel. Alias: Yash Goel.
+
+Arnav Goel (legal name) is a senior in the Data Science major at UC San Diego, graduating June 2026. He works at the intersection of machine learning, shipping products, and running a century-old family jewelry business (Gondilal Saraf, founded 1914). Currently researching systematic strategies at Triton Quantitative Trading. Considering new-grad applied-scientist, machine-learning-engineer, data-scientist, and software-engineer roles starting summer 2026 onward.
+
+Arnav also goes by the alias **Yash Goel** — it's the name on his email (yashgoel0304@gmail.com) and on some older university records. Both names refer to the same person.
+
+Base location: San Diego, California. Origin: Delhi, India. F-1 international student; would require H-1B sponsorship after OPT STEM extension.
 
 ## About
 
-Arnav Goel, also known as Yash, is a Data Science student at UC San Diego (GPA: 3.96/4.0) with a minor in Entrepreneurship & Innovation. He is the founder and operator of Gondilal Saraf, a century-old family jewelry business. His work spans Machine Learning, Graph Theory, Web Development, and data-driven business strategy.
-
-## Education
-
-- **UC San Diego** — BS Data Science (Minor: Entrepreneurship & Innovation), Sep 2022 – Jun 2026, GPA: 3.96/4.0
-- **Delhi Public School, R. K. Puram** — High School, Engineering Science, Apr 2020 – Jun 2022, Grade: 96.75%
-
-## Experience
-
-- **SWE Intern** at UC San Diego (2024 – Present)
-- **Founder & Operator** at Gondilal Saraf (2022 – Present)
+- [About](https://arnavgoel.dev/about): Background, education history, honest three-tier Skills matrix (Proficient / Comfortable / Familiar), and links to writing and research.
+- [Work](https://arnavgoel.dev/work): What Arnav is looking for — target roles, timeline, visa status, location preferences, and how to reach him.
+- [Contact](https://arnavgoel.dev/contact): Direct contact methods.
 
 ## Projects
 
-- **Vaani — Multilingual AI Chatbot**: Real-time, voice-enabled AI chatbot using OpenAI's API supporting 5+ Indian languages with speech-to-text and text-to-speech pipelines.
-- **Style It — AI Wardrobe Assistant**: AI-powered wardrobe assistant with TensorFlow recommendation engine. Boosted recommendation performance by 30% with semantic vector matching.
-- **Handwritten Digits Classifier**: MNIST digit classification using TensorFlow and deep learning.
-- **Pet Classifier Model**: Pet animal classification using CNN framework for image recognition.
-- **PCOD Tracker — AI Health Companion**: AI-powered health management app for women with PCOD/PCOS. Users vent freely and Claude AI (Sonnet 4) auto-extracts symptoms, mood, diet, and medications from natural language. Upload lab report PDFs and AI parses hormone levels, flags abnormal values, and detects medications. Next.js 16, React 19, TypeScript, PostgreSQL with 15 Prisma models, 14 API routes, NextAuth (Google OAuth + credentials), Recharts for lab trend visualization, calendar heatmaps, medication streak tracking. Privacy-first, PWA-ready. Live at https://pcod-tracker.vercel.app
-- **Gondilal Saraf — Full-Stack Jewelry Platform**: Full-stack e-commerce platform for a century-old family jewelry business (est. 1915). Next.js 15, React 19, TypeScript, PostgreSQL with 15 Prisma models, 26 API routes. Features: bilingual Hindi/English storefront, live gold rates with 10-year investment charts, product catalogue with AR virtual try-on (MediaPipe), AI-generated descriptions (Gemini 2.0 Flash), AI model images (Replicate SDXL), admin ERP with image pipeline (Photoroom + Sharp), OTP auth via WhatsApp, AES encryption, EMI calculator, and 85 tests. Heritage design system with cinematic gate animation, parallax, glassmorphism, 3 themes. Live at https://gondilalsaraf.com
+- [Projects](https://arnavgoel.dev/projects): Full portfolio grid of shipped, in-progress, and academic projects.
+- [Buzz](https://arnavgoel.dev/projects): Multiplatform SwiftUI native event-discovery app for US college students, launching at UC San Diego. Supabase with PostGIS + RLS, Stripe Connect, App Clip, ARKit, and a Next.js 16 PWA mirror.
+- [Watch Together](https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa): Chrome, Firefox, and Safari extension that syncs video playback across Netflix, YouTube, Disney+, Prime Video, JioHotstar, and HBO Max. WebSocket relay with heartbeat drift correction, 59 server tests, shipping on the Chrome Web Store. [Repo](https://github.com/ArnavGoel03/watch-together).
+- [PCOD Tracker](https://pcod-tracker.vercel.app): AI-powered health-management app for women with PCOD/PCOS. Claude AI parses user rants and lab PDFs. Next.js 16, 15 Prisma models. [Repo](https://github.com/ArnavGoel03/pcod-tracker).
+- [Gondilal Saraf](https://gondilalsaraf.com): Full-stack bilingual platform for Arnav's family's 110-year jewelry business (founded 1914). Live gold rates, AR try-on, Gemini AI descriptions, admin ERP. 15 Prisma models, 26 API routes, 85 tests. [Repo](https://github.com/ArnavGoel03/Gondilal).
+- [Red Bull YouTube Sentiment Analytics](https://github.com/ArnavGoel03/redbull-youtube-analytics): End-term Social Media Analytics project. VADER sentiment on 500 YouTube comments — Net Sentiment Score +28.6 percentage points, roughly double the industry benchmark. 8-chart Excel dashboard, executive summary PDF.
+- [U.S. Power Outages (DSC 80)](https://github.com/ArnavGoel03/Power-grid-analysis): DSC 80 project analysing 1,534 major U.S. power outages (2000–2016). Random Forest with engineered features — RMSE 6,189 minutes, R² 0.220. Fairness checks across weather and non-weather outages.
+- [MLB Playoff Prediction (COGS 108)](https://youtu.be/nEdCi9loxAI): Team project investigating predictive power of early-season run differential, OPS, and ERA on MLB playoff qualification 2015–2023. Arnav led the ethics section.
+- [Anduril Industries — MGT 127R S-Curve Case](https://youtu.be/gMxLb814kPM): Final group case study analysing Anduril Industries as a new S-curve in defense technology.
+- [ARK Invest — MGT 127R](https://youtu.be/iEqXolIMZVE): Week 9 case opening on ARK Invest's disruptive-technology investment strategy.
+- [Human Activity Recognition (CSE 158)](https://youtu.be/5Jzb_5LDcEg): Time-series classification from wearable-sensor data. Feature engineering across time and frequency domains.
+- [Handwritten Digits Classifier](https://github.com/ArnavGoel03/handwritten-digits-classifier): TensorFlow/Keras CNN on MNIST, about 99.2% test accuracy.
+- [Pet Classifier](https://github.com/ArnavGoel03/pet-classifier): MobileNetV2 transfer learning on the Oxford-IIIT Pet Dataset (37 breeds).
+- [Fair Ludo](https://arnavgoel.dev/projects): Provably-fair Ludo game in progress — server-authoritative rolls via commit-reveal, shared TypeScript game logic, Next.js web and React Native mobile.
 
-## Skills
+## Experience
 
-Python, TensorFlow, Machine Learning, Deep Learning, NLP, Computer Vision, Graph Theory, Data Science, React, Next.js, TypeScript, Web Development, Recommendation Systems, Entrepreneurship, Business Strategy
+- [Experience](https://arnavgoel.dev/experience): Full work history with dates, scope, and skills.
+- Triton Quantitative Trading, UCSD (Apr 2025 – Present): Systematic strategy research on tick-level data; Python, pandas, NumPy, time-series, backtesting.
+- ADA, SWE Intern (Oct – Dec 2024): Built Flask microservices and the Nurse Panel API for a multi-region hospital platform projected to onboard 50,000+ patients. Cut setup time 60% via Docker.
+- Espire Infolabs, Cloud Engineering Intern (Jul – Sep 2024): KPI dashboards and real-time monitoring on Azure Monitor, AWS Lambda, CloudWatch.
+- AGS, Algorithmic Trading Intern (Jun – Sep 2023): High-frequency arbitrage strategies, Python backtesting on 10+ years of tick data, Monte Carlo volatility stress-testing.
+- Gondilal Saraf, Digital Platform Lead (2022 – Present): Building the full-stack platform for the family jewelry business.
 
-## Certifications
+## Coursework
 
-- Neural Networks and Deep Learning — DeepLearning.AI (Jul 2024)
-- Machine Learning Specialization — Stanford University (Jul 2024)
+- [Coursework](https://arnavgoel.dev/coursework): Every UCSD course with grade and quarter, pulled from the official degree audit (April 2026).
+- Key upper-division ML/DS: CSE 150A (AI: Probabilistic Models), CSE 151A (ML: Learning Algorithms), CSE 151B (Deep Learning, Summer 2026), CSE 158R (Recommender Systems & Web Mining), LIGN 167 (Deep Learning for NLP), COGS 108 (Data Science in Practice), DSC 80 (Practice of Data Science), DSC 100 (Data Management), DSC 190 (Topics in Data Science).
+- Math and statistics: MATH 18, 20A–20D, 109, 183 (Statistical Methods), 189 (Data Analysis and Inference).
+- Entrepreneurship & Innovation minor: MGT 16, 103, 121A, 121B, 127R (AI & Technology Strategy), 175 (Supply Chain Management), 187 (New Venture Finance).
 
-## Contact
+## Writing
 
-- GitHub: https://github.com/ArnavGoel03
-- LinkedIn: https://www.linkedin.com/in/arnav-goel--/
-- ORCID: https://orcid.org/0009-0007-6477-6501
-- Location: San Diego, California
+- [Blog](https://arnavgoel.dev/blog): Short notes on data science, machine learning, and building things.
+- [Ideas](https://arnavgoel.dev/ideas): Concepts Arnav is exploring — unbuilt ideas and early-stage experiments.
+- [Synthesis Writing Portfolio](https://sites.google.com/ucsd.edu/synthesis-yash/home): UCSD Seventh College Synthesis sequence, threaded around climate change.
 
 ## Links
 
-- Homepage: /
-- About: /about
-- Projects: /projects
-- Experience: /experience
-- Uses: /uses
-- Blog: /blog
-- Contact: /contact
+- [GitHub](https://github.com/ArnavGoel03)
+- [LinkedIn](https://www.linkedin.com/in/arnav-goel--/)
+- [ORCID](https://orcid.org/0009-0007-6477-6501)
+- [Email](mailto:a2goel@ucsd.edu)
+- [Resume (PDF)](https://arnavgoel.dev/resume.pdf)
 
-## Blog Posts
+## Optional
 
-- Building a Full-Stack Jewelry Platform for a Century-Old Family Business: /blog/building-gondilal-saraf
-- Why I Built an AI Health Tracker for Women with PCOD: /blog/pcod-tracker-ai-health
-- From Algorithms to Jewelry — My Path Through Data Science & Entrepreneurship: /blog/from-algorithms-to-jewelry
+- [Now](https://arnavgoel.dev/now): Current focus — what Arnav is building, reading, and pursuing this month.
+- [Uses](https://arnavgoel.dev/uses): Tools, frameworks, and services Arnav builds with day-to-day.

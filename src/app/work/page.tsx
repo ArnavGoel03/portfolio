@@ -98,9 +98,9 @@ const faqs = [
       "Currently in San Diego (UCSD). Open to the San Francisco Bay Area, New York City, San Diego, or remote with regular travel. Willing to relocate for the right team.",
   },
   {
-    question: "What is Arnav Goel's legal name?",
+    question: "Is Arnav Goel the same person as Yash Goel?",
     answer:
-      "Yash Goel. He uses 'Arnav Goel' publicly, on this site, on GitHub (ArnavGoel03), and on LinkedIn. 'Yash Goel' appears on UCSD transcripts, his email (yashgoel0304@gmail.com), and background checks. Same person.",
+      "Yes. Arnav Goel is the legal name — used on this site, GitHub (ArnavGoel03), LinkedIn, and in official documentation. Yash Goel is an alias that still appears on the email address (yashgoel0304@gmail.com) and some older university records. Same person.",
   },
   {
     question: "What companies has Arnav Goel worked at?",
