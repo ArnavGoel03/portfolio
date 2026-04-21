@@ -4,6 +4,9 @@ import Section from "@/components/section";
 import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
 import HeroNodes from "@/components/hero-nodes";
+import SplitText from "@/components/split-text";
+import Magnetic from "@/components/magnetic";
+import FocusParagraph from "@/components/focus-paragraph";
 import { getFeaturedProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
 
@@ -109,36 +112,44 @@ export default async function Home() {
 
         <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
           <h1 className="font-serif text-5xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
-            Arnav Goel
+            <SplitText text="Arnav Goel" delay={0.15} stagger={0.045} />
           </h1>
 
           <p className="mx-auto mt-7 max-w-xl text-base leading-[1.65] text-muted-foreground md:text-lg">
-            Data science at UC San Diego. I write code and study models, ship
-            products with real users, and help run a jewelry business my family
-            started in 1914.
+            <SplitText
+              text="Data science at UC San Diego. I write code and study models, ship products with real users, and help run a jewelry business my family started in 1914."
+              delay={0.7}
+              duration={0.5}
+              stagger={0.008}
+              mode="chars"
+            />
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href="/projects"
-              className="btn-glow group inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground"
-            >
-              View projects
-              <ArrowRight
-                size={15}
-                className="transition-transform duration-200 group-hover:translate-x-0.5"
-              />
-            </Link>
-            <Link
-              href="/contact"
-              className="btn-border-flow group inline-flex h-11 items-center gap-2 rounded-full px-6 text-sm font-medium"
-            >
-              Get in touch
-              <ArrowRight
-                size={14}
-                className="opacity-70 transition-transform duration-200 group-hover:translate-x-0.5"
-              />
-            </Link>
+            <Magnetic strength={0.3}>
+              <Link
+                href="/projects"
+                className="btn-glow group inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground"
+              >
+                View projects
+                <ArrowRight
+                  size={15}
+                  className="transition-transform duration-200 group-hover:translate-x-0.5"
+                />
+              </Link>
+            </Magnetic>
+            <Magnetic strength={0.3}>
+              <Link
+                href="/contact"
+                className="btn-border-flow group inline-flex h-11 items-center gap-2 rounded-full px-6 text-sm font-medium"
+              >
+                Get in touch
+                <ArrowRight
+                  size={14}
+                  className="opacity-70 transition-transform duration-200 group-hover:translate-x-0.5"
+                />
+              </Link>
+            </Magnetic>
           </div>
         </div>
       </section>
@@ -155,35 +166,40 @@ export default async function Home() {
               Data science at the intersection of research and real products
             </h2>
             <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              <p>
-                I&apos;m a senior in the BS Data Science program at UC San Diego
-                (minor in Entrepreneurship &amp; Innovation) graduating June
-                2026 with a 3.91 GPA. My work sits where machine learning meets
-                systems that actually ship — Flask microservices for a
-                50,000-patient hospital platform at ADA, quantitative research
-                at Triton Quant, and the full-stack platform for{" "}
-                <Link
-                  href="/projects"
-                  className="text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
-                >
-                  Gondilal Saraf
-                </Link>
-                , my family&apos;s century-old jewelry business.
-              </p>
-              <p>
-                I care more about a model that&apos;s honest about its
-                limitations than one with a flashy accuracy number, and more
-                about code that an on-call engineer can debug at 3 a.m. than
-                code that looks clever in a notebook. Considering new-grad
-                applied-scientist, ML-engineer, and SWE roles for summer 2027
-                onward — especially in health, commerce, or infra.{" "}
-                <Link
-                  href="/work"
-                  className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
-                >
-                  What I&apos;m looking for →
-                </Link>
-              </p>
+              <FocusParagraph>
+                <p>
+                  I&apos;m a senior in the BS Data Science program at UC San
+                  Diego (minor in Entrepreneurship &amp; Innovation) graduating
+                  June 2027 with a 3.911 GPA. My work sits where machine
+                  learning meets systems that actually ship — Flask
+                  microservices for a 50,000-patient hospital platform at ADA,
+                  quantitative research at Triton Quant, and the full-stack
+                  platform for{" "}
+                  <Link
+                    href="/projects"
+                    className="text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+                  >
+                    Gondilal Saraf
+                  </Link>
+                  , my family&apos;s century-old jewelry business.
+                </p>
+              </FocusParagraph>
+              <FocusParagraph>
+                <p>
+                  I care more about a model that&apos;s honest about its
+                  limitations than one with a flashy accuracy number, and more
+                  about code that an on-call engineer can debug at 3 a.m. than
+                  code that looks clever in a notebook. Considering new-grad
+                  applied-scientist, ML-engineer, and SWE roles for summer 2027
+                  onward — especially in health, commerce, or infra.{" "}
+                  <Link
+                    href="/work"
+                    className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                  >
+                    What I&apos;m looking for →
+                  </Link>
+                </p>
+              </FocusParagraph>
             </div>
           </div>
 
