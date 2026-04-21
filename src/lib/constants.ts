@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://arnavgoel.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://arnavgoel.dev";
 
 export const SITE_NAME = "Arnav Goel";
 
@@ -22,6 +22,7 @@ export const NAV_LINKS = [
   { href: "/ideas", label: "Ideas" },
   { href: "/experience", label: "Experience" },
   { href: "/coursework", label: "Coursework" },
+  { href: "/work", label: "Work" },
   { href: "/now", label: "Now" },
   { href: "/uses", label: "Uses" },
   { href: "/blog", label: "Blog" },

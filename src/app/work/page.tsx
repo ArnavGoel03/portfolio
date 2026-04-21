@@ -1,0 +1,277 @@
+import Link from "next/link";
+import { ArrowUpRight, CalendarClock, Mail, Download } from "lucide-react";
+import { FaLinkedinIn } from "react-icons/fa";
+import Section from "@/components/section";
+import { SOCIAL_LINKS } from "@/lib/constants";
+
+export const metadata = {
+  title: "Work",
+  description:
+    "Arnav Goel — graduating June 2026 from UC San Diego (BS Data Science). Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and SWE roles. Visa, timeline, and interests.",
+  openGraph: {
+    title: "Work — Arnav Goel",
+    description:
+      "What I'm looking for after graduation — roles, timeline, and how to reach me.",
+  },
+};
+
+const roles = [
+  "Applied Scientist / ML Engineer",
+  "Data Scientist (generalist or infra-leaning)",
+  "Software Engineer on data or ML platforms",
+  "Founding or early engineer at seed → Series A",
+];
+
+const interests = [
+  "Problems where models actually ship to production users — not research for research",
+  "Applied ML systems: recommender systems, time-series, graph-theoretic methods",
+  "Domains I care about: health, commerce, developer tooling, infrastructure",
+  "Small teams over big-corp rotational programs",
+];
+
+const notInterested = [
+  "Crypto / gambling-adjacent products",
+  "Roles that are 95% dashboarding with no modelling",
+];
+
+type Fact = {
+  label: string;
+  value: string;
+  detail?: string;
+};
+
+const facts: Fact[] = [
+  {
+    label: "Graduating",
+    value: "June 2026",
+    detail: "BS Data Science · Minor: Entrepreneurship & Innovation · UCSD",
+  },
+  {
+    label: "Start Date",
+    value: "Summer 2026 onward",
+    detail: "Flexible — happy to discuss earlier for part-time bridge roles.",
+  },
+  {
+    label: "Location",
+    value: "SF Bay · NYC · San Diego · Remote",
+    detail: "Open to relocation for the right team.",
+  },
+  {
+    label: "Work Authorization",
+    value: "F-1 international student",
+    detail:
+      "F-1 OPT (with STEM extension) covers the first three years. Would need H-1B sponsorship thereafter.",
+  },
+  {
+    label: "Currently",
+    value: "Triton Quantitative Trading · Digital Platform Lead @ Gondilal Saraf",
+    detail:
+      "Quant research at UCSD, and running the full-stack platform for my family's 110-year jewelry business.",
+  },
+];
+
+export default function Work() {
+  return (
+    <>
+      <Section className="pt-36 pb-8">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
+          Work
+        </p>
+        <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
+          What I&apos;m{" "}
+          <span className="heading-gradient text-glow">Looking For</span>
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          Graduating June 2026 and considering new-grad roles where rigorous
+          modelling meets real products. This page is the short version of
+          what&apos;s useful to know before reaching out.
+        </p>
+      </Section>
+
+      <Section className="pt-4">
+        <div className="grid gap-5 md:grid-cols-2">
+          {facts.map((fact) => (
+            <div
+              key={fact.label}
+              className="gradient-border rounded-2xl bg-card p-6"
+            >
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                {fact.label}
+              </p>
+              <p className="mt-3 font-serif text-lg font-semibold tracking-tight text-foreground">
+                {fact.value}
+              </p>
+              {fact.detail && (
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {fact.detail}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="pt-4">
+        <div className="grid gap-10 md:grid-cols-2 md:gap-14">
+          <div>
+            <h2 className="font-serif text-2xl font-bold tracking-tight">
+              Roles I&apos;m excited about
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {roles.map((role) => (
+                <li key={role} className="flex items-start gap-3">
+                  <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-foreground/50" />
+                  <span className="text-sm leading-relaxed text-foreground/85">
+                    {role}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <h2 className="mt-12 font-serif text-2xl font-bold tracking-tight">
+              What draws me in
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {interests.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-foreground/50" />
+                  <span className="text-sm leading-relaxed text-muted-foreground">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <h2 className="mt-12 font-serif text-2xl font-bold tracking-tight">
+              Probably not a fit
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {notInterested.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-muted-foreground/50" />
+                  <span className="text-sm leading-relaxed text-muted-foreground">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="gradient-border rounded-2xl bg-card p-7">
+              <h2 className="font-serif text-xl font-bold tracking-tight">
+                Easiest ways to reach me
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                Any of these work. A short note about the role and what drew
+                you to reach out goes further than a cold template.
+              </p>
+
+              <div className="mt-6 space-y-3">
+                <a
+                  href="https://cal.com/arnavgoel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 transition-colors hover:border-foreground/20 hover:bg-foreground/8"
+                >
+                  <span className="flex items-center gap-3 text-sm font-medium text-foreground">
+                    <CalendarClock size={16} className="text-muted-foreground" />
+                    Book 15 minutes
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </a>
+
+                <a
+                  href={SOCIAL_LINKS.email}
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 transition-colors hover:border-foreground/20 hover:bg-foreground/8"
+                >
+                  <span className="flex items-center gap-3 text-sm font-medium text-foreground">
+                    <Mail size={16} className="text-muted-foreground" />
+                    a2goel@ucsd.edu
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </a>
+
+                <a
+                  href={SOCIAL_LINKS.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 transition-colors hover:border-foreground/20 hover:bg-foreground/8"
+                >
+                  <span className="flex items-center gap-3 text-sm font-medium text-foreground">
+                    <FaLinkedinIn size={14} className="text-muted-foreground" />
+                    LinkedIn
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </a>
+
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 transition-colors hover:border-foreground/20 hover:bg-foreground/8"
+                >
+                  <span className="flex items-center gap-3 text-sm font-medium text-foreground">
+                    <Download size={16} className="text-muted-foreground" />
+                    Download resume (PDF)
+                  </span>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-6 gradient-border rounded-2xl bg-card p-7">
+              <h2 className="font-serif text-xl font-bold tracking-tight">
+                Before the call
+              </h2>
+              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+                <li>
+                  &mdash;{" "}
+                  <Link
+                    href="/projects"
+                    className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                  >
+                    Projects
+                  </Link>{" "}
+                  is the most signal-dense tab.
+                </li>
+                <li>
+                  &mdash;{" "}
+                  <Link
+                    href="/about"
+                    className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                  >
+                    About
+                  </Link>{" "}
+                  has the honest Skills matrix and Writing links.
+                </li>
+                <li>
+                  &mdash;{" "}
+                  <Link
+                    href="/coursework"
+                    className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                  >
+                    Coursework
+                  </Link>{" "}
+                  shows the full UCSD transcript with grades.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Section>
+    </>
+  );
+}

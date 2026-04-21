@@ -174,9 +174,15 @@ export default async function Home() {
                 I care more about a model that&apos;s honest about its
                 limitations than one with a flashy accuracy number, and more
                 about code that an on-call engineer can debug at 3 a.m. than
-                code that looks clever in a notebook. Open to new-grad
-                applied-scientist, ML-engineer, and SWE roles for summer 2026 —
-                especially in health, commerce, or infra.
+                code that looks clever in a notebook. Considering new-grad
+                applied-scientist, ML-engineer, and SWE roles for summer 2026
+                onward — especially in health, commerce, or infra.{" "}
+                <Link
+                  href="/work"
+                  className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                >
+                  What I&apos;m looking for →
+                </Link>
               </p>
             </div>
           </div>
