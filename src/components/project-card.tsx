@@ -182,6 +182,8 @@ function ProjectModal({
                 )}
                 {isYoutube(project.demo)
                   ? "Watch Video"
+                  : project.demo.endsWith(".pdf")
+                  ? "Read Report"
                   : project.demo.includes("chromewebstore")
                   ? "Install Extension"
                   : project.demo.includes("vercel.app")
@@ -288,6 +290,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   )}
                   {isYoutube(project.demo)
                     ? "Video"
+                    : project.demo.endsWith(".pdf")
+                    ? "Report"
                     : project.demo.includes("chromewebstore")
                     ? "Install"
                     : project.demo.includes("vercel.app")

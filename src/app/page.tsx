@@ -42,8 +42,8 @@ const staticFeatured: Project[] = [
       "End-term Social Media Analytics project — 500 YouTube comments on Red Bull scored with VADER. Net Sentiment Score of +28.6 pp (double the industry benchmark), 8-chart Excel dashboard, Word report, and executive summary PDF.",
     tags: ["Python", "pandas", "VADER"],
     image: "",
-    github: "",
-    demo: "",
+    github: "https://github.com/ArnavGoel03/redbull-youtube-analytics",
+    demo: "/artifacts/redbull-youtube-executive-summary.pdf",
     featured: true,
     date: "2026-04",
   },
@@ -165,39 +165,86 @@ export default async function Home() {
       <SkillsTicker />
 
       <Section>
-        <div className="grid gap-4 sm:grid-cols-3">
-          <div className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm">
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
-              Currently
+        <div className="grid gap-10 md:grid-cols-5 md:gap-14">
+          <div className="md:col-span-3">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+              About
             </p>
-            <p className="mt-2 font-serif text-lg font-semibold tracking-tight">
-              SWE Intern @ UCSD
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Building ML pipelines &amp; research tools
-            </p>
+            <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight md:text-4xl">
+              Data science at the intersection of research and real products
+            </h2>
+            <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
+              <p>
+                I&apos;m a senior in the BS Data Science program at UC San Diego
+                (minor in Entrepreneurship &amp; Innovation) graduating June
+                2026 with a 3.96 GPA. My work sits where machine learning meets
+                systems that actually ship — Flask microservices for a
+                50,000-patient hospital platform at ADA, quantitative research
+                at Triton Quant, and the full-stack platform for{" "}
+                <Link
+                  href="/projects"
+                  className="text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary"
+                >
+                  Gondilal Saraf
+                </Link>
+                , my family&apos;s century-old jewelry business.
+              </p>
+              <p>
+                I care more about a model that&apos;s honest about its
+                limitations than one with a flashy accuracy number, and more
+                about code that an on-call engineer can debug at 3 a.m. than
+                code that looks clever in a notebook. Open to new-grad
+                applied-scientist, ML-engineer, and SWE roles for summer 2026 —
+                especially in health, commerce, or infra.
+              </p>
+            </div>
           </div>
-          <div className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm">
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
-              Building
+
+          <div className="md:col-span-2">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+              Selected Outcomes
             </p>
-            <p className="mt-2 font-serif text-lg font-semibold tracking-tight">
-              Gondilal Saraf Platform
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Full-stack jewelry e-commerce + ERP
-            </p>
-          </div>
-          <div className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm">
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
-              Graduating
-            </p>
-            <p className="mt-2 font-serif text-lg font-semibold tracking-tight">
-              June 2026
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              BS Data Science, Minor in Entrepreneurship
-            </p>
+            <ul className="mt-6 space-y-5">
+              <li>
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                  SWE Intern · ADA
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Flask microservices + Nurse Panel API for a multi-region
+                  hospital platform projected to onboard 50k+ patients across
+                  120+ hospitals. Cut setup time 60% via Docker.
+                </p>
+              </li>
+              <li>
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                  Triton Quantitative Trading · UCSD
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Research &amp; backtest systematic strategies on tick-level
+                  data. Feature engineering, time-series normalisation,
+                  volatility-adjusted Monte Carlo.
+                </p>
+              </li>
+              <li>
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                  Digital Platform Lead · Gondilal Saraf
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Full-stack e-commerce + admin ERP for a 110-year jewelry
+                  business. 15 Prisma models, 26 API routes, 85 tests.
+                </p>
+              </li>
+              <li>
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                  Power Outages · DSC 80
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Analysed 1,534 U.S. outages (2000–2016). Random Forest with
+                  engineered features — R² 0.220, fairness checks across
+                  weather vs. non-weather.
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
       </Section>
