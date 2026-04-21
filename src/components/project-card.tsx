@@ -5,13 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   AudioWaveform,
-  Shirt,
   ScanEye,
   PawPrint,
   Gem,
   HeartPulse,
   Clapperboard,
   Dice6,
+  Trophy,
+  Building2,
+  TrendingUp,
+  Activity,
+  GraduationCap,
+  PlayCircle,
+  CreditCard,
+  BarChart3,
+  Zap,
   X,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -20,14 +28,25 @@ import { Project } from "@/lib/types";
 
 const projectIcons: Record<string, typeof AudioWaveform> = {
   vaani: AudioWaveform,
-  "style-it": Shirt,
   "handwritten-digits": ScanEye,
   "pet-classifier": PawPrint,
   "pcod-tracker": HeartPulse,
   "gondilal-saraf": Gem,
   "watch-together": Clapperboard,
   "fair-ludo": Dice6,
+  "mlb-playoff-cogs108": Trophy,
+  "arkinvest-anduril-mgt127r": Building2,
+  "arkinvest-mgt127r": TrendingUp,
+  "har-cse158": Activity,
+  "cogs9-final": GraduationCap,
+  cardranker: CreditCard,
+  "redbull-youtube-analytics": BarChart3,
+  "power-grid-analysis": Zap,
 };
+
+function isYoutube(url: string): boolean {
+  return /youtu\.?be/.test(url);
+}
 
 interface ProjectCardProps {
   project: Project;
@@ -156,8 +175,14 @@ function ProjectModal({
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
               >
-                <ExternalLink size={15} />
-                {project.demo.includes("chromewebstore")
+                {isYoutube(project.demo) ? (
+                  <PlayCircle size={15} />
+                ) : (
+                  <ExternalLink size={15} />
+                )}
+                {isYoutube(project.demo)
+                  ? "Watch Video"
+                  : project.demo.includes("chromewebstore")
                   ? "Install Extension"
                   : project.demo.includes("vercel.app")
                   ? "View Demo"
@@ -256,8 +281,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
                 >
-                  <ExternalLink size={13} />
-                  {project.demo.includes("chromewebstore")
+                  {isYoutube(project.demo) ? (
+                    <PlayCircle size={13} />
+                  ) : (
+                    <ExternalLink size={13} />
+                  )}
+                  {isYoutube(project.demo)
+                    ? "Video"
+                    : project.demo.includes("chromewebstore")
                     ? "Install"
                     : project.demo.includes("vercel.app")
                     ? "Demo"

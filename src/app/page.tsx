@@ -36,6 +36,18 @@ const staticFeatured: Project[] = [
     date: "2026-04",
   },
   {
+    id: "redbull-youtube-analytics",
+    title: "Red Bull YouTube Sentiment Analytics",
+    description:
+      "End-term Social Media Analytics project — 500 YouTube comments on Red Bull scored with VADER. Net Sentiment Score of +28.6 pp (double the industry benchmark), 8-chart Excel dashboard, Word report, and executive summary PDF.",
+    tags: ["Python", "pandas", "VADER"],
+    image: "",
+    github: "",
+    demo: "",
+    featured: true,
+    date: "2026-04",
+  },
+  {
     id: "pcod-tracker",
     title: "PCOD Tracker — AI Health Companion",
     description:
@@ -60,28 +72,16 @@ const staticFeatured: Project[] = [
     date: "2025-01",
   },
   {
-    id: "vaani",
-    title: "Vaani — Multilingual AI Chatbot",
+    id: "power-grid-analysis",
+    title: "U.S. Power Outages — DSC 80",
     description:
-      "Real-time, voice-enabled AI chatbot using OpenAI's API supporting 5+ Indian languages with speech-to-text and text-to-speech pipelines.",
-    tags: ["OpenAI API", "Speech Recognition", "NLP"],
+      "DSC 80 project analysing 1,534 major U.S. power outages (2000–2016). Found higher electricity prices correlate with shorter outages (p ≈ 0.007). Random Forest with log-pop-density + severe-weather features: RMSE 6,189 min, R² 0.220.",
+    tags: ["Python", "scikit-learn", "Random Forest"],
     image: "",
-    github: "https://github.com/ArnavGoel03/vani",
+    github: "https://github.com/ArnavGoel03/Power-grid-analysis",
     demo: "",
     featured: true,
-    date: "2024-07",
-  },
-  {
-    id: "style-it",
-    title: "Style It — AI Wardrobe Assistant",
-    description:
-      "AI-powered wardrobe assistant with TensorFlow recommendation engine. Boosted recommendation performance by 30% with semantic vector matching.",
-    tags: ["Python", "TensorFlow", "ML"],
-    image: "",
-    github: "",
-    demo: "",
-    featured: true,
-    date: "2024-04",
+    date: "2024-12",
   },
 ];
 
