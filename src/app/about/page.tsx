@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Section from "@/components/section";
 import StatCounter from "@/components/stat-counter";
+import TestimonialWall from "@/components/testimonial-wall";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
@@ -532,6 +533,8 @@ export default function About() {
           ))}
         </div>
       </Section>
+
+      <TestimonialWall />
     </>
   );
 }
