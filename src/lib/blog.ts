@@ -110,7 +110,7 @@ export const posts: BlogPost[] = [
       "## The Minor in Entrepreneurship",
       "UCSD's Entrepreneurship & Innovation minor gave me frameworks for the intuitions I was already developing. Lean startup methodology, customer discovery, financial modeling — these aren't abstract concepts when you have a real business to apply them to. Every assignment became a chance to improve Gondilal Saraf.",
       "## What's Next",
-      "I graduate in June 2026 with a BS in Data Science and a minor in Entrepreneurship & Innovation. I'm looking for roles where I can combine technical depth with business impact — whether that's ML engineering, data science, or building products. If you're working on something interesting, I'd love to talk.",
+      "I graduate in June 2027 with a BS in Data Science and a minor in Entrepreneurship & Innovation. I'm looking for roles where I can combine technical depth with business impact — whether that's ML engineering, data science, or building products. If you're working on something interesting, I'd love to talk.",
       "The best part of my unusual path is that I never have to choose between the analytical and the creative, between the technical and the entrepreneurial. They're the same thing, viewed from different angles — just like a well-cut diamond.",
     ],
   },

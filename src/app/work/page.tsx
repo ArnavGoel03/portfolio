@@ -8,7 +8,7 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export const metadata = {
   title: "Work",
   description:
-    "Arnav Goel — graduating June 2026 from UC San Diego (BS Data Science). Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and SWE roles. Visa, timeline, and interests.",
+    "Arnav Goel — graduating June 2027 from UC San Diego (BS Data Science). Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and SWE roles. Visa, timeline, and interests.",
   openGraph: {
     title: "Work — Arnav Goel",
     description:
@@ -44,12 +44,12 @@ type Fact = {
 const facts: Fact[] = [
   {
     label: "Graduating",
-    value: "June 2026",
+    value: "June 2027",
     detail: "BS Data Science · Minor: Entrepreneurship & Innovation · UCSD",
   },
   {
     label: "Start Date",
-    value: "Summer 2026 onward",
+    value: "Summer 2027 onward",
     detail: "Flexible — happy to discuss earlier for part-time bridge roles.",
   },
   {
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: "Is Arnav Goel available for hire?",
     answer:
-      "Yes. Graduating June 2026 from UC San Diego with a BS in Data Science and a minor in Entrepreneurship & Innovation. Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and Software Engineer roles starting summer 2026 onward. Flexible on start date.",
+      "Yes. Graduating June 2027 from UC San Diego with a BS in Data Science and a minor in Entrepreneurship & Innovation. Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and Software Engineer roles starting summer 2027 onward. Flexible on start date.",
   },
   {
     question: "Does Arnav Goel need visa sponsorship?",
@@ -90,7 +90,7 @@ const faqs = [
   {
     question: "When does Arnav Goel graduate?",
     answer:
-      "June 2026. BS Data Science with a minor in Entrepreneurship & Innovation from the Rady School of Management at UC San Diego.",
+      "June 2027. BS Data Science with a minor in Entrepreneurship & Innovation from the Rady School of Management at UC San Diego.",
   },
   {
     question: "Where is Arnav Goel located, and what locations is he open to?",
@@ -127,7 +127,7 @@ export default function Work() {
           <span className="heading-gradient text-glow">Looking For</span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          Graduating June 2026 and considering new-grad roles where rigorous
+          Graduating June 2027 and considering new-grad roles where rigorous
           modelling meets real products. This page is the short version of
           what&apos;s useful to know before reaching out.
         </p>

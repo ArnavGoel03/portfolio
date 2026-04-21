@@ -38,7 +38,7 @@ const focusAreas = [
     label: "Classes",
     title: "Final quarter at UCSD",
     detail:
-      "Wrapping up CSE 158 (Recommender Systems & Web Mining), DSC 190 (Graph Theory), and ECON 191 (Senior Capstone). Graduating June 2026 with a BS in Data Science + minor in Entrepreneurship.",
+      "Wrapping up CSE 158 (Recommender Systems & Web Mining), DSC 190 (Graph Theory), and ECON 191 (Senior Capstone). Graduating June 2027 with a BS in Data Science + minor in Entrepreneurship.",
   },
   {
     icon: Sparkles,

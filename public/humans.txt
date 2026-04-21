@@ -5,7 +5,7 @@ Arnav Goel (Yash Goel)
   GitHub:   @ArnavGoel03
   LinkedIn: arnav-goel--
   Location: San Diego, CA
-  Study:    UC San Diego (BS Data Science, graduating Jun 2026)
+  Study:    UC San Diego (BS Data Science, graduating Jun 2027)
 
 /* SITE */
 Last update: 2026/04

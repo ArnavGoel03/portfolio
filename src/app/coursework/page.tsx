@@ -476,7 +476,7 @@ export default function Coursework() {
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           Courses from my BS in Data Science at UC San Diego (Seventh College,
-          Sep 2022 &mdash; Jun 2026), organised by subject. Sourced from my
+          Sep 2022 &mdash; Jun 2027), organised by subject. Sourced from my
           official degree audit.
         </p>
 
@@ -602,7 +602,7 @@ export default function Coursework() {
         <p className="max-w-3xl text-sm italic text-muted-foreground/70">
           Grades and quarters above are pulled from my UCSD degree audit. DSC
           102, DSC 106, and the DSC 180A/180B senior project sequence are still
-          on the schedule before graduation in June 2026.
+          on the schedule before graduation in June 2027.
         </p>
       </Section>
     </>

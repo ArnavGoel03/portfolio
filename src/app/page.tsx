@@ -175,7 +175,7 @@ export default async function Home() {
                 limitations than one with a flashy accuracy number, and more
                 about code that an on-call engineer can debug at 3 a.m. than
                 code that looks clever in a notebook. Considering new-grad
-                applied-scientist, ML-engineer, and SWE roles for summer 2026
+                applied-scientist, ML-engineer, and SWE roles for summer 2027
                 onward — especially in health, commerce, or infra.{" "}
                 <Link
                   href="/work"

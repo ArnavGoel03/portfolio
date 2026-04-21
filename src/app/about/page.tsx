@@ -57,10 +57,10 @@ const education = [
     school: "UC San Diego",
     degree:
       "Bachelor of Science — BS, Data Science (Minor: Entrepreneurship & Innovation)",
-    period: "Sep 2022 — Jun 2026",
+    period: "Sep 2022 — Jun 2027",
     grade: "3.911 (out of 4.0) · Major GPA 3.860 · Minor GPA 3.950",
     activities:
-      "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery",
+      "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery. Two intentional gap quarters: Fall 2024 (full-time SWE internship at ADA, Bengaluru) and Spring 2026.",
     skills: ["Communication", "Coding Experience"],
   },
   {
@@ -260,12 +260,13 @@ export default function About() {
             A.K.A.
           </span>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            <span className="text-foreground">Arnav Goel</span> is my legal
-            name — it&apos;s what I go by on this site, on GitHub, on LinkedIn,
-            and everywhere that matters.{" "}
-            <span className="text-foreground">Yash Goel</span> is an alias I
-            also go by, and it&apos;s still on my email (yashgoel0304@gmail.com)
-            and a handful of older university records. Same person.
+            <span className="text-foreground">Arnav Goel</span>
+            {" "}is my legal name — it&apos;s what I go by on this site, on
+            GitHub, on LinkedIn, and everywhere that matters.{" "}
+            <span className="text-foreground">Yash Goel</span>
+            {" "}is an alias I also go by, and it&apos;s still on my email
+            (yashgoel0304@gmail.com) and a handful of older university records.
+            Same person.
           </p>
         </div>
       </Section>

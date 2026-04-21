@@ -11,7 +11,7 @@ export function PersonJsonLd() {
     additionalName: "Yash",
     familyName: "Goel",
     description:
-      "Data Science student at UC San Diego graduating June 2026. UC GPA 3.911. Considering new-grad applied-scientist, ML-engineer, and software-engineer roles for summer 2026 onward.",
+      "Data Science student at UC San Diego graduating June 2027. UC GPA 3.911. Considering new-grad applied-scientist, ML-engineer, and software-engineer roles for summer 2027 onward.",
     url: SITE_URL,
     email: EMAIL,
     image: `${SITE_URL}/opengraph-image`,
@@ -76,7 +76,7 @@ export function PersonJsonLd() {
     ],
     seeks: {
       "@type": "Demand",
-      name: "New-grad Applied Scientist / ML Engineer / Data Scientist / Software Engineer roles for summer 2026 onward",
+      name: "New-grad Applied Scientist / ML Engineer / Data Scientist / Software Engineer roles for summer 2027 onward",
     },
     sameAs: [
       SOCIAL_LINKS.github,
