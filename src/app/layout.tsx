@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Playfair_Display } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ScrollToTop from "@/components/scroll-to-top";
@@ -12,20 +11,16 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -98,14 +93,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} dark`}
+      className={`${inter.variable} ${geistMono.variable} dark`}
+      style={
+        {
+          "--font-serif": "var(--font-sans)",
+          "--font-heading": "var(--font-sans)",
+        } as React.CSSProperties
+      }
     >
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Arnav Goel" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-TileColor" content="#06050b" />
+        <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-tap-highlight" content="no" />
         <PersonJsonLd />
         <WebSiteJsonLd />

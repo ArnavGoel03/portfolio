@@ -4,7 +4,6 @@ import Section from "@/components/section";
 import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
 import HeroNodes from "@/components/hero-nodes";
-import Typewriter from "@/components/typewriter";
 import { getFeaturedProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
 
@@ -108,54 +107,35 @@ export default async function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-        <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-indigo-500/5 blur-[100px]" />
-
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full glass px-5 py-2 text-sm">
-            <span className="h-2 w-2 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-muted-foreground">
-              Data Science + Entrepreneurship
-            </span>
-          </div>
-
-          <h1 className="font-serif text-6xl font-bold leading-[1.1] tracking-tight md:text-8xl lg:text-9xl">
-            <span className="text-foreground">Hi, I&apos;m </span>
-            <Typewriter
-              text="Arnav"
-              delay={100}
-              startDelay={500}
-              className="heading-gradient text-glow"
-            />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+          <h1 className="text-6xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-8xl lg:text-[8.5rem]">
+            Arnav Goel.
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            <span className="font-mono text-xs tracking-wider text-primary/60 uppercase block mb-3">
-              // ucsd &middot; data science &middot; ml &middot; graph theory
-            </span>
-            Building at the intersection of Machine Learning, Graph Theory, and
-            real-world business — from algorithms to jewelry.
+            Data science at UC San Diego. Building at the edge of machine
+            learning, real products, and family legacy.
           </p>
 
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link
               href="/projects"
-              className="btn-glow group inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-7 text-sm font-medium text-primary-foreground transition-all duration-500 hover:bg-primary/90"
+              className="btn-glow group inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground"
             >
-              View Projects
+              View projects
               <ArrowRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                size={15}
+                className="transition-transform duration-200 group-hover:translate-x-0.5"
               />
             </Link>
             <Link
               href="/contact"
-              className="btn-border-flow group inline-flex h-12 items-center gap-2 rounded-xl px-7 text-sm font-medium transition-all duration-300"
+              className="btn-border-flow group inline-flex h-11 items-center gap-2 rounded-full px-6 text-sm font-medium"
             >
-              Get in Touch
+              Get in touch
               <ArrowRight
                 size={14}
-                className="text-primary/70 transition-transform duration-300 group-hover:translate-x-0.5"
+                className="opacity-70 transition-transform duration-200 group-hover:translate-x-0.5"
               />
             </Link>
           </div>

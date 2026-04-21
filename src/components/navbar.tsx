@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu, X, FileText } from "lucide-react";
 import { useState } from "react";
-import GemIcon from "@/components/gem-icon";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -24,9 +23,11 @@ export default function Navbar() {
     >
       <div className="glass-strong rounded-2xl px-6 py-3">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight">
-            <GemIcon size={20} />
-            <span className="heading-gradient">Arnav</span>
+          <Link
+            href="/"
+            className="text-base font-semibold tracking-tight text-foreground transition-opacity hover:opacity-70"
+          >
+            Arnav Goel
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">

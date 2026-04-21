@@ -267,9 +267,9 @@ export default function HeroNodes() {
         const alpha = baseAlpha * avgS;
 
         const grad = ctx!.createLinearGradient(p1.px, p1.py, p2.px, p2.py);
-        grad.addColorStop(0, `rgba(167,139,250,${alpha})`);
-        grad.addColorStop(0.5, `rgba(129,140,248,${alpha * 0.7})`);
-        grad.addColorStop(1, `rgba(139,92,246,${alpha})`);
+        grad.addColorStop(0, `rgba(245,245,247,${alpha})`);
+        grad.addColorStop(0.5, `rgba(245,245,247,${alpha * 0.7})`);
+        grad.addColorStop(1, `rgba(245,245,247,${alpha})`);
 
         ctx!.beginPath();
         ctx!.strokeStyle = grad;
@@ -309,8 +309,8 @@ export default function HeroNodes() {
           p.py,
           glowR
         );
-        glow.addColorStop(0, `rgba(167,139,250,${totalOpacity * 0.35})`);
-        glow.addColorStop(0.4, `rgba(139,92,246,${totalOpacity * 0.12})`);
+        glow.addColorStop(0, `rgba(245,245,247,${totalOpacity * 0.22})`);
+        glow.addColorStop(0.4, `rgba(245,245,247,${totalOpacity * 0.08})`);
         glow.addColorStop(1, "transparent");
 
         ctx!.beginPath();
@@ -319,13 +319,13 @@ export default function HeroNodes() {
         ctx!.fill();
 
         ctx!.beginPath();
-        ctx!.fillStyle = `rgba(196,181,253,${totalOpacity})`;
+        ctx!.fillStyle = `rgba(245,245,247,${totalOpacity})`;
         ctx!.arc(p.px, p.py, r, 0, Math.PI * 2);
         ctx!.fill();
 
         if (n.type === "gem" && extra > 0.3) {
           ctx!.beginPath();
-          ctx!.fillStyle = `rgba(224,215,255,${extra * 0.6})`;
+          ctx!.fillStyle = `rgba(255,255,255,${extra * 0.6})`;
           ctx!.arc(p.px, p.py, r * 0.5, 0, Math.PI * 2);
           ctx!.fill();
         }

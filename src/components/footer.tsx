@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Mail, ArrowUpRight, Rss } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
-import GemIcon from "@/components/gem-icon";
 import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
 
 const socials = [
@@ -23,9 +22,8 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-2">
-              <GemIcon size={18} />
-              <span className="font-serif text-xl font-bold heading-gradient">
-                Arnav
+              <span className="text-xl font-semibold tracking-tight text-foreground">
+                Arnav Goel
               </span>
             </div>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
