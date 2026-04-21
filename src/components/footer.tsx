@@ -38,11 +38,11 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="group flex h-9 w-9 items-center justify-center rounded-lg border border-primary/10 bg-primary/5 transition-all duration-300 hover:border-primary/30 hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(167,139,250,0.2)]"
+                  className="group flex h-9 w-9 items-center justify-center rounded-lg border border-foreground/10 bg-foreground/5 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5 hover:shadow-[0_0_15px_rgba(167,139,250,0.2)]"
                 >
                   <social.icon
                     size={14}
-                    className="text-muted-foreground transition-colors group-hover:text-primary"
+                    className="text-muted-foreground transition-colors group-hover:text-foreground/80"
                   />
                 </a>
               ))}
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
               Navigation
             </p>
             <nav className="mt-4 flex flex-col gap-2.5">
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-primary/70">
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
               Get in Touch
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -83,7 +83,7 @@ export default function Footer() {
               className="btn-border-flow mt-5 inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all"
             >
               Send a Message
-              <ArrowUpRight size={14} className="text-primary/70" />
+              <ArrowUpRight size={14} className="text-muted-foreground" />
             </Link>
           </div>
         </div>

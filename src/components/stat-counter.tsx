@@ -56,7 +56,7 @@ export default function StatCounter({
         <span className="heading-gradient">
           {decimals > 0 ? display.toFixed(decimals) : Math.round(display)}
         </span>
-        <span className="text-primary/60">{suffix}</span>
+        <span className="text-muted-foreground">{suffix}</span>
       </p>
       <p className="mt-2 text-sm text-muted-foreground">{label}</p>
     </div>

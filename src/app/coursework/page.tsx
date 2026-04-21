@@ -244,7 +244,7 @@ export default function Coursework() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Coursework
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
@@ -260,8 +260,8 @@ export default function Coursework() {
       {groups.map((group) => (
         <Section key={group.id} className="pt-4">
           <div className="mb-8 flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-              <group.icon size={22} className="text-primary icon-glow" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+              <group.icon size={22} className="text-foreground/80 icon-glow" />
             </div>
             <div>
               <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
@@ -283,13 +283,13 @@ export default function Coursework() {
                   className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <p className="font-mono text-xs font-medium uppercase tracking-widest text-primary">
+                    <p className="font-mono text-xs font-medium uppercase tracking-widest text-foreground/80">
                       {course.code}
                     </p>
                     {course.quarter && (
                       <Badge
                         variant="secondary"
-                        className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                        className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
                       >
                         {course.quarter}
                       </Badge>
@@ -322,7 +322,7 @@ export default function Coursework() {
                   href={artifact.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/10 px-4 py-2.5 text-sm font-medium text-primary transition-all hover:border-primary/40 hover:bg-primary/15 hover:shadow-[0_0_20px_rgba(167,139,250,0.2)]"
+                  className="flex items-center gap-2 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-2.5 text-sm font-medium text-foreground/80 transition-all hover:border-foreground/20 hover:bg-foreground/5 hover:shadow-[0_0_20px_rgba(167,139,250,0.2)]"
                 >
                   <ExternalLink size={15} />
                   {artifact.label}

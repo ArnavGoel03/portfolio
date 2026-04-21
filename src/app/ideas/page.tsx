@@ -33,7 +33,7 @@ const statusLabel: Record<IdeaStatus, string> = {
 
 const statusTone: Record<IdeaStatus, string> = {
   exploring:
-    "border-primary/30 bg-primary/10 text-primary",
+    "border-foreground/20 bg-foreground/5 text-foreground/80",
   concept:
     "border-sky-500/30 bg-sky-500/10 text-sky-400",
   researching:
@@ -60,8 +60,8 @@ function IdeaCard({ idea }: { idea: Idea }) {
       <div className="card-3d-inner gradient-border glow-card rounded-2xl bg-card p-7">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="rounded-xl border border-primary/20 bg-primary/5 p-2.5 backdrop-blur-sm">
-              <Lightbulb size={18} className="text-primary icon-glow" />
+            <div className="rounded-xl border border-foreground/10 bg-foreground/5 p-2.5 backdrop-blur-sm">
+              <Lightbulb size={18} className="text-foreground/80 icon-glow" />
             </div>
             <h3 className="font-serif text-lg font-semibold tracking-tight">
               {idea.title}
@@ -75,7 +75,7 @@ function IdeaCard({ idea }: { idea: Idea }) {
           </Badge>
         </div>
 
-        <p className="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-primary/60">
+        <p className="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
           {idea.oneLiner}
         </p>
 
@@ -88,7 +88,7 @@ function IdeaCard({ idea }: { idea: Idea }) {
             <Badge
               key={tag}
               variant="secondary"
-              className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+              className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
             >
               {tag}
             </Badge>
@@ -103,7 +103,7 @@ export default function Ideas() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Ideas
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">

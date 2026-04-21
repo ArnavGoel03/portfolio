@@ -132,7 +132,7 @@ export default function Uses() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Uses
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
@@ -153,8 +153,8 @@ export default function Uses() {
               className="gradient-border glow-card rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
               <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-                  <cat.icon size={18} className="text-primary icon-glow" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+                  <cat.icon size={18} className="text-foreground/80 icon-glow" />
                 </div>
                 <h2 className="font-serif text-lg font-semibold tracking-tight">
                   {cat.title}

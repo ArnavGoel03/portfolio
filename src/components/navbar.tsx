@@ -45,7 +45,7 @@ export default function Navbar() {
                 {pathname === link.href && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-xl bg-primary/10 border border-primary/20"
+                    className="absolute inset-0 rounded-xl bg-foreground/5 border border-foreground/10"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -56,7 +56,7 @@ export default function Navbar() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 flex items-center gap-1.5 rounded-lg bg-primary/10 border border-primary/20 px-3 py-1.5 text-xs font-medium text-primary transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 hover:shadow-[0_0_15px_rgba(167,139,250,0.15)]"
+              className="ml-2 flex items-center gap-1.5 rounded-lg bg-foreground/5 border border-foreground/10 px-3 py-1.5 text-xs font-medium text-foreground/80 transition-all duration-300 hover:bg-foreground/8 hover:border-foreground/20 hover:shadow-[0_0_15px_rgba(167,139,250,0.15)]"
             >
               <FileText size={13} />
               Resume
@@ -87,7 +87,7 @@ export default function Navbar() {
                   className={cn(
                     "rounded-xl px-4 py-3 text-sm font-medium transition-all",
                     pathname === link.href
-                      ? "bg-primary/10 text-foreground"
+                      ? "bg-foreground/5 text-foreground"
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
@@ -98,7 +98,7 @@ export default function Navbar() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-primary"
+                className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-foreground/80"
               >
                 <FileText size={15} />
                 Resume

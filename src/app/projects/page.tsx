@@ -233,7 +233,7 @@ export default async function Projects() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Projects
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">

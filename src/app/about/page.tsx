@@ -239,7 +239,7 @@ export default function About() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           About Me
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
@@ -263,8 +263,8 @@ export default function About() {
               key={item.title}
               className="gradient-border glow-card rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-                <item.icon size={22} className="text-primary icon-glow" />
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+                <item.icon size={22} className="text-foreground/80 icon-glow" />
               </div>
               <h3 className="font-serif text-lg font-semibold tracking-tight">
                 {item.title}
@@ -331,8 +331,8 @@ export default function About() {
 
       <Section>
         <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-            <GraduationCap size={22} className="text-primary icon-glow" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+            <GraduationCap size={22} className="text-foreground/80 icon-glow" />
           </div>
           <h2 className="font-serif text-3xl font-bold tracking-tight">
             Education
@@ -349,11 +349,11 @@ export default function About() {
                   <h3 className="font-serif text-lg font-semibold tracking-tight">
                     {edu.school}
                   </h3>
-                  <p className="text-sm font-medium text-primary">
+                  <p className="text-sm font-medium text-foreground/80">
                     {edu.degree}
                   </p>
                 </div>
-                <span className="flex-shrink-0 rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs text-muted-foreground">
+                <span className="flex-shrink-0 rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-xs text-muted-foreground">
                   {edu.period}
                 </span>
               </div>
@@ -369,7 +369,7 @@ export default function About() {
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                      className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
                     >
                       {skill}
                     </Badge>
@@ -383,8 +383,8 @@ export default function About() {
 
       <Section>
         <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-            <Cpu size={22} className="text-primary icon-glow" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+            <Cpu size={22} className="text-foreground/80 icon-glow" />
           </div>
           <div>
             <h2 className="font-serif text-3xl font-bold tracking-tight">
@@ -402,7 +402,7 @@ export default function About() {
               key={tier.id}
               className="gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary/70">
+              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                 {tier.label}
               </p>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground/90">
@@ -426,8 +426,8 @@ export default function About() {
 
       <Section>
         <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-            <BookOpen size={22} className="text-primary icon-glow" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+            <BookOpen size={22} className="text-foreground/80 icon-glow" />
           </div>
           <div>
             <h2 className="font-serif text-3xl font-bold tracking-tight">
@@ -462,7 +462,7 @@ export default function About() {
                   </h3>
                   <Icon
                     size={16}
-                    className="mt-1 flex-shrink-0 text-primary/60 transition-all group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="mt-1 flex-shrink-0 text-muted-foreground transition-all group-hover:text-foreground/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   />
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -476,8 +476,8 @@ export default function About() {
 
       <Section>
         <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-            <Award size={22} className="text-primary icon-glow" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+            <Award size={22} className="text-foreground/80 icon-glow" />
           </div>
           <h2 className="font-serif text-3xl font-bold tracking-tight">
             Certifications
@@ -492,7 +492,7 @@ export default function About() {
               <h3 className="font-serif text-base font-semibold tracking-tight">
                 {cert.name}
               </h3>
-              <p className="mt-1 text-sm font-medium text-primary">
+              <p className="mt-1 text-sm font-medium text-foreground/80">
                 {cert.issuer}
               </p>
               {cert.date && (
@@ -506,7 +506,7 @@ export default function About() {
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                      className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
                     >
                       {skill}
                     </Badge>

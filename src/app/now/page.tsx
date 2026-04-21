@@ -87,7 +87,7 @@ export default function Now() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Now
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
@@ -102,7 +102,7 @@ export default function Now() {
             href="https://nownownow.com/about"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary/80 underline-offset-4 hover:text-primary hover:underline"
+            className="text-foreground/75 underline-offset-4 hover:text-foreground/80 hover:underline"
           >
             Derek Sivers&apos; /now movement
           </a>
@@ -126,11 +126,11 @@ export default function Now() {
               className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm"
             >
               <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-                  <area.icon size={18} className="text-primary icon-glow" />
+                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+                  <area.icon size={18} className="text-foreground/80 icon-glow" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary/70">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                     {area.label}
                   </p>
                   <h2 className="mt-1.5 font-serif text-lg font-semibold tracking-tight">
@@ -148,7 +148,7 @@ export default function Now() {
 
       <Section className="pt-4 pb-20">
         <div className="gradient-border glow-card rounded-2xl bg-card p-8 backdrop-blur-sm">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary/70">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
             What I&apos;m Looking For
           </p>
           <h2 className="mt-3 font-serif text-2xl font-bold tracking-tight">
@@ -169,7 +169,7 @@ export default function Now() {
             className="btn-border-flow mt-7 inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all"
           >
             Get in touch
-            <ArrowUpRight size={14} className="text-primary/70" />
+            <ArrowUpRight size={14} className="text-muted-foreground" />
           </Link>
         </div>
       </Section>

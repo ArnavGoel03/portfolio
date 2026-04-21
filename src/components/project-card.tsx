@@ -99,7 +99,7 @@ function ProjectModal({
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 rounded-full border border-primary/20 bg-card/80 p-2 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/40 hover:text-foreground"
+          className="absolute top-4 right-4 z-10 rounded-full border border-foreground/10 bg-card/80 p-2 text-muted-foreground backdrop-blur-sm transition-all hover:border-foreground/20 hover:text-foreground"
         >
           <X size={16} />
         </button>
@@ -118,8 +118,8 @@ function ProjectModal({
             <div className="flex h-full w-full items-center justify-center">
               <div className="relative">
                 <div className="absolute inset-0 animate-pulse-glow rounded-full bg-primary/20 blur-2xl" />
-                <div className="relative rounded-2xl border border-primary/20 bg-primary/5 p-6 backdrop-blur-sm">
-                  <Icon size={48} className="text-primary icon-glow" />
+                <div className="relative rounded-2xl border border-foreground/10 bg-foreground/5 p-6 backdrop-blur-sm">
+                  <Icon size={48} className="text-foreground/80 icon-glow" />
                 </div>
               </div>
             </div>
@@ -149,7 +149,7 @@ function ProjectModal({
               <Badge
                 key={tag}
                 variant="secondary"
-                className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
               >
                 {tag}
               </Badge>
@@ -162,7 +162,7 @@ function ProjectModal({
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 rounded-lg border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-medium text-foreground/70 transition-all hover:border-primary/30 hover:bg-primary/10 hover:text-foreground"
+                className="flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-foreground/5 px-4 py-2 text-sm font-medium text-foreground/70 transition-all hover:border-foreground/20 hover:bg-foreground/5 hover:text-foreground"
               >
                 <FaGithub size={15} />
                 View Code
@@ -227,10 +227,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               <div className="flex h-full w-full items-center justify-center">
                 <div className="relative">
                   <div className="absolute inset-0 animate-pulse-glow rounded-full bg-primary/20 blur-2xl" />
-                  <div className="relative rounded-2xl border border-primary/20 bg-primary/5 p-5 backdrop-blur-sm">
+                  <div className="relative rounded-2xl border border-foreground/10 bg-foreground/5 p-5 backdrop-blur-sm">
                     <Icon
                       size={40}
-                      className="text-primary icon-glow transition-transform duration-500 group-hover:scale-110"
+                      className="text-foreground/80 icon-glow transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
                 </div>
@@ -250,7 +250,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 <Badge
                   key={tag}
                   variant="secondary"
-                  className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                  className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
                 >
                   {tag}
                 </Badge>
@@ -258,7 +258,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               {project.tags.length > 4 && (
                 <Badge
                   variant="secondary"
-                  className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                  className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
                 >
                   +{project.tags.length - 4}
                 </Badge>
@@ -270,7 +270,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 rounded-lg border border-primary/10 bg-primary/5 px-3 py-1.5 text-xs font-medium text-foreground/70 transition-all hover:border-primary/30 hover:bg-primary/10 hover:text-foreground"
+                  className="flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-foreground/5 px-3 py-1.5 text-xs font-medium text-foreground/70 transition-all hover:border-foreground/20 hover:bg-foreground/5 hover:text-foreground"
                 >
                   <FaGithub size={13} />
                   Code

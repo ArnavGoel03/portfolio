@@ -21,7 +21,7 @@ export default function Blog() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Blog
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
@@ -51,7 +51,7 @@ export default function Blog() {
                       <span className="h-1 w-1 rounded-full bg-primary/40" />
                       <span>{post.readTime}</span>
                     </div>
-                    <h2 className="mt-2 font-serif text-xl font-semibold tracking-tight transition-colors group-hover:text-primary">
+                    <h2 className="mt-2 font-serif text-xl font-semibold tracking-tight transition-colors group-hover:text-foreground/80">
                       {post.title}
                     </h2>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2">
@@ -62,7 +62,7 @@ export default function Blog() {
                         <Badge
                           key={tag}
                           variant="secondary"
-                          className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                          className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
                         >
                           {tag}
                         </Badge>
@@ -71,7 +71,7 @@ export default function Blog() {
                   </div>
                   <ArrowRight
                     size={18}
-                    className="mt-2 flex-shrink-0 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary sm:mt-1"
+                    className="mt-2 flex-shrink-0 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-foreground/80 sm:mt-1"
                   />
                 </div>
               </article>

@@ -47,13 +47,13 @@ export default function Timeline({ items }: TimelineProps) {
                   className={`relative flex h-12 w-12 items-center justify-center rounded-full border bg-card backdrop-blur-sm transition-all duration-300 ${
                     isPresent
                       ? "border-primary/50 shadow-[0_0_15px_rgba(167,139,250,0.3)]"
-                      : "border-primary/20"
+                      : "border-foreground/10"
                   }`}
                 >
                   {item.type === "work" ? (
-                    <Briefcase size={18} className="text-primary" />
+                    <Briefcase size={18} className="text-foreground/80" />
                   ) : (
-                    <GraduationCap size={18} className="text-primary" />
+                    <GraduationCap size={18} className="text-foreground/80" />
                   )}
                 </div>
               </div>
@@ -70,15 +70,15 @@ export default function Timeline({ items }: TimelineProps) {
                     <h3 className="font-serif text-lg font-semibold tracking-tight">
                       {item.role}
                     </h3>
-                    <p className="text-sm font-medium text-primary">
+                    <p className="text-sm font-medium text-foreground/80">
                       {item.company}
                     </p>
                   </div>
                   <span
                     className={`flex-shrink-0 rounded-full border px-3 py-1 text-xs ${
                       isPresent
-                        ? "border-primary/30 bg-primary/10 text-primary font-medium"
-                        : "border-primary/10 bg-primary/5 text-muted-foreground"
+                        ? "border-foreground/20 bg-foreground/5 text-foreground/80 font-medium"
+                        : "border-foreground/10 bg-foreground/5 text-muted-foreground"
                     }`}
                   >
                     {item.startDate} — {item.endDate || "Present"}
@@ -93,7 +93,7 @@ export default function Timeline({ items }: TimelineProps) {
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+                        className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
                       >
                         {skill}
                       </Badge>

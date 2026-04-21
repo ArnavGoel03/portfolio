@@ -71,7 +71,7 @@ export default function Contact() {
   return (
     <>
       <Section className="pt-36 pb-8">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Contact
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
@@ -96,8 +96,8 @@ export default function Contact() {
                 <div className="text-center px-8">
                   <div className="relative mx-auto mb-6 h-16 w-16">
                     <div className="absolute inset-0 animate-pulse-glow rounded-full bg-primary/30 blur-xl" />
-                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
-                      <Send size={24} className="text-primary" />
+                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-foreground/20 bg-foreground/5">
+                      <Send size={24} className="text-foreground/80" />
                     </div>
                   </div>
                   <h3 className="font-serif text-2xl font-semibold">
@@ -126,7 +126,7 @@ export default function Contact() {
                       name="name"
                       required
                       placeholder="Your name"
-                      className="border-primary/10 bg-primary/5 focus:border-primary/30 focus:ring-primary/20"
+                      className="border-foreground/10 bg-foreground/5 focus:border-foreground/20 focus:ring-primary/20"
                     />
                   </div>
                   <div>
@@ -142,7 +142,7 @@ export default function Contact() {
                       type="email"
                       required
                       placeholder="you@example.com"
-                      className="border-primary/10 bg-primary/5 focus:border-primary/30 focus:ring-primary/20"
+                      className="border-foreground/10 bg-foreground/5 focus:border-foreground/20 focus:ring-primary/20"
                     />
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export default function Contact() {
                     required
                     rows={6}
                     placeholder="What's on your mind?"
-                    className="border-primary/10 bg-primary/5 resize-none focus:border-primary/30 focus:ring-primary/20"
+                    className="border-foreground/10 bg-foreground/5 resize-none focus:border-foreground/20 focus:ring-primary/20"
                   />
                 </div>
                 {error && (
@@ -191,8 +191,8 @@ export default function Contact() {
             <div className="gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm">
               <h3 className="font-serif text-lg font-semibold">Find Me</h3>
               <div className="mt-4 flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10">
-                  <MapPin size={18} className="text-primary" />
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+                  <MapPin size={18} className="text-foreground/80" />
                 </div>
                 <div>
                   <p className="text-sm font-medium">San Diego, California</p>
@@ -212,10 +212,10 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex flex-col items-center gap-3 rounded-xl border border-primary/10 bg-primary/5 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-primary/10 hover:shadow-[0_0_25px_rgba(167,139,250,0.15)]"
+                    className="group flex flex-col items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-5 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5 hover:shadow-[0_0_25px_rgba(167,139,250,0.15)]"
                   >
                     <div className="relative">
-                      <div className="absolute inset-0 rounded-full bg-primary/0 blur-lg transition-all duration-300 group-hover:bg-primary/20" />
+                      <div className="absolute inset-0 rounded-full bg-primary/0 blur-lg transition-all duration-300 group-hover:bg-foreground/8" />
                       <social.icon
                         size={22}
                         className={`relative text-muted-foreground transition-all duration-300 ${social.color}`}
@@ -230,14 +230,14 @@ export default function Contact() {
             </div>
 
             <div className="relative overflow-hidden gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm">
-              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl" />
+              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-foreground/5 blur-2xl" />
               <div className="absolute -left-4 -bottom-4 h-24 w-24 rounded-full bg-indigo-500/5 blur-xl" />
               <div className="relative">
                 <p className="text-sm leading-relaxed text-muted-foreground italic">
                   &ldquo;The best way to predict the future is to create
                   it.&rdquo;
                 </p>
-                <p className="mt-3 text-xs font-medium text-primary">
+                <p className="mt-3 text-xs font-medium text-foreground/80">
                   — Peter Drucker
                 </p>
               </div>

@@ -57,9 +57,9 @@ export default function SkillsTicker() {
                 return (
                   <div
                     key={`${skill.name}-${i}`}
-                    className="flex flex-shrink-0 items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-5 py-2.5 transition-all duration-300 hover:border-primary/30 hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(167,139,250,0.15)]"
+                    className="flex flex-shrink-0 items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-5 py-2.5 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5 hover:shadow-[0_0_20px_rgba(167,139,250,0.15)]"
                   >
-                    <Icon size={14} className="text-primary icon-glow" />
+                    <Icon size={14} className="text-foreground/80 icon-glow" />
                     <span className="text-sm font-medium text-foreground/80">
                       {skill.name}
                     </span>

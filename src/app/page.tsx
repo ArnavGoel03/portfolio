@@ -148,7 +148,7 @@ export default async function Home() {
       <Section>
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-3">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
               About
             </p>
             <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight md:text-4xl">
@@ -182,12 +182,12 @@ export default async function Home() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
               Selected Outcomes
             </p>
             <ul className="mt-6 space-y-5">
               <li>
-                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-muted-foreground">
                   SWE Intern · ADA
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
@@ -197,7 +197,7 @@ export default async function Home() {
                 </p>
               </li>
               <li>
-                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-muted-foreground">
                   Triton Quantitative Trading · UCSD
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
@@ -207,7 +207,7 @@ export default async function Home() {
                 </p>
               </li>
               <li>
-                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-muted-foreground">
                   Digital Platform Lead · Gondilal Saraf
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
@@ -216,7 +216,7 @@ export default async function Home() {
                 </p>
               </li>
               <li>
-                <p className="text-xs font-mono uppercase tracking-[0.15em] text-primary/70">
+                <p className="text-xs font-mono uppercase tracking-[0.15em] text-muted-foreground">
                   Power Outages · DSC 80
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
@@ -233,7 +233,7 @@ export default async function Home() {
       <Section>
         <div className="mb-14 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
               Featured Work
             </p>
             <h2 className="mt-3 font-serif text-4xl font-bold tracking-tight">

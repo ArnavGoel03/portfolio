@@ -83,7 +83,7 @@ export default async function BlogPost({
             <Badge
               key={tag}
               variant="secondary"
-              className="border-primary/10 bg-primary/5 text-xs font-normal text-primary/80"
+              className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
             >
               {tag}
             </Badge>
