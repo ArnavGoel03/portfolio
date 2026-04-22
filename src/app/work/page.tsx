@@ -127,29 +127,6 @@ export default function Work() {
       </Section>
 
       <Section className="pt-4">
-        <div className="grid gap-5 md:grid-cols-2">
-          {facts.map((fact) => (
-            <div
-              key={fact.label}
-              className="gradient-border rounded-2xl bg-card p-6"
-            >
-              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                {fact.label}
-              </p>
-              <p className="mt-3 font-serif text-lg font-semibold tracking-tight text-foreground">
-                {fact.value}
-              </p>
-              {fact.detail && (
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {fact.detail}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section className="pt-8">
         <div className="gradient-border rounded-2xl bg-card p-8 md:p-10">
           <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
             Why me
@@ -213,6 +190,29 @@ export default function Work() {
               </p>
             </li>
           </ol>
+        </div>
+      </Section>
+
+      <Section className="pt-8">
+        <div className="grid gap-5 md:grid-cols-2">
+          {facts.map((fact) => (
+            <div
+              key={fact.label}
+              className="gradient-border rounded-2xl bg-card p-6"
+            >
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                {fact.label}
+              </p>
+              <p className="mt-3 font-serif text-lg font-semibold tracking-tight text-foreground">
+                {fact.value}
+              </p>
+              {fact.detail && (
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {fact.detail}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </Section>
 

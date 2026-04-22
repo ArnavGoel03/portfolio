@@ -298,29 +298,6 @@ export default function Resume() {
           </p>
         </ResumeBlock>
 
-        <ResumeBlock title="Education">
-          <div className="space-y-5">
-            {educationItems.map((edu) => (
-              <div key={edu.school}>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <p className="font-serif text-base font-semibold tracking-tight text-foreground">
-                    {edu.school}
-                  </p>
-                  <p className="font-mono text-xs text-muted-foreground">
-                    {edu.period}
-                  </p>
-                </div>
-                <p className="mt-0.5 text-sm font-medium text-foreground/85">
-                  {edu.degree}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {edu.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-        </ResumeBlock>
-
         <ResumeBlock title="Experience">
           <div className="space-y-6">
             {experience.map((e) => (
@@ -349,6 +326,29 @@ export default function Resume() {
                     {e.skills.join(" · ")}
                   </p>
                 )}
+              </div>
+            ))}
+          </div>
+        </ResumeBlock>
+
+        <ResumeBlock title="Education">
+          <div className="space-y-5">
+            {educationItems.map((edu) => (
+              <div key={edu.school}>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <p className="font-serif text-base font-semibold tracking-tight text-foreground">
+                    {edu.school}
+                  </p>
+                  <p className="font-mono text-xs text-muted-foreground">
+                    {edu.period}
+                  </p>
+                </div>
+                <p className="mt-0.5 text-sm font-medium text-foreground/85">
+                  {edu.degree}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {edu.detail}
+                </p>
               </div>
             ))}
           </div>

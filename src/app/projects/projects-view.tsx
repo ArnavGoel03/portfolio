@@ -127,9 +127,11 @@ export default function ProjectsView({
   const [filter, setFilter] = useState<string>("All");
   const [showLearning, setShowLearning] = useState(false);
 
+  // Ordered by recruiter-signal strength: shipped solo > actively being
+  // built > team work > learning (collapsed further down).
   const sections: [SectionKey, Project[]][] = [
-    ["inProgress", inProgress.filter((p) => matchesFilter(p, filter))],
     ["personal", personal.filter((p) => matchesFilter(p, filter))],
+    ["inProgress", inProgress.filter((p) => matchesFilter(p, filter))],
     ["team", team.filter((p) => matchesFilter(p, filter))],
   ];
 
