@@ -27,6 +27,7 @@ export interface CaseStudy {
   role: string;
   period: string;
   status: string;
+  thesis: string;
   oneLiner: string;
   problem: string[];
   approach: CaseStudySection[];
@@ -44,6 +45,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Solo — design, server, extension, deploy",
     period: "Apr 2026 · shipping on Chrome Web Store",
     status: "Live",
+    thesis:
+      "Proves I can ship production-grade real-time systems under constraints that break most side projects — Manifest V3 kill windows, per-site player quirks, sync-vs-heartbeat races — and hold it together with 59 tests.",
     oneLiner:
       "One extension, any streaming site, any number of devices, anywhere on Earth — sub-second playback sync over WebSocket.",
     problem: [
@@ -151,6 +154,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Solo — design, full-stack, admin ERP, deploy",
     period: "2022 → present · live at gondilalsaraf.com",
     status: "Live",
+    thesis:
+      "Proves I can own a full-stack product end-to-end under real commercial pressure — storefront, catalogue with AR try-on, and an admin ERP with 15 Prisma models and 26 API routes — for a customer base that actually pays.",
     oneLiner:
       "Took my family's 150-year-old gold and silver jewelry shop in Banda, UP, online — public storefront, bilingual catalogue, and an admin ERP that runs daily operations.",
     problem: [
@@ -272,6 +277,8 @@ export const caseStudies: CaseStudy[] = [
     role: "Solo — product, design, full-stack",
     period: "Mar 2025 · live at pcod-tracker.vercel.app",
     status: "Live",
+    thesis:
+      "Proves I can turn an LLM from a chat toy into a structured health-data extractor — and design the schema to absorb free-form rants and OCR'd lab PDFs without fabricating values in a domain where precision matters.",
     oneLiner:
       "Type about your day in plain language. Claude extracts symptoms, mood, diet, medications, sleep, and energy into structured data — no forms, no severity sliders.",
     problem: [
@@ -383,6 +390,8 @@ caseStudies.push({
   role: "Solo — data collection, analysis, report",
   period: "Apr 2026 · end-term SMA project",
   status: "Complete",
+  thesis:
+    "Proves I can take a vague 'analyse a brand' brief, pick defensible metrics, pull real data at scale, and deliver a decision-ready artifact a non-technical stakeholder can act on.",
   oneLiner:
     "Net Sentiment Score of +28.6 pp — roughly 2× the consumer-brand benchmark — with 100% hashtag discipline across a 50-video catalog.",
   problem: [

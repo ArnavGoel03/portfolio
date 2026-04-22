@@ -110,17 +110,25 @@ export default async function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
-        <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-          <h1 className="font-serif text-5xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
-            <SplitText text="Arnav Goel" delay={0.15} stagger={0.045} />
+        <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+          <p className="font-mono text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            Arnav Goel &middot; Data Science &middot; UC San Diego &middot; Jun 2027
+          </p>
+
+          <h1 className="mt-6 font-serif text-[2.75rem] font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
+            <SplitText
+              text="Data science that ships."
+              delay={0.15}
+              stagger={0.045}
+            />
           </h1>
 
-          <p className="mx-auto mt-7 max-w-xl text-base leading-[1.65] text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-[1.7] text-muted-foreground md:text-lg">
             <SplitText
-              text="Data science at UC San Diego. I write code and study models, ship products with real users, and help run a jewelry business my family started in 1873."
+              text="A Chrome Web Store extension used by real people every week. The full-stack platform behind my family's 150-year jewelry business. AI-powered health tools in production. I build ML and full-stack systems that land in the hands of actual users — not README demos — while finishing a BS in Data Science at UCSD."
               delay={0.7}
               duration={0.5}
-              stagger={0.008}
+              stagger={0.006}
               mode="chars"
             />
           </p>
@@ -131,7 +139,7 @@ export default async function Home() {
                 href="/projects"
                 className="btn-glow group inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground"
               >
-                View projects
+                See the work
                 <ArrowRight
                   size={15}
                   className="transition-transform duration-200 group-hover:translate-x-0.5"
@@ -140,16 +148,64 @@ export default async function Home() {
             </Magnetic>
             <Magnetic strength={0.3}>
               <Link
-                href="/contact"
+                href="/work"
                 className="btn-border-flow group inline-flex h-11 items-center gap-2 rounded-full px-6 text-sm font-medium"
               >
-                Get in touch
+                What I&apos;m looking for
                 <ArrowRight
                   size={14}
                   className="opacity-70 transition-transform duration-200 group-hover:translate-x-0.5"
                 />
               </Link>
             </Magnetic>
+          </div>
+
+          <div className="mt-14 grid gap-4 text-left sm:grid-cols-3">
+            <Link
+              href="/projects/watch-together"
+              className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
+            >
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Chrome Web Store
+              </p>
+              <p className="mt-2 font-serif text-base font-semibold tracking-tight text-foreground">
+                Watch Together
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                Cross-site video sync extension live on the Web Store. 59
+                server tests, heartbeat drift correction under 0.5s.
+              </p>
+            </Link>
+            <Link
+              href="/projects/gondilal-saraf"
+              className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
+            >
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Family business &middot; est. 1873
+              </p>
+              <p className="mt-2 font-serif text-base font-semibold tracking-tight text-foreground">
+                Gondilal Saraf
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                Full-stack e-commerce + admin ERP with 15 Prisma models, 26
+                API routes, 85 tests. Real customers. Real P&amp;L.
+              </p>
+            </Link>
+            <Link
+              href="/projects/pcod-tracker"
+              className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
+            >
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Production AI
+              </p>
+              <p className="mt-2 font-serif text-base font-semibold tracking-tight text-foreground">
+                PCOD Tracker
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                Free-form health rants parsed by Claude into structured
+                symptoms, meds, and labs. 15 Prisma models, privacy-first.
+              </p>
+            </Link>
           </div>
         </div>
       </section>

@@ -147,9 +147,12 @@ export default async function CaseStudyPage({
       <Section className="pt-4">
         <div className="max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            The Pitch
+            What this proves
           </p>
-          <p className="mt-4 font-serif text-2xl italic leading-snug text-foreground/90 md:text-3xl">
+          <p className="mt-4 font-serif text-2xl font-semibold leading-snug tracking-tight text-foreground md:text-[1.75rem]">
+            {cs.thesis}
+          </p>
+          <p className="mt-6 font-serif text-lg italic leading-relaxed text-muted-foreground md:text-xl">
             {cs.oneLiner}
           </p>
         </div>

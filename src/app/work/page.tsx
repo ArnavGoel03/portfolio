@@ -149,6 +149,73 @@ export default function Work() {
         </div>
       </Section>
 
+      <Section className="pt-8">
+        <div className="gradient-border rounded-2xl bg-card p-8 md:p-10">
+          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            Why me
+          </p>
+          <h2 className="mt-3 font-serif text-2xl font-bold tracking-tight md:text-3xl">
+            Three things most new-grad DS candidates don&apos;t bring
+          </h2>
+          <ol className="mt-8 space-y-7">
+            <li>
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                01 &middot; A product in the wild
+              </p>
+              <p className="mt-2 text-[15px] leading-relaxed text-foreground/90">
+                <Link
+                  href="/projects/watch-together"
+                  className="text-foreground underline decoration-foreground/40 underline-offset-4 hover:decoration-foreground"
+                >
+                  Watch Together
+                </Link>{" "}
+                ships on the Chrome Web Store. Cross-site video sync on
+                Netflix, YouTube, Disney+, Prime Video. WebSocket relay with
+                heartbeat drift correction, 59 server tests, Manifest V3
+                service-worker survival. Not a README demo — a production
+                extension with real users.
+              </p>
+            </li>
+            <li>
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                02 &middot; Commercial judgment from a real business
+              </p>
+              <p className="mt-2 text-[15px] leading-relaxed text-foreground/90">
+                I run the full-stack platform for my family&apos;s{" "}
+                <Link
+                  href="/projects/gondilal-saraf"
+                  className="text-foreground underline decoration-foreground/40 underline-offset-4 hover:decoration-foreground"
+                >
+                  150-year jewelry business
+                </Link>
+                . Real customers, real inventory, real P&amp;L. Most new DS
+                hires learn what a customer is in orientation — I spent four
+                years shipping product against one.
+              </p>
+            </li>
+            <li>
+              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                03 &middot; The &ldquo;know when to stop&rdquo; muscle
+              </p>
+              <p className="mt-2 text-[15px] leading-relaxed text-foreground/90">
+                I shelved{" "}
+                <Link
+                  href="/projects/vaani"
+                  className="text-foreground underline decoration-foreground/40 underline-offset-4 hover:decoration-foreground"
+                >
+                  Vaani
+                </Link>{" "}
+                mid-build after a market-fit check: bleeding-edge LLM
+                inference cost more per conversation than a human
+                customer-support agent in the Indian SME market we were
+                targeting. The right call was to stop. Engineers who can
+                unbuild are rarer than engineers who can build.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </Section>
+
       <Section className="pt-4">
         <div className="grid gap-10 md:grid-cols-2 md:gap-14">
           <div>
