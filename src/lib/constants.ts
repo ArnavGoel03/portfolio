@@ -15,15 +15,16 @@ export const SOCIAL_LINKS = {
   email: `mailto:${EMAIL}`,
 } as const;
 
-// Primary nav — kept intentionally short (6 items). Pages demoted from the
-// top-level nav are still live and reachable via on-page cross-links, Cmd+K,
-// the footer, and sitemap: /ideas, /experience, /coursework, /resume, /now,
-// /uses.
+// Primary nav — kept intentionally short. Resume stays because recruiters
+// literally scan nav bars for that word. Pages demoted from the top-level
+// nav are still live and reachable via on-page cross-links, Cmd+K, the
+// footer, and sitemap: /ideas, /experience, /coursework, /now, /uses.
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
+  { href: "/resume", label: "Resume" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -31,7 +32,6 @@ export const NAV_LINKS = [
 // Everything reachable from the footer "Also" column and from Cmd+K, but not
 // in the top nav — kept out of the primary scan.
 export const SECONDARY_LINKS = [
-  { href: "/resume", label: "Resume" },
   { href: "/experience", label: "Experience" },
   { href: "/coursework", label: "Coursework" },
   { href: "/ideas", label: "Ideas" },

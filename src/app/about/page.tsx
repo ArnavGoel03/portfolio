@@ -542,7 +542,6 @@ export default function About() {
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
           {[
-            { href: "/resume", label: "Resume", hint: "Structured + printable" },
             { href: "/experience", label: "Experience", hint: "Full work timeline" },
             { href: "/coursework", label: "Coursework", hint: "UCSD transcript + grades" },
             { href: "/ideas", label: "Ideas", hint: "Notes on things I'm thinking about" },
