@@ -196,13 +196,17 @@ const staticProjects: Project[] = [
     id: "vaani",
     title: "Vaani — Multilingual AI Chatbot",
     description:
-      "Built a real-time, voice-enabled AI chatbot using OpenAI's API to support conversational interactions in 5+ Indian languages. Integrated speech-to-text and text-to-speech pipelines for smooth, multilingual voice communication. Architected as a Flask backend with separated micro-services and a lightweight frontend — designed for accessibility and inclusivity, especially in rural and semi-digital communities.",
+      "Co-built with Ahaskar: a voice-first AI chatbot for Indian-language customer support. OpenAI's LLM + speech APIs behind a Flask microservice backend, with a speech-to-text → intent → text-to-speech pipeline across 5+ Indian languages. Shelved mid-build after a clear-eyed market-fit check — in the Indian SME market we were targeting, a human customer-support agent costs less per conversation than bleeding-edge LLM inference. Keeping it listed as a reminder that the right call is sometimes to stop, not ship.",
     tags: ["OpenAI API", "Flask", "Speech Recognition", "NLP", "Python"],
     image: "",
     github: "",
     demo: "",
-    featured: true,
+    featured: false,
     date: "2024-07",
+    team: {
+      size: 2,
+      members: ["Ahaskar"],
+    },
   },
   {
     id: "handwritten-digits",

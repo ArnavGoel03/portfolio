@@ -30,8 +30,7 @@ A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizatio
 
 - **PCOD Tracker** — AI-powered health companion for women with PCOD/PCOS. Claude AI auto-extracts symptoms, mood, and meds from free-form text. PDF lab report parsing. 15 Prisma models, medication streaks, lab trend charts. [pcod-tracker.vercel.app](https://pcod-tracker.vercel.app)
 - **Gondilal Saraf** — Full-stack jewelry platform for a century-old family business. Bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 26 API routes, 85 tests. [gondilalsaraf.com](https://gondilalsaraf.com)
-- **Vaani** — Multilingual AI chatbot supporting 5+ Indian languages with real-time speech-to-text and text-to-speech
-- **Style It** — AI wardrobe assistant with TensorFlow recommendation engine, 30% accuracy boost via semantic vector matching
+- **Vaani** — Voice-first AI chatbot for Indian-language customer support (co-authored with Ahaskar). Shelved after market-fit check showed LLM inference cost-per-conversation exceeded cheap Indian human-agent labour.
 
 ## Tech Stack
 

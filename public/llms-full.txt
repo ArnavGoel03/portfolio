@@ -40,17 +40,12 @@ Skills: Entrepreneurship, Data Analysis, Business Strategy
 
 ## Projects (Detailed)
 
-### Vaani — Multilingual AI Chatbot
-Built a real-time, voice-enabled AI chatbot using OpenAI's API to support conversational interactions in 5+ Indian languages. Integrated speech-to-text and text-to-speech pipelines to enable smooth, multilingual voice communication. Designed for accessibility and inclusivity, especially in rural and semi-digital communities.
-- **Tags:** OpenAI API, Real-time Speech Recognition, NLP, Python
-- **Status:** Featured Project
+### Vaani — Multilingual AI Chatbot (Shelved)
+Co-built with Ahaskar. A voice-first AI chatbot for Indian-language customer support — OpenAI LLM + speech APIs behind a Flask microservice backend, with a speech-to-text → intent → text-to-speech pipeline across 5+ Indian languages. Shelved mid-build after a market-fit check: in the Indian SME market the unit economics did not work, because a human customer-support agent costs less per conversation than bleeding-edge LLM inference. Kept visible as a deliberate learning.
+- **Team:** Arnav Goel, Ahaskar
+- **Tags:** OpenAI API, Flask, Real-time Speech Recognition, NLP, Python
+- **Status:** Shelved / Co-authored
 - **Date:** July 2024
-
-### Style It — AI Wardrobe Assistant
-Developed an AI-powered wardrobe assistant that delivered personalized outfit suggestions based on occasion, color, and mood. Built a recommendation engine using TensorFlow and semantic vector matching to enhance style prediction accuracy. Integrated a dynamic API layer to suggest e-commerce product pairings, boosting recommendation performance by 30%.
-- **Tags:** Python, TensorFlow, Recommendation Systems
-- **Status:** Featured Project
-- **Date:** April 2024
 
 ### Handwritten Digits Classifier
 Program that classifies handwritten digits using the MNIST Database. Built with TensorFlow at Delhi Public School, R. K. Puram.
