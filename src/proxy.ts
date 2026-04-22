@@ -1,11 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Basic-auth guard for /private/* routes. Set PRIVATE_AUTH in Vercel env as
-// "username:password" (e.g. "arnav:yourlongsecretpassword"). If the env var is
-// not set, all /private/* routes return 503 — fail-closed by design.
-export function middleware(request: NextRequest) {
-  const expected = process.env.PRIVATE_AUTH;
+const CANONICAL_HOST = "arnavgoel.dev";
 
+export function proxy(request: NextRequest) {
+  const host = request.headers.get("host") ?? "";
+  const { pathname, search } = request.nextUrl;
+
+  if (host.endsWith(".vercel.app")) {
+    const target = new URL(`https://${CANONICAL_HOST}${pathname}${search}`);
+    return NextResponse.redirect(target, 308);
+  }
+
+  if (pathname.startsWith("/private")) {
+    return guardPrivate(request);
+  }
+
+  return NextResponse.next();
+}
+
+function guardPrivate(request: NextRequest) {
+  const expected = process.env.PRIVATE_AUTH;
   if (!expected) {
     return new NextResponse(
       "Private routes disabled: set PRIVATE_AUTH env var.",
@@ -15,12 +29,7 @@ export function middleware(request: NextRequest) {
 
   const authHeader = request.headers.get("authorization");
   if (!authHeader?.startsWith("Basic ")) {
-    return new NextResponse("Authentication required.", {
-      status: 401,
-      headers: {
-        "WWW-Authenticate": 'Basic realm="Arnav private area"',
-      },
-    });
+    return unauthorized();
   }
 
   try {
@@ -35,29 +44,27 @@ export function middleware(request: NextRequest) {
     const gotUser = decoded.slice(0, decodedSep);
     const gotPass = decoded.slice(decodedSep + 1);
     if (gotUser !== expUser || gotPass !== expPass) {
-      return new NextResponse("Invalid credentials.", {
-        status: 401,
-        headers: {
-          "WWW-Authenticate": 'Basic realm="Arnav private area"',
-        },
-      });
+      return unauthorized();
     }
   } catch {
-    return new NextResponse("Invalid credentials.", {
-      status: 401,
-      headers: {
-        "WWW-Authenticate": 'Basic realm="Arnav private area"',
-      },
-    });
+    return unauthorized();
   }
 
   const res = NextResponse.next();
-  // Make sure browsers and CDNs don't cache the private response
   res.headers.set("Cache-Control", "no-store, private, max-age=0");
   res.headers.set("X-Robots-Tag", "noindex, nofollow");
   return res;
 }
 
+function unauthorized() {
+  return new NextResponse("Authentication required.", {
+    status: 401,
+    headers: {
+      "WWW-Authenticate": 'Basic realm="Arnav private area"',
+    },
+  });
+}
+
 export const config = {
-  matcher: ["/private/:path*"],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|pdf|txt|xml|ico|json)).*)"],
 };
