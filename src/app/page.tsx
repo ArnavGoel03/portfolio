@@ -22,7 +22,7 @@ const staticFeatured: Project[] = [
     tags: ["SwiftUI", "Swift 6", "Supabase"],
     image: "",
     github: "",
-    demo: "",
+    demo: "https://web-eta-two-84.vercel.app/",
     featured: true,
     date: "2026-04",
   },

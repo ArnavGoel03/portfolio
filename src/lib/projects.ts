@@ -15,7 +15,7 @@ export const staticProjects: Project[] = [
     tags: ["SwiftUI", "Swift 6", "Supabase", "PostGIS", "Stripe Connect", "ARKit", "Next.js 16", "PWA"],
     image: "",
     github: "https://github.com/ArnavGoel03/buzz",
-    demo: "",
+    demo: "https://web-eta-two-84.vercel.app/",
     featured: false,
     date: "2026-04",
     inProgress: true,
