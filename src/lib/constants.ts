@@ -4,7 +4,7 @@ export const SITE_URL =
 export const SITE_NAME = "Arnav Goel";
 
 export const SITE_DESCRIPTION =
-  "Portfolio of Arnav Goel (Yash) — Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship. Building at the intersection of data and business.";
+  "Arnav Goel (a.k.a. Yash Goel) — Data Science senior at UC San Diego, graduating June 2027. Ships ML and full-stack systems that land in production: a Chrome Web Store extension, the full-stack platform behind a 150-year family jewelry business, and AI-powered health tools. Open to new-grad roles and co-founding.";
 
 export const EMAIL = "a2goel@ucsd.edu";
 
