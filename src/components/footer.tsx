@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Mail, ArrowUpRight, Rss } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
-import { SOCIAL_LINKS, NAV_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, NAV_LINKS, SECONDARY_LINKS } from "@/lib/constants";
 
 const socials = [
   { icon: FaGithub, href: SOCIAL_LINKS.github, label: "GitHub" },
@@ -12,6 +12,7 @@ const socials = [
 ];
 
 const navLinks = NAV_LINKS;
+const secondaryLinks = SECONDARY_LINKS;
 
 export default function Footer() {
   return (
@@ -19,8 +20,8 @@ export default function Footer() {
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-3">
-          <div>
+        <div className="grid gap-12 md:grid-cols-4">
+          <div className="md:col-span-2">
             <div className="flex items-center gap-2">
               <span className="text-xl font-semibold tracking-tight text-foreground">
                 Arnav Goel
@@ -47,6 +48,13 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <Link
+              href="/contact"
+              className="btn-border-flow mt-7 inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all"
+            >
+              Send a Message
+              <ArrowUpRight size={14} className="text-muted-foreground" />
+            </Link>
           </div>
 
           <div>
@@ -72,19 +80,23 @@ export default function Footer() {
 
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-              Get in Touch
+              Also
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Have a project idea or just want to connect? I&apos;d love to hear
-              from you.
-            </p>
-            <Link
-              href="/contact"
-              className="btn-border-flow mt-5 inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition-all"
-            >
-              Send a Message
-              <ArrowUpRight size={14} className="text-muted-foreground" />
-            </Link>
+            <nav className="mt-4 flex flex-col gap-2.5">
+              {secondaryLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex items-center gap-1 text-sm text-muted-foreground/80 transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                  <ArrowUpRight
+                    size={12}
+                    className="opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
 

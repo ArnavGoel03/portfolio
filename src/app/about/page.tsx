@@ -535,6 +535,41 @@ export default function About() {
       </Section>
 
       <TestimonialWall />
+
+      <Section className="pt-4 pb-20">
+        <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          Also on this site
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+          {[
+            { href: "/resume", label: "Resume", hint: "Structured + printable" },
+            { href: "/experience", label: "Experience", hint: "Full work timeline" },
+            { href: "/coursework", label: "Coursework", hint: "UCSD transcript + grades" },
+            { href: "/ideas", label: "Ideas", hint: "Notes on things I'm thinking about" },
+            { href: "/now", label: "Now", hint: "What I'm up to right now" },
+            { href: "/uses", label: "Uses", hint: "Tools + stack" },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group flex items-start justify-between gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.02] px-4 py-3 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
+            >
+              <div>
+                <p className="font-serif text-base font-semibold tracking-tight text-foreground">
+                  {item.label}
+                </p>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  {item.hint}
+                </p>
+              </div>
+              <ArrowUpRight
+                size={14}
+                className="mt-1.5 flex-shrink-0 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
+              />
+            </Link>
+          ))}
+        </div>
+      </Section>
     </>
   );
 }

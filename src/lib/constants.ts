@@ -15,17 +15,26 @@ export const SOCIAL_LINKS = {
   email: `mailto:${EMAIL}`,
 } as const;
 
+// Primary nav — kept intentionally short (6 items). Pages demoted from the
+// top-level nav are still live and reachable via on-page cross-links, Cmd+K,
+// the footer, and sitemap: /ideas, /experience, /coursework, /resume, /now,
+// /uses.
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/ideas", label: "Ideas" },
-  { href: "/experience", label: "Experience" },
-  { href: "/coursework", label: "Coursework" },
-  { href: "/resume", label: "Resume" },
+  { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
-  { href: "/now", label: "Now" },
-  { href: "/uses", label: "Uses" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
+] as const;
+
+// Everything reachable from the footer "Also" column and from Cmd+K, but not
+// in the top nav — kept out of the primary scan.
+export const SECONDARY_LINKS = [
+  { href: "/resume", label: "Resume" },
+  { href: "/experience", label: "Experience" },
+  { href: "/coursework", label: "Coursework" },
+  { href: "/ideas", label: "Ideas" },
+  { href: "/now", label: "Now" },
+  { href: "/uses", label: "Uses" },
 ] as const;

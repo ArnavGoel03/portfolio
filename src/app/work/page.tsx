@@ -289,6 +289,35 @@ export default function Work() {
                   </Link>{" "}
                   shows the full UCSD transcript with grades.
                 </li>
+                <li>
+                  &mdash;{" "}
+                  <Link
+                    href="/resume"
+                    className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                  >
+                    Resume
+                  </Link>{" "}
+                  is the structured, printable version (also on{" "}
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                  >
+                    PDF
+                  </a>
+                  ).
+                </li>
+                <li>
+                  &mdash;{" "}
+                  <Link
+                    href="/experience"
+                    className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                  >
+                    Experience
+                  </Link>{" "}
+                  has the full role-by-role timeline.
+                </li>
               </ul>
             </div>
           </div>

@@ -119,15 +119,23 @@ export default function Blog() {
             Thoughts &{" "}
             <span className="heading-gradient text-glow">Builds</span>
           </h1>
-          <a
-            href="/feed.xml"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/10 hover:text-foreground"
-          >
-            <Rss size={12} />
-            RSS
-          </a>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link
+              href="/ideas"
+              className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/10 hover:text-foreground"
+            >
+              Ideas &amp; notes &rarr;
+            </Link>
+            <a
+              href="/feed.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/10 hover:text-foreground"
+            >
+              <Rss size={12} />
+              RSS
+            </a>
+          </div>
         </div>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           Writing about what I build, how I build it, and why it matters. Long
