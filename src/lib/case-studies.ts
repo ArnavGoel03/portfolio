@@ -263,11 +263,6 @@ export const caseStudies: CaseStudy[] = [
         href: "https://gondilalsaraf.com",
         kind: "demo",
       },
-      {
-        label: "Source on GitHub",
-        href: "https://github.com/ArnavGoel03/Gondilal",
-        kind: "github",
-      },
     ],
   },
   {
@@ -373,11 +368,6 @@ export const caseStudies: CaseStudy[] = [
         label: "Live at pcod-tracker.vercel.app",
         href: "https://pcod-tracker.vercel.app",
         kind: "demo",
-      },
-      {
-        label: "Source on GitHub",
-        href: "https://github.com/ArnavGoel03/pcod-tracker",
-        kind: "github",
       },
     ],
   },
