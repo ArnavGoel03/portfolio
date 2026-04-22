@@ -215,6 +215,7 @@ const staticProjects: Project[] = [
     demo: "",
     featured: false,
     date: "2022-01",
+    learning: true,
   },
   {
     id: "pet-classifier",
@@ -227,6 +228,7 @@ const staticProjects: Project[] = [
     demo: "",
     featured: false,
     date: "2022-01",
+    learning: true,
   },
 ];
 
@@ -348,15 +350,19 @@ export default async function Projects({
       : staticProjects;
 
   const inProgress = sortByRelevance(
-    merged.filter((p) => p.inProgress),
+    merged.filter((p) => p.inProgress && !p.learning),
     focus
   );
   const personal = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !p.team),
+    merged.filter((p) => !p.inProgress && !p.team && !p.learning),
     focus
   );
   const team = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !!p.team),
+    merged.filter((p) => !p.inProgress && !!p.team && !p.learning),
+    focus
+  );
+  const learning = sortByRelevance(
+    merged.filter((p) => p.learning),
     focus
   );
 
@@ -381,6 +387,7 @@ export default async function Projects({
         inProgress={inProgress}
         personal={personal}
         team={team}
+        learning={learning}
         focus={focus}
       />
     </>

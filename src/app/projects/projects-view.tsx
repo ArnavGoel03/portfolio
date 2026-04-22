@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import Section from "@/components/section";
 import ProjectCard from "@/components/project-card";
 import { Project } from "@/lib/types";
@@ -86,6 +87,7 @@ interface ProjectsViewProps {
   inProgress: Project[];
   personal: Project[];
   team: Project[];
+  learning: Project[];
   focus?: string;
 }
 
@@ -119,9 +121,11 @@ export default function ProjectsView({
   inProgress,
   personal,
   team,
+  learning,
   focus,
 }: ProjectsViewProps) {
   const [filter, setFilter] = useState<string>("All");
+  const [showLearning, setShowLearning] = useState(false);
 
   const sections: [SectionKey, Project[]][] = [
     ["inProgress", inProgress.filter((p) => matchesFilter(p, filter))],
@@ -129,7 +133,11 @@ export default function ProjectsView({
     ["team", team.filter((p) => matchesFilter(p, filter))],
   ];
 
-  const totalVisible = sections.reduce((acc, [, arr]) => acc + arr.length, 0);
+  const learningFiltered = learning.filter((p) => matchesFilter(p, filter));
+
+  const totalVisible =
+    sections.reduce((acc, [, arr]) => acc + arr.length, 0) +
+    learningFiltered.length;
 
   return (
     <>
@@ -180,12 +188,11 @@ export default function ProjectsView({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
-          {sections.map(([key, items], sectionIdx) => {
+          {sections.map(([key, items]) => {
             if (items.length === 0) return null;
             const meta = SECTION_META[key];
-            const isLast = sectionIdx === sections.length - 1;
             return (
-              <Section key={key} className={isLast ? "pt-4 pb-20" : "pt-4"}>
+              <Section key={key} className="pt-4">
                 <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
                   <div>
                     <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -211,6 +218,61 @@ export default function ProjectsView({
               </Section>
             );
           })}
+
+          {learningFiltered.length > 0 && (
+            <Section className="pt-8 pb-20">
+              <button
+                type="button"
+                onClick={() => setShowLearning((v) => !v)}
+                aria-expanded={showLearning}
+                aria-controls="learning-section"
+                className="group flex w-full items-center justify-between gap-4 rounded-2xl border border-foreground/10 bg-foreground/[0.02] px-6 py-5 text-left transition-colors hover:border-foreground/20 hover:bg-foreground/5"
+              >
+                <div>
+                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    Early Work
+                  </p>
+                  <p className="mt-1 font-serif text-lg font-semibold tracking-tight text-foreground/90">
+                    {showLearning ? "Hide" : "Show"} {learningFiltered.length} learning project
+                    {learningFiltered.length === 1 ? "" : "s"}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground/80">
+                    High-school-era CV/ML tutorials — kept for transparency, not for signal.
+                  </p>
+                </div>
+                <ChevronDown
+                  size={20}
+                  className={`flex-shrink-0 text-muted-foreground transition-transform duration-300 group-hover:text-foreground ${
+                    showLearning ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              <AnimatePresence initial={false}>
+                {showLearning && (
+                  <motion.div
+                    id="learning-section"
+                    key="learning-grid"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="grid gap-7 pt-8 md:grid-cols-2 lg:grid-cols-3">
+                      {learningFiltered.map((project, i) => (
+                        <ProjectCard
+                          key={project.id}
+                          project={project}
+                          index={i}
+                        />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </Section>
+          )}
 
           {totalVisible === 0 && (
             <Section className="pt-8 pb-20">

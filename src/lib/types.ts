@@ -9,6 +9,7 @@ export interface Project {
   featured: boolean;
   date: string;
   inProgress?: boolean;
+  learning?: boolean;
   team?: {
     size: number;
     members?: string[];
