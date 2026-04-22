@@ -7,6 +7,7 @@ import {
   Feather,
   Microscope,
   ExternalLink,
+  ChevronDown,
 } from "lucide-react";
 import Section from "@/components/section";
 import { Badge } from "@/components/ui/badge";
@@ -593,35 +594,48 @@ export default function Coursework() {
           {group.courses.length > 0 ? (
             <div className="grid gap-5 md:grid-cols-2">
               {group.courses.map((course) => (
-                <div
+                <details
                   key={course.code}
-                  className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm"
+                  className="group gradient-border glow-card overflow-hidden rounded-2xl bg-card backdrop-blur-sm"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <p className="font-mono text-xs font-medium uppercase tracking-widest text-foreground/80">
-                      {course.code}
-                    </p>
-                    <div className="flex items-center gap-2">
-                      {course.quarter && (
-                        <Badge
-                          variant="secondary"
-                          className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
-                        >
-                          {course.quarter}
-                        </Badge>
-                      )}
-                      <GradeBadge grade={course.grade} wip={course.wip} />
+                  <summary className="flex cursor-pointer list-none flex-col gap-3 p-6 transition-colors hover:bg-foreground/[0.02] [&::-webkit-details-marker]:hidden [&::marker]:hidden">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <p className="font-mono text-xs font-medium uppercase tracking-widest text-foreground/80">
+                        {course.code}
+                      </p>
+                      <div className="flex items-center gap-2">
+                        {course.quarter && (
+                          <Badge
+                            variant="secondary"
+                            className="border-foreground/10 bg-foreground/5 text-xs font-normal text-foreground/75"
+                          >
+                            {course.quarter}
+                          </Badge>
+                        )}
+                        <GradeBadge grade={course.grade} wip={course.wip} />
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="mt-3 font-serif text-lg font-semibold tracking-tight">
-                    {course.name}
-                  </h3>
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-serif text-lg font-semibold leading-snug tracking-tight">
+                        {course.name}
+                      </h3>
+                      {course.description && (
+                        <ChevronDown
+                          size={16}
+                          aria-hidden="true"
+                          className="mt-1 flex-shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180"
+                        />
+                      )}
+                    </div>
+                  </summary>
                   {course.description && (
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {course.description}
-                    </p>
+                    <div className="border-t border-foreground/5 px-6 py-5">
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {course.description}
+                      </p>
+                    </div>
                   )}
-                </div>
+                </details>
               ))}
             </div>
           ) : (

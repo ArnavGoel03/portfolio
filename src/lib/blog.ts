@@ -125,3 +125,16 @@ export function getAllPosts(): BlogPost[] {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
+
+export function getAdjacentPosts(slug: string): {
+  previous: BlogPost | null;
+  next: BlogPost | null;
+} {
+  const ordered = getAllPosts();
+  const idx = ordered.findIndex((p) => p.slug === slug);
+  if (idx === -1) return { previous: null, next: null };
+  return {
+    previous: idx < ordered.length - 1 ? ordered[idx + 1] : null,
+    next: idx > 0 ? ordered[idx - 1] : null,
+  };
+}
