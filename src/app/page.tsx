@@ -207,6 +207,16 @@ export default async function Home() {
               </p>
             </Link>
           </div>
+
+          <p className="mt-10 text-xs text-muted-foreground">
+            Building something of your own?{" "}
+            <Link
+              href="/ideas"
+              className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+            >
+              I&apos;m open to co-founding &rarr;
+            </Link>
+          </p>
         </div>
       </section>
 

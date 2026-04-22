@@ -2,7 +2,7 @@
 
 > Data Science student at UC San Diego, graduating June 2027 with a BS in Data Science and a minor in Entrepreneurship & Innovation. UC GPA 3.911, Major GPA 3.860, Minor GPA 3.950. Legal name: Arnav Goel. Alias: Yash Goel.
 
-Arnav Goel (legal name) is a senior in the Data Science major at UC San Diego, graduating June 2027. He works at the intersection of machine learning, shipping products, and running a century-old family jewelry business (Gondilal Saraf, founded 1873). Currently researching systematic strategies at Triton Quantitative Trading. Considering new-grad applied-scientist, machine-learning-engineer, data-scientist, and software-engineer roles starting summer 2027 onward.
+Arnav Goel (legal name) is a senior in the Data Science major at UC San Diego, graduating June 2027. He works at the intersection of machine learning, shipping products, and running a century-old family jewelry business (Gondilal Saraf, founded 1873). Currently researching systematic strategies at Triton Quantitative Trading. Considering new-grad applied-scientist, machine-learning-engineer, data-scientist, and software-engineer roles starting summer 2027 onward. Also open to co-founding: actively exploring ideas and willing to take a technical-founder seat on the right product with the right partner.
 
 Arnav also goes by the alias **Yash Goel** — it's the name on his email (yashgoel0304@gmail.com) and on some older university records. Both names refer to the same person.
 
@@ -11,7 +11,9 @@ Base location: San Diego, California. Origin: Delhi, India. International studen
 ## About
 
 - [About](https://arnavgoel.dev/about): Background, education history, honest three-tier Skills matrix (Proficient / Comfortable / Familiar), and links to writing and research.
-- [Work](https://arnavgoel.dev/work): What Arnav is looking for — target roles, timeline, location preferences, and how to reach him.
+- [Work](https://arnavgoel.dev/work): What Arnav is looking for — target new-grad roles, timeline, location preferences, and how to reach him.
+- [Ideas](https://arnavgoel.dev/ideas): Unbuilt concepts Arnav is exploring. The page doubles as a co-founder magnet — he is open to partnering on the right idea with the right collaborator.
+- [Resume](https://arnavgoel.dev/resume): HTML resume page with all experience, skills, coursework, and certifications. PDF mirror at /resume.pdf.
 - [Contact](https://arnavgoel.dev/contact): Direct contact methods.
 
 ## Projects
@@ -29,7 +31,7 @@ Base location: San Diego, California. Origin: Delhi, India. International studen
 - [Human Activity Recognition (CSE 158)](https://youtu.be/5Jzb_5LDcEg): Time-series classification from wearable-sensor data. Feature engineering across time and frequency domains.
 - [Handwritten Digits Classifier](https://github.com/ArnavGoel03/handwritten-digits-classifier): TensorFlow/Keras CNN on MNIST, about 99.2% test accuracy.
 - [Pet Classifier](https://github.com/ArnavGoel03/pet-classifier): MobileNetV2 transfer learning on the Oxford-IIIT Pet Dataset (37 breeds).
-- [Fair Ludo](https://arnavgoel.dev/projects): Provably-fair Ludo game in progress — server-authoritative rolls via commit-reveal, shared TypeScript game logic, Next.js web and React Native mobile.
+(Fair Ludo — consumer Ludo app with commit-reveal provably-fair dice — is pre-build and listed on [Ideas](https://arnavgoel.dev/ideas) as an open co-founding opportunity, not yet on the projects grid.)
 
 ## Experience
 

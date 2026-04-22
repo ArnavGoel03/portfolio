@@ -38,7 +38,7 @@ const CASE_STUDY_SLUGS = new Set([
 // Projects without enough shipped state or specificity to warrant a dedicated
 // detail page. For these, the card click still opens the quick-preview modal
 // but no "Details" link is shown.
-const NO_DETAIL_PAGE = new Set(["buzz", "fair-ludo", "cardranker"]);
+const NO_DETAIL_PAGE = new Set(["buzz", "cardranker"]);
 
 const projectIcons: Record<string, typeof AudioWaveform> = {
   vaani: AudioWaveform,
