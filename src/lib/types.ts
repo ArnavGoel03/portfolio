@@ -1,3 +1,9 @@
+export type TeamMember = string | { name: string; url: string };
+
+export function memberName(m: TeamMember): string {
+  return typeof m === "string" ? m : m.name;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -12,7 +18,7 @@ export interface Project {
   learning?: boolean;
   team?: {
     size: number;
-    members?: string[];
+    members?: TeamMember[];
   };
 }
 

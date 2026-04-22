@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
-import { Project } from "@/lib/types";
+import { Project, memberName } from "@/lib/types";
 
 const CASE_STUDY_SLUGS = new Set([
   "watch-together",
@@ -34,6 +34,11 @@ const CASE_STUDY_SLUGS = new Set([
   "pcod-tracker",
   "redbull-youtube-analytics",
 ]);
+
+// Projects without enough shipped state or specificity to warrant a dedicated
+// detail page. For these, the card click still opens the quick-preview modal
+// but no "Details" link is shown.
+const NO_DETAIL_PAGE = new Set(["buzz", "fair-ludo", "cardranker"]);
 
 const projectIcons: Record<string, typeof AudioWaveform> = {
   vaani: AudioWaveform,
@@ -152,7 +157,7 @@ function ProjectModal({
           {project.team && (
             <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
               {project.team.members && project.team.members.length > 0
-                ? `With: ${project.team.members.join(", ")}`
+                ? `With: ${project.team.members.map(memberName).join(", ")}`
                 : `Team project · ${project.team.size} members`}
             </p>
           )}
@@ -262,7 +267,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.team && (
               <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
                 {project.team.members && project.team.members.length > 0
-                  ? `With ${project.team.members.join(", ")}`
+                  ? `With ${project.team.members.map(memberName).join(", ")}`
                   : `Team of ${project.team.size}`}
               </p>
             )}
@@ -289,7 +294,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               )}
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-3" onClick={(e) => e.stopPropagation()}>
-              {CASE_STUDY_SLUGS.has(project.id) && (
+              {CASE_STUDY_SLUGS.has(project.id) ? (
                 <Link
                   href={`/projects/${project.id}`}
                   className="flex items-center gap-1.5 rounded-lg border border-foreground/15 bg-foreground/8 px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-foreground/30 hover:bg-foreground/10"
@@ -297,7 +302,15 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   <BookOpen size={13} />
                   Case study
                 </Link>
-              )}
+              ) : !NO_DETAIL_PAGE.has(project.id) ? (
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-foreground/5 px-3 py-1.5 text-xs font-medium text-foreground/75 transition-all hover:border-foreground/20 hover:bg-foreground/10 hover:text-foreground"
+                >
+                  <BookOpen size={13} />
+                  Details
+                </Link>
+              ) : null}
               {project.github && (
                 <a
                   href={project.github}

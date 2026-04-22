@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, PlayCircle, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Section from "@/components/section";
 import RedBullViz from "@/components/redbull-viz";
@@ -9,10 +9,21 @@ import {
   getCaseStudy,
   type CaseStudyLink,
 } from "@/lib/case-studies";
+import { staticProjects, getProjectById } from "@/lib/projects";
+import { memberName } from "@/lib/types";
+import type { Project } from "@/lib/types";
 import { SITE_URL } from "@/lib/constants";
 
+// Projects that intentionally don't get a detail page — card click still
+// opens the quick-preview modal, but /projects/<id> 404s for these.
+const NO_DETAIL_PAGE = new Set(["buzz", "fair-ludo", "cardranker"]);
+
 export async function generateStaticParams() {
-  return caseStudies.map((c) => ({ slug: c.slug }));
+  const caseSlugs = caseStudies.map((c) => c.slug);
+  const projectSlugs = staticProjects
+    .map((p) => p.id)
+    .filter((id) => !caseSlugs.includes(id) && !NO_DETAIL_PAGE.has(id));
+  return [...caseSlugs, ...projectSlugs].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -22,16 +33,33 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
-  if (!cs) return {};
-  return {
-    title: cs.title,
-    description: `${cs.oneLiner} — case study by Arnav Goel.`,
-    alternates: { canonical: `${SITE_URL}/projects/${cs.slug}` },
-    openGraph: {
-      title: `${cs.title} — Case Study`,
-      description: cs.oneLiner,
-    },
-  };
+  if (cs) {
+    return {
+      title: cs.title,
+      description: `${cs.oneLiner} — case study by Arnav Goel.`,
+      alternates: { canonical: `${SITE_URL}/projects/${cs.slug}` },
+      openGraph: {
+        title: `${cs.title} — Case Study`,
+        description: cs.oneLiner,
+      },
+    };
+  }
+  const proj = getProjectById(slug);
+  if (proj) {
+    const short = proj.description.length > 160
+      ? proj.description.slice(0, 157).trimEnd() + "..."
+      : proj.description;
+    return {
+      title: proj.title,
+      description: short,
+      alternates: { canonical: `${SITE_URL}/projects/${proj.id}` },
+      openGraph: {
+        title: `${proj.title} — Project`,
+        description: short,
+      },
+    };
+  }
+  return {};
 }
 
 function linkLabel(link: CaseStudyLink): string {
@@ -51,7 +79,12 @@ export default async function CaseStudyPage({
 }) {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
-  if (!cs) notFound();
+  if (!cs) {
+    if (NO_DETAIL_PAGE.has(slug)) notFound();
+    const proj = getProjectById(slug);
+    if (!proj) notFound();
+    return <ProjectProfile project={proj} />;
+  }
 
   return (
     <>
@@ -259,6 +292,180 @@ export default async function CaseStudyPage({
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="mt-16 border-t border-foreground/10 pt-10">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft size={14} />
+            Back to all projects
+          </Link>
+        </div>
+      </Section>
+    </>
+  );
+}
+
+function isYoutube(url: string): boolean {
+  return /youtu\.?be/.test(url);
+}
+
+function demoLabel(url: string): string {
+  if (isYoutube(url)) return "Watch video";
+  if (url.endsWith(".pdf")) return "Read report";
+  if (url.includes("chromewebstore")) return "Install extension";
+  return "Open live site";
+}
+
+function statusLabel(project: Project): string {
+  if (project.inProgress) return "In progress";
+  if (project.learning) return "Early learning project";
+  if (project.id === "vaani") return "Shelved · co-authored";
+  if (project.team) return "Team project";
+  return "Shipped";
+}
+
+function ProjectProfile({ project }: { project: Project }) {
+  const prettyDate = new Date(project.date + "-01").toLocaleDateString(
+    "en-US",
+    { month: "long", year: "numeric" }
+  );
+
+  return (
+    <>
+      <Section className="pt-36 pb-8">
+        <Link
+          href="/projects"
+          className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft size={14} />
+          All projects
+        </Link>
+
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          Project · {statusLabel(project)}
+        </p>
+        <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
+          {project.title}
+        </h1>
+
+        <div className="mt-8 grid max-w-2xl gap-6 sm:grid-cols-2">
+          <div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+              Date
+            </p>
+            <p className="mt-1.5 text-sm text-foreground/85">{prettyDate}</p>
+          </div>
+          {project.team && (
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                Team
+              </p>
+              <p className="mt-1.5 text-sm text-foreground/85">
+                {project.team.members && project.team.members.length > 0 ? (
+                  <>
+                    With{" "}
+                    {project.team.members.map((m, i) => {
+                      const isLast = i === project.team!.members!.length - 1;
+                      const sep = isLast ? "" : ", ";
+                      if (typeof m === "string") {
+                        return (
+                          <span key={i}>
+                            {m}
+                            {sep}
+                          </span>
+                        );
+                      }
+                      return (
+                        <a
+                          key={i}
+                          href={m.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                        >
+                          {m.name}
+                          {sep}
+                        </a>
+                      );
+                    })}
+                  </>
+                ) : (
+                  `Team of ${project.team.size}`
+                )}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {(project.github || project.demo) && (
+          <div className="mt-8 flex flex-wrap gap-3">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/8"
+              >
+                <FaGithub size={14} />
+                Source on GitHub
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-foreground/8"
+              >
+                {isYoutube(project.demo) ? (
+                  <PlayCircle size={14} />
+                ) : (
+                  <ExternalLink size={14} />
+                )}
+                {demoLabel(project.demo)}
+              </a>
+            )}
+          </div>
+        )}
+      </Section>
+
+      <Section className="pt-4">
+        <div className="grid gap-10 md:grid-cols-5 md:gap-14">
+          <div className="md:col-span-1">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              Overview
+            </p>
+          </div>
+          <div className="md:col-span-4">
+            <p className="text-[15px] leading-relaxed text-muted-foreground">
+              {project.description}
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="pt-4 pb-20">
+        <div className="grid gap-10 md:grid-cols-5 md:gap-14">
+          <div className="md:col-span-1">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              Stack
+            </p>
+          </div>
+          <div className="md:col-span-4">
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-xs text-foreground/85"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
