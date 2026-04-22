@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -52,15 +52,6 @@ export default function Navbar() {
                 <span className="relative z-10">{link.label}</span>
               </Link>
             ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-2 flex items-center gap-1.5 rounded-lg bg-foreground/5 border border-foreground/10 px-3 py-1.5 text-xs font-medium text-foreground/80 transition-all duration-300 hover:bg-foreground/8 hover:border-foreground/20 hover:shadow-[0_0_15px_rgba(167,139,250,0.15)]"
-            >
-              <FileText size={13} />
-              Resume
-            </a>
           </div>
 
           <button
@@ -94,15 +85,6 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-foreground/80"
-              >
-                <FileText size={15} />
-                Resume
-              </a>
             </div>
           </motion.div>
         )}

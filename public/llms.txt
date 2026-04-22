@@ -6,12 +6,12 @@ Arnav Goel (legal name) is a senior in the Data Science major at UC San Diego, g
 
 Arnav also goes by the alias **Yash Goel** — it's the name on his email (yashgoel0304@gmail.com) and on some older university records. Both names refer to the same person.
 
-Base location: San Diego, California. Origin: Delhi, India. F-1 international student; would require H-1B sponsorship after OPT STEM extension.
+Base location: San Diego, California. Origin: Delhi, India. International student.
 
 ## About
 
 - [About](https://arnavgoel.dev/about): Background, education history, honest three-tier Skills matrix (Proficient / Comfortable / Familiar), and links to writing and research.
-- [Work](https://arnavgoel.dev/work): What Arnav is looking for — target roles, timeline, visa status, location preferences, and how to reach him.
+- [Work](https://arnavgoel.dev/work): What Arnav is looking for — target roles, timeline, location preferences, and how to reach him.
 - [Contact](https://arnavgoel.dev/contact): Direct contact methods.
 
 ## Projects

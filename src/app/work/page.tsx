@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, CalendarClock, Mail, Download } from "lucide-react";
+import { ArrowUpRight, CalendarClock, Mail } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa";
 import Section from "@/components/section";
 import { FAQPageJsonLd } from "@/components/json-ld";
@@ -8,7 +8,7 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export const metadata = {
   title: "Work",
   description:
-    "Arnav Goel — graduating June 2027 from UC San Diego (BS Data Science). Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and SWE roles. Visa, timeline, and interests.",
+    "Arnav Goel — graduating June 2027 from UC San Diego (BS Data Science). Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and SWE roles. Roles, timeline, and interests.",
   openGraph: {
     title: "Work — Arnav Goel",
     description:
@@ -58,10 +58,8 @@ const facts: Fact[] = [
     detail: "Open to relocation for the right team.",
   },
   {
-    label: "Work Authorization",
-    value: "F-1 international student",
-    detail:
-      "F-1 OPT (with STEM extension) covers the first three years. Would need H-1B sponsorship thereafter.",
+    label: "Status",
+    value: "International student",
   },
   {
     label: "Currently",
@@ -76,11 +74,6 @@ const faqs = [
     question: "Is Arnav Goel available for hire?",
     answer:
       "Yes. Graduating June 2027 from UC San Diego with a BS in Data Science and a minor in Entrepreneurship & Innovation. Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and Software Engineer roles starting summer 2027 onward. Flexible on start date.",
-  },
-  {
-    question: "Does Arnav Goel need visa sponsorship?",
-    answer:
-      "Arnav is an F-1 international student from India. F-1 OPT with the STEM extension covers approximately the first three years of US employment. H-1B sponsorship would be required after that window.",
   },
   {
     question: "What is Arnav Goel's GPA?",
@@ -252,22 +245,6 @@ export default function Work() {
                   <span className="flex items-center gap-3 text-sm font-medium text-foreground">
                     <FaLinkedinIn size={14} className="text-muted-foreground" />
                     LinkedIn
-                  </span>
-                  <ArrowUpRight
-                    size={14}
-                    className="text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  />
-                </a>
-
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 transition-colors hover:border-foreground/20 hover:bg-foreground/8"
-                >
-                  <span className="flex items-center gap-3 text-sm font-medium text-foreground">
-                    <Download size={16} className="text-muted-foreground" />
-                    Download resume (PDF)
                   </span>
                   <ArrowUpRight
                     size={14}

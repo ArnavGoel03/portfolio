@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Download, Mail, MapPin, Globe } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import Section from "@/components/section";
-import PrintButton from "@/components/print-button";
 import { SOCIAL_LINKS, SITE_URL, EMAIL } from "@/lib/constants";
 
 export const metadata = {
@@ -275,7 +274,6 @@ export default function Resume() {
               <Download size={13} />
               PDF
             </a>
-            <PrintButton />
           </div>
         </div>
       </div>
@@ -412,10 +410,9 @@ export default function Resume() {
         <div className="border-t border-foreground/10 pt-6 pb-8 print:border-0">
           <p className="text-xs text-muted-foreground/70">
             Legal name: Arnav Goel. Also goes by alias Yash Goel (UCSD email:
-            yashgoel0304@gmail.com). F-1 international student; would require
-            H-1B sponsorship after OPT STEM extension. Considering new-grad
-            Applied Scientist / ML Engineer / Data Scientist / SWE roles for
-            summer 2027 onward.
+            yashgoel0304@gmail.com). International student. Considering
+            new-grad Applied Scientist / ML Engineer / Data Scientist / SWE
+            roles for summer 2027 onward.
           </p>
         </div>
       </Section>

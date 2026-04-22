@@ -61,7 +61,7 @@ const education = [
     period: "Sep 2022 — Jun 2027",
     grade: "3.911 (out of 4.0) · Major GPA 3.860 · Minor GPA 3.950",
     activities:
-      "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery. Two intentional gap quarters: Fall 2024 (full-time SWE internship at ADA, Bengaluru) and Spring 2026.",
+      "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery. Two gap quarters: Fall 2024 — took the term off to join ADA (Bengaluru) as an SWE intern after the team's work culture and the fit of their development org really resonated with me at the time. Spring 2026 — had to pause studies after my visa was stolen in San Francisco.",
     skills: ["Communication", "Coding Experience"],
   },
   {

@@ -55,11 +55,11 @@ const groups: Group[] = [
     courses: [
       {
         code: "CSE 150A",
-        name: "AI: Probabilistic Models",
+        name: "AI: Probabilistic Reasoning & Decision-Making",
         quarter: "Winter 2026",
         grade: "A",
         description:
-          "Bayesian networks, hidden Markov models, and reinforcement-learning foundations.",
+          "Introduction to probabilistic models at the heart of modern AI. Probabilistic methods for reasoning and decision-making under uncertainty, inference and learning in Bayesian networks, prediction and planning in Markov decision processes, applications to intelligent systems.",
       },
       {
         code: "CSE 151A",
@@ -67,7 +67,7 @@ const groups: Group[] = [
         quarter: "Spring 2025",
         grade: "B+",
         description:
-          "Supervised and unsupervised learning algorithms from the ground up.",
+          "Broad introduction to machine learning. Supervised learning — k-nearest-neighbor classifiers, decision trees, boosting, perceptrons — and unsupervised learning such as k-means and hierarchical clustering.",
       },
       {
         code: "CSE 151B",
@@ -75,7 +75,7 @@ const groups: Group[] = [
         quarter: "Summer 2026",
         wip: true,
         description:
-          "Neural-network architectures, optimisation, and modern deep-learning practice.",
+          "Fundamentals of deep neural networks: linear regression, multi-layer perceptrons, backpropagation, and automatic differentiation. Convolutional neural networks, recurrent neural networks, and transformers.",
       },
       {
         code: "CSE 158R",
@@ -83,7 +83,7 @@ const groups: Group[] = [
         quarter: "Fall 2025",
         grade: "B+",
         description:
-          "Large-scale recommendation, text mining, and graph-based ML methods.",
+          "Current methods for data mining and predictive analytics. Emphasis on studying real-world data sets, building working systems, and putting current ideas from machine-learning research into practice.",
       },
       {
         code: "LIGN 167",
@@ -91,7 +91,7 @@ const groups: Group[] = [
         quarter: "Fall 2025",
         grade: "A",
         description:
-          "Neural language models, attention, and modern NLP pipelines.",
+          "Introduction to neural-network methods for analyzing linguistic data. Basic architectures and optimization via backpropagation and stochastic gradient descent. Word vectors and recurrent neural networks, and their uses and limitations in modeling the structure of natural language.",
       },
     ],
   },
@@ -108,15 +108,15 @@ const groups: Group[] = [
         quarter: "Winter 2024",
         grade: "A",
         description:
-          "Python, Pandas, probability, hypothesis testing, and prediction.",
+          "First course in data science. Data exploration, statistical inference, and prediction, using the Python programming language for tabular data manipulation, visualization, and simulation. Homework and projects on real-world datasets across a variety of domains.",
       },
       {
         code: "DSC 20",
-        name: "Programming & Data Structures for Data Science",
+        name: "Programming & Basic Data Structures for Data Science",
         quarter: "Spring 2024",
         grade: "A",
         description:
-          "Object-oriented programming, recursion, and core structures applied to data problems.",
+          "The structures underlying the programs, algorithms, and languages used in data science. Taught in Python: recursion, higher-order functions, function composition, object-oriented programming, interpreters, classes, and simple data structures such as arrays, lists, and linked lists.",
       },
       {
         code: "DSC 30",
@@ -124,7 +124,7 @@ const groups: Group[] = [
         quarter: "Summer 2025",
         grade: "A+",
         description:
-          "Performance-oriented data structures and algorithms for scale.",
+          "Practical experience composing larger computational systems through several programming projects in Java. Encapsulation, abstract data types, interfaces, algorithms and complexity, and data structures including stacks, queues, priority queues, heaps, linked lists, binary trees, BSTs, and hash tables.",
       },
       {
         code: "DSC 40A",
@@ -132,7 +132,7 @@ const groups: Group[] = [
         quarter: "Spring 2025",
         grade: "B",
         description:
-          "Loss functions, gradient methods, and the mathematics of model fitting.",
+          "First of the theoretical-foundations sequence. Mathematical theory underlying fundamental topics in machine learning: empirical risk minimization, optimization, regression, classification, and discrete probability.",
       },
       {
         code: "DSC 40B",
@@ -140,15 +140,15 @@ const groups: Group[] = [
         quarter: "Fall 2025",
         grade: "A",
         description:
-          "Graph algorithms, computational complexity, and theoretical ML.",
+          "Second of the theoretical-foundations sequence. Fundamentals of computer science with applications to data science: time-complexity analysis, analysis of recursive algorithms, graph theory, and graph-search algorithms.",
       },
       {
         code: "DSC 80",
-        name: "The Practice of Data Science",
+        name: "The Practice & Application of Data Science",
         quarter: "Fall 2025",
         grade: "A",
         description:
-          "End-to-end: scraping, cleaning, missingness reasoning, modelling, and communication.",
+          "Bridges lower- and upper-division data science. Students master the data-science life-cycle and the fundamental principles and techniques spanning algorithms, statistics, machine learning, visualization, and data systems.",
       },
       {
         code: "DSC 100",
@@ -156,19 +156,23 @@ const groups: Group[] = [
         quarter: "Winter 2026",
         grade: "A+",
         description:
-          "Relational algebra, SQL at scale, and storage-layer design.",
+          "Storage and management of large-scale data using classical relational (SQL) systems, with an eye toward applications in data science. SQL data model and query language, relational data modeling and schema design, cost-based query optimization, relational-database architecture, and database-backed applications.",
       },
       {
         code: "DSC 190",
         name: "Topics in Data Science",
         quarter: "Winter 2026",
         grade: "A",
+        description:
+          "Topics of special interest in data science. Content varies from quarter to quarter.",
       },
       {
         code: "COGS 9",
         name: "Introduction to Data Science",
         quarter: "Spring 2025",
         grade: "A+",
+        description:
+          "Concepts of data and its role in science, and the ideas behind data-mining, text-mining, machine learning, and graph theory — and how scientists and companies are leveraging those methods to uncover new insights into human cognition.",
       },
       {
         code: "COGS 108",
@@ -176,7 +180,7 @@ const groups: Group[] = [
         quarter: "Winter 2026",
         grade: "A+",
         description:
-          "Team project — ethics, data, EDA, and modelling through a reproducible notebook.",
+          "Data science is multidisciplinary — computer science, statistics, cognitive science and psychology, data visualization, AI, and machine learning. The course teaches critical skills needed to pursue a data-science career using hands-on programming and experimental challenges.",
       },
     ],
   },
@@ -193,31 +197,39 @@ const groups: Group[] = [
         quarter: "Fall 2022",
         grade: "A+",
         description:
-          "Vector spaces, linear maps, eigenvalues, and matrix decompositions.",
+          "Matrix algebra, Gaussian elimination, determinants. Linear and affine subspaces, bases of Euclidean spaces. Eigenvalues and eigenvectors, quadratic forms, orthogonal matrices, diagonalization of symmetric matrices. Applications. Symbolic and graphical solutions using MATLAB.",
       },
       {
         code: "MATH 20A",
-        name: "Calculus I — Science & Engineering",
+        name: "Calculus for Science & Engineering",
         quarter: "Fall 2022",
         grade: "A+",
+        description:
+          "Foundations of differential and integral calculus of one variable. Functions, graphs, continuity, limits, derivative, tangent line. Applications with algebraic, exponential, logarithmic, and trigonometric functions. Introduction to the integral.",
       },
       {
         code: "MATH 20B",
-        name: "Calculus II — Science & Engineering",
+        name: "Calculus for Science & Engineering",
         quarter: "Spring 2023",
         grade: "A+",
+        description:
+          "Integral calculus of one variable and its applications, with exponential, logarithmic, hyperbolic, and trigonometric functions. Methods of integration. Infinite series. Polar coordinates in the plane and complex exponentials.",
       },
       {
         code: "MATH 20C",
-        name: "Calculus III — Multivariable",
+        name: "Calculus & Analytic Geometry for Science & Engineering",
         quarter: "Fall 2023",
         grade: "A",
+        description:
+          "Vector geometry, vector functions and their derivatives. Partial differentiation. Maxima and minima. Double integration.",
       },
       {
         code: "MATH 20D",
         name: "Introduction to Differential Equations",
         quarter: "Winter 2024",
         grade: "A",
+        description:
+          "Ordinary differential equations: exact, separable, and linear; constant coefficients, undetermined coefficients, variation of parameters. Systems. Series solutions. Laplace transforms. Techniques for engineering sciences.",
       },
       {
         code: "MATH 109",
@@ -225,7 +237,7 @@ const groups: Group[] = [
         quarter: "Winter 2025",
         grade: "A",
         description:
-          "Proof techniques, logical structure, and foundations of rigorous mathematics.",
+          "A variety of topics in mathematics used to introduce rigorous mathematical proof, emphasizing quantifiers, induction, negation, proof by contradiction, naive set theory, equivalence relations, and epsilon-delta proofs.",
       },
       {
         code: "MATH 183",
@@ -233,15 +245,15 @@ const groups: Group[] = [
         quarter: "Winter 2024",
         grade: "A+",
         description:
-          "Probability, estimation, hypothesis testing, and regression.",
+          "Introduction to probability. Discrete and continuous random variables — binomial, Poisson, and Gaussian distributions. Central limit theorem. Data analysis and inferential statistics: graphical techniques, confidence intervals, hypothesis tests, curve fitting.",
       },
       {
         code: "MATH 189",
-        name: "Data Analysis and Inference",
+        name: "Exploratory Data Analysis & Inference",
         quarter: "Summer 2025",
         grade: "A",
         description:
-          "Applied statistical inference and experimental design for data-science problems.",
+          "Quantitative methods and statistical techniques for analyzing data — in particular big data. Quick review of probability, then how to process, analyze, and visualize data using the statistical language R.",
       },
     ],
   },
@@ -257,12 +269,16 @@ const groups: Group[] = [
         name: "Accelerated Introduction to Programming",
         quarter: "Fall 2022",
         grade: "A",
+        description:
+          "Accelerated introductory programming with an object-oriented approach. Variables, conditionals, loops, functions, structured data storage, and mutation in Java; class design, interfaces, basic class hierarchies, recursion, event-based programming, and file I/O. Basics of command-line navigation for file management and running programs.",
       },
       {
         code: "CSE 12",
         name: "Basic Data Structures & Object-Oriented Design",
         quarter: "Winter 2023",
         grade: "Pass",
+        description:
+          "Use and implementation of basic data structures including linked lists, stacks, and queues, and of advanced structures such as binary trees and hash tables. Object-oriented design including interfaces, polymorphism, encapsulation, abstract data types, pre-/post-conditions, and recursion. Java and Java Collections.",
       },
       {
         code: "CSE 15L",
@@ -270,13 +286,15 @@ const groups: Group[] = [
         quarter: "Winter 2023",
         grade: "A",
         description:
-          "Unix, Git, debugging, and testing — the toolchain of real software.",
+          "Hands-on exploration of software-development tools and techniques. Investigation of the scientific process as applied to software development and debugging, with weekly hands-on laboratory experiences and development of laboratory-notebooking techniques as applied to software design.",
       },
       {
         code: "CSE 20",
         name: "Discrete Mathematics",
         quarter: "Fall 2023",
         grade: "A",
+        description:
+          "Introduces the ways logic is used in computer science — for reasoning, as a language for specifications, and as operations in computation. Sets, relations, functions, equivalence relations, partial orders, number systems, and proof methods (especially induction and recursion).",
       },
     ],
   },
@@ -292,24 +310,32 @@ const groups: Group[] = [
         name: "Personal Ethics at Work",
         quarter: "Winter 2025",
         grade: "Pass",
+        description:
+          "Examines the ethical foundation for choices individuals make every day both in the workplace and in their private lives — the connection between economic and ethical obligations, with examples related to privacy, reporting, whistle-blowing, workplace relationships, confidentiality, and intellectual property.",
       },
       {
         code: "MGT 103",
         name: "Product Marketing & Management",
         quarter: "Winter 2025",
         grade: "A",
+        description:
+          "Defining markets for products and services, segmenting those markets, and targeting critical customers within segments. Strategies to position products and services within segments. The critical role of pricing, as well as market research, product management, promotion, selling, and customer support.",
       },
       {
         code: "MGT 121A",
         name: "Innovation to Market A",
         quarter: "Winter 2025",
         grade: "A−",
+        description:
+          "Consider new project concepts. Discern market needs, competitive environment, and determine 'go-to-market' strategy. Research potential markets, customers, partners, and competitors. Consider price versus attributes and alternative distribution channels. Examine the need and structure of a start-up team.",
       },
       {
         code: "MGT 121B",
         name: "Innovation to Market B",
         quarter: "Spring 2025",
         grade: "A+",
+        description:
+          "Build a business plan. Establish intellectual-property rights. Provide financial projections and determine financing needs. Explore investment sourcing, business valuation, and harvesting opportunities. Determine operational plans and key employee requirements.",
       },
       {
         code: "MGT 127R",
@@ -317,19 +343,23 @@ const groups: Group[] = [
         quarter: "Winter 2026",
         grade: "A",
         description:
-          "S-curve framework, innovator's dilemma, and disruptive-technology case studies (ARK Invest, Anduril).",
+          "Focusing on how AI will redefine businesses in the digital age, studies the fundamental topics of innovation driven by the AI+X revolution, disruptive technologies, and digital transformation.",
       },
       {
         code: "MGT 175",
         name: "Supply Chain Management",
         quarter: "Spring 2025",
         grade: "A+",
+        description:
+          "Supply-chain management involves the flows of materials and information that contribute value to a product, from the source of raw materials to end customers. Explains how supply chains work and describes the major challenges in managing an efficient supply chain.",
       },
       {
         code: "MGT 187",
         name: "New Venture Finance",
         quarter: "Winter 2025",
         grade: "A",
+        description:
+          "Taking a global perspective, examines how innovation is funded and the financial tools necessary over the life cycle of a new venture — development, growth, maturity, and exit.",
       },
     ],
   },
@@ -342,35 +372,43 @@ const groups: Group[] = [
     courses: [
       {
         code: "AWP 4A",
-        name: "Analytical Writing A",
+        name: "Analytical Writing & Academic English A",
         quarter: "Winter 2023",
         grade: "Pass",
+        description:
+          "First of a two-quarter sequence designed to offer students who need extra English-language support and/or more time to develop their critical-thinking and writing abilities.",
       },
       {
         code: "AWP 4B",
-        name: "Analytical Writing B",
+        name: "Analytical Writing & Academic English B",
         quarter: "Spring 2023",
         grade: "B+",
+        description:
+          "Second of the AWP 4A/4B sequence. Continuing English-language support and critical-thinking / writing development; a grade of C or better satisfies the UC Entry Level Writing Requirement.",
       },
       {
         code: "SYN 1",
-        name: "Synthesis I — Communicating / Changing Planet",
+        name: "Communicating for a Changing Planet",
         quarter: "Spring 2024",
         grade: "A",
+        description:
+          "Critically examines, through an interdisciplinary and antiracist lens, how we communicate about the climate crisis and how to encourage action. Students develop awareness of messaging and rhetorical context through assignments and activities.",
       },
       {
         code: "SYN 2",
-        name: "Synthesis II — Inquiring / Changing Planet",
+        name: "Inquiring about a Changing Planet",
         quarter: "Summer 2024",
         grade: "A",
-        description: "Taken remotely.",
+        description:
+          "Builds on the skills developed in Synthesis 1. Students learn connections between climate change and racial justice, conduct group research on climate aspects, and receive an introduction to project design and proposal drafting.",
       },
       {
         code: "SYN 100",
-        name: "Synthesis III — Engaging / Changing Planet",
+        name: "Engaging with a Changing Planet",
         quarter: "Summer 2026",
         wip: true,
-        description: "Upper-division project-based capstone.",
+        description:
+          "Project-based course that builds upon foundational skills by taking a collaborative, interdisciplinary approach to complex global problems. Each section explores different climate-related themes through team project design and execution.",
       },
     ],
     artifacts: [
@@ -392,49 +430,64 @@ const groups: Group[] = [
         name: "Principles of Microeconomics",
         quarter: "Spring 2023",
         grade: "A+",
+        description:
+          "Introduction to the study of the economic system. The standard economic models used to examine how individuals and firms make decisions in perfectly competitive markets, and how those decisions affect supply and demand in output markets.",
       },
       {
         code: "ECON 3",
         name: "Principles of Macroeconomics",
         quarter: "Winter 2024",
         grade: "A+",
+        description:
+          "Introductory macroeconomics: unemployment, inflation, business cycles, monetary and fiscal policy.",
       },
       {
         code: "CHEM 4",
         name: "Chemical Thinking",
         quarter: "Fall 2022",
         grade: "A",
+        description:
+          "One-quarter preparatory chemistry course intended for students continuing on to general chemistry. Focuses on the development and analysis of submicroscopic models of matter and structure-property relationships to explain, predict, and control chemical behavior.",
       },
       {
         code: "CHEM 6A",
         name: "General Chemistry I",
         quarter: "Winter 2023",
         grade: "A",
+        description:
+          "First quarter of a three-quarter sequence for science and engineering majors. Atomic theory, bonding, molecular geometry, stoichiometry, and types of reactions.",
       },
       {
         code: "CHEM 6B",
         name: "General Chemistry II",
         quarter: "Spring 2023",
         grade: "Pass",
+        description:
+          "Second quarter of the science-and-engineering general-chemistry sequence. Gases, liquids, and solids; thermochemistry and thermodynamics; physical and chemical equilibria; solubility.",
       },
       {
         code: "LIGN 17",
         name: "Making and Breaking Codes",
         quarter: "Spring 2024",
         grade: "A",
-        description: "Cryptography and the history of coded communication.",
+        description:
+          "A rigorous analysis of symbolic systems and their interpretations. Students learn to encode and decode information using progressively more sophisticated methods — ancient and modern phonetic writing systems, hieroglyphics, computer languages, and ciphers.",
       },
       {
         code: "MUS 17",
         name: "Hip-Hop",
         quarter: "Spring 2024",
         grade: "Pass",
+        description:
+          "Broad chronological overview of the development of hip-hop as a musical form from the late 1970s through today. Examines the style in relation to direct context and to earlier African American musical and cultural forms, and considers the technological and legal issues that have impacted its development.",
       },
       {
         code: "TDAC 1",
         name: "Introduction to Acting",
         quarter: "Summer 2026",
         wip: true,
+        description:
+          "Beginning course in the fundamentals of acting: establishing a working vocabulary and acquiring the basic skills of the acting process. Through exercises, compositions, and improvisations, the student actor explores the imagination as the actor's primary resource and the basic approach to text through action.",
       },
     ],
   },
