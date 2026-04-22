@@ -105,17 +105,17 @@ export default async function Home() {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-20 md:pb-20">
         <HeroNodes />
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-          <p className="font-mono text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="font-mono text-[9px] font-medium uppercase tracking-[0.24em] text-muted-foreground sm:text-[10px] sm:tracking-[0.3em]">
             Arnav Goel &middot; Data Science &middot; UC San Diego &middot; Jun 2027
           </p>
 
-          <h1 className="mt-6 font-serif text-[2.75rem] font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
+          <h1 className="mt-5 font-serif text-[2rem] font-semibold leading-[1.08] tracking-tight text-foreground sm:text-[2.5rem] md:text-6xl md:leading-[1.05]">
             <SplitText
               text="Data science that ships."
               delay={0.15}
@@ -123,7 +123,7 @@ export default async function Home() {
             />
           </h1>
 
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-[1.7] text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-[1.65] text-muted-foreground md:mt-7 md:text-lg md:leading-[1.7]">
             <SplitText
               text="A Chrome Web Store extension used by real people every week. The full-stack platform behind my family's 150-year jewelry business. AI-powered health tools in production. I build ML and full-stack systems that land in the hands of actual users — not README demos — while finishing a BS in Data Science at UCSD."
               delay={0.7}

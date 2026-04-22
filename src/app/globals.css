@@ -129,9 +129,16 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent iOS rubber-band overscroll from revealing content above the
+       fixed navbar on /. Content simply stops at the bounds. */
+    overscroll-behavior-y: none;
   }
   html {
     @apply scroll-smooth;
+    /* Keep the page background consistent during rubber-band on iOS — no
+       flash of white above the fixed nav. */
+    background-color: var(--background);
+    overscroll-behavior-y: none;
   }
   ::selection {
     background: rgba(212, 169, 106, 0.25);
