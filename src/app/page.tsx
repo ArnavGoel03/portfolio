@@ -5,6 +5,7 @@ import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
 import HeroNodes from "@/components/hero-nodes";
 import SplitText from "@/components/split-text";
+import KineticHeading from "@/components/kinetic-heading";
 import Magnetic from "@/components/magnetic";
 import FocusParagraph from "@/components/focus-paragraph";
 import { getFeaturedProjects } from "@/lib/notion";
@@ -105,30 +106,36 @@ export default async function Home() {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-20 md:pb-20">
+      <section className="relative min-h-screen flex items-start md:items-center justify-center overflow-hidden pt-28 pb-16 md:pt-20 md:pb-20">
         <HeroNodes />
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
           <p className="font-mono text-[9px] font-medium uppercase tracking-[0.24em] text-muted-foreground sm:text-[10px] sm:tracking-[0.3em]">
-            Arnav Goel &middot; Data Science &middot; UC San Diego &middot; Jun 2027
+            Data Science &middot; UC San Diego &middot; Jun 2027
           </p>
 
-          <h1 className="mt-5 font-serif text-[2rem] font-semibold leading-[1.08] tracking-tight text-foreground sm:text-[2.5rem] md:text-6xl md:leading-[1.05]">
-            <SplitText
-              text="Data science that ships."
-              delay={0.15}
-              stagger={0.045}
-            />
+          <h1 className="mt-6 font-serif text-[3rem] font-semibold leading-[0.98] tracking-[-0.02em] text-foreground sm:text-[4.25rem] md:text-[6.5rem] md:leading-[0.96]">
+            <KineticHeading text="Arnav Goel" />
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-[1.65] text-muted-foreground md:mt-7 md:text-lg md:leading-[1.7]">
+          <p className="mt-5 font-serif text-lg font-normal tracking-tight text-foreground/70 md:mt-6 md:text-xl">
+            <SplitText
+              text="I build data science that ships."
+              delay={1.1}
+              duration={0.6}
+              stagger={0.03}
+              mode="words"
+            />
+          </p>
+
+          <p className="mx-auto mt-7 max-w-2xl text-[15px] leading-[1.65] text-muted-foreground md:mt-8 md:text-base md:leading-[1.7]">
             <SplitText
               text="A Chrome Web Store extension used by real people every week. The full-stack platform behind my family's 150-year jewelry business. AI-powered health tools in production. I build ML and full-stack systems that land in the hands of actual users — not README demos — while finishing a BS in Data Science at UCSD."
-              delay={0.7}
+              delay={1.7}
               duration={0.5}
-              stagger={0.006}
+              stagger={0.004}
               mode="chars"
             />
           </p>

@@ -1,8 +1,16 @@
 import Section from "@/components/section";
 import ProjectsView from "./projects-view";
+import PinnedFlagships from "@/components/pinned-flagships";
 import { getProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
 import { staticProjects } from "@/lib/projects";
+
+const FLAGSHIP_ORDER = [
+  "watch-together",
+  "gondilal-saraf",
+  "pcod-tracker",
+  "redbull-youtube-analytics",
+];
 
 export const revalidate = 3600;
 
@@ -152,6 +160,13 @@ export default async function Projects({
     focus
   );
 
+  const flagshipMap = new Map(
+    merged.filter((p) => p.featured).map((p) => [p.id, p])
+  );
+  const flagships = FLAGSHIP_ORDER.map((id) => flagshipMap.get(id)).filter(
+    (p): p is Project => Boolean(p)
+  );
+
   return (
     <>
       <Section className="pt-36 pb-6">
@@ -168,6 +183,8 @@ export default async function Projects({
           with named teammates. Click a tag to filter.
         </p>
       </Section>
+
+      <PinnedFlagships projects={flagships} />
 
       <ProjectsView
         inProgress={inProgress}
