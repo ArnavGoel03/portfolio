@@ -5,13 +5,13 @@ import { Lightbulb, ArrowUpRight, Mail, CalendarClock } from "lucide-react";
 import { EMAIL } from "@/lib/constants";
 
 export const metadata = {
-  title: "Ideas — Open to Co-Founding",
+  title: "Ideas: Open to Co-Founding",
   description:
     "Unbuilt ideas Arnav Goel is exploring, and an open invitation to co-found. Technical-founder profile, what a good partner looks like, and how to reach out.",
   openGraph: {
-    title: "Ideas & Co-Founder Call — Arnav Goel",
+    title: "Ideas & Co-Founder Call: Arnav Goel",
     description:
-      "Things I'm exploring — and the kind of partner I'd build them with.",
+      "Things I'm exploring, and the kind of partner I'd build them with.",
   },
 };
 
@@ -45,22 +45,22 @@ const statusTone: Record<IdeaStatus, string> = {
 const ideas: Idea[] = [
   {
     id: "fair-ludo",
-    title: "Fair Ludo — Provably Fair Dice Game",
+    title: "Fair Ludo: Provably Fair Dice Game",
     oneLiner:
       "A consumer Ludo app where the dice are provably un-riggable.",
     description:
-      "Ludo at scale on every Indian platform is infamously rigged — operators tune dice to keep losing players hooked and new players lucky. I want to build the opposite: a consumer-grade Ludo app (web + iOS + Android) where every roll is server-authoritative under a commit-reveal scheme. The server publishes a hashed seed before each game and reveals it after, so any player can replay and mathematically verify every roll in the match. Core RNG + game logic open-sourced so the fairness claim is independently auditable. Planned stack: Next.js for web, React Native / Expo for mobile, shared TypeScript game engine, Node + WebSockets backend, Postgres for accounts and match history. Big-app ambition — real-money tournaments, matchmaking, replay sharing, social. Still pre-build; the technical design is the easy part, the consumer-growth motion is where a co-founder changes everything.",
+      "Ludo at scale on every Indian platform is infamously rigged, operators tune dice to keep losing players hooked and new players lucky. I want to build the opposite: a consumer-grade Ludo app (web + iOS + Android) where every roll is server-authoritative under a commit-reveal scheme. The server publishes a hashed seed before each game and reveals it after, so any player can replay and mathematically verify every roll in the match. Core RNG + game logic open-sourced so the fairness claim is independently auditable. Planned stack: Next.js for web, React Native / Expo for mobile, shared TypeScript game engine, Node + WebSockets backend, Postgres for accounts and match history. Big-app ambition, real-money tournaments, matchmaking, replay sharing, social. Still pre-build; the technical design is the easy part, the consumer-growth motion is where a co-founder changes everything.",
     tags: ["Consumer App", "Provably Fair", "React Native", "Expo", "WebSockets", "Commit-Reveal"],
     status: "concept",
     cofounderNote:
-      "Looking for a co-founder on this one — consumer-growth / marketing / Indian-gaming-market partner who can match the build pace.",
+      "Looking for a co-founder on this one, consumer-growth / marketing / Indian-gaming-market partner who can match the build pace.",
   },
   {
     id: "style-it",
-    title: "Style It — AI Wardrobe Assistant",
+    title: "Style It: AI Wardrobe Assistant",
     oneLiner: "A digital wardrobe that actually helps you dress.",
     description:
-      "A software tool that maintains a digital wardrobe — each garment tagged with fabric, colour, care instructions, and photos of both the garment and the user wearing it. The goal is to solve the everyday 'I don't know what to wear' dilemma, reduce impulse purchases, and help people actually use the clothes they already own. Long-term hooks: weekly outfit planning that load-balances across fabric and colour to prolong garment life, a digital try-on loop, crowdsourced garment ideas with royalties for creators whose designs get produced, and affiliate-style recommendations. Spiritual successor to the earlier Style It experiment from high school — same problem, bigger frame.",
+      "A software tool that maintains a digital wardrobe, each garment tagged with fabric, colour, care instructions, and photos of both the garment and the user wearing it. The goal is to solve the everyday 'I don't know what to wear' dilemma, reduce impulse purchases, and help people actually use the clothes they already own. Long-term hooks: weekly outfit planning that load-balances across fabric and colour to prolong garment life, a digital try-on loop, crowdsourced garment ideas with royalties for creators whose designs get produced, and affiliate-style recommendations. Spiritual successor to the earlier Style It experiment from high school, same problem, bigger frame.",
     tags: ["AI", "Fashion Tech", "Recommendation Systems", "Computer Vision"],
     status: "exploring",
   },
@@ -133,7 +133,7 @@ function CofounderPanel() {
       </h2>
       <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
         Some of the ideas below I&apos;d build as solo projects. Others I
-        won&apos;t — because the fun part isn&apos;t the engineering, it&apos;s
+        won&apos;t, because the fun part isn&apos;t the engineering, it&apos;s
         the users, the commercial motion, and the taste that only a partner
         brings. If you&apos;re already working on something and need a
         technical founder who can ship a full product end-to-end, or you have
@@ -159,7 +159,7 @@ function CofounderPanel() {
                 Commercial judgment from a real business.
               </span>{" "}
               I run the full-stack platform for my family&apos;s 150-year
-              jewelry business — real customers, real P&amp;L, real inventory,
+              jewelry business, real customers, real P&amp;L, real inventory,
               real complaints.
             </li>
             <li>
@@ -197,7 +197,7 @@ function CofounderPanel() {
               <span className="text-foreground font-medium">
                 You cover the muscle I don&apos;t.
               </span>{" "}
-              Distribution, sales, design, a specific-domain wedge — the parts
+              Distribution, sales, design, a specific-domain wedge, the parts
               where &ldquo;just ship it&rdquo; isn&apos;t the bottleneck.
             </li>
             <li>
@@ -256,7 +256,7 @@ export default function Ideas() {
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           Concepts I&apos;m turning over. Some I&apos;ll take solo all the way
-          to launch. Others I won&apos;t — because the right partner changes
+          to launch. Others I won&apos;t, because the right partner changes
           the product more than another commit would. The door&apos;s open if
           you&apos;re one of them.
         </p>
@@ -284,7 +284,7 @@ export default function Ideas() {
           </p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-foreground/85">
             Have an idea that isn&apos;t on this page? Even better. The ones
-            listed are mine — the ones you bring are yours. If you have
+            listed are mine, the ones you bring are yours. If you have
             concrete users in mind and a problem worth building against, send
             me the sharpest version of your pitch and we&apos;ll take a day to
             talk it through.

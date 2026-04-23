@@ -161,7 +161,7 @@ export default function RedBullViz() {
         </p>
       </div>
 
-      {/* Sentiment by video — small multiples */}
+      {/* Sentiment by video, small multiples */}
       <div>
         <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Sentiment by video
@@ -212,7 +212,7 @@ export default function RedBullViz() {
         </div>
       </div>
 
-      {/* Top keywords — horizontal bar chart */}
+      {/* Top keywords, horizontal bar chart */}
       <div>
         <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Top organic keywords

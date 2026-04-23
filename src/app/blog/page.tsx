@@ -8,9 +8,9 @@ import type { BlogPost } from "@/lib/types";
 export const metadata = {
   title: "Blog",
   description:
-    "Technical writing by Arnav Goel — building full-stack platforms, AI-powered health tools, and bridging Data Science with Entrepreneurship.",
+    "Technical writing by Arnav Goel, building full-stack platforms, AI-powered health tools, and bridging Data Science with Entrepreneurship.",
   openGraph: {
-    title: "Blog — Arnav Goel",
+    title: "Blog: Arnav Goel",
     description:
       "Technical writing on ML, full-stack development, and entrepreneurship.",
   },

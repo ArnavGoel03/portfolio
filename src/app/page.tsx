@@ -16,7 +16,7 @@ export const revalidate = 3600;
 const staticFeatured: Project[] = [
   {
     id: "buzz",
-    title: "Buzz — College Event Discovery",
+    title: "Buzz: College Event Discovery",
     description:
       "Native iOS + macOS event app for US college students, launching at UCSD. Multiplatform SwiftUI (no Catalyst), Supabase with PostGIS + RLS, Stripe Connect ticketing, App Clip, ARKit 'Look Around', and a Next.js 16 PWA mirror.",
     tags: ["SwiftUI", "Swift 6", "Supabase"],
@@ -28,7 +28,7 @@ const staticFeatured: Project[] = [
   },
   {
     id: "watch-together",
-    title: "Watch Together — Cross-Site Video Sync",
+    title: "Watch Together: Cross-Site Video Sync",
     description:
       "Chrome/Firefox/Safari extension that syncs playback on Netflix, YouTube, Disney+, Prime Video, and more. WebSocket relay with heartbeat drift correction, host mode, ad detection, and built-in chat. 59 server tests.",
     tags: ["Chrome Extension", "WebSocket", "Node.js"],
@@ -42,7 +42,7 @@ const staticFeatured: Project[] = [
     id: "redbull-youtube-analytics",
     title: "Red Bull YouTube Sentiment Analytics",
     description:
-      "End-term Social Media Analytics project — 500 YouTube comments on Red Bull scored with VADER. Net Sentiment Score of +28.6 pp (double the industry benchmark), 8-chart Excel dashboard, Word report, and executive summary PDF.",
+      "End-term Social Media Analytics project, 500 YouTube comments on Red Bull scored with VADER. Net Sentiment Score of +28.6 pp (double the industry benchmark), 8-chart Excel dashboard, Word report, and executive summary PDF.",
     tags: ["Python", "pandas", "VADER"],
     image: "",
     github: "https://github.com/ArnavGoel03/redbull-youtube-analytics",
@@ -52,9 +52,9 @@ const staticFeatured: Project[] = [
   },
   {
     id: "pcod-tracker",
-    title: "PCOD Tracker — AI Health Companion",
+    title: "PCOD Tracker: AI Health Companion",
     description:
-      "AI-powered PCOD/PCOS health app — vent freely and Claude AI auto-extracts symptoms, mood, and meds. Upload lab PDFs for instant hormone parsing. 15 Prisma models, medication streaks, and lab trend charts.",
+      "AI-powered PCOD/PCOS health app, vent freely and Claude AI auto-extracts symptoms, mood, and meds. Upload lab PDFs for instant hormone parsing. 15 Prisma models, medication streaks, and lab trend charts.",
     tags: ["Next.js 16", "Claude AI", "PostgreSQL"],
     image: "",
     github: "",
@@ -64,9 +64,9 @@ const staticFeatured: Project[] = [
   },
   {
     id: "gondilal-saraf",
-    title: "Gondilal Saraf — Full-Stack Jewelry Platform",
+    title: "Gondilal Saraf: Full-Stack Jewelry Platform",
     description:
-      "Full-stack platform for a century-old family jewelry business — bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 15 Prisma models, 26 API routes, and 85 tests.",
+      "Full-stack platform for a century-old family jewelry business, bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 15 Prisma models, 26 API routes, and 85 tests.",
     tags: ["Next.js 15", "PostgreSQL", "Gemini AI"],
     image: "",
     github: "",
@@ -76,9 +76,9 @@ const staticFeatured: Project[] = [
   },
   {
     id: "power-grid-analysis",
-    title: "U.S. Power Outages — DSC 80",
+    title: "U.S. Power Outages: DSC 80",
     description:
-      "DSC 80 project analysing 1,534 major U.S. power outages (2000–2016). Found higher electricity prices correlate with shorter outages (p ≈ 0.007). Random Forest with log-pop-density + severe-weather features: RMSE 6,189 min, R² 0.220.",
+      "DSC 80 project analysing 1,534 major U.S. power outages (2000 to 2016). Found higher electricity prices correlate with shorter outages (p ≈ 0.007). Random Forest with log-pop-density + severe-weather features: RMSE 6,189 min, R² 0.220.",
     tags: ["Python", "scikit-learn", "Random Forest"],
     image: "",
     github: "https://github.com/ArnavGoel03/Power-grid-analysis",
@@ -132,7 +132,7 @@ export default async function Home() {
 
           <p className="mx-auto mt-7 max-w-2xl text-[15px] leading-[1.65] text-muted-foreground md:mt-8 md:text-base md:leading-[1.7]">
             <SplitText
-              text="A Chrome Web Store extension used by real people every week. The full-stack platform behind my family's 150-year jewelry business. AI-powered health tools in production. I build ML and full-stack systems that land in the hands of actual users — not README demos — while finishing a BS in Data Science at UCSD."
+              text="A Chrome Web Store extension used by real people every week. The full-stack platform behind my family's 150-year jewelry business. AI-powered health tools in production. I build ML and full-stack systems that land in the hands of actual users, not README demos, while finishing a BS in Data Science at UCSD."
               delay={1.7}
               duration={0.5}
               stagger={0.004}
@@ -244,7 +244,7 @@ export default async function Home() {
                   I&apos;m a senior in the BS Data Science program at UC San
                   Diego (minor in Entrepreneurship &amp; Innovation) graduating
                   June 2027 with a 3.911 GPA. My work sits where machine
-                  learning meets systems that actually ship — Flask
+                  learning meets systems that actually ship: Flask
                   microservices for a 50,000-patient hospital platform at ADA,
                   quantitative research at Triton Quant, and the full-stack
                   platform for{" "}
@@ -264,7 +264,7 @@ export default async function Home() {
                   about code that an on-call engineer can debug at 3 a.m. than
                   code that looks clever in a notebook. Considering new-grad
                   applied-scientist, ML-engineer, and SWE roles for summer 2027
-                  onward — especially in health, commerce, or infra.{" "}
+                  onward, especially in health, commerce, or infra.{" "}
                   <Link
                     href="/work"
                     className="text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
@@ -315,8 +315,8 @@ export default async function Home() {
                   Power Outages · DSC 80
                 </p>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Analysed 1,534 U.S. outages (2000–2016). Random Forest with
-                  engineered features — R² 0.220, fairness checks across
+                  Analysed 1,534 U.S. outages (2000 to 2016). Random Forest with
+                  engineered features: R² 0.220, fairness checks across
                   weather vs. non-weather.
                 </p>
               </li>

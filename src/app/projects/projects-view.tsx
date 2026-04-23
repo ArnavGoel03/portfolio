@@ -101,7 +101,7 @@ const SECTION_META: Record<
     kicker: "Currently Building",
     title: "In progress",
     subtitle:
-      "Live projects I'm actively working on — specs may shift, links go up when they go up.",
+      "Live projects I'm actively working on, specs may shift, links go up when they go up.",
   },
   personal: {
     kicker: "Solo Work",
@@ -239,7 +239,7 @@ export default function ProjectsView({
                     {learningFiltered.length === 1 ? "" : "s"}
                   </p>
                   <p className="mt-1 text-sm text-muted-foreground/80">
-                    High-school-era CV/ML tutorials — kept for transparency, not for signal.
+                    High-school-era CV/ML tutorials, kept for transparency, not for signal.
                   </p>
                 </div>
                 <ChevronDown

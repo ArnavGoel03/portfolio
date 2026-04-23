@@ -10,9 +10,9 @@ import Section from "@/components/section";
 export const metadata = {
   title: "Now",
   description:
-    "What Arnav Goel is focused on right now — current projects, classes, and where his attention is. Inspired by nownownow.com.",
+    "What Arnav Goel is focused on right now, current projects, classes, and where his attention is. Inspired by nownownow.com.",
   openGraph: {
-    title: "Now — Arnav Goel",
+    title: "Now: Arnav Goel",
     description:
       "What I'm working on, learning, and building right now.",
   },
@@ -34,7 +34,7 @@ const focusAreas = [
     label: "Operating",
     title: "Gondilal Saraf",
     detail:
-      "Running the full-stack platform for my family's 150-year jewelry business — day-to-day product, data, and growth work.",
+      "Running the full-stack platform for my family's 150-year jewelry business, day-to-day product, data, and growth work.",
   },
   {
     icon: GraduationCap,
@@ -64,7 +64,7 @@ export default function Now() {
           Right Now
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-          A snapshot of where my attention is — current builds, studies, and
+          A snapshot of where my attention is, current builds, studies, and
           what I&apos;m chasing. Inspired by{" "}
           <a
             href="https://nownownow.com/about"

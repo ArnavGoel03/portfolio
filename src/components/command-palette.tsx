@@ -54,10 +54,10 @@ const ITEMS: CommandItem[] = [
   { id: "contact", label: "Contact", section: "Navigation", icon: Mail, href: "/contact" },
 
   // Case studies
-  { id: "cs-watch-together", label: "Watch Together — case study", section: "Case Studies", icon: BookOpen, href: "/projects/watch-together", keywords: ["chrome extension", "websocket", "sync"] },
-  { id: "cs-gondilal", label: "Gondilal Saraf — case study", section: "Case Studies", icon: BookOpen, href: "/projects/gondilal-saraf", keywords: ["jewelry", "full-stack", "family business"] },
-  { id: "cs-pcod", label: "PCOD Tracker — case study", section: "Case Studies", icon: BookOpen, href: "/projects/pcod-tracker", keywords: ["health", "claude", "ai"] },
-  { id: "cs-redbull", label: "Red Bull YouTube Analytics — case study", section: "Case Studies", icon: BookOpen, href: "/projects/redbull-youtube-analytics", keywords: ["vader", "sentiment", "youtube"] },
+  { id: "cs-watch-together", label: "Watch Together, case study", section: "Case Studies", icon: BookOpen, href: "/projects/watch-together", keywords: ["chrome extension", "websocket", "sync"] },
+  { id: "cs-gondilal", label: "Gondilal Saraf, case study", section: "Case Studies", icon: BookOpen, href: "/projects/gondilal-saraf", keywords: ["jewelry", "full-stack", "family business"] },
+  { id: "cs-pcod", label: "PCOD Tracker, case study", section: "Case Studies", icon: BookOpen, href: "/projects/pcod-tracker", keywords: ["health", "claude", "ai"] },
+  { id: "cs-redbull", label: "Red Bull YouTube Analytics, case study", section: "Case Studies", icon: BookOpen, href: "/projects/redbull-youtube-analytics", keywords: ["vader", "sentiment", "youtube"] },
 
   // External
   { id: "ext-github", label: "GitHub · ArnavGoel03", section: "External", icon: FaGithub, href: SOCIAL_LINKS.github, external: true },
@@ -91,7 +91,7 @@ function fuzzyScore(query: string, item: CommandItem): number {
     return 2;
   }
 
-  // Light fuzzy — every query char must appear in order
+  // Light fuzzy, every query char must appear in order
   let qi = 0;
   for (let i = 0; i < haystack.length && qi < q.length; i++) {
     if (haystack[i] === q[qi]) qi++;

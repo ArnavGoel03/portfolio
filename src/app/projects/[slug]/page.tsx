@@ -14,7 +14,7 @@ import { memberName } from "@/lib/types";
 import type { Project } from "@/lib/types";
 import { SITE_URL } from "@/lib/constants";
 
-// Projects that intentionally don't get a detail page — card click still
+// Projects that intentionally don't get a detail page, card click still
 // opens the quick-preview modal, but /projects/<id> 404s for these.
 const NO_DETAIL_PAGE = new Set(["cardranker"]);
 
@@ -36,10 +36,10 @@ export async function generateMetadata({
   if (cs) {
     return {
       title: cs.title,
-      description: `${cs.oneLiner} — case study by Arnav Goel.`,
+      description: `${cs.oneLiner}, case study by Arnav Goel.`,
       alternates: { canonical: `${SITE_URL}/projects/${cs.slug}` },
       openGraph: {
-        title: `${cs.title} — Case Study`,
+        title: `${cs.title}: Case Study`,
         description: cs.oneLiner,
       },
     };
@@ -54,7 +54,7 @@ export async function generateMetadata({
       description: short,
       alternates: { canonical: `${SITE_URL}/projects/${proj.id}` },
       openGraph: {
-        title: `${proj.title} — Project`,
+        title: `${proj.title}: Project`,
         description: short,
       },
     };

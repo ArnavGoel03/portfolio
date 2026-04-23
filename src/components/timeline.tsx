@@ -81,7 +81,7 @@ export default function Timeline({ items }: TimelineProps) {
                         : "border-foreground/10 bg-foreground/5 text-muted-foreground"
                     }`}
                   >
-                    {item.startDate} — {item.endDate || "Present"}
+                    {item.startDate}, {item.endDate || "Present"}
                   </span>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

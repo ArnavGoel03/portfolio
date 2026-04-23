@@ -13,25 +13,25 @@ type Template = {
 const TEMPLATES: Template[] = [
   {
     id: "linkedin-dm",
-    title: "LinkedIn DM — past manager",
+    title: "LinkedIn DM, past manager",
     whenToUse:
       "Short, casual. Use when you're already connected on LinkedIn. Highest reply rate.",
-    body: `Hey {firstName} — hope {opener} treating you well.
+    body: `Hey {firstName}, hope {opener} treating you well.
 
 Quick ask: I'm heading into new-grad recruiting for summer 2027 roles (applied scientist / ML eng / SWE), and I'd love a short LinkedIn recommendation from you about the {specificWork} at {company} if you're open to it.
 
-Totally fine if not — happy to just stay in touch either way. If you are, I can send over a rough paragraph you can edit rather than starting from scratch. Whatever's least annoying.
+Totally fine if not, happy to just stay in touch either way. If you are, I can send over a rough paragraph you can edit rather than starting from scratch. Whatever's least annoying.
 
 Thanks for the chance to work on {context}, genuinely one of the best things on my resume.`,
   },
   {
     id: "email-manager",
-    title: "Email — past manager (medium length)",
+    title: "Email, past manager (medium length)",
     whenToUse:
       "Use when not connected on LinkedIn, or when you want to give more context. Subject: 'Quick LinkedIn recommendation ask'.",
     body: `Hi {firstName},
 
-Hope you're doing well — last I heard you were {opener}.
+Hope you're doing well, last I heard you were {opener}.
 
 I'm graduating from UCSD in June 2027 and starting to interview for new-grad applied-scientist and ML / SWE roles. Recruiters have been asking for references, and I'd love to put a short LinkedIn recommendation from you front-and-centre on my portfolio.
 
@@ -41,7 +41,7 @@ The work I'd most want you to touch on, if it'd help you write:
   • {bullet2}
   • Anything about how I showed up on the team day-to-day
 
-If it'd save time, I can draft a starting paragraph you can edit into your own voice — just say the word. And if now isn't a good moment to take this on, no pressure at all. Happy just to stay in touch.
+If it'd save time, I can draft a starting paragraph you can edit into your own voice, just say the word. And if now isn't a good moment to take this on, no pressure at all. Happy just to stay in touch.
 
 Thanks again for an incredible {duration}.
 
@@ -50,16 +50,16 @@ arnavgoel.dev`,
   },
   {
     id: "email-professor",
-    title: "Email — UCSD professor",
+    title: "Email: UCSD professor",
     whenToUse:
-      "For faculty references — DS recruiters value these. Subject: 'Brief reference request — Arnav Goel, {course}'. Best candidates: Prof from DSC 80, CSE 150A, LIGN 167, MATH 183, MGT 127R.",
+      "For faculty references: DS recruiters value these. Subject: 'Brief reference request: Arnav Goel, {course}'. Best candidates: Prof from DSC 80, CSE 150A, LIGN 167, MATH 183, MGT 127R.",
     body: `Dear Professor {lastName},
 
 I took {course} with you in {quarter} (earned an {grade}; my project {projectReference}).
 
-I'm interviewing for new-grad applied-scientist and ML-engineer roles starting summer 2027 and would be very grateful for a short LinkedIn recommendation from you, if you're comfortable writing one. Even two or three sentences about my work in the course or on the project would carry real weight — data-science recruiters specifically look for faculty references.
+I'm interviewing for new-grad applied-scientist and ML-engineer roles starting summer 2027 and would be very grateful for a short LinkedIn recommendation from you, if you're comfortable writing one. Even two or three sentences about my work in the course or on the project would carry real weight, data-science recruiters specifically look for faculty references.
 
-I understand this is an unusual ask and you're busy. If it helps, I can draft a starting paragraph for you to edit, or share the project writeup and rubric score for context. And if now isn't a good time, no problem at all — a short "I'd decline but appreciate the ask" is a perfectly fine answer.
+I understand this is an unusual ask and you're busy. If it helps, I can draft a starting paragraph for you to edit, or share the project writeup and rubric score for context. And if now isn't a good time, no problem at all, a short "I'd decline but appreciate the ask" is a perfectly fine answer.
 
 Project writeup: {projectUrl}
 Portfolio: https://arnavgoel.dev
@@ -71,32 +71,32 @@ Arnav Goel (legal: Arnav · also goes by Yash)`,
   },
   {
     id: "starter-paragraph",
-    title: "Starter paragraph — send when they say yes",
+    title: "Starter paragraph, send when they say yes",
     whenToUse:
       "If they agree to write but ask for a starting point, send this as a draft to edit. Makes writing ~5× faster for them.",
     body: `Arnav joined the {company} {team} team as a {role} from {period}, working out of our {location} office. He owned development of the {deliverable1} and core {deliverable2} that supported {context}.
 
-What stood out most was the combination of technical rigor and judgment — he {specificAchievement1}, but just as importantly, he {specificAchievement2}. That kind of intervention from {levelDescriptor} is rare. He also {thirdAchievement}, which materially improved {impactArea}.
+What stood out most was the combination of technical rigor and judgment, he {specificAchievement1}, but just as importantly, he {specificAchievement2}. That kind of intervention from {levelDescriptor} is rare. He also {thirdAchievement}, which materially improved {impactArea}.
 
 He's the kind of early-career engineer I'd hire back full-time without a second thought. Anyone considering him for an applied-scientist, ML-engineer, or SWE role would be getting someone who writes code that holds up, communicates clearly, and takes responsibility for the parts of the system nobody else wants to own.`,
   },
   {
     id: "followup",
-    title: "Follow-up (10–14 days after first ask)",
+    title: "Follow-up (10 to 14 days after first ask)",
     whenToUse:
       "Send exactly once if you haven't heard back. Never a second follow-up.",
-    body: `Hey {firstName} — no pressure, but bumping this in case it got buried.
+    body: `Hey {firstName}, no pressure, but bumping this in case it got buried.
 
-If now isn't a good time that's totally fine — just wanted to make sure my earlier note reached you. Happy to wait or table it entirely.`,
+If now isn't a good time that's totally fine, just wanted to make sure my earlier note reached you. Happy to wait or table it entirely.`,
   },
   {
     id: "thanks",
-    title: "Thank-you — when they deliver",
+    title: "Thank-you, when they deliver",
     whenToUse:
       "Reply within 24 hours of the rec going live. Specific, short, warm. Closes the loop and keeps the relationship alive.",
-    body: `Thank you so much, {firstName} — this is genuinely generous of you. I'll use it for {targetCompanies} applications right away.
+    body: `Thank you so much, {firstName}, this is genuinely generous of you. I'll use it for {targetCompanies} applications right away.
 
-One more thing — I'll put it up on my portfolio at arnavgoel.dev/about within the week. I'll send you the link so you can see how it lives on the site.
+One more thing: I'll put it up on my portfolio at arnavgoel.dev/about within the week. I'll send you the link so you can see how it lives on the site.
 
 Grateful.
 
@@ -104,7 +104,7 @@ Arnav`,
   },
 ];
 
-// Variables available for substitution. Order matters — shown in the input panel.
+// Variables available for substitution. Order matters, shown in the input panel.
 const VARIABLES: { key: string; label: string; placeholder: string }[] = [
   { key: "firstName", label: "First Name", placeholder: "Priya" },
   { key: "lastName", label: "Last Name (for professors)", placeholder: "Rangan" },
@@ -122,7 +122,7 @@ const VARIABLES: { key: string; label: string; placeholder: string }[] = [
   { key: "course", label: "Course", placeholder: "DSC 80" },
   { key: "quarter", label: "Quarter", placeholder: "Fall 2025" },
   { key: "grade", label: "Grade", placeholder: "A" },
-  { key: "projectReference", label: "Project reference line", placeholder: "with Paulina Pelayo on U.S. Power Outages 2000–2016 is the one you graded" },
+  { key: "projectReference", label: "Project reference line", placeholder: "with Paulina Pelayo on U.S. Power Outages 2000 to 2016 is the one you graded" },
   { key: "projectUrl", label: "Project URL", placeholder: "https://github.com/ArnavGoel03/Power-grid-analysis" },
   { key: "deliverable1", label: "Deliverable 1", placeholder: "Nurse Panel Backend API" },
   { key: "deliverable2", label: "Deliverable 2", placeholder: "Flask microservices" },
@@ -155,7 +155,7 @@ export default function OutreachTemplates() {
       setCopiedId(id);
       setTimeout(() => setCopiedId(null), 1800);
     } catch {
-      // noop — navigator.clipboard can fail in some browser contexts
+      // noop, navigator.clipboard can fail in some browser contexts
     }
   }
 

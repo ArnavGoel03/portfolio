@@ -135,7 +135,7 @@
   }
   html {
     @apply scroll-smooth;
-    /* Keep the page background consistent during rubber-band on iOS — no
+    /* Keep the page background consistent during rubber-band on iOS, no
        flash of white above the fixed nav. */
     background-color: var(--background);
     overscroll-behavior-y: none;
@@ -146,7 +146,7 @@
   }
 }
 
-/* View Transitions API — cross-page morphs on supporting browsers
+/* View Transitions API, cross-page morphs on supporting browsers
    (Chrome/Edge 111+, Safari 18+). Degrades silently elsewhere. */
 @view-transition {
   navigation: auto;
@@ -181,7 +181,7 @@
   }
 }
 
-/* Print styles — for /resume. Strip chrome and enforce a print-safe palette. */
+/* Print styles, for /resume. Strip chrome and enforce a print-safe palette. */
 @media print {
   body {
     background: #fff !important;
@@ -241,7 +241,7 @@
   animation: blink 0.8s step-end infinite;
 }
 
-/* Legacy animation class aliases — intentional no-ops. */
+/* Legacy animation class aliases, intentional no-ops. */
 .animate-pulse-glow,
 .animate-float,
 .animate-spin-slow,
@@ -307,7 +307,7 @@
   opacity: 0.6;
 }
 
-/* Primary CTA — muted amber, flat. */
+/* Primary CTA, muted amber, flat. */
 .btn-glow {
   transition:
     background-color 0.2s ease,
@@ -322,7 +322,7 @@
   transform: scale(0.98);
 }
 
-/* Secondary — plain bordered, no animated border. */
+/* Secondary, plain bordered, no animated border. */
 .btn-border-flow {
   background: transparent;
   border: 1px solid rgba(237, 230, 213, 0.14);

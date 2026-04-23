@@ -1,10 +1,10 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Arnav Goel — Data science that ships";
+export const alt = "Arnav Goel: Data science that ships";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// OG card in the warm editorial palette — matches the site aesthetic so the
+// OG card in the warm editorial palette, matches the site aesthetic so the
 // share-preview and the landing page feel like the same brand.
 export default async function Image() {
   return new ImageResponse(

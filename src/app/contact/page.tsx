@@ -276,7 +276,7 @@ export default function Contact() {
                   it.&rdquo;
                 </p>
                 <p className="mt-3 text-xs font-medium text-foreground/80">
-                  — Peter Drucker
+                 : Peter Drucker
                 </p>
               </div>
             </div>

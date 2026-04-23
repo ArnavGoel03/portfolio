@@ -15,9 +15,9 @@ import { Badge } from "@/components/ui/badge";
 export const metadata = {
   title: "Coursework",
   description:
-    "Courses taken by Arnav Goel during his BS in Data Science at UC San Diego — Machine Learning, Data Science, Mathematics, CS foundations, the Entrepreneurship & Innovation minor, and the Seventh College Synthesis writing program. Sourced from the official UCSD degree audit.",
+    "Courses taken by Arnav Goel during his BS in Data Science at UC San Diego: Machine Learning, Data Science, Mathematics, CS foundations, the Entrepreneurship & Innovation minor, and the Seventh College Synthesis writing program. Sourced from the official UCSD degree audit.",
   openGraph: {
-    title: "Coursework — Arnav Goel",
+    title: "Coursework: Arnav Goel",
     description:
       "A running log of courses taken at UC San Diego, with grades and quarters.",
   },
@@ -52,7 +52,7 @@ const groups: Group[] = [
     title: "Machine Learning & AI",
     icon: Brain,
     blurb:
-      "Upper-division ML, deep learning, and probabilistic reasoning — the core of the Data Science major.",
+      "Upper-division ML, deep learning, and probabilistic reasoning, the core of the Data Science major.",
     courses: [
       {
         code: "CSE 150A",
@@ -68,7 +68,7 @@ const groups: Group[] = [
         quarter: "Spring 2025",
         grade: "B+",
         description:
-          "Broad introduction to machine learning. Supervised learning — k-nearest-neighbor classifiers, decision trees, boosting, perceptrons — and unsupervised learning such as k-means and hierarchical clustering.",
+          "Broad introduction to machine learning. Supervised learning, k-nearest-neighbor classifiers, decision trees, boosting, perceptrons, and unsupervised learning such as k-means and hierarchical clustering.",
       },
       {
         code: "CSE 151B",
@@ -101,7 +101,7 @@ const groups: Group[] = [
     title: "Data Science",
     icon: BarChart3,
     blurb:
-      "Core Data Science major coursework — from Python and Pandas through production pipelines and web-scale practice. Senior project (DSC 180A/180B) still to come.",
+      "Core Data Science major coursework, from Python and Pandas through production pipelines and web-scale practice. Senior project (DSC 180A/180B) still to come.",
     courses: [
       {
         code: "DSC 10",
@@ -173,7 +173,7 @@ const groups: Group[] = [
         quarter: "Spring 2025",
         grade: "A+",
         description:
-          "Concepts of data and its role in science, and the ideas behind data-mining, text-mining, machine learning, and graph theory — and how scientists and companies are leveraging those methods to uncover new insights into human cognition.",
+          "Concepts of data and its role in science, and the ideas behind data-mining, text-mining, machine learning, and graph theory, and how scientists and companies are leveraging those methods to uncover new insights into human cognition.",
       },
       {
         code: "COGS 108",
@@ -181,7 +181,7 @@ const groups: Group[] = [
         quarter: "Winter 2026",
         grade: "A+",
         description:
-          "Data science is multidisciplinary — computer science, statistics, cognitive science and psychology, data visualization, AI, and machine learning. The course teaches critical skills needed to pursue a data-science career using hands-on programming and experimental challenges.",
+          "Data science is multidisciplinary, computer science, statistics, cognitive science and psychology, data visualization, AI, and machine learning. The course teaches critical skills needed to pursue a data-science career using hands-on programming and experimental challenges.",
       },
     ],
   },
@@ -246,7 +246,7 @@ const groups: Group[] = [
         quarter: "Winter 2024",
         grade: "A+",
         description:
-          "Introduction to probability. Discrete and continuous random variables — binomial, Poisson, and Gaussian distributions. Central limit theorem. Data analysis and inferential statistics: graphical techniques, confidence intervals, hypothesis tests, curve fitting.",
+          "Introduction to probability. Discrete and continuous random variables, binomial, Poisson, and Gaussian distributions. Central limit theorem. Data analysis and inferential statistics: graphical techniques, confidence intervals, hypothesis tests, curve fitting.",
       },
       {
         code: "MATH 189",
@@ -254,7 +254,7 @@ const groups: Group[] = [
         quarter: "Summer 2025",
         grade: "A",
         description:
-          "Quantitative methods and statistical techniques for analyzing data — in particular big data. Quick review of probability, then how to process, analyze, and visualize data using the statistical language R.",
+          "Quantitative methods and statistical techniques for analyzing data, in particular big data. Quick review of probability, then how to process, analyze, and visualize data using the statistical language R.",
       },
     ],
   },
@@ -295,7 +295,7 @@ const groups: Group[] = [
         quarter: "Fall 2023",
         grade: "A",
         description:
-          "Introduces the ways logic is used in computer science — for reasoning, as a language for specifications, and as operations in computation. Sets, relations, functions, equivalence relations, partial orders, number systems, and proof methods (especially induction and recursion).",
+          "Introduces the ways logic is used in computer science, for reasoning, as a language for specifications, and as operations in computation. Sets, relations, functions, equivalence relations, partial orders, number systems, and proof methods (especially induction and recursion).",
       },
     ],
   },
@@ -304,7 +304,7 @@ const groups: Group[] = [
     title: "Entrepreneurship & Innovation (Minor)",
     icon: Briefcase,
     blurb:
-      "Rady School minor (M077) coursework — startups, product, finance, and technology strategy. Minor GPA: 3.950.",
+      "Rady School minor (M077) coursework, startups, product, finance, and technology strategy. Minor GPA: 3.950.",
     courses: [
       {
         code: "MGT 16",
@@ -312,7 +312,7 @@ const groups: Group[] = [
         quarter: "Winter 2025",
         grade: "Pass",
         description:
-          "Examines the ethical foundation for choices individuals make every day both in the workplace and in their private lives — the connection between economic and ethical obligations, with examples related to privacy, reporting, whistle-blowing, workplace relationships, confidentiality, and intellectual property.",
+          "Examines the ethical foundation for choices individuals make every day both in the workplace and in their private lives, the connection between economic and ethical obligations, with examples related to privacy, reporting, whistle-blowing, workplace relationships, confidentiality, and intellectual property.",
       },
       {
         code: "MGT 103",
@@ -360,13 +360,13 @@ const groups: Group[] = [
         quarter: "Winter 2025",
         grade: "A",
         description:
-          "Taking a global perspective, examines how innovation is funded and the financial tools necessary over the life cycle of a new venture — development, growth, maturity, and exit.",
+          "Taking a global perspective, examines how innovation is funded and the financial tools necessary over the life cycle of a new venture, development, growth, maturity, and exit.",
       },
     ],
   },
   {
     id: "synthesis",
-    title: "Writing & Synthesis — Seventh College",
+    title: "Writing & Synthesis: Seventh College",
     icon: Feather,
     blurb:
       "Seventh College's writing and GE sequence themed around \"A Changing Planet.\" Intensive writing alongside the Analytical Writing Program (AWP). My coursework threads a personal research focus on combating climate change.",
@@ -424,7 +424,7 @@ const groups: Group[] = [
     title: "Economics, Humanities & Natural Sciences",
     icon: Microscope,
     blurb:
-      "Breadth coursework outside the major — economics grounding, chemistry fundamentals, and humanities electives for GE.",
+      "Breadth coursework outside the major, economics grounding, chemistry fundamentals, and humanities electives for GE.",
     courses: [
       {
         code: "ECON 1",
@@ -472,7 +472,7 @@ const groups: Group[] = [
         quarter: "Spring 2024",
         grade: "A",
         description:
-          "A rigorous analysis of symbolic systems and their interpretations. Students learn to encode and decode information using progressively more sophisticated methods — ancient and modern phonetic writing systems, hieroglyphics, computer languages, and ciphers.",
+          "A rigorous analysis of symbolic systems and their interpretations. Students learn to encode and decode information using progressively more sophisticated methods, ancient and modern phonetic writing systems, hieroglyphics, computer languages, and ciphers.",
       },
       {
         code: "MUS 17",

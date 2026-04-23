@@ -17,7 +17,7 @@ export const revalidate = 3600;
 export const metadata = {
   title: "Projects",
   description:
-    "Explore projects by Arnav Goel — from multilingual AI chatbots and ML-powered wardrobe assistants to deep learning classifiers and family business web development.",
+    "Explore projects by Arnav Goel, from multilingual AI chatbots and ML-powered wardrobe assistants to deep learning classifiers and family business web development.",
   openGraph: {
     title: "Projects by Arnav Goel",
     description:
@@ -27,7 +27,7 @@ export const metadata = {
 
 
 // Tag-boost lists for ?focus=<x> URL param. When present, projects whose tags
-// match these terms are ranked higher within their section. Fully dynamic —
+// match these terms are ranked higher within their section. Fully dynamic:
 // adding a new Project with a matching tag auto-participates.
 const FOCUS_BOOSTS: Record<string, string[]> = {
   ml: [
@@ -179,7 +179,7 @@ export default async function Projects({
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           Work spanning machine learning, full-stack platforms, and data science
-          — split into what I&apos;m building now, solo work, and collaborations
+         , split into what I&apos;m building now, solo work, and collaborations
           with named teammates. Click a tag to filter.
         </p>
       </Section>

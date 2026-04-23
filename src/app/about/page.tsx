@@ -19,7 +19,7 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export const metadata = {
   title: "About",
   description:
-    "Learn about Arnav Goel — Data Science student at UC San Diego (GPA: 3.911), operator at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
+    "Learn about Arnav Goel: Data Science student at UC San Diego (GPA: 3.911), operator at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
   openGraph: {
     title: "About Arnav Goel",
     description:
@@ -58,17 +58,17 @@ const education = [
   {
     school: "UC San Diego",
     degree:
-      "Bachelor of Science — BS, Data Science (Minor: Entrepreneurship & Innovation)",
-    period: "Sep 2022 — Jun 2027",
+      "Bachelor of Science: BS, Data Science (Minor: Entrepreneurship & Innovation)",
+    period: "Sep 2022: Jun 2027",
     grade: "3.911 (out of 4.0) · Major GPA 3.860 · Minor GPA 3.950",
     activities:
-      "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery. Two gap quarters: Fall 2024 — took the term off to join ADA (Bengaluru) as an SWE intern after the team's work culture and the fit of their development org really resonated with me at the time. Spring 2026 — had to pause studies after my visa was stolen in San Francisco.",
+      "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery. Two gap quarters: Fall 2024, took the term off to join ADA (Bengaluru) as an SWE intern after the team's work culture and the fit of their development org really resonated with me at the time. Spring 2026, had to pause studies after my visa was stolen in San Francisco.",
     skills: ["Communication", "Coding Experience"],
   },
   {
-    school: "Delhi Public School — R. K. Puram",
+    school: "Delhi Public School: R. K. Puram",
     degree: "High School, Engineering Science",
-    period: "Apr 2020 — Jun 2022",
+    period: "Apr 2020: Jun 2022",
     grade: "96.75%",
     activities: "PhySoc (Physics Society), Mathematics Society, Exun Clan",
     skills: ["Mathematics", "Python", "Physics", "Computer Science"],
@@ -76,7 +76,7 @@ const education = [
   {
     school: "GD Goenka Public School, Kanpur",
     degree: "High School",
-    period: "Apr 2018 — Mar 2020",
+    period: "Apr 2018: Mar 2020",
     grade: "97.4%",
     activities: "Marching band",
     skills: ["Acting", "Archery"],
@@ -95,7 +95,7 @@ const skillTiers: SkillTier[] = [
     id: "proficient",
     label: "Proficient",
     summary:
-      "Daily drivers — languages and tools I reach for without thinking, across shipped projects and research code.",
+      "Daily drivers, languages and tools I reach for without thinking, across shipped projects and research code.",
     items: [
       "Python (pandas, NumPy)",
       "SQL / PostgreSQL",
@@ -109,7 +109,7 @@ const skillTiers: SkillTier[] = [
     id: "comfortable",
     label: "Comfortable",
     summary:
-      "Solid across multiple projects — I know the trade-offs, debug my own mistakes, and can pair on them without hand-holding.",
+      "Solid across multiple projects: I know the trade-offs, debug my own mistakes, and can pair on them without hand-holding.",
     items: [
       "scikit-learn (Random Forest, permutation tests, NMAR reasoning)",
       "TensorFlow / Keras (CNNs, transfer learning)",
@@ -162,14 +162,14 @@ const writing: WritingEntry[] = [
   {
     title: "Synthesis Writing Portfolio",
     blurb:
-      "Seventh College Synthesis sequence (SYN 1 / SYN 2 / AWP 4A / AWP 4B) — writing threaded around climate change, evidence, and community inquiry.",
+      "Seventh College Synthesis sequence (SYN 1 / SYN 2 / AWP 4A / AWP 4B), writing threaded around climate change, evidence, and community inquiry.",
     href: "https://sites.google.com/ucsd.edu/synthesis-yash/home",
     external: true,
   },
   {
-    title: "U.S. Power Outages — DSC 80 Writeup",
+    title: "U.S. Power Outages: DSC 80 Writeup",
     blurb:
-      "Full data-science writeup on 1,534 U.S. power outages — EDA, NMAR reasoning, hypothesis tests, and Random Forest modelling with fairness checks. Archived on Zenodo (CERN) with a citable DOI; indexed by OpenAIRE.",
+      "Full data-science writeup on 1,534 U.S. power outages: EDA, NMAR reasoning, hypothesis tests, and Random Forest modelling with fairness checks. Archived on Zenodo (CERN) with a citable DOI; indexed by OpenAIRE.",
     href: "https://arnavgoel03.github.io/Power-grid-analysis/",
     external: true,
     doi: "10.5281/zenodo.19707994",
@@ -227,7 +227,7 @@ const certifications: Certification[] = [
     skills: ["Python"],
   },
   {
-    name: "Vigyantram — Senior Mobile App Developer",
+    name: "Vigyantram: Senior Mobile App Developer",
     issuer: "Enactus IIT Delhi",
     date: "Jun 2021",
     skills: ["Mobile Application Development"],
@@ -259,10 +259,10 @@ export default function About() {
           <span className="heading-gradient text-glow">& Enterprise</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          I&apos;m Arnav — a Data Science student at UCSD with roots in India
+          I&apos;m Arnav, a Data Science student at UCSD with roots in India
           and a passion for turning raw data into meaningful action. My journey
           spans from building ML pipelines to taking my family&apos;s century-old
-          jewelry business, Gondilal Saraf, online — solidifying our legacy and
+          jewelry business, Gondilal Saraf, online, solidifying our legacy and
           bringing transparency to customers through technology.
         </p>
 
@@ -272,7 +272,7 @@ export default function About() {
           </span>
           <p className="text-sm leading-relaxed text-muted-foreground">
             <span className="text-foreground">Arnav Goel</span>
-            {" "}is my legal name — it&apos;s what I go by on this site, on
+            {" "}is my legal name, it&apos;s what I go by on this site, on
             GitHub, on LinkedIn, and everywhere that matters.{" "}
             <span className="text-foreground">Yash Goel</span>
             {" "}is an alias I also go by, and it&apos;s still on my email
@@ -321,7 +321,7 @@ export default function About() {
           </h2>
           <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed">
             <p>
-              Growing up in India, I was always drawn to patterns — whether in
+              Growing up in India, I was always drawn to patterns, whether in
               mathematics, market trends, or the intricate designs of traditional
               jewelry. This curiosity led me to pursue Data Science at UCSD,
               where I discovered the power of translating complex datasets into
@@ -336,7 +336,7 @@ export default function About() {
             </p>
             <p>
               Alongside my studies, I took my family&apos;s century-old jewelry
-              business, Gondilal Saraf, online — building its full-stack digital
+              business, Gondilal Saraf, online, building its full-stack digital
               platform to solidify a generational legacy and bring transparency
               to customers who have long relied on word-of-mouth and trust. On
               top of the storefront, I apply data science to inventory
@@ -417,7 +417,7 @@ export default function About() {
               Skills
             </h2>
             <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              An honest breakdown — not a wall of logos. Three tiers by depth of
+              An honest breakdown, not a wall of logos. Three tiers by depth of
               real use, not by what looks impressive on a resume.
             </p>
           </div>
@@ -460,7 +460,7 @@ export default function About() {
               Writing &amp; Research
             </h2>
             <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              Where I think things through on the page — short notes, long
+              Where I think things through on the page, short notes, long
               writeups, and the occasional class project worth sharing.
             </p>
           </div>

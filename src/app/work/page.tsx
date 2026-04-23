@@ -8,11 +8,11 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 export const metadata = {
   title: "Work",
   description:
-    "Arnav Goel — graduating June 2027 from UC San Diego (BS Data Science). Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and SWE roles. Roles, timeline, and interests.",
+    "Arnav Goel, graduating June 2027 from UC San Diego (BS Data Science). Considering new-grad Applied Scientist, ML Engineer, Data Scientist, and SWE roles. Roles, timeline, and interests.",
   openGraph: {
-    title: "Work — Arnav Goel",
+    title: "Work: Arnav Goel",
     description:
-      "What I'm looking for after graduation — roles, timeline, and how to reach me.",
+      "What I'm looking for after graduation, roles, timeline, and how to reach me.",
   },
 };
 
@@ -24,7 +24,7 @@ const roles = [
 ];
 
 const interests = [
-  "Problems where models actually ship to production users — not research for research",
+  "Problems where models actually ship to production users, not research for research",
   "Applied ML systems: recommender systems, time-series, graph-theoretic methods",
   "Domains I care about: health, commerce, developer tooling, infrastructure",
   "Small teams over big-corp rotational programs",
@@ -50,7 +50,7 @@ const facts: Fact[] = [
   {
     label: "Start Date",
     value: "Summer 2027 onward",
-    detail: "Flexible — happy to discuss earlier for part-time bridge roles.",
+    detail: "Flexible, happy to discuss earlier for part-time bridge roles.",
   },
   {
     label: "Location",
@@ -93,12 +93,12 @@ const faqs = [
   {
     question: "Is Arnav Goel the same person as Yash Goel?",
     answer:
-      "Yes. Arnav Goel is the legal name — used on this site, GitHub (ArnavGoel03), LinkedIn, and in official documentation. Yash Goel is an alias that still appears on the email address (yashgoel0304@gmail.com) and some older university records. Same person.",
+      "Yes. Arnav Goel is the legal name, used on this site, GitHub (ArnavGoel03), LinkedIn, and in official documentation. Yash Goel is an alias that still appears on the email address (yashgoel0304@gmail.com) and some older university records. Same person.",
   },
   {
     question: "What companies has Arnav Goel worked at?",
     answer:
-      "ADA (SWE Intern, Oct–Dec 2024 — built Flask microservices for a 50,000-patient multi-region hospital platform), Espire Infolabs (Cloud Engineering Intern, Jul–Sep 2024 — Azure/AWS dashboards), AGS (Algorithmic Trading Intern, Jun–Sep 2023 — high-frequency arbitrage strategies). Currently at Triton Quantitative Trading at UCSD and Digital Platform Lead at Gondilal Saraf.",
+      "ADA (SWE Intern, Oct to Dec 2024, built Flask microservices for a 50,000-patient multi-region hospital platform), Espire Infolabs (Cloud Engineering Intern, Jul to Sep 2024: Azure/AWS dashboards), AGS (Algorithmic Trading Intern, Jun to Sep 2023, high-frequency arbitrage strategies). Currently at Triton Quantitative Trading at UCSD and Digital Platform Lead at Gondilal Saraf.",
   },
   {
     question: "What technical stack does Arnav Goel use?",
@@ -149,7 +149,7 @@ export default function Work() {
                 ships on the Chrome Web Store. Cross-site video sync on
                 Netflix, YouTube, Disney+, Prime Video. WebSocket relay with
                 heartbeat drift correction, 59 server tests, Manifest V3
-                service-worker survival. Not a README demo — a production
+                service-worker survival. Not a README demo, a production
                 extension with real users.
               </p>
             </li>
@@ -166,7 +166,7 @@ export default function Work() {
                   150-year jewelry business
                 </Link>
                 . Real customers, real inventory, real P&amp;L. Most new DS
-                hires learn what a customer is in orientation — I spent four
+                hires learn what a customer is in orientation: I spent four
                 years shipping product against one.
               </p>
             </li>

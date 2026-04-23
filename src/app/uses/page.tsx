@@ -17,7 +17,7 @@ export const metadata = {
   description:
     "Tools, tech, and setup that Arnav Goel uses for Data Science, ML, and web development.",
   openGraph: {
-    title: "Uses — Arnav Goel",
+    title: "Uses: Arnav Goel",
     description: "My dev setup, tools, and daily drivers.",
   },
 };
@@ -49,7 +49,7 @@ const categories = [
     icon: Code2,
     title: "Web Development",
     items: [
-      { name: "Next.js (App Router)", detail: "Go-to framework — RSC, streaming, ISR" },
+      { name: "Next.js (App Router)", detail: "Go-to framework: RSC, streaming, ISR" },
       { name: "React", detail: "Component architecture, hooks, server components" },
       { name: "Tailwind CSS", detail: "Utility-first styling" },
       { name: "Framer Motion", detail: "Page transitions, scroll animations" },
@@ -72,20 +72,20 @@ const categories = [
     icon: Cloud,
     title: "AI Services",
     items: [
-      { name: "Claude API (Anthropic)", detail: "PCOD Tracker — rant parsing, lab-report extraction" },
-      { name: "Gemini 2.0 Flash", detail: "Gondilal Saraf — product descriptions from photos" },
-      { name: "OpenAI API", detail: "Vaani chatbot — multilingual speech and text" },
-      { name: "Replicate (SDXL)", detail: "Gondilal Saraf — AI model-image generation" },
+      { name: "Claude API (Anthropic)", detail: "PCOD Tracker, rant parsing, lab-report extraction" },
+      { name: "Gemini 2.0 Flash", detail: "Gondilal Saraf, product descriptions from photos" },
+      { name: "OpenAI API", detail: "Vaani chatbot, multilingual speech and text" },
+      { name: "Replicate (SDXL)", detail: "Gondilal Saraf: AI model-image generation" },
     ],
   },
   {
     icon: Radio,
     title: "Real-Time & Extensions",
     items: [
-      { name: "WebSocket (ws)", detail: "Watch Together — global sub-second sync" },
+      { name: "WebSocket (ws)", detail: "Watch Together, global sub-second sync" },
       { name: "Chrome Manifest V3", detail: "Service-worker extensions, content scripts, overlays" },
       { name: "Render", detail: "Always-on Node.js relay servers" },
-      { name: "Supabase", detail: "Buzz — Postgres + PostGIS + RLS + Realtime" },
+      { name: "Supabase", detail: "Buzz: Postgres + PostGIS + RLS + Realtime" },
     ],
   },
   {
@@ -139,7 +139,7 @@ export default function Uses() {
           <span className="heading-gradient text-glow">Stack</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          The tools, frameworks, and services I use to build things — from ML
+          The tools, frameworks, and services I use to build things, from ML
           pipelines to full-stack platforms.
         </p>
       </Section>
@@ -169,7 +169,7 @@ export default function Uses() {
                       </span>
                       <span className="text-sm text-muted-foreground">
                         {" "}
-                        — {item.detail}
+                       , {item.detail}
                       </span>
                     </div>
                   </li>

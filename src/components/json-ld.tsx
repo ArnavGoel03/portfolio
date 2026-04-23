@@ -40,7 +40,7 @@ export function PersonJsonLd() {
     alumniOf: [
       {
         "@type": "CollegeOrUniversity",
-        name: "UC San Diego — Seventh College",
+        name: "UC San Diego: Seventh College",
         url: "https://ucsd.edu",
       },
       {
@@ -160,7 +160,7 @@ export function PublishedWorksJsonLd() {
         "@id": "https://doi.org/10.5281/zenodo.19707994",
         name: "Power Grid Outage Analysis: Predicting U.S. Outage Severity from Weather, Price, and Population Signals",
         description:
-          "An exploratory and predictive analysis of 1,534 major U.S. power outages (2000–2016) compiled from U.S. Department of Energy records. Investigates how weather conditions, electricity prices, and population density relate to outage duration and severity, with a Random Forest regressor benchmarked against a constant-prediction baseline.",
+          "An exploratory and predictive analysis of 1,534 major U.S. power outages (2000 to 2016) compiled from U.S. Department of Energy records. Investigates how weather conditions, electricity prices, and population density relate to outage duration and severity, with a Random Forest regressor benchmarked against a constant-prediction baseline.",
         identifier: {
           "@type": "PropertyValue",
           propertyID: "doi",
@@ -220,10 +220,10 @@ export function WebSiteJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: `${SITE_NAME} — Portfolio`,
+    name: `${SITE_NAME}: Portfolio`,
     url: SITE_URL,
     description:
-      "Portfolio of Arnav Goel — Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship.",
+      "Portfolio of Arnav Goel: Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship.",
     author: {
       "@type": "Person",
       name: SITE_NAME,

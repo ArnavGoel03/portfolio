@@ -17,7 +17,7 @@ export default function TestimonialWall() {
           </h2>
           <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Direct quotes from past managers, collaborators, and professors. Every
-            one is linked to the person&apos;s LinkedIn — verify anything you&apos;d
+            one is linked to the person&apos;s LinkedIn, verify anything you&apos;d
             like.
           </p>
         </div>

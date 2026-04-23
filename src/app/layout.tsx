@@ -40,7 +40,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} (Yash Goel) — UCSD Data Science`,
+    default: `${SITE_NAME} (Yash Goel): UCSD Data Science`,
     template: `%s | ${SITE_NAME} (Yash Goel)`,
   },
   description: SITE_DESCRIPTION,
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: `${SITE_NAME} — Portfolio`,
+    siteName: `${SITE_NAME}: Portfolio`,
     title: `${SITE_NAME} | Data Science & Entrepreneurship`,
     description: SITE_DESCRIPTION,
   },
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
     types: {
       "application/rss+xml": [
-        { url: `${SITE_URL}/feed.xml`, title: `${SITE_NAME} — Blog RSS` },
+        { url: `${SITE_URL}/feed.xml`, title: `${SITE_NAME}: Blog RSS` },
       ],
     },
   },

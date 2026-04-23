@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/blog";
 import { staticProjects } from "@/lib/projects";
 import { caseStudies } from "@/lib/case-studies";
 
-// Projects without enough shipped state to warrant a detail page — these
+// Projects without enough shipped state to warrant a detail page, these
 // don't appear in the sitemap either. Kept in sync with the [slug] route.
 const NO_DETAIL_PAGE = new Set(["cardranker"]);
 

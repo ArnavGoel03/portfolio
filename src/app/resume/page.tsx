@@ -7,7 +7,7 @@ import { SOCIAL_LINKS, SITE_URL, EMAIL } from "@/lib/constants";
 export const metadata = {
   title: "Resume",
   description:
-    "Arnav Goel — Data Science student at UC San Diego (UC GPA 3.911, graduating June 2027). Full resume with education, experience, projects, skills, and certifications.",
+    "Arnav Goel: Data Science student at UC San Diego (UC GPA 3.911, graduating June 2027). Full resume with education, experience, projects, skills, and certifications.",
   alternates: { canonical: `${SITE_URL}/resume` },
 };
 
@@ -16,7 +16,7 @@ const experience = [
     role: "Member",
     company: "Triton Quantitative Trading",
     location: "UC San Diego",
-    period: "Apr 2025 — Present",
+    period: "Apr 2025: Present",
     bullets: [
       "Systematic-strategy research on tick-level market data in Python, pandas, NumPy.",
       "Statistical modelling, time-series analysis, and signal processing; backtests across multi-year historical data with feature engineering and parameter tuning.",
@@ -28,13 +28,13 @@ const experience = [
     role: "SWE Intern",
     company: "ADA",
     location: "Bengaluru, India",
-    period: "Oct 2024 — Dec 2024",
+    period: "Oct 2024: Dec 2024",
     bullets: [
       "Spearheaded backend development for a multi-region patient-management platform targeting 50,000+ patients across 120+ US, Japanese, and South Korean hospitals.",
-      "Built and containerised Flask microservices with Docker Compose — cut onboarding and setup time by 60%.",
+      "Built and containerised Flask microservices with Docker Compose, cut onboarding and setup time by 60%.",
       "Developed the Nurse Panel Backend API; engineered supporting data models for onboarding, scheduling, and real-time shift tracking.",
       "Optimised PostgreSQL queries, automated daily ETL pipelines in Python, and architected scalable MDM tables.",
-      "Established full-stack observability with OpenTelemetry (logs, traces, metrics) — 90% faster issue detection.",
+      "Established full-stack observability with OpenTelemetry (logs, traces, metrics), 90% faster issue detection.",
     ],
     skills: [
       "Flask",
@@ -50,11 +50,11 @@ const experience = [
     role: "Cloud Engineering Intern",
     company: "Espire Infolabs",
     location: "Hybrid",
-    period: "Jul 2024 — Sep 2024",
+    period: "Jul 2024: Sep 2024",
     bullets: [
       "Built KPI dashboards and real-time monitoring for enterprise digital-transformation clients.",
-      "Integrated Azure Monitor, Log Analytics, and Workbooks — reduced manual reporting 40%.",
-      "Deployed AWS Lambda + CloudWatch alerting pipelines — cut incident detection time 30%.",
+      "Integrated Azure Monitor, Log Analytics, and Workbooks, reduced manual reporting 40%.",
+      "Deployed AWS Lambda + CloudWatch alerting pipelines, cut incident detection time 30%.",
     ],
     skills: ["Azure Monitor", "AWS Lambda", "CloudWatch", "Dashboards"],
   },
@@ -62,7 +62,7 @@ const experience = [
     role: "Algorithmic Trading Intern",
     company: "AGS",
     location: "On-site",
-    period: "Jun 2023 — Sep 2023",
+    period: "Jun 2023: Sep 2023",
     bullets: [
       "Designed high-frequency arbitrage strategies on tick-level market data.",
       "Built scalable Python backtesting pipelines over 10+ years of HFT data.",
@@ -81,11 +81,11 @@ const experience = [
     role: "Digital Platform Lead",
     company: "Gondilal Saraf",
     location: "Banda, India · Remote",
-    period: "2022 — Present",
+    period: "2022: Present",
     bullets: [
       "Run the full-stack platform for my family's 150-year-old jewelry business (since 1873).",
       "Bilingual Hindi/English storefront with live gold rates, AR virtual try-on, and AI-generated product descriptions via Gemini 2.0 Flash.",
-      "Admin ERP with POS, inventory, customer database, and barcode generation — 15 Prisma models, 26 API routes, 85 vitest tests.",
+      "Admin ERP with POS, inventory, customer database, and barcode generation, 15 Prisma models, 26 API routes, 85 vitest tests.",
       "Apply data-science techniques (demand forecasting, segmentation) to a century-old traditional industry.",
     ],
     skills: [
@@ -102,28 +102,28 @@ const experience = [
 const selectedProjects = [
   {
     name: "Watch Together",
-    role: "Solo — Chrome/Firefox/Safari extension",
+    role: "Solo: Chrome/Firefox/Safari extension",
     href: "/projects/watch-together",
     summary:
       "Cross-site video-sync extension shipping on the Chrome Web Store. WebSocket relay with heartbeat drift correction (<0.5s), host-mode enforcement, site-specific player adapters, 59 vitest tests + Puppeteer e2e.",
   },
   {
     name: "Gondilal Saraf",
-    role: "Solo — full-stack platform",
+    role: "Solo, full-stack platform",
     href: "/projects/gondilal-saraf",
     summary:
       "Three surfaces (public site + bilingual catalogue + admin ERP) in one Next.js 15 codebase. Image pipeline: Photoroom → Sharp → Gemini 2.0 Flash → Replicate SDXL. 15 Prisma models, 26 API routes, 85 tests.",
   },
   {
     name: "PCOD Tracker",
-    role: "Solo — AI health companion",
+    role: "Solo: AI health companion",
     href: "/projects/pcod-tracker",
     summary:
       "Rant-first health logging where Claude extracts structured symptoms, medications, and mood from free-form text. Lab-report PDF parser with Zod-validated JSON output and manual fallback form. 15 Prisma models.",
   },
   {
     name: "Red Bull YouTube Sentiment Analytics",
-    role: "Solo — data-science case study",
+    role: "Solo, data-science case study",
     href: "/projects/redbull-youtube-analytics",
     summary:
       "VADER sentiment on 500 YouTube comments. Net Sentiment Score +28.6 pp (2× industry benchmark), 100% hashtag discipline across a 50-video catalog, 8-chart Excel dashboard + executive-summary PDF.",
@@ -133,14 +133,14 @@ const selectedProjects = [
     role: "With Paulina Pelayo",
     href: "https://github.com/ArnavGoel03/Power-grid-analysis",
     summary:
-      "Analysed 1,534 major U.S. power outages (2000–2016). Random Forest with engineered features reached RMSE 6,189 min and R² 0.220, with fairness checks across weather vs. non-weather outages (p ≈ 0.007 on price-tier hypothesis test).",
+      "Analysed 1,534 major U.S. power outages (2000 to 2016). Random Forest with engineered features reached RMSE 6,189 min and R² 0.220, with fairness checks across weather vs. non-weather outages (p ≈ 0.007 on price-tier hypothesis test).",
   },
   {
     name: "MLB Playoff Prediction (COGS 108)",
-    role: "Team of 5 — ethics lead",
+    role: "Team of 5, ethics lead",
     href: "/projects#mlb-playoff-cogs108",
     summary:
-      "Team-of-5 Winter 2026 final project on early-season predictors of MLB playoff qualification 2015–2023 via Fangraphs pybaseball. Proposal → EDA → final analysis across four notebooks. I led the ethics section.",
+      "Team-of-5 Winter 2026 final project on early-season predictors of MLB playoff qualification 2015 to 2023 via Fangraphs pybaseball. Proposal → EDA → final analysis across four notebooks. I led the ethics section.",
   },
 ];
 
@@ -149,14 +149,14 @@ const educationItems = [
     school: "UC San Diego",
     degree:
       "BS Data Science · Minor in Entrepreneurship & Innovation (Rady School)",
-    period: "Sep 2022 — Jun 2027",
+    period: "Sep 2022: Jun 2027",
     detail:
       "UC GPA 3.911 · Major GPA 3.860 · Minor GPA 3.950. Key coursework: CSE 150A (AI: Probabilistic Models), CSE 151A (ML: Learning Algorithms), CSE 151B (Deep Learning, Summer 2026), CSE 158R (Recommender Systems & Web Mining), LIGN 167 (Deep Learning for NLP), DSC 80, DSC 100, COGS 108, MATH 183, MATH 189, MGT 127R (AI & Technology Strategy).",
   },
   {
     school: "Delhi Public School, R. K. Puram",
     degree: "High School · Engineering Science (CBSE)",
-    period: "Apr 2020 — Jun 2022",
+    period: "Apr 2020: Jun 2022",
     detail: "96.75% · Mathematics Society + PhySoc leadership.",
   },
 ];
@@ -283,7 +283,7 @@ export default function Resume() {
           <p className="text-[15px] leading-relaxed text-muted-foreground">
             Senior in the BS Data Science program at UC San Diego (minor in
             Entrepreneurship & Innovation). Work sits where machine learning
-            meets systems that ship — Flask microservices for a
+            meets systems that ship: Flask microservices for a
             50,000-patient hospital platform at ADA, quantitative research at
             Triton Quant, and the full-stack platform for{" "}
             <a
