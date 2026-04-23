@@ -170,7 +170,7 @@ const writing: WritingEntry[] = [
     title: "U.S. Power Outages — DSC 80 Writeup",
     blurb:
       "Full data-science writeup on 1,534 U.S. power outages — EDA, NMAR reasoning, hypothesis tests, and Random Forest modelling with fairness checks. Archived on Zenodo (CERN) with a citable DOI; indexed by OpenAIRE.",
-    href: "https://doi.org/10.5281/zenodo.19707994",
+    href: "https://arnavgoel03.github.io/Power-grid-analysis/",
     external: true,
     doi: "10.5281/zenodo.19707994",
   },
