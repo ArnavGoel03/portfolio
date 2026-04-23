@@ -152,6 +152,7 @@ export const staticProjects: Project[] = [
     demo: "",
     featured: false,
     date: "2024-12",
+    doi: "10.5281/zenodo.19707994",
     team: {
       size: 2,
       members: ["Paulina Pelayo"],

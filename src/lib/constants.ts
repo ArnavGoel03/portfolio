@@ -12,6 +12,7 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/ArnavGoel03",
   linkedin: "https://www.linkedin.com/in/arnav-goel--/",
   orcid: "https://orcid.org/0009-0007-6477-6501",
+  scholar: "https://scholar.google.com/citations?user=ftBu3R8AAAAJ",
   email: `mailto:${EMAIL}`,
 } as const;
 

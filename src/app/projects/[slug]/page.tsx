@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, PlayCircle, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, PlayCircle, ExternalLink, Quote } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Section from "@/components/section";
 import RedBullViz from "@/components/redbull-viz";
@@ -404,7 +404,7 @@ function ProjectProfile({ project }: { project: Project }) {
           )}
         </div>
 
-        {(project.github || project.demo) && (
+        {(project.github || project.demo || project.doi) && (
           <div className="mt-8 flex flex-wrap gap-3">
             {project.github && (
               <a
@@ -430,6 +430,18 @@ function ProjectProfile({ project }: { project: Project }) {
                   <ExternalLink size={14} />
                 )}
                 {demoLabel(project.demo)}
+              </a>
+            )}
+            {project.doi && (
+              <a
+                href={`https://doi.org/${project.doi}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`DOI: ${project.doi}`}
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/5 px-4 py-2 text-sm font-medium text-emerald-300/90 transition-colors hover:border-emerald-500/45 hover:bg-emerald-500/10 hover:text-emerald-200"
+              >
+                <Quote size={14} />
+                DOI: {project.doi}
               </a>
             )}
           </div>

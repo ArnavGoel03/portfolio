@@ -22,6 +22,7 @@ import {
   BarChart3,
   Zap,
   BookOpen,
+  Quote,
   X,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -178,7 +179,7 @@ function ProjectModal({
             ))}
           </div>
 
-          <div className="mt-8 flex items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             {project.github && (
               <a
                 href={project.github}
@@ -211,6 +212,18 @@ function ProjectModal({
                   : project.demo.includes("vercel.app")
                   ? "View Demo"
                   : "Visit Site"}
+              </a>
+            )}
+            {project.doi && (
+              <a
+                href={`https://doi.org/${project.doi}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`DOI: ${project.doi}`}
+                className="flex items-center gap-1.5 rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-4 py-2 text-sm font-medium text-emerald-400/90 transition-all hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:text-emerald-300"
+              >
+                <Quote size={14} />
+                Cite (DOI)
               </a>
             )}
           </div>
@@ -343,6 +356,18 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                     : project.demo.includes("vercel.app")
                     ? "Demo"
                     : "Live Site"}
+                </a>
+              )}
+              {project.doi && (
+                <a
+                  href={`https://doi.org/${project.doi}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`DOI: ${project.doi}`}
+                  className="flex items-center gap-1.5 rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-3 py-1.5 text-xs font-medium text-emerald-400/90 transition-all hover:border-emerald-500/40 hover:bg-emerald-500/10 hover:text-emerald-300"
+                >
+                  <Quote size={12} />
+                  DOI
                 </a>
               )}
             </div>

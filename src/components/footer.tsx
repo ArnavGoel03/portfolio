@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { Mail, ArrowUpRight, Rss } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
+import { SiGooglescholar } from "react-icons/si";
 import { SOCIAL_LINKS, NAV_LINKS, SECONDARY_LINKS } from "@/lib/constants";
 
 const socials = [
   { icon: FaGithub, href: SOCIAL_LINKS.github, label: "GitHub" },
   { icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, label: "LinkedIn" },
   { icon: FaOrcid, href: SOCIAL_LINKS.orcid, label: "ORCID" },
+  { icon: SiGooglescholar, href: SOCIAL_LINKS.scholar, label: "Google Scholar" },
   { icon: Mail, href: SOCIAL_LINKS.email, label: "Email" },
   { icon: Rss, href: "/feed.xml", label: "RSS Feed" },
 ];

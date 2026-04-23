@@ -82,6 +82,7 @@ export function PersonJsonLd() {
       SOCIAL_LINKS.github,
       SOCIAL_LINKS.linkedin,
       SOCIAL_LINKS.orcid,
+      SOCIAL_LINKS.scholar,
       "https://github.com/ArnavGoel03",
     ],
     address: {
@@ -140,6 +141,71 @@ export function FAQPageJsonLd({
         text: faq.answer,
       },
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
+export function PublishedWorksJsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://doi.org/10.5281/zenodo.19707994",
+        name: "Power Grid Outage Analysis: Predicting U.S. Outage Severity from Weather, Price, and Population Signals",
+        description:
+          "An exploratory and predictive analysis of 1,534 major U.S. power outages (2000–2016) compiled from U.S. Department of Energy records. Investigates how weather conditions, electricity prices, and population density relate to outage duration and severity, with a Random Forest regressor benchmarked against a constant-prediction baseline.",
+        identifier: {
+          "@type": "PropertyValue",
+          propertyID: "doi",
+          value: "10.5281/zenodo.19707994",
+        },
+        url: "https://doi.org/10.5281/zenodo.19707994",
+        codeRepository: "https://github.com/ArnavGoel03/Power-grid-analysis",
+        programmingLanguage: ["Python"],
+        datePublished: "2026-04-23",
+        version: "1.0.0",
+        license: "https://opensource.org/licenses/MIT",
+        publisher: {
+          "@type": "Organization",
+          name: "Zenodo",
+          url: "https://zenodo.org",
+        },
+        author: [
+          {
+            "@type": "Person",
+            "@id": `${SITE_URL}#person`,
+            name: SITE_NAME,
+            identifier: "https://orcid.org/0009-0007-6477-6501",
+          },
+          {
+            "@type": "Person",
+            name: "Paulina Pelayo",
+            affiliation: {
+              "@type": "CollegeOrUniversity",
+              name: "University of California, San Diego",
+            },
+          },
+        ],
+        keywords: [
+          "power grid",
+          "outage analysis",
+          "machine learning",
+          "climate",
+          "time series",
+          "data science",
+          "UCSD",
+          "DSC 80",
+        ],
+        citation: "Goel, A., & Pelayo, P. (2026). Power Grid Outage Analysis: Predicting U.S. Outage Severity from Weather, Price, and Population Signals (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.19707994",
+      },
+    ],
   };
 
   return (

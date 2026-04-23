@@ -14,6 +14,7 @@ import Section from "@/components/section";
 import StatCounter from "@/components/stat-counter";
 import TestimonialWall from "@/components/testimonial-wall";
 import { Badge } from "@/components/ui/badge";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const metadata = {
   title: "About",
@@ -147,6 +148,7 @@ type WritingEntry = {
   blurb: string;
   href: string;
   external?: boolean;
+  doi?: string;
 };
 
 const writing: WritingEntry[] = [
@@ -167,8 +169,16 @@ const writing: WritingEntry[] = [
   {
     title: "U.S. Power Outages — DSC 80 Writeup",
     blurb:
-      "Full data-science writeup on 1,534 U.S. power outages — EDA, NMAR reasoning, hypothesis tests, and Random Forest modelling with fairness checks.",
-    href: "https://github.com/ArnavGoel03/Power-grid-analysis",
+      "Full data-science writeup on 1,534 U.S. power outages — EDA, NMAR reasoning, hypothesis tests, and Random Forest modelling with fairness checks. Archived on Zenodo (CERN) with a citable DOI; indexed by OpenAIRE.",
+    href: "https://doi.org/10.5281/zenodo.19707994",
+    external: true,
+    doi: "10.5281/zenodo.19707994",
+  },
+  {
+    title: "Google Scholar",
+    blurb:
+      "Public research profile linking my ORCID, UCSD affiliation, and DOI-minted works. Currently indexing the Power Outages analysis; more to follow as projects get archived.",
+    href: SOCIAL_LINKS.scholar,
     external: true,
   },
 ];
@@ -484,6 +494,11 @@ export default function About() {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {entry.blurb}
                 </p>
+                {entry.doi && (
+                  <div className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-emerald-500/20 bg-emerald-500/5 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-emerald-400/90">
+                    DOI · {entry.doi}
+                  </div>
+                )}
               </Tag>
             );
           })}

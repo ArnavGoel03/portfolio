@@ -11,6 +11,7 @@ import {
   PersonJsonLd,
   WebSiteJsonLd,
   ProfilePageJsonLd,
+  PublishedWorksJsonLd,
 } from "@/components/json-ld";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -39,8 +40,8 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | Data Science & Entrepreneurship`,
-    template: `%s | ${SITE_NAME}`,
+    default: `${SITE_NAME} (Yash Goel) — UCSD Data Science`,
+    template: `%s | ${SITE_NAME} (Yash Goel)`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
@@ -108,6 +109,9 @@ export const metadata: Metadata = {
     },
   },
   category: "technology",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -141,6 +145,7 @@ export default function RootLayout({
         <PersonJsonLd />
         <WebSiteJsonLd />
         <ProfilePageJsonLd />
+        <PublishedWorksJsonLd />
       </head>
       <body className="min-h-screen font-sans antialiased">
         <ScrollProgress />
