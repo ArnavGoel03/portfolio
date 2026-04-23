@@ -1,4 +1,4 @@
-# Arnav Goel (Yash) — Portfolio
+# Arnav Goel (Yash): Portfolio
 
 A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizations, AI-optimized SEO, a blog, and a Notion-powered CMS. Fully installable as a PWA on any OS.
 
@@ -12,7 +12,7 @@ A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizatio
 |------|-------|-------------|
 | **Home** | `/` | 3D rotating icosahedron hero, typewriter name animation, "Currently" status cards, skills ticker, featured projects |
 | **About** | `/about` | Animated stat counters (GPA, projects, certs, legacy), highlights, story, education, certifications |
-| **Projects** | `/projects` | Click-to-expand project cards — Notion CMS + static merged with deduplication, sorted by links |
+| **Projects** | `/projects` | Click-to-expand project cards. Notion CMS + static merged with deduplication, sorted by links |
 | **Experience** | `/experience` | Alternating timeline with active role glow, hover lift, skill badges |
 | **Uses** | `/uses` | Full tech stack: Languages, ML, Web Dev, Databases, AI Services, Hardware, Design, Dev Tools |
 | **Blog** | `/blog` | Technical writing with 3 posts on building projects and career reflections |
@@ -28,9 +28,9 @@ A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizatio
 
 ## Featured Projects
 
-- **PCOD Tracker** — AI-powered health companion for women with PCOD/PCOS. Claude AI auto-extracts symptoms, mood, and meds from free-form text. PDF lab report parsing. 15 Prisma models, medication streaks, lab trend charts. [pcod-tracker.vercel.app](https://pcod-tracker.vercel.app)
-- **Gondilal Saraf** — Full-stack jewelry platform for a century-old family business. Bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 26 API routes, 85 tests. [gondilalsaraf.com](https://gondilalsaraf.com)
-- **Vaani** — Voice-first AI chatbot for Indian-language customer support (co-authored with Ahaskar). Shelved after market-fit check showed LLM inference cost-per-conversation exceeded cheap Indian human-agent labour.
+- **PCOD Tracker**: AI-powered health companion for women with PCOD/PCOS. Claude AI auto-extracts symptoms, mood, and meds from free-form text. PDF lab report parsing. 15 Prisma models, medication streaks, lab trend charts. [pcod-tracker.vercel.app](https://pcod-tracker.vercel.app)
+- **Gondilal Saraf**: Full-stack jewelry platform for a century-old family business. Bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 26 API routes, 85 tests. [gondilalsaraf.com](https://gondilalsaraf.com)
+- **Vaani**: Voice-first AI chatbot for Indian-language customer support (co-authored with Ahaskar). Shelved after market-fit check showed LLM inference cost-per-conversation exceeded cheap Indian human-agent labour.
 
 ## Tech Stack
 
@@ -39,9 +39,9 @@ A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizatio
 | Framework | Next.js 16 (App Router) + React 19 + TypeScript |
 | Styling | TailwindCSS 4 + tw-animate-css + custom CSS (glassmorphism, 3D cards, gradient borders) |
 | Animations | Framer Motion + canvas-based 3D icosahedron hero + CSS keyframes (typewriter, border-flow, glow) |
-| Fonts | Geist Sans (body), Geist Mono (code labels), Playfair Display (serif headings) — via next/font |
-| CMS | Notion API (@notionhq/client) for projects, experience, skills — with static fallback + merge |
-| Email | Resend API — contact form submissions delivered to inbox |
+| Fonts | Geist Sans (body), Geist Mono (code labels), Playfair Display (serif headings), via next/font |
+| CMS | Notion API (@notionhq/client) for projects, experience, skills, with static fallback + merge |
+| Email | Resend API for contact form submissions delivered to inbox |
 | UI Components | shadcn + Lucide React + react-icons |
 | SEO | Dynamic OG/Twitter images, robots.ts, sitemap.ts (pages + blog slugs), manifest.ts, JSON-LD |
 | AI SEO | llms.txt + llms-full.txt, explicit allow for GPTBot, ClaudeBot, PerplexityBot, and 7 more AI crawlers |
@@ -60,7 +60,7 @@ A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizatio
 | **Brand Icon** | Geometric jewel SVG (pentagon gem made of connected nodes) in navbar |
 | **3D Cards** | `perspective: 1000px` with `rotateX/Y` tilt on hover, click-to-expand modal |
 | **Page Transitions** | Fade + slide-up on route change via Framer Motion |
-| **Color Palette** | Primary `#a78bfa`, background `#06050b`, foreground `#eee8f5` — purple-on-dark |
+| **Color Palette** | Primary `#a78bfa`, background `#06050b`, foreground `#eee8f5` (purple-on-dark) |
 
 ## Architecture
 
@@ -149,7 +149,7 @@ All editable content is centralized for easy updates:
 | `NOTION_SKILLS_DB` | No | Notion database ID for skills |
 | `RESEND_API_KEY` | No | Resend API key for contact form email delivery |
 
-All optional — the site works fully with static data when Notion/Resend are unconfigured.
+All optional. The site works fully with static data when Notion/Resend are unconfigured.
 
 ## Getting Started
 

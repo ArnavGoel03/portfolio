@@ -1,28 +1,28 @@
-# Arnav Goel (Yash) — Full Portfolio Details
+# Arnav Goel (Yash): Full Portfolio Details
 
 > Data Science student at UC San Diego specializing in Machine Learning, Graph Theory, and Entrepreneurship.
 
 ## About Arnav
 
-Arnav Goel, also known as Yash, is a Data Science student at the University of California, San Diego (UCSD) with a GPA of 3.96/4.0. He is pursuing a minor in Entrepreneurship & Innovation. Growing up in India, he developed an early interest in patterns — whether in mathematics, market trends, or the intricate designs of traditional jewelry. This curiosity led him to pursue Data Science at UCSD.
+Arnav Goel, also known as Yash, is a Data Science student at the University of California, San Diego (UCSD) with a GPA of 3.96/4.0. He is pursuing a minor in Entrepreneurship & Innovation. Growing up in India, he developed an early interest in patterns, whether in mathematics, market trends, or the intricate designs of traditional jewelry. This curiosity led him to pursue Data Science at UCSD.
 
 At UCSD, courses like CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), and CSE 150A (AI) shaped his approach to problem-solving. He developed a deep appreciation for how graph theory and machine learning can model real-world networks and decision systems.
 
-Alongside his studies, he founded Gondilal Saraf — a jewelry business where he applies data science to inventory optimization, customer segmentation, and demand forecasting. Running a business while studying taught him how to bridge the gap between theory and practice.
+Alongside his studies, he founded Gondilal Saraf, a jewelry business where he applies data science to inventory optimization, customer segmentation, and demand forecasting. Running a business while studying taught him how to bridge the gap between theory and practice.
 
 ## Education
 
 ### UC San Diego
-- **Degree:** Bachelor of Science — BS, Data Science (Minor: Entrepreneurship & Innovation)
-- **Period:** Sep 2022 — Jun 2027
+- **Degree:** Bachelor of Science (BS), Data Science (Minor: Entrepreneurship & Innovation)
+- **Period:** Sep 2022 to Jun 2027
 - **GPA:** 3.96/4.0
 - **Key Coursework:** CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), CSE 150A (AI)
 - **Activities:** Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery
 - **Skills:** Machine Learning, Graph Theory, Data Science, Communication
 
-### Delhi Public School — R. K. Puram
+### Delhi Public School, R. K. Puram
 - **Degree:** High School, Engineering Science
-- **Period:** Apr 2020 — Jun 2022
+- **Period:** Apr 2020 to Jun 2022
 - **Grade:** 96.75%
 - **Board:** CBSE
 - **Activities:** PhySoc (Physics Society), Mathematics Society, Exun Clan
@@ -30,18 +30,18 @@ Alongside his studies, he founded Gondilal Saraf — a jewelry business where he
 
 ## Professional Experience
 
-### SWE Intern — UC San Diego (2024 – Present)
+### SWE Intern, UC San Diego (2024 to Present)
 Software Engineering Intern working on undergraduate projects and research at UC San Diego.
 Skills: Python, TypeScript, React
 
-### Founder & Operator — Gondilal Saraf (2022 – Present)
+### Founder & Operator, Gondilal Saraf (2022 to Present)
 Founded and operates a jewelry business, applying data-driven strategies to inventory optimization, customer segmentation, and demand forecasting in a traditional industry.
 Skills: Entrepreneurship, Data Analysis, Business Strategy
 
 ## Projects (Detailed)
 
-### Vaani — Multilingual AI Chatbot (Shelved)
-Co-built with Ahaskar. A voice-first AI chatbot for Indian-language customer support — OpenAI LLM + speech APIs behind a Flask microservice backend, with a speech-to-text → intent → text-to-speech pipeline across 5+ Indian languages. Shelved mid-build after a market-fit check: in the Indian SME market the unit economics did not work, because a human customer-support agent costs less per conversation than bleeding-edge LLM inference. Kept visible as a deliberate learning.
+### Vaani: Multilingual AI Chatbot (Shelved)
+Co-built with Ahaskar. A voice-first AI chatbot for Indian-language customer support, with OpenAI LLM + speech APIs behind a Flask microservice backend and a speech-to-text → intent → text-to-speech pipeline across 5+ Indian languages. Shelved mid-build after a market-fit check: in the Indian SME market the unit economics did not work, because a human customer-support agent costs less per conversation than bleeding-edge LLM inference. Kept visible as a deliberate learning.
 - **Team:** Arnav Goel, Ahaskar
 - **Tags:** OpenAI API, Flask, Real-time Speech Recognition, NLP, Python
 - **Status:** Shelved / Co-authored
@@ -57,10 +57,10 @@ Program that classifies common pet animals using their pictures. Trained on a pr
 - **Tags:** CNN, Computer Vision, Deep Learning
 - **Date:** January 2022
 
-### PCOD Tracker — AI Health Companion
+### PCOD Tracker: AI Health Companion
 Built an AI-powered health management web application for women managing PCOD/PCOS (Polycystic Ovarian Disease/Syndrome).
 
-**AI-Powered Rant & Vent:** Chat-like interface where users type free-form thoughts about their day. Claude Sonnet 4 analyzes the text and automatically extracts symptoms with severity (1-5), mood, energy levels, sleep hours, diet entries, exercise logs, medications taken/skipped, cycle information, and weight — all without any manual form filling.
+**AI-Powered Rant & Vent:** Chat-like interface where users type free-form thoughts about their day. Claude Sonnet 4 analyzes the text and automatically extracts symptoms with severity (1-5), mood, energy levels, sleep hours, diet entries, exercise logs, medications taken/skipped, cycle information, and weight, all without any manual form filling.
 
 **Medical Report Analysis:** Drag-and-drop PDF upload for lab reports. AI extracts and structures lab values (hormone markers like LH, FSH, Testosterone, AMH, metabolic markers, thyroid, vitamins), medications with dosage/frequency, diagnoses, and report dates. Automatically flags abnormal values.
 
@@ -81,7 +81,7 @@ Built an AI-powered health management web application for women managing PCOD/PC
 - **Date:** March 2025
 - **Status:** Featured Project
 
-### Gondilal Saraf — Full-Stack Jewelry Platform
+### Gondilal Saraf: Full-Stack Jewelry Platform
 Built a full-stack e-commerce and ERP platform for a century-old family gold & silver jewelry business in Banda, U.P. (est. 1873).
 
 **Public Storefront:** Heritage-themed bilingual (Hindi/English) site with live gold/silver rates, 10-year investment charts, cinematic vault gate animation, collections carousel, buying guide, scam protection section, customer reviews, contact form, and shop locator. Design system features parchment textures, antique gold accents, Cormorant Garamond typography, glassmorphism nav, parallax scrolling, and 3 switchable themes.
@@ -133,12 +133,12 @@ Built a full-stack e-commerce and ERP platform for a century-old family gold & s
 - **About** (/about): Animated stat counters, background, education, certifications, personal story
 - **Projects** (/projects): Full project gallery with expandable modals, tags, and links
 - **Experience** (/experience): Professional and academic timeline with active role highlighting
-- **Uses** (/uses): Full tech stack — Languages, ML, Web Dev, Databases, AI Services, Hardware, Design, Dev Tools
+- **Uses** (/uses): Full tech stack covering Languages, ML, Web Dev, Databases, AI Services, Hardware, Design, Dev Tools
 - **Blog** (/blog): Technical writing on building projects and career reflections
 - **Contact** (/contact): Contact form with email delivery via Resend, social links, location
 
 ## Blog Posts
 
-- **Building a Full-Stack Jewelry Platform for a Century-Old Family Business** (/blog/building-gondilal-saraf): Deep dive into Gondilal Saraf — tech stack, AI pipeline, heritage design system, bilingual architecture
-- **Why I Built an AI Health Tracker for Women with PCOD** (/blog/pcod-tracker-ai-health): PCOD Tracker story — rant-first logging, Claude AI parsing, lab report analysis, privacy design
+- **Building a Full-Stack Jewelry Platform for a Century-Old Family Business** (/blog/building-gondilal-saraf): Deep dive into Gondilal Saraf covering tech stack, AI pipeline, heritage design system, bilingual architecture
+- **Why I Built an AI Health Tracker for Women with PCOD** (/blog/pcod-tracker-ai-health): PCOD Tracker story covering rant-first logging, Claude AI parsing, lab report analysis, privacy design
 - **From Algorithms to Jewelry: My Path Through Data Science & Entrepreneurship** (/blog/from-algorithms-to-jewelry): Personal essay on combining Data Science with entrepreneurship at UCSD
