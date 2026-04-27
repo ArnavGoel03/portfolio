@@ -56,18 +56,18 @@
   --card-foreground: #ede6d5;
   --popover: #1a1815;
   --popover-foreground: #ede6d5;
-  --primary: #d4a96a;
+  --primary: #ede6d5;
   --primary-foreground: #121110;
   --secondary: rgba(237, 230, 213, 0.06);
   --secondary-foreground: #ede6d5;
   --muted: rgba(237, 230, 213, 0.04);
   --muted-foreground: #a9a293;
-  --accent: rgba(212, 169, 106, 0.10);
+  --accent: rgba(237, 230, 213, 0.08);
   --accent-foreground: #ede6d5;
   --destructive: #c66a5e;
   --border: rgba(237, 230, 213, 0.10);
   --input: rgba(237, 230, 213, 0.10);
-  --ring: rgba(212, 169, 106, 0.4);
+  --ring: rgba(237, 230, 213, 0.35);
   --chart-1: #d4a96a;
   --chart-2: #a49478;
   --chart-3: #8a8c5a;
@@ -76,12 +76,12 @@
   --radius: 0.75rem;
   --sidebar: #151311;
   --sidebar-foreground: #ede6d5;
-  --sidebar-primary: #d4a96a;
+  --sidebar-primary: #ede6d5;
   --sidebar-primary-foreground: #121110;
-  --sidebar-accent: rgba(212, 169, 106, 0.10);
+  --sidebar-accent: rgba(237, 230, 213, 0.08);
   --sidebar-accent-foreground: #ede6d5;
   --sidebar-border: rgba(237, 230, 213, 0.10);
-  --sidebar-ring: rgba(212, 169, 106, 0.4);
+  --sidebar-ring: rgba(237, 230, 213, 0.35);
 }
 
 .dark {
@@ -91,18 +91,18 @@
   --card-foreground: #ede6d5;
   --popover: #1a1815;
   --popover-foreground: #ede6d5;
-  --primary: #d4a96a;
+  --primary: #ede6d5;
   --primary-foreground: #121110;
   --secondary: rgba(237, 230, 213, 0.06);
   --secondary-foreground: #ede6d5;
   --muted: rgba(237, 230, 213, 0.04);
   --muted-foreground: #a9a293;
-  --accent: rgba(212, 169, 106, 0.10);
+  --accent: rgba(237, 230, 213, 0.08);
   --accent-foreground: #ede6d5;
   --destructive: #c66a5e;
   --border: rgba(237, 230, 213, 0.10);
   --input: rgba(237, 230, 213, 0.10);
-  --ring: rgba(212, 169, 106, 0.4);
+  --ring: rgba(237, 230, 213, 0.35);
   --chart-1: #d4a96a;
   --chart-2: #a49478;
   --chart-3: #8a8c5a;
@@ -111,12 +111,12 @@
   --radius: 0.75rem;
   --sidebar: #151311;
   --sidebar-foreground: #ede6d5;
-  --sidebar-primary: #d4a96a;
+  --sidebar-primary: #ede6d5;
   --sidebar-primary-foreground: #121110;
-  --sidebar-accent: rgba(212, 169, 106, 0.10);
+  --sidebar-accent: rgba(237, 230, 213, 0.08);
   --sidebar-accent-foreground: #ede6d5;
   --sidebar-border: rgba(237, 230, 213, 0.10);
-  --sidebar-ring: rgba(212, 169, 106, 0.4);
+  --sidebar-ring: rgba(237, 230, 213, 0.35);
 }
 
 @layer base {

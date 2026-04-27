@@ -82,8 +82,7 @@ export default function Contact() {
           Contact
         </p>
         <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
-          Let&apos;s{" "}
-          <span className="heading-gradient text-glow">Connect</span>
+          Let&apos;s Connect
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
           Have a project idea, question, or just want to say hi? Drop me a
@@ -98,7 +97,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex h-full min-h-[400px] items-center justify-center gradient-border rounded-2xl bg-card"
+                className="flex h-full min-h-[400px] items-center justify-center gradient-border rounded-md bg-card"
               >
                 <div className="text-center px-8">
                   <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-foreground/20 bg-foreground/5">
@@ -115,7 +114,7 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="gradient-border rounded-2xl bg-card p-8 space-y-6"
+                className="gradient-border rounded-md bg-card p-8 space-y-6"
               >
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
@@ -173,7 +172,7 @@ export default function Contact() {
                   type="submit"
                   size="lg"
                   disabled={sending}
-                  className="w-full rounded-xl bg-primary text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(167,139,250,0.3)] disabled:opacity-50"
+                  className="w-full rounded-md bg-foreground text-background transition-colors hover:bg-foreground/90 disabled:opacity-50"
                 >
                   {sending ? (
                     <>
@@ -196,11 +195,11 @@ export default function Contact() {
               href="https://cal.com/arnavgoel"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden gradient-border rounded-2xl bg-card p-7 transition-colors hover:bg-card/80"
+              className="group relative overflow-hidden gradient-border rounded-md bg-card p-7 transition-colors hover:bg-card/80"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-foreground/10 bg-foreground/5">
                     <CalendarClock size={18} className="text-foreground/80" />
                   </div>
                   <div>
@@ -223,10 +222,10 @@ export default function Contact() {
               </p>
             </a>
 
-            <div className="gradient-border rounded-2xl bg-card p-7">
+            <div className="gradient-border rounded-md bg-card p-7">
               <h3 className="font-serif text-lg font-semibold">Find Me</h3>
               <div className="mt-4 flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-foreground/10 bg-foreground/5">
                   <MapPin size={18} className="text-foreground/80" />
                 </div>
                 <div>
@@ -238,7 +237,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="gradient-border rounded-2xl bg-card p-7">
+            <div className="gradient-border rounded-md bg-card p-7">
               <h3 className="font-serif text-lg font-semibold">Socials</h3>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {socials.map((social) => (
@@ -247,7 +246,7 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex flex-col items-center gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-5 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5 hover:shadow-[0_0_25px_rgba(167,139,250,0.15)]"
+                    className="group flex flex-col items-center gap-3 rounded-md border border-foreground/10 bg-foreground/5 p-5 transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/5 hover:shadow-[0_0_25px_rgba(167,139,250,0.15)]"
                   >
                     <div className="relative">
                       <div className="absolute inset-0 rounded-full bg-primary/0 blur-lg transition-all duration-300 group-hover:bg-foreground/8" />
@@ -264,7 +263,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="gradient-border rounded-2xl bg-card p-7">
+            <div className="gradient-border rounded-md bg-card p-7">
               <p className="text-sm leading-relaxed text-muted-foreground italic">
                 &ldquo;The best way to predict the future is to create
                 it.&rdquo;
