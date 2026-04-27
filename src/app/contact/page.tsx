@@ -98,14 +98,11 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex h-full min-h-[400px] items-center justify-center gradient-border rounded-2xl bg-card backdrop-blur-sm"
+                className="flex h-full min-h-[400px] items-center justify-center gradient-border rounded-2xl bg-card"
               >
                 <div className="text-center px-8">
-                  <div className="relative mx-auto mb-6 h-16 w-16">
-                    <div className="absolute inset-0 animate-pulse-glow rounded-full bg-primary/30 blur-xl" />
-                    <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-foreground/20 bg-foreground/5">
-                      <Send size={24} className="text-foreground/80" />
-                    </div>
+                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-foreground/20 bg-foreground/5">
+                    <Send size={24} className="text-foreground/80" />
                   </div>
                   <h3 className="font-serif text-2xl font-semibold">
                     Message Sent!
@@ -118,7 +115,7 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm space-y-6"
+                className="gradient-border rounded-2xl bg-card p-8 space-y-6"
               >
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
@@ -199,7 +196,7 @@ export default function Contact() {
               href="https://cal.com/arnavgoel"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm transition-colors hover:bg-card/80"
+              className="group relative overflow-hidden gradient-border rounded-2xl bg-card p-7 transition-colors hover:bg-card/80"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
@@ -226,7 +223,7 @@ export default function Contact() {
               </p>
             </a>
 
-            <div className="gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm">
+            <div className="gradient-border rounded-2xl bg-card p-7">
               <h3 className="font-serif text-lg font-semibold">Find Me</h3>
               <div className="mt-4 flex items-start gap-3">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
@@ -241,7 +238,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm">
+            <div className="gradient-border rounded-2xl bg-card p-7">
               <h3 className="font-serif text-lg font-semibold">Socials</h3>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {socials.map((social) => (
@@ -267,18 +264,14 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm">
-              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-foreground/5 blur-2xl" />
-              <div className="absolute -left-4 -bottom-4 h-24 w-24 rounded-full bg-indigo-500/5 blur-xl" />
-              <div className="relative">
-                <p className="text-sm leading-relaxed text-muted-foreground italic">
-                  &ldquo;The best way to predict the future is to create
-                  it.&rdquo;
-                </p>
-                <p className="mt-3 text-xs font-medium text-foreground/80">
-                 : Peter Drucker
-                </p>
-              </div>
+            <div className="gradient-border rounded-2xl bg-card p-7">
+              <p className="text-sm leading-relaxed text-muted-foreground italic">
+                &ldquo;The best way to predict the future is to create
+                it.&rdquo;
+              </p>
+              <p className="mt-3 text-xs font-medium text-foreground/80">
+                — Peter Drucker
+              </p>
             </div>
           </div>
         </div>
