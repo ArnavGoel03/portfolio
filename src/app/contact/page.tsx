@@ -114,6 +114,7 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
+                aria-label="Contact form"
                 className="gradient-border rounded-md bg-card p-8 space-y-6"
               >
                 <div className="grid gap-6 sm:grid-cols-2">
@@ -166,7 +167,13 @@ export default function Contact() {
                   />
                 </div>
                 {error && (
-                  <p className="text-sm text-destructive">{error}</p>
+                  <p
+                    role="alert"
+                    aria-live="polite"
+                    className="text-sm text-destructive"
+                  >
+                    {error}
+                  </p>
                 )}
                 <Button
                   type="submit"

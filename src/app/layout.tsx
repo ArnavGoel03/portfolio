@@ -148,9 +148,15 @@ export default function RootLayout({
         <PublishedWorksJsonLd />
       </head>
       <body className="min-h-screen font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:border focus:border-foreground/20 focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-foreground focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"
+        >
+          Skip to main content
+        </a>
         <ScrollProgress />
         <Navbar />
-        <main className="min-h-screen">
+        <main id="main-content" tabIndex={-1} className="min-h-screen focus:outline-none">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
