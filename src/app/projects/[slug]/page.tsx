@@ -404,7 +404,7 @@ function ProjectProfile({ project }: { project: Project }) {
           )}
         </div>
 
-        {(project.github || project.demo || project.doi) && (
+        {(project.github || project.demo || project.doi || project.privateRepo) && (
           <div className="mt-8 flex flex-wrap gap-3">
             {project.github && (
               <a
@@ -416,6 +416,15 @@ function ProjectProfile({ project }: { project: Project }) {
                 <FaGithub size={14} />
                 Source on GitHub
               </a>
+            )}
+            {!project.github && project.privateRepo && (
+              <span
+                title="Source code is private. Email to request access."
+                className="inline-flex items-center gap-2 rounded-full border border-dashed border-foreground/15 px-4 py-2 text-sm font-medium text-muted-foreground"
+              >
+                <FaGithub size={14} aria-hidden="true" />
+                Source · Private
+              </span>
             )}
             {project.demo && (
               <a

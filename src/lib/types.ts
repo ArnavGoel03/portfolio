@@ -16,6 +16,7 @@ export interface Project {
   date: string;
   inProgress?: boolean;
   learning?: boolean;
+  privateRepo?: boolean;
   doi?: string;
   team?: {
     size: number;

@@ -191,6 +191,15 @@ function ProjectModal({
                 View Code
               </a>
             )}
+            {!project.github && project.privateRepo && (
+              <span
+                title="Source code is private. Email to request access."
+                className="flex items-center gap-1.5 rounded-lg border border-dashed border-foreground/15 px-4 py-2 text-sm font-medium text-muted-foreground"
+              >
+                <FaGithub size={15} aria-hidden="true" />
+                Source · Private
+              </span>
+            )}
             {project.demo && (
               <a
                 href={project.demo}
@@ -334,6 +343,15 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   <FaGithub size={13} />
                   Code
                 </a>
+              )}
+              {!project.github && project.privateRepo && (
+                <span
+                  title="Source code is private. Email to request access."
+                  className="flex items-center gap-1.5 rounded-lg border border-dashed border-foreground/15 px-3 py-1.5 text-xs font-medium text-muted-foreground"
+                >
+                  <FaGithub size={13} aria-hidden="true" />
+                  Private
+                </span>
               )}
               {project.demo && (
                 <a
