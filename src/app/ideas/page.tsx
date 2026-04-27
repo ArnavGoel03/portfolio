@@ -64,6 +64,15 @@ const ideas: Idea[] = [
     tags: ["AI", "Fashion Tech", "Recommendation Systems", "Computer Vision"],
     status: "exploring",
   },
+  {
+    id: "cardranker",
+    title: "CardRanker: Credit Card Value Calculator",
+    oneLiner: "Ranks credit cards by net annual value for a given spending profile.",
+    description:
+      "SwiftUI iOS tool that ranks credit cards by net annual value given a spending profile across groceries, dining, travel, and other categories. Takes reward rates per card and annual fees, then surfaces the card that earns the most after fees rather than the highest sticker rate. Built as a Swift learning exercise. Shelved as a shipped app.",
+    tags: ["SwiftUI", "Swift", "iOS"],
+    status: "shelved",
+  },
 ];
 
 function IdeaCard({ idea }: { idea: Idea }) {

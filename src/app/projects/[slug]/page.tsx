@@ -16,7 +16,7 @@ import { SITE_URL } from "@/lib/constants";
 
 // Projects that intentionally don't get a detail page, card click still
 // opens the quick-preview modal, but /projects/<id> 404s for these.
-const NO_DETAIL_PAGE = new Set(["cardranker"]);
+const NO_DETAIL_PAGE = new Set<string>();
 
 export async function generateStaticParams() {
   const caseSlugs = caseStudies.map((c) => c.slug);

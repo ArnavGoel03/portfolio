@@ -166,19 +166,6 @@ export const staticProjects: Project[] = [
     },
   },
   {
-    id: "cardranker",
-    title: "CardRanker: Credit Card Value Calculator",
-    description:
-      "A small SwiftUI iOS tool that ranks credit cards by net annual value given your spending profile across groceries, dining, travel, and other categories. Takes per-card reward rates and annual fees, then surfaces the card that actually earns you the most after fees, not just the highest sticker rate. A quick personal-finance utility to sharpen my Swift fundamentals.",
-    tags: ["SwiftUI", "Swift", "iOS"],
-    image: "",
-    github: "",
-    privateRepo: true,
-    demo: "",
-    featured: false,
-    date: "2025-10",
-  },
-  {
     id: "vaani",
     title: "Vaani: Multilingual AI Chatbot",
     description:

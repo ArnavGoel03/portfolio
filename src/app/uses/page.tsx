@@ -30,7 +30,7 @@ const categories = [
       { name: "Python", detail: "Primary language for ML, data analysis, and scripting" },
       { name: "TypeScript", detail: "All web projects, strict mode" },
       { name: "SQL", detail: "PostgreSQL, complex queries via Prisma and raw" },
-      { name: "Swift", detail: "SwiftUI for iOS/macOS (Buzz, CardRanker)" },
+      { name: "Swift", detail: "SwiftUI for iOS/macOS (Buzz)" },
     ],
   },
   {

@@ -6,7 +6,7 @@ import { caseStudies } from "@/lib/case-studies";
 
 // Projects without enough shipped state to warrant a detail page, these
 // don't appear in the sitemap either. Kept in sync with the [slug] route.
-const NO_DETAIL_PAGE = new Set(["cardranker"]);
+const NO_DETAIL_PAGE = new Set<string>();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [

@@ -18,7 +18,6 @@ import {
   Activity,
   GraduationCap,
   PlayCircle,
-  CreditCard,
   BarChart3,
   Zap,
   BookOpen,
@@ -39,7 +38,7 @@ const CASE_STUDY_SLUGS = new Set([
 // Projects without enough shipped state or specificity to warrant a dedicated
 // detail page. For these, the card click still opens the quick-preview modal
 // but no "Details" link is shown.
-const NO_DETAIL_PAGE = new Set(["cardranker"]);
+const NO_DETAIL_PAGE = new Set<string>();
 
 const projectIcons: Record<string, typeof AudioWaveform> = {
   vaani: AudioWaveform,
@@ -54,7 +53,6 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   "arkinvest-mgt127r": TrendingUp,
   "har-cse158": Activity,
   "cogs9-final": GraduationCap,
-  cardranker: CreditCard,
   "redbull-youtube-analytics": BarChart3,
   "power-grid-analysis": Zap,
 };
