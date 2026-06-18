@@ -21,6 +21,19 @@ export const staticProjects: Project[] = [
     inProgress: true,
   },
   {
+    id: "pidilite-fevicreate",
+    title: "Pidilite Fevicreate: Internal School-Engagement Tracker",
+    description:
+      "Built an internal tool for Pidilite Industries, the FMCG company behind Fevicol and Fevicreate, to track their Fevicreate school-outreach engagement on the ground. Field marketing executives across 8 PSFME territories (Kolkata, Delhi, Bangalore, Chennai, Hyderabad, Mumbai, Pune, Ahmedabad) log GPS-verified visits at schools with live geolocation, on-device camera capture, and anti-spoof guards, working fully offline-first via a service worker and syncing when back online. Territory-scoped FME accounts drive which schools each rep sees, and an admin dashboard gives the team a live view of engagement, who visited which school and when, on an interactive map. Next.js 16 + Neon Postgres (self-initializing schema, no migration step), passcode and email-OTP admin auth, peppered session secrets, and CDN-cached school data for low India latency.",
+    tags: ["Next.js 16", "PostgreSQL", "Neon", "PWA", "Geolocation", "Service Worker", "TypeScript"],
+    image: "",
+    github: "",
+    privateRepo: true,
+    demo: "https://pidilite-school-checkin.vercel.app",
+    featured: false,
+    date: "2026-05",
+  },
+  {
     id: "watch-together",
     title: "Watch Together: Cross-Site Video Sync",
     description:
@@ -33,15 +46,15 @@ export const staticProjects: Project[] = [
     date: "2026-04",
   },
   {
-    id: "pcod-tracker",
-    title: "PCOD Tracker: AI Health Companion",
+    id: "serenity",
+    title: "Serenity: AI Health Companion",
     description:
       "Built an AI-powered health management app for women with PCOD/PCOS. Users vent freely and Claude AI auto-extracts symptoms, mood, diet, and medications. Upload lab PDFs and AI parses hormone levels, flags abnormals, and detects medications. Features cycle tracking, medication streaks, lab trend charts via Recharts, calendar heatmaps, and Google OAuth. 15 Prisma models, 14 API routes, and a supportive, privacy-first UX.",
     tags: ["Next.js 16", "Claude AI", "PostgreSQL", "Prisma", "NextAuth", "Recharts"],
     image: "",
     github: "",
     privateRepo: true,
-    demo: "https://pcod-tracker.vercel.app",
+    demo: "https://serenity-pcos.vercel.app",
     featured: true,
     date: "2025-03",
   },
