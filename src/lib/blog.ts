@@ -63,10 +63,10 @@ export const posts: BlogPost[] = [
     ],
   },
   {
-    slug: "pcod-tracker-ai-health",
+    slug: "serenity-ai-health",
     title: "Why I Built an AI Health Tracker for Women with PCOD",
     excerpt:
-      "The story behind PCOD Tracker, how Claude AI turns free-form health rants into structured data, and why removing friction from health logging matters.",
+      "The story behind Serenity, how Claude AI turns free-form health rants into structured data, and why removing friction from health logging matters.",
     date: "2025-03-20",
     readTime: "6 min read",
     tags: ["Claude AI", "Healthcare", "Next.js", "PostgreSQL"],
@@ -78,7 +78,7 @@ export const posts: BlogPost[] = [
       "Behind the scenes, Claude Sonnet 4 parses that text and extracts: symptoms (cramps, severity 4/5; insomnia, severity 3/5), medications (metformin, skipped), diet (pizza, lunch), mood (anxious), sleep (estimated 5 hours), energy (low). All of this gets automatically saved to the right database tables.",
       "The prompt engineering was the trickiest part. I needed Claude to return strict JSON without hallucinating symptoms that weren't mentioned, while still being smart enough to infer things like sleep duration from 'couldn't sleep until 2am.'",
       "## Medical Report Parsing",
-      "The second AI feature handles lab reports. Women with PCOD get blood work done regularly: LH, FSH, testosterone, insulin, thyroid panels. These PDFs are dense and hard to interpret. Upload one to PCOD Tracker, and Claude extracts every lab value, identifies the normal ranges, flags abnormals, and detects any medications mentioned in the report.",
+      "The second AI feature handles lab reports. Women with PCOD get blood work done regularly: LH, FSH, testosterone, insulin, thyroid panels. These PDFs are dense and hard to interpret. Upload one to Serenity, and Claude extracts every lab value, identifies the normal ranges, flags abnormals, and detects any medications mentioned in the report.",
       "The extracted medications automatically merge into your medication list (with case-insensitive deduplication), so you don't need to manually add them.",
       "## Visualizing Patterns",
       "Raw data is useless without patterns. The app includes: a calendar heatmap showing symptom frequency and intensity by day, Recharts line graphs for tracking hormone levels over time (with normal ranges as reference lines), medication streak tracking showing the last 7 days of adherence, and cycle history with gap analysis.",
@@ -86,7 +86,7 @@ export const posts: BlogPost[] = [
       "Health data is sensitive. The app uses JWT sessions, bcryptjs password hashing, and cascade deletes (deleting your account removes everything). PDF text is extracted locally and never stored externally, only the structured lab values go to the database. The AI processing happens via API call, but no conversation history is retained.",
       "## The Stack",
       "Next.js 16 + React 19, PostgreSQL with 15 Prisma models, NextAuth.js for Google OAuth + email/password, Anthropic Claude API, pdf-parse for PDF text extraction, and Recharts for data visualization. 14 API routes handle everything from rant submission to medication logging.",
-      "The app is live at pcod-tracker.vercel.app and it's completely free. If it helps even one person manage their PCOD with less friction, it was worth building.",
+      "The app is live at serenity-pcos.vercel.app and it's completely free. If it helps even one person manage their PCOD with less friction, it was worth building.",
     ],
   },
   {

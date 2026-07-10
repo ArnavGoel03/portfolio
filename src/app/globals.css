@@ -160,6 +160,11 @@
        flash of white above the fixed nav. */
     background-color: var(--background);
     overscroll-behavior-y: none;
+    /* `clip` (not `hidden`) so position: sticky descendants still work. */
+    overflow-x: clip;
+  }
+  body {
+    overflow-x: clip;
   }
   ::selection {
     background: rgba(212, 169, 106, 0.25);

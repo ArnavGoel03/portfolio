@@ -23,12 +23,12 @@ A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizatio
 | Post | Slug |
 |------|------|
 | Building a Full-Stack Jewelry Platform for a Century-Old Family Business | `/blog/building-gondilal-saraf` |
-| Why I Built an AI Health Tracker for Women with PCOD | `/blog/pcod-tracker-ai-health` |
+| Why I Built an AI Health Tracker for Women with PCOD | `/blog/serenity-ai-health` |
 | From Algorithms to Jewelry: My Path Through Data Science & Entrepreneurship | `/blog/from-algorithms-to-jewelry` |
 
 ## Featured Projects
 
-- **PCOD Tracker**: AI-powered health companion for women with PCOD/PCOS. Claude AI auto-extracts symptoms, mood, and meds from free-form text. PDF lab report parsing. 15 Prisma models, medication streaks, lab trend charts. [pcod-tracker.vercel.app](https://pcod-tracker.vercel.app)
+- **Serenity**: AI-powered health companion for women with PCOD/PCOS. Claude AI auto-extracts symptoms, mood, and meds from free-form text. PDF lab report parsing. 15 Prisma models, medication streaks, lab trend charts. [serenity-pcos.vercel.app](https://serenity-pcos.vercel.app)
 - **Gondilal Saraf**: Full-stack jewelry platform for a century-old family business. Bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 26 API routes, 85 tests. [gondilalsaraf.com](https://gondilalsaraf.com)
 - **Vaani**: Voice-first AI chatbot for Indian-language customer support (co-authored with Ahaskar). Shelved after market-fit check showed LLM inference cost-per-conversation exceeded cheap Indian human-agent labour.
 

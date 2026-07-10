@@ -3,12 +3,12 @@ import ProjectsView from "./projects-view";
 import PinnedFlagships from "@/components/pinned-flagships";
 import { getProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
-import { staticProjects } from "@/lib/projects";
+import { staticProjects, isSuiteApp } from "@/lib/projects";
 
 const FLAGSHIP_ORDER = [
   "watch-together",
   "gondilal-saraf",
-  "pcod-tracker",
+  "serenity",
   "redbull-youtube-analytics",
 ];
 
@@ -138,10 +138,12 @@ export default async function Projects({
   const extraStatic = staticProjects.filter(
     (p) => !notionIds.has(p.title.toLowerCase())
   );
-  const merged =
+  const mergedRaw =
     notionProjects.length > 0
       ? [...notionProjects, ...extraStatic]
       : staticProjects;
+  // Fold the individual suite apps into the single studio entry.
+  const merged = mergedRaw.filter((p) => !isSuiteApp(p));
 
   const inProgress = sortByRelevance(
     merged.filter((p) => p.inProgress && !p.learning),

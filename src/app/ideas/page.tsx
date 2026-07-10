@@ -176,7 +176,7 @@ function CofounderPanel() {
                 Shipped products, not prototypes.
               </span>{" "}
               Watch Together is live on the Chrome Web Store. Gondilal is at
-              gondilalsaraf.com. PCOD Tracker is in production. I finish
+              gondilalsaraf.com. Serenity is in production. I finish
               things.
             </li>
             <li>

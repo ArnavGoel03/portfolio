@@ -115,9 +115,9 @@ const selectedProjects = [
       "Three surfaces (public site + bilingual catalogue + admin ERP) in one Next.js 15 codebase. Image pipeline: Photoroom → Sharp → Gemini 2.0 Flash → Replicate SDXL. 15 Prisma models, 26 API routes, 85 tests.",
   },
   {
-    name: "PCOD Tracker",
+    name: "Serenity",
     role: "Solo: AI health companion",
-    href: "/projects/pcod-tracker",
+    href: "/projects/serenity",
     summary:
       "Rant-first health logging where Claude extracts structured symptoms, medications, and mood from free-form text. Lab-report PDF parser with Zod-validated JSON output and manual fallback form. 15 Prisma models.",
   },

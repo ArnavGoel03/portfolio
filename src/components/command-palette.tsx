@@ -56,14 +56,14 @@ const ITEMS: CommandItem[] = [
   // Case studies
   { id: "cs-watch-together", label: "Watch Together, case study", section: "Case Studies", icon: BookOpen, href: "/projects/watch-together", keywords: ["chrome extension", "websocket", "sync"] },
   { id: "cs-gondilal", label: "Gondilal Saraf, case study", section: "Case Studies", icon: BookOpen, href: "/projects/gondilal-saraf", keywords: ["jewelry", "full-stack", "family business"] },
-  { id: "cs-pcod", label: "PCOD Tracker, case study", section: "Case Studies", icon: BookOpen, href: "/projects/pcod-tracker", keywords: ["health", "claude", "ai"] },
+  { id: "cs-pcod", label: "Serenity, case study", section: "Case Studies", icon: BookOpen, href: "/projects/serenity", keywords: ["health", "claude", "ai"] },
   { id: "cs-redbull", label: "Red Bull YouTube Analytics, case study", section: "Case Studies", icon: BookOpen, href: "/projects/redbull-youtube-analytics", keywords: ["vader", "sentiment", "youtube"] },
 
   // External
   { id: "ext-github", label: "GitHub · ArnavGoel03", section: "External", icon: FaGithub, href: SOCIAL_LINKS.github, external: true },
   { id: "ext-linkedin", label: "LinkedIn", section: "External", icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin, external: true },
   { id: "ext-gondilal", label: "gondilalsaraf.com", section: "External", icon: ExternalLink, href: "https://gondilalsaraf.com", external: true, keywords: ["jewelry", "live site"] },
-  { id: "ext-pcod", label: "pcod-tracker.vercel.app", section: "External", icon: ExternalLink, href: "https://pcod-tracker.vercel.app", external: true },
+  { id: "ext-pcod", label: "serenity-pcos.vercel.app", section: "External", icon: ExternalLink, href: "https://serenity-pcos.vercel.app", external: true },
   { id: "ext-watch", label: "Watch Together · Chrome Web Store", section: "External", icon: ExternalLink, href: "https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa", external: true },
   { id: "ext-orcid", label: "ORCID", section: "External", icon: ExternalLink, href: SOCIAL_LINKS.orcid, external: true },
 

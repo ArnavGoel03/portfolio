@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     "TensorFlow",
     "Gondilal Saraf",
     "Watch Together",
-    "PCOD Tracker",
+    "Serenity",
     "Full-stack engineer",
     "International student UCSD",
   ],

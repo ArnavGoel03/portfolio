@@ -63,7 +63,7 @@ const categories = [
     items: [
       { name: "PostgreSQL", detail: "Primary database for full-stack projects" },
       { name: "Notion API", detail: "CMS for this portfolio" },
-      { name: "NextAuth.js", detail: "OAuth + credentials (PCOD Tracker, Gondilal)" },
+      { name: "NextAuth.js", detail: "OAuth + credentials (Serenity, Gondilal)" },
       { name: "YouTube Data API v3", detail: "Red Bull YouTube analytics" },
       { name: "yt-dlp", detail: "Video metadata extraction" },
     ],
@@ -72,7 +72,7 @@ const categories = [
     icon: Cloud,
     title: "AI Services",
     items: [
-      { name: "Claude API (Anthropic)", detail: "PCOD Tracker, rant parsing, lab-report extraction" },
+      { name: "Claude API (Anthropic)", detail: "Serenity, rant parsing, lab-report extraction" },
       { name: "Gemini 2.0 Flash", detail: "Gondilal Saraf, product descriptions from photos" },
       { name: "OpenAI API", detail: "Vaani chatbot, multilingual speech and text" },
       { name: "Replicate (SDXL)", detail: "Gondilal Saraf: AI model-image generation" },

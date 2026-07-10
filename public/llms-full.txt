@@ -57,7 +57,7 @@ Program that classifies common pet animals using their pictures. Trained on a pr
 - **Tags:** CNN, Computer Vision, Deep Learning
 - **Date:** January 2022
 
-### PCOD Tracker: AI Health Companion
+### Serenity: AI Health Companion
 Built an AI-powered health management web application for women managing PCOD/PCOS (Polycystic Ovarian Disease/Syndrome).
 
 **AI-Powered Rant & Vent:** Chat-like interface where users type free-form thoughts about their day. Claude Sonnet 4 analyzes the text and automatically extracts symptoms with severity (1-5), mood, energy levels, sleep hours, diet entries, exercise logs, medications taken/skipped, cycle information, and weight, all without any manual form filling.
@@ -77,7 +77,7 @@ Built an AI-powered health management web application for women managing PCOD/PC
 **Security:** JWT sessions, bcryptjs password hashing, cascade deletes, privacy-first design. PDF text extracted locally, never stored externally.
 
 - **Tags:** Next.js 16, Claude AI, PostgreSQL, Prisma, NextAuth.js, Recharts, TypeScript
-- **Live:** https://pcod-tracker.vercel.app
+- **Live:** https://serenity-pcos.vercel.app
 - **Date:** March 2025
 - **Status:** Featured Project
 
@@ -140,5 +140,5 @@ Built a full-stack e-commerce and ERP platform for a century-old family gold & s
 ## Blog Posts
 
 - **Building a Full-Stack Jewelry Platform for a Century-Old Family Business** (/blog/building-gondilal-saraf): Deep dive into Gondilal Saraf covering tech stack, AI pipeline, heritage design system, bilingual architecture
-- **Why I Built an AI Health Tracker for Women with PCOD** (/blog/pcod-tracker-ai-health): PCOD Tracker story covering rant-first logging, Claude AI parsing, lab report analysis, privacy design
+- **Why I Built an AI Health Tracker for Women with PCOD** (/blog/serenity-ai-health): Serenity story covering rant-first logging, Claude AI parsing, lab report analysis, privacy design
 - **From Algorithms to Jewelry: My Path Through Data Science & Entrepreneurship** (/blog/from-algorithms-to-jewelry): Personal essay on combining Data Science with entrepreneurship at UCSD

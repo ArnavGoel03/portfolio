@@ -9,23 +9,13 @@ import KineticHeading from "@/components/kinetic-heading";
 import Magnetic from "@/components/magnetic";
 import FocusParagraph from "@/components/focus-paragraph";
 import { getFeaturedProjects } from "@/lib/notion";
+import { studioProject, isSuiteApp } from "@/lib/projects";
 import { Project } from "@/lib/types";
 
 export const revalidate = 3600;
 
 const staticFeatured: Project[] = [
-  {
-    id: "studio",
-    title: "Quiver: A Studio of Private, Native Mac Apps",
-    description:
-      "A one-person studio building a suite of local-first macOS apps, no accounts, no telemetry, nothing leaves your Mac, unlocked by one subscription. Trove (40+ utilities in one app), Relay (a private, local API client), and Tend (tasks and calendar). Swift 6 and SwiftUI, with shared code and licensing across all three.",
-    tags: ["Swift 6", "SwiftUI", "macOS"],
-    image: "",
-    github: "",
-    demo: "https://gettrove.vercel.app",
-    featured: true,
-    date: "2026-07",
-  },
+  studioProject,
   {
     id: "buzz",
     title: "Buzz: College Event Discovery",
@@ -112,13 +102,6 @@ export default async function Home() {
       : staticFeatured;
   // Fold the individual suite apps into the single "studio" entry: never list
   // Trove, Relay, or Tend as separate projects (they live inside the studio).
-  const isSuiteApp = (p: Project) => {
-    if (p.id === "studio") return false;
-    const t = p.title.trim().toLowerCase();
-    return (
-      t.startsWith("trove") || t.startsWith("relay") || t.startsWith("tend")
-    );
-  };
   const merged = mergedRaw.filter((p) => !isSuiteApp(p));
   const hasLinks = (p: Project) => Boolean(p.github || p.demo);
   const featured = [

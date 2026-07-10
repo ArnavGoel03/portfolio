@@ -49,7 +49,7 @@ export default function PinnedFlagships({ projects }: PinnedFlagshipsProps) {
     <section
       ref={ref}
       aria-label="Flagship projects"
-      className="relative hidden lg:block"
+      className="relative hidden overflow-x-clip lg:block"
       style={{ height: `${(n - 1) * 80 + 100}vh` }}
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">

@@ -6,7 +6,31 @@ import { Project } from "@/lib/types";
 //
 // featured:true is reserved for the four absolute flagship case studies. When
 // everything is featured, nothing is, so this is intentionally narrow.
+// The studio (folds Trove, Relay, and Tend into ONE entry, they are never
+// listed separately). Single source of truth, referenced by the homepage too.
+export const studioProject: Project = {
+  id: "studio",
+  title: "Quiver: A Studio of Private, Native Mac Apps",
+  description:
+    "A one-person studio building a suite of local-first macOS apps that never phone home: no accounts, no telemetry, nothing leaves your Mac, all unlocked by a single subscription key. Trove packs 40+ utilities (clipboard manager, window manager, system and GPU monitors, OCR, a full PDF kit, disk cleaner, and more) into one native app. Relay is a private, local API client (a Postman / Bruno alternative) with collections, environments, OAuth / AWS / digest auth, and JavaScript pre and post-request scripting, keys stored in the Keychain. Tend is a calm, local-first tasks and calendar app. Built in Swift 6 and SwiftUI with a shared code core and one licensing model across every app, direct-distributed and Developer-ID signed, with a marketing site and per-app SEO.",
+  tags: ["Swift 6", "SwiftUI", "macOS", "Local-first", "Keychain", "SwiftPM"],
+  image: "",
+  github: "",
+  demo: "https://gettrove.vercel.app",
+  featured: true,
+  date: "2026-07",
+  inProgress: true,
+};
+
+/** True for a standalone suite app (so it can be folded into `studioProject`). */
+export function isSuiteApp(p: Project): boolean {
+  if (p.id === "studio") return false;
+  const t = p.title.trim().toLowerCase();
+  return t.startsWith("trove") || t.startsWith("relay") || t.startsWith("tend");
+}
+
 export const staticProjects: Project[] = [
+  studioProject,
   {
     id: "buzz",
     title: "Buzz: College Event Discovery",

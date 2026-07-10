@@ -31,7 +31,7 @@ import { Project, memberName } from "@/lib/types";
 const CASE_STUDY_SLUGS = new Set([
   "watch-together",
   "gondilal-saraf",
-  "pcod-tracker",
+  "serenity",
   "redbull-youtube-analytics",
 ]);
 
@@ -44,7 +44,7 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   vaani: AudioWaveform,
   "handwritten-digits": ScanEye,
   "pet-classifier": PawPrint,
-  "pcod-tracker": HeartPulse,
+  "serenity": HeartPulse,
   "gondilal-saraf": Gem,
   "watch-together": Clapperboard,
   "fair-ludo": Dice6,

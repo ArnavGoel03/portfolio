@@ -266,11 +266,11 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "pcod-tracker",
-    title: "PCOD Tracker",
+    slug: "serenity",
+    title: "Serenity",
     subtitle: "AI-parsed health logging for women with PCOD",
     role: "Solo, product, design, full-stack",
-    period: "Mar 2025 · live at pcod-tracker.vercel.app",
+    period: "Mar 2025 · live at serenity-pcos.vercel.app",
     status: "Live",
     thesis:
       "Proves I can turn an LLM from a chat toy into a structured health-data extractor, and design the schema to absorb free-form rants and OCR'd lab PDFs without fabricating values in a domain where precision matters.",
@@ -365,8 +365,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     links: [
       {
-        label: "Live at pcod-tracker.vercel.app",
-        href: "https://pcod-tracker.vercel.app",
+        label: "Live at serenity-pcos.vercel.app",
+        href: "https://serenity-pcos.vercel.app",
         kind: "demo",
       },
     ],
