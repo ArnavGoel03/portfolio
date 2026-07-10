@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import { track } from "@/lib/analytics";
 
 const socials = [
   {
@@ -69,6 +70,7 @@ export default function Contact() {
 
     setSending(false);
     if (res.ok) {
+      track("contact_form_submit");
       setSubmitted(true);
     } else {
       setError("Something went wrong. Please try again or email me directly.");

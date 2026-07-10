@@ -27,6 +27,7 @@ import {
 import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Project, memberName } from "@/lib/types";
+import { track } from "@/lib/analytics";
 
 const CASE_STUDY_SLUGS = new Set([
   "watch-together",
@@ -183,6 +184,12 @@ function ProjectModal({
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  track("project_link_click", {
+                    project_id: project.id,
+                    link_type: "github",
+                  })
+                }
                 className="flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-foreground/5 px-4 py-2 text-sm font-medium text-foreground/70 transition-all hover:border-foreground/20 hover:bg-foreground/5 hover:text-foreground"
               >
                 <FaGithub size={15} />
@@ -203,6 +210,12 @@ function ProjectModal({
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  track("project_link_click", {
+                    project_id: project.id,
+                    link_type: "demo",
+                  })
+                }
                 className="flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
               >
                 {isYoutube(project.demo) ? (
@@ -252,7 +265,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.12 }}
         className="card-3d group cursor-pointer"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          track("project_card_open", { project_id: project.id });
+          setOpen(true);
+        }}
       >
         <div className="card-3d-inner gradient-border glow-card rounded-2xl bg-card overflow-hidden">
           <div className="relative h-44 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/10">
@@ -336,6 +352,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    track("project_link_click", {
+                      project_id: project.id,
+                      link_type: "github",
+                    })
+                  }
                   className="flex items-center gap-1.5 rounded-lg border border-foreground/10 bg-foreground/5 px-3 py-1.5 text-xs font-medium text-foreground/70 transition-all hover:border-foreground/20 hover:bg-foreground/5 hover:text-foreground"
                 >
                   <FaGithub size={13} />
@@ -356,6 +378,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    track("project_link_click", {
+                      project_id: project.id,
+                      link_type: "demo",
+                    })
+                  }
                   className="flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(167,139,250,0.3)]"
                 >
                   {isYoutube(project.demo) ? (
