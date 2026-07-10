@@ -15,6 +15,18 @@ export const revalidate = 3600;
 
 const staticFeatured: Project[] = [
   {
+    id: "studio",
+    title: "Quiver: A Studio of Private, Native Mac Apps",
+    description:
+      "A one-person studio building a suite of local-first macOS apps, no accounts, no telemetry, nothing leaves your Mac, unlocked by one subscription. Trove (40+ utilities in one app), Relay (a private, local API client), and Tend (tasks and calendar). Swift 6 and SwiftUI, with shared code and licensing across all three.",
+    tags: ["Swift 6", "SwiftUI", "macOS"],
+    image: "",
+    github: "",
+    demo: "https://gettrove.vercel.app",
+    featured: true,
+    date: "2026-07",
+  },
+  {
     id: "buzz",
     title: "Buzz: College Event Discovery",
     description:
@@ -51,14 +63,14 @@ const staticFeatured: Project[] = [
     date: "2026-04",
   },
   {
-    id: "pcod-tracker",
-    title: "PCOD Tracker: AI Health Companion",
+    id: "serenity",
+    title: "Serenity: AI Health Companion",
     description:
       "AI-powered PCOD/PCOS health app, vent freely and Claude AI auto-extracts symptoms, mood, and meds. Upload lab PDFs for instant hormone parsing. 15 Prisma models, medication streaks, and lab trend charts.",
     tags: ["Next.js 16", "Claude AI", "PostgreSQL"],
     image: "",
     github: "",
-    demo: "https://pcod-tracker.vercel.app",
+    demo: "https://serenity-pcos.vercel.app",
     featured: true,
     date: "2025-03",
   },
@@ -199,14 +211,14 @@ export default async function Home() {
               </p>
             </Link>
             <Link
-              href="/projects/pcod-tracker"
+              href="/projects/serenity"
               className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
             >
               <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                 Production AI
               </p>
               <p className="mt-2 font-serif text-base font-semibold tracking-tight text-foreground">
-                PCOD Tracker
+                Serenity
               </p>
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                 Free-form health rants parsed by Claude into structured
