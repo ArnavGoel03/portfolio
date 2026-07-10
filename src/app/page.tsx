@@ -106,10 +106,20 @@ export default async function Home() {
   const extraStatic = staticFeatured.filter(
     (p) => !notionIds.has(p.title.toLowerCase())
   );
-  const merged =
+  const mergedRaw =
     notionFeatured.length > 0
       ? [...notionFeatured, ...extraStatic]
       : staticFeatured;
+  // Fold the individual suite apps into the single "studio" entry: never list
+  // Trove, Relay, or Tend as separate projects (they live inside the studio).
+  const isSuiteApp = (p: Project) => {
+    if (p.id === "studio") return false;
+    const t = p.title.trim().toLowerCase();
+    return (
+      t.startsWith("trove") || t.startsWith("relay") || t.startsWith("tend")
+    );
+  };
+  const merged = mergedRaw.filter((p) => !isSuiteApp(p));
   const hasLinks = (p: Project) => Boolean(p.github || p.demo);
   const featured = [
     ...merged.filter(hasLinks),
