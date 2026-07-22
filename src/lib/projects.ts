@@ -45,6 +45,18 @@ export const staticProjects: Project[] = [
     inProgress: true,
   },
   {
+    id: "claude-skills",
+    title: "arnav-skills: Claude Code Skills Marketplace",
+    description:
+      "A published marketplace of Claude Code skills distilled from shipping real software with AI agents, each one a workflow paid for in real mistakes rather than a checklist written in the abstract. red-team-ledger closes the loop on automated code-review findings with a checked-in ledger of every finding ever reported, born from a nightly AI red-team that filed 20 reports and re-filed the same critical bug 7 times while nothing got fixed. game-smoke is a headless testing harness pattern for browser games and canvas/WebGL apps: a seedable debug hook, deterministic forced events, poll-not-sleep discipline, and screenshot verification, because a green test suite cannot see a black screen. server-verified-scores is an anti-cheat leaderboard pattern for deterministic games where the client submits a seed and input trace, and the server re-simulates with byte-exact shared physics and stores only the score it computed itself. Installable in any Claude Code session via /plugin marketplace add ArnavGoel03/claude-skills.",
+    tags: ["Claude Code", "AI Agents", "Developer Tools", "Code Review", "Testing", "Anti-Cheat"],
+    image: "",
+    github: "https://github.com/ArnavGoel03/claude-skills",
+    demo: "",
+    featured: false,
+    date: "2026-07",
+  },
+  {
     id: "pidilite-fevicreate",
     title: "Pidilite Fevicreate: Internal School-Engagement Tracker",
     description:
