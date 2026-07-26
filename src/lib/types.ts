@@ -18,6 +18,8 @@ export interface Project {
   learning?: boolean;
   privateRepo?: boolean;
   doi?: string;
+  /** id of a `collections` entry when this project is one surface of a larger series. */
+  collection?: string;
   team?: {
     size: number;
     members?: TeamMember[];

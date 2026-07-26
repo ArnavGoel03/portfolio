@@ -4,6 +4,8 @@ import { ArrowLeft, ArrowUpRight, PlayCircle, ExternalLink, Quote } from "lucide
 import { FaGithub } from "react-icons/fa";
 import Section from "@/components/section";
 import RedBullViz from "@/components/redbull-viz";
+import CollectionRail from "@/components/collection-rail";
+import { getCollection } from "@/lib/collections";
 import {
   caseStudies,
   getCaseStudy,
@@ -336,6 +338,7 @@ function ProjectProfile({ project }: { project: Project }) {
     "en-US",
     { month: "long", year: "numeric" }
   );
+  const collection = getCollection(project.collection);
 
   return (
     <>
@@ -471,6 +474,15 @@ function ProjectProfile({ project }: { project: Project }) {
           </div>
         </div>
       </Section>
+
+      {collection && (
+        <Section className="pt-8">
+          <CollectionRail
+            collection={collection}
+            currentProjectId={project.id}
+          />
+        </Section>
+      )}
 
       <Section className="pt-4 pb-20">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">

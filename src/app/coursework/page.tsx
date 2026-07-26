@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Section from "@/components/section";
 import { Badge } from "@/components/ui/badge";
+import { getCollection } from "@/lib/collections";
 
 export const metadata = {
   title: "Coursework",
@@ -45,6 +46,22 @@ type Group = {
   courses: Course[];
   artifacts?: Artifact[];
 };
+
+// The Synthesis links are the same ones the project pages show, derived from
+// the collection rather than restated here, so the SYN 100 project can never
+// be listed on one page and missing from the other.
+const builtForCars = getCollection("built-for-cars");
+
+const synthesisArtifacts: Artifact[] = [
+  ...(builtForCars?.related ?? []).map((item) => ({
+    label: item.label,
+    href: item.href,
+  })),
+  ...(builtForCars?.surfaces ?? []).map((surface) => ({
+    label: `SYN 100 · ${surface.label}`,
+    href: surface.liveUrl ?? surface.href,
+  })),
+];
 
 const groups: Group[] = [
   {
@@ -413,10 +430,7 @@ const groups: Group[] = [
       },
     ],
     artifacts: [
-      {
-        label: "Synthesis Writing Portfolio",
-        href: "https://sites.google.com/ucsd.edu/synthesis-yash/home",
-      },
+      ...synthesisArtifacts,
     ],
   },
   {

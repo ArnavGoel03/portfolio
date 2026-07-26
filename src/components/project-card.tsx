@@ -22,11 +22,14 @@ import {
   Zap,
   BookOpen,
   Quote,
+  Layers,
+  Lock,
   X,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Project, memberName } from "@/lib/types";
+import { getCollection } from "@/lib/collections";
 import { track } from "@/lib/analytics";
 
 const CASE_STUDY_SLUGS = new Set([
@@ -75,6 +78,7 @@ function ProjectModal({
   onClose: () => void;
 }) {
   const Icon = projectIcons[project.id] || ScanEye;
+  const collection = getCollection(project.collection);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -166,6 +170,71 @@ function ProjectModal({
             {project.description}
           </p>
 
+          {collection && (
+            <div className="mt-6 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4">
+              <p className="flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                <Layers size={11} aria-hidden="true" />
+                Part of {collection.label} · {collection.surfaces.length} sites
+              </p>
+              <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
+                {collection.summary}
+              </p>
+              <ul className="mt-3 grid gap-2">
+                {collection.surfaces.map((surface) => {
+                  const isCurrent = surface.projectId === project.id;
+                  if (isCurrent) {
+                    return (
+                      <li
+                        key={surface.href}
+                        className="flex flex-wrap items-center gap-2 text-[13px] text-foreground/85"
+                      >
+                        {surface.label}
+                        <span className="rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em]">
+                          You are here
+                        </span>
+                      </li>
+                    );
+                  }
+                  const inner = (
+                    <>
+                      {surface.label}
+                      {surface.gated && (
+                        <span
+                          title={surface.gated}
+                          className="ml-1.5 inline-flex items-center gap-1 rounded-full border border-dashed border-foreground/20 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground"
+                        >
+                          <Lock size={9} aria-hidden="true" />
+                          {surface.gated}
+                        </span>
+                      )}
+                    </>
+                  );
+                  return (
+                    <li key={surface.href} className="text-[13px]">
+                      {surface.projectId ? (
+                        <Link
+                          href={surface.href}
+                          className="text-foreground/85 underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/60"
+                        >
+                          {inner}
+                        </Link>
+                      ) : (
+                        <a
+                          href={surface.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground/85 underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/60"
+                        >
+                          {inner}
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+
           <div className="mt-6 flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
               <Badge
@@ -255,6 +324,7 @@ function ProjectModal({
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const Icon = projectIcons[project.id] || ScanEye;
+  const collection = getCollection(project.collection);
   const [open, setOpen] = useState(false);
 
   return (
@@ -305,6 +375,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 {project.team.members && project.team.members.length > 0
                   ? `With ${project.team.members.map(memberName).join(", ")}`
                   : `Team of ${project.team.size}`}
+              </p>
+            )}
+            {collection && (
+              <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-foreground/10 bg-foreground/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+                <Layers size={10} aria-hidden="true" />
+                {collection.label} · 1 of {collection.surfaces.length} sites
               </p>
             )}
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">

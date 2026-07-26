@@ -57,6 +57,38 @@ export const staticProjects: Project[] = [
     date: "2026-07",
   },
   {
+    id: "library-walk",
+    title: "Library Walk: A Playable Micromobility Thesis",
+    description:
+      "A campus micromobility runner that makes the argument instead of illustrating it, built solo for Group 3 in SYN 100 (Seventh College, UC San Diego). You ride a scooter to class down the real route: the Blue Line drops you at Central Campus station, you take the protected green lane down Gilman Drive past live traffic, and the lane ends exactly where Library Walk and the weekday dismount ban begin, so from there the crowd is the infrastructure. Every ending cites its receipt, a crash logs why it happened (speeding through a crowd, rushing the clock, boxed in uphill, forced to the path edge) and surfaces the research finding that matches that cause, not a random one. Perfect world replays the identical route with the lane never ending, the counterfactual as a second playthrough. Custom Three.js / WebGL renderer with anatomically rigged figures and two-bone IK, Verlet ragdoll crashes over those same joints, one height function shared byte-for-byte between JavaScript and the vertex shader, and 61 OpenStreetMap building footprints projected onto the route. The synthesized score holds a fifth for as long as there is a protected lane under you and drops to a fourth the metre it ends. Class Race puts 25 to 40 phones in a lecture hall on one seed from a projected QR code, over a SQLite-backed Cloudflare Durable Object, and the leaderboard is anti-cheat by re-simulation: the client submits a seed and input trace, and the server recomputes the score itself with byte-exact shared physics on Neon Postgres. A 247-check headless smoke suite gates every release.",
+    tags: ["Three.js", "WebGL", "Game Development", "Cloudflare Workers", "Durable Objects", "Neon", "PWA", "SYN 100"],
+    image: "",
+    github: "",
+    privateRepo: true,
+    demo: "https://library-walk.vercel.app",
+    featured: false,
+    date: "2026-07",
+    collection: "built-for-cars",
+  },
+  {
+    id: "syn100-micromobility",
+    title: "Built for Cars, Banned for Bikes: Micromobility Research Site",
+    description:
+      "The research site behind our SYN 100 project (Seventh College, UC San Diego) on micromobility as climate infrastructure, with Yuvia Cabral and Rut. A single-page explainer plus a working toolkit: the short-trip problem, ridership evidence, UC San Diego as a field site, the barriers that actually stop riders (nowhere to park, nowhere to charge, restricted zones), a peer-campus benchmark, and a policy playbook, every statistic cited. Three pieces of our own fieldwork are published rather than summarised, a 31-response survey across 12 institutions and 4 countries, two structured field observations at Sichuan University and Victor Valley College covering 87 riders, and seven on-site interviews across three campuses, with raw exports withheld, interviewees unnamed, and the one who declined recording paraphrased and never quoted. Ships an interactive trip calculator (car vs bike on cost, CO2, and calories), a resource finder covering all ten UC campuses, a printable flyer, and a share card. It is hand-authored static HTML with no build step, so nothing can import a shared constant, a data/facts.json single source of truth plus a Python drift checker does that job instead: 9 checks, one version string across the worker and the footer, and all 55 published survey figures re-verified against the raw export before every commit. Stale-while-revalidate service worker with a Chrome-dino-style offline ride, and a connection lamp that tests the network rather than trusting navigator.onLine.",
+    tags: ["Static HTML", "Service Worker", "PWA", "Data Visualization", "SVG", "Python", "Field Research", "SYN 100"],
+    image: "",
+    github: "",
+    privateRepo: true,
+    demo: "https://syn100-micromobility.vercel.app",
+    featured: false,
+    date: "2026-07",
+    collection: "built-for-cars",
+    team: {
+      size: 3,
+      members: ["Yuvia Cabral", "Rut"],
+    },
+  },
+  {
     id: "pidilite-fevicreate",
     title: "Pidilite Fevicreate: Internal School-Engagement Tracker",
     description:
