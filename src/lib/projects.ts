@@ -16,7 +16,9 @@ export const studioProject: Project = {
   tags: ["Swift 6", "SwiftUI", "macOS", "Local-first", "Keychain", "SwiftPM"],
   image: "/shots/studio.webp",
   github: "",
-  demo: "https://gettrove.vercel.app",
+  // The studio's own site. Not `gettrove.vercel.app`, which belongs to an
+  // unrelated company and has never had anything to do with these apps.
+  demo: "https://trove.arnavgoel.dev",
   featured: true,
   date: "2026-07",
   inProgress: true,
@@ -352,7 +354,7 @@ export const staticProjects: Project[] = [
     tags: ["Python", "pandas", "scikit-learn", "Random Forest", "Permutation Testing", "DSC 80"],
     image: "/shots/power-grid-analysis.webp",
     github: "https://github.com/ArnavGoel03/Power-grid-analysis",
-    demo: "",
+    demo: "https://arnavgoel03.github.io/Power-grid-analysis/",
     featured: false,
     date: "2024-12",
     doi: "10.5281/zenodo.19707994",
@@ -382,32 +384,6 @@ export const staticProjects: Project[] = [
         },
       ],
     },
-  },
-  {
-    id: "handwritten-digits",
-    title: "Handwritten Digits Classifier",
-    description:
-      "My first machine-learning project, a TensorFlow/Keras CNN trained on the MNIST dataset to recognise handwritten digits 0 to 9. Built during the AI elective at Delhi Public School, R. K. Puram, and recently cleaned up into a reproducible repo reaching ~99.2% test accuracy in under a minute on CPU. Walks through the full pipeline end-to-end: data loading and normalisation, a two-block Conv → Pool architecture, training, confusion-matrix evaluation, and a single-image prediction CLI.",
-    tags: ["TensorFlow", "Keras", "CNN", "MNIST", "Python"],
-    image: "/shots/handwritten-digits.webp",
-    github: "https://github.com/ArnavGoel03/handwritten-digits-classifier",
-    demo: "",
-    featured: false,
-    date: "2022-01",
-    learning: true,
-  },
-  {
-    id: "pet-classifier",
-    title: "Pet Classifier Model",
-    description:
-      "Early computer-vision project, a CNN that classifies pets from photographs. Originally built during my high-school AI elective at Delhi Public School, R. K. Puram on a private school-provided dataset, then rebuilt as a public, reproducible repo on the Oxford-IIIT Pet Dataset (37 breeds, ~7,400 images). Uses MobileNetV2 transfer learning with a two-stage schedule, head training then fine-tuning the last ~30 base layers, targeting ~92% test accuracy. Ships with training, evaluation, and a single-image breed-prediction CLI.",
-    tags: ["TensorFlow", "Keras", "Transfer Learning", "MobileNetV2", "Computer Vision", "Python"],
-    image: "/shots/pet-classifier.webp",
-    github: "https://github.com/ArnavGoel03/pet-classifier",
-    demo: "",
-    featured: false,
-    date: "2022-01",
-    learning: true,
   },
 ];
 

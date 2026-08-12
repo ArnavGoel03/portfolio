@@ -62,13 +62,13 @@ function projectNode(
   ry: number,
   rx: number
 ) {
-  let x = bx, z = bz;
+  const x = bx, z = bz;
   const cosY = Math.cos(ry);
   const sinY = Math.sin(ry);
   const x2 = x * cosY - z * sinY;
   const z2 = x * sinY + z * cosY;
 
-  let y = by;
+  const y = by;
   const cosX = Math.cos(rx);
   const sinX = Math.sin(rx);
   const y2 = y * cosX - z2 * sinX;
@@ -232,7 +232,7 @@ export default function HeroNodes() {
       const ry = S.rotation + S.scroll * 0.0008;
       const rx = 0.35 + Math.sin(time * 0.0003) * 0.08;
 
-      const projected = nodes.map((n, _i) => {
+      const projected = nodes.map((n) => {
         if (n.type === "ambient") {
           n.baseX += n.driftX * 0.003;
           n.baseY += n.driftY * 0.003;
@@ -284,7 +284,10 @@ export default function HeroNodes() {
         const p = projected[i];
         const pulse =
           Math.sin(time * n.pulseSpeed + n.pulseOffset) * 0.3 + 0.7;
-        const r = n.radius * pulse * p.s;
+        // A node that swings behind the camera gets a negative perspective
+        // scale, and a negative radius makes createRadialGradient throw, which
+        // kills the whole rAF loop and freezes the constellation mid-frame.
+        const r = Math.max(0.01, n.radius * pulse * p.s);
 
         let extra = 0;
         if (

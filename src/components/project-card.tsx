@@ -7,7 +7,6 @@ import {
   ExternalLink,
   AudioWaveform,
   ScanEye,
-  PawPrint,
   Gem,
   HeartPulse,
   Clapperboard,
@@ -46,8 +45,6 @@ const NO_DETAIL_PAGE = new Set<string>();
 
 const projectIcons: Record<string, typeof AudioWaveform> = {
   vaani: AudioWaveform,
-  "handwritten-digits": ScanEye,
-  "pet-classifier": PawPrint,
   "serenity": HeartPulse,
   "gondilal-saraf": Gem,
   "watch-together": Clapperboard,

@@ -1,6 +1,6 @@
 import Section from "@/components/section";
 import ProjectsView from "./projects-view";
-import PinnedFlagships from "@/components/pinned-flagships";
+import FlagshipShowcase from "@/components/flagship-showcase";
 import { getProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
 import { staticProjects, isSuiteApp } from "@/lib/projects";
@@ -12,12 +12,30 @@ const FLAGSHIP_ORDER = [
   "redbull-youtube-analytics",
 ];
 
+// Graded course deliverables. Nothing is removed from the site: these keep
+// their /projects/[slug] page, their Cmd+K entry, and their sitemap URL, they
+// just render in their own collapsed band so they do not sit next to shipped
+// work and flatten it. Kept as an explicit id list (same idiom as
+// FLAGSHIP_ORDER) so the canonical project list stays untouched.
+// Deliberately NOT here: power-grid-analysis (has a Zenodo DOI),
+// redbull-youtube-analytics (flagship), library-walk and syn100-micromobility
+// (course-originated but shipped, live products).
+const COURSEWORK_IDS = new Set([
+  "mlb-playoff-cogs108",
+  "arkinvest-anduril-mgt127r",
+  "arkinvest-mgt127r",
+  "har-cse158",
+  "cogs9-final",
+]);
+
+const isCoursework = (p: Project) => COURSEWORK_IDS.has(p.id);
+
 export const revalidate = 3600;
 
 export const metadata = {
   title: "Projects",
   description:
-    "Explore projects by Arnav Goel, from multilingual AI chatbots and ML-powered wardrobe assistants to deep learning classifiers and family business web development.",
+    "Explore projects by Arnav Goel: a Chrome Web Store extension with real weekly users, a native macOS app studio, AI health tools in production, and the full-stack platform behind a 150-year-old family jewelry business.",
   openGraph: {
     title: "Projects by Arnav Goel",
     description:
@@ -146,21 +164,18 @@ export default async function Projects({
   const merged = mergedRaw.filter((p) => !isSuiteApp(p));
 
   const inProgress = sortByRelevance(
-    merged.filter((p) => p.inProgress && !p.learning),
+    merged.filter((p) => p.inProgress && !isCoursework(p)),
     focus
   );
   const personal = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !p.team && !p.learning),
+    merged.filter((p) => !p.inProgress && !p.team && !isCoursework(p)),
     focus
   );
   const team = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !!p.team && !p.learning),
+    merged.filter((p) => !p.inProgress && !!p.team && !isCoursework(p)),
     focus
   );
-  const learning = sortByRelevance(
-    merged.filter((p) => p.learning),
-    focus
-  );
+  const coursework = sortByRelevance(merged.filter(isCoursework), focus);
 
   const flagshipMap = new Map(
     merged.filter((p) => p.featured).map((p) => [p.id, p])
@@ -186,13 +201,13 @@ export default async function Projects({
         </p>
       </Section>
 
-      <PinnedFlagships projects={flagships} />
+      <FlagshipShowcase projects={flagships} />
 
       <ProjectsView
         inProgress={inProgress}
         personal={personal}
         team={team}
-        learning={learning}
+        coursework={coursework}
         focus={focus}
       />
     </>

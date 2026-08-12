@@ -87,8 +87,79 @@ interface ProjectsViewProps {
   inProgress: Project[];
   personal: Project[];
   team: Project[];
-  learning: Project[];
+  coursework: Project[];
   focus?: string;
+}
+
+/**
+ * A band that stays fully accessible but starts collapsed, so lower-signal
+ * work is one click away instead of diluting the sections above it.
+ */
+function CollapsibleBand({
+  id,
+  kicker,
+  noun,
+  blurb,
+  projects,
+  className,
+}: {
+  id: string;
+  kicker: string;
+  noun: string;
+  blurb: string;
+  projects: Project[];
+  className: string;
+}) {
+  const [open, setOpen] = useState(false);
+  if (projects.length === 0) return null;
+
+  return (
+    <Section className={className}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls={id}
+        className="group flex w-full items-center justify-between gap-4 rounded-2xl border border-foreground/10 bg-foreground/[0.02] px-6 py-5 text-left transition-colors hover:border-foreground/20 hover:bg-foreground/5"
+      >
+        <div>
+          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            {kicker}
+          </p>
+          <p className="mt-1 font-serif text-lg font-semibold tracking-tight text-foreground/90">
+            {open ? "Hide" : "Show"} {projects.length} {noun}
+            {projects.length === 1 ? "" : "s"}
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground/80">{blurb}</p>
+        </div>
+        <ChevronDown
+          size={20}
+          className={`flex-shrink-0 text-muted-foreground transition-transform duration-300 group-hover:text-foreground ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id={id}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="overflow-hidden"
+          >
+            <div className="grid gap-7 pt-8 md:grid-cols-2 lg:grid-cols-3">
+              {projects.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Section>
+  );
 }
 
 type SectionKey = "inProgress" | "personal" | "team";
@@ -121,25 +192,24 @@ export default function ProjectsView({
   inProgress,
   personal,
   team,
-  learning,
+  coursework,
   focus,
 }: ProjectsViewProps) {
   const [filter, setFilter] = useState<string>("All");
-  const [showLearning, setShowLearning] = useState(false);
 
   // Ordered by recruiter-signal strength: shipped solo > actively being
-  // built > team work > learning (collapsed further down).
+  // built > team work > coursework (collapsed further down).
   const sections: [SectionKey, Project[]][] = [
     ["personal", personal.filter((p) => matchesFilter(p, filter))],
     ["inProgress", inProgress.filter((p) => matchesFilter(p, filter))],
     ["team", team.filter((p) => matchesFilter(p, filter))],
   ];
 
-  const learningFiltered = learning.filter((p) => matchesFilter(p, filter));
+  const courseworkFiltered = coursework.filter((p) => matchesFilter(p, filter));
 
   const totalVisible =
     sections.reduce((acc, [, arr]) => acc + arr.length, 0) +
-    learningFiltered.length;
+    courseworkFiltered.length;
 
   return (
     <>
@@ -221,60 +291,14 @@ export default function ProjectsView({
             );
           })}
 
-          {learningFiltered.length > 0 && (
-            <Section className="pt-8 pb-20">
-              <button
-                type="button"
-                onClick={() => setShowLearning((v) => !v)}
-                aria-expanded={showLearning}
-                aria-controls="learning-section"
-                className="group flex w-full items-center justify-between gap-4 rounded-2xl border border-foreground/10 bg-foreground/[0.02] px-6 py-5 text-left transition-colors hover:border-foreground/20 hover:bg-foreground/5"
-              >
-                <div>
-                  <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                    Early Work
-                  </p>
-                  <p className="mt-1 font-serif text-lg font-semibold tracking-tight text-foreground/90">
-                    {showLearning ? "Hide" : "Show"} {learningFiltered.length} learning project
-                    {learningFiltered.length === 1 ? "" : "s"}
-                  </p>
-                  <p className="mt-1 text-sm text-muted-foreground/80">
-                    High-school-era CV/ML tutorials, kept for transparency, not for signal.
-                  </p>
-                </div>
-                <ChevronDown
-                  size={20}
-                  className={`flex-shrink-0 text-muted-foreground transition-transform duration-300 group-hover:text-foreground ${
-                    showLearning ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {showLearning && (
-                  <motion.div
-                    id="learning-section"
-                    key="learning-grid"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="overflow-hidden"
-                  >
-                    <div className="grid gap-7 pt-8 md:grid-cols-2 lg:grid-cols-3">
-                      {learningFiltered.map((project, i) => (
-                        <ProjectCard
-                          key={project.id}
-                          project={project}
-                          index={i}
-                        />
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </Section>
-          )}
+          <CollapsibleBand
+            id="coursework-section"
+            kicker="Coursework"
+            noun="course project"
+            blurb="Graded UCSD deliverables. Full write-ups and recorded presentations on every card."
+            projects={courseworkFiltered}
+            className="pt-8 pb-20"
+          />
 
           {totalVisible === 0 && (
             <Section className="pt-8 pb-20">

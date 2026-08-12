@@ -12,6 +12,17 @@ interface SplitTextProps {
   as?: "span" | "div";
 }
 
+/**
+ * Keeping the separators is the whole trick.
+ *
+ * `text.split(" ")` drops them, and since every unit is rendered as an
+ * inline-block, the words then sit flush against each other: the hero tagline
+ * rendered as "Ibuilddatasciencethatships." Splitting on a capturing group
+ * keeps the whitespace as its own token, and emitting that token as ordinary
+ * text (not an inline-block) leaves the browser a place to break the line.
+ */
+const WHITESPACE = /(\s+)/;
+
 export default function SplitText({
   text,
   className,
@@ -22,36 +33,55 @@ export default function SplitText({
   as = "span",
 }: SplitTextProps) {
   const Wrapper = as;
-  const units =
-    mode === "words" ? text.split(" ") : Array.from(text);
+  const tokens = text.split(WHITESPACE).filter(Boolean);
+
+  // Stagger runs across the whole string, not per word, so the reveal reads as
+  // one sweep rather than restarting at every space.
+  let unit = 0;
 
   return (
     <Wrapper className={className} style={{ display: "inline-block" }}>
-      {units.map((unit, i) => {
-        const isSpace = unit === " ";
+      {tokens.map((token, t) => {
+        if (WHITESPACE.test(token)) return <span key={t}>{token}</span>;
+
+        // Characters animate individually but stay wrapped in their word, so a
+        // line break can never land inside one ("I b / uild ML").
+        const parts = mode === "words" ? [token] : Array.from(token);
+
         return (
           <span
-            key={i}
-            style={{
-              display: "inline-block",
-              overflow: "hidden",
-              verticalAlign: "top",
-              whiteSpace: isSpace ? "pre" : "normal",
-            }}
-            aria-hidden={false}
+            key={t}
+            style={{ display: "inline-block", whiteSpace: "nowrap" }}
           >
-            <motion.span
-              initial={{ y: "110%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration,
-                delay: delay + i * stagger,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              style={{ display: "inline-block", willChange: "transform, opacity" }}
-            >
-              {isSpace ? " " : unit}
-            </motion.span>
+            {parts.map((part, p) => {
+              const i = unit++;
+              return (
+                <span
+                  key={p}
+                  style={{
+                    display: "inline-block",
+                    overflow: "hidden",
+                    verticalAlign: "top",
+                  }}
+                >
+                  <motion.span
+                    initial={{ y: "110%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{
+                      duration,
+                      delay: delay + i * stagger,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    style={{
+                      display: "inline-block",
+                      willChange: "transform, opacity",
+                    }}
+                  >
+                    {part}
+                  </motion.span>
+                </span>
+              );
+            })}
           </span>
         );
       })}

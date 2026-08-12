@@ -9,85 +9,36 @@ import KineticHeading from "@/components/kinetic-heading";
 import Magnetic from "@/components/magnetic";
 import FocusParagraph from "@/components/focus-paragraph";
 import { getFeaturedProjects } from "@/lib/notion";
-import { studioProject, isSuiteApp } from "@/lib/projects";
+import { studioProject, staticProjects, isSuiteApp } from "@/lib/projects";
 import { Project } from "@/lib/types";
 
 export const revalidate = 3600;
 
+/**
+ * The home page shows a hand-picked few, in a deliberate order.
+ *
+ * Only the order lives here. The projects themselves come from
+ * `staticProjects`, because this page used to keep its own retyped copies and
+ * they drifted: every one of them was still carrying `image: ""` long after
+ * the real entries had screenshots, so the home page showed six icon
+ * placeholders while `/projects` showed the actual work.
+ */
+const HOME_FEATURED_IDS = [
+  "buzz",
+  "watch-together",
+  "redbull-youtube-analytics",
+  "serenity",
+  "gondilal-saraf",
+  "power-grid-analysis",
+];
+
+const projectsById = new Map(staticProjects.map((p) => [p.id, p]));
+
 const staticFeatured: Project[] = [
   studioProject,
-  {
-    id: "buzz",
-    title: "Buzz: College Event Discovery",
-    description:
-      "Native iOS + macOS event app for US college students, launching at UCSD. Multiplatform SwiftUI (no Catalyst), Supabase with PostGIS + RLS, Stripe Connect ticketing, App Clip, ARKit 'Look Around', and a Next.js 16 PWA mirror.",
-    tags: ["SwiftUI", "Swift 6", "Supabase"],
-    image: "",
-    github: "",
-    demo: "https://web-eta-two-84.vercel.app/",
-    featured: true,
-    date: "2026-04",
-  },
-  {
-    id: "watch-together",
-    title: "Watch Together: Cross-Site Video Sync",
-    description:
-      "Chrome/Firefox/Safari extension that syncs playback on Netflix, YouTube, Disney+, Prime Video, and more. WebSocket relay with heartbeat drift correction, host mode, ad detection, and built-in chat. 59 server tests.",
-    tags: ["Chrome Extension", "WebSocket", "Node.js"],
-    image: "",
-    github: "https://github.com/ArnavGoel03/watch-together",
-    demo: "https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa",
-    featured: true,
-    date: "2026-04",
-  },
-  {
-    id: "redbull-youtube-analytics",
-    title: "Red Bull YouTube Sentiment Analytics",
-    description:
-      "End-term Social Media Analytics project, 500 YouTube comments on Red Bull scored with VADER. Net Sentiment Score of +28.6 pp (double the industry benchmark), 8-chart Excel dashboard, Word report, and executive summary PDF.",
-    tags: ["Python", "pandas", "VADER"],
-    image: "",
-    github: "https://github.com/ArnavGoel03/redbull-youtube-analytics",
-    demo: "/artifacts/redbull-youtube-executive-summary.pdf",
-    featured: true,
-    date: "2026-04",
-  },
-  {
-    id: "serenity",
-    title: "Serenity: AI Health Companion",
-    description:
-      "AI-powered PCOD/PCOS health app, vent freely and Claude AI auto-extracts symptoms, mood, and meds. Upload lab PDFs for instant hormone parsing. 15 Prisma models, medication streaks, and lab trend charts.",
-    tags: ["Next.js 16", "Claude AI", "PostgreSQL"],
-    image: "",
-    github: "",
-    demo: "https://serenity-pcos.vercel.app",
-    featured: true,
-    date: "2025-03",
-  },
-  {
-    id: "gondilal-saraf",
-    title: "Gondilal Saraf: Full-Stack Jewelry Platform",
-    description:
-      "Full-stack platform for a century-old family jewelry business, bilingual storefront, live gold rates, AR try-on, Gemini AI descriptions, admin ERP, 15 Prisma models, 26 API routes, and 85 tests.",
-    tags: ["Next.js 15", "PostgreSQL", "Gemini AI"],
-    image: "",
-    github: "",
-    demo: "https://gondilalsaraf.com",
-    featured: true,
-    date: "2025-01",
-  },
-  {
-    id: "power-grid-analysis",
-    title: "U.S. Power Outages: DSC 80",
-    description:
-      "DSC 80 project analysing 1,534 major U.S. power outages (2000 to 2016). Found higher electricity prices correlate with shorter outages (p ≈ 0.007). Random Forest with log-pop-density + severe-weather features: RMSE 6,189 min, R² 0.220.",
-    tags: ["Python", "scikit-learn", "Random Forest"],
-    image: "",
-    github: "https://github.com/ArnavGoel03/Power-grid-analysis",
-    demo: "",
-    featured: true,
-    date: "2024-12",
-  },
+  ...HOME_FEATURED_IDS.map((id) => projectsById.get(id)).filter(
+    (p): p is Project => Boolean(p)
+  ),
 ];
 
 export default async function Home() {

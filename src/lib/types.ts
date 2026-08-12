@@ -42,7 +42,6 @@ export interface Project {
   featured: boolean;
   date: string;
   inProgress?: boolean;
-  learning?: boolean;
   privateRepo?: boolean;
   doi?: string;
   /** id of a `collections` entry when this project is one surface of a larger series. */

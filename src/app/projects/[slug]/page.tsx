@@ -316,7 +316,6 @@ function demoLabel(url: string): string {
 
 function statusLabel(project: Project): string {
   if (project.inProgress) return "In progress";
-  if (project.learning) return "Early learning project";
   if (project.id === "vaani") return "Shelved · co-authored";
   if (project.team) return "Team project";
   return "Shipped";
