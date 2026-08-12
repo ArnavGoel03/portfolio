@@ -1,3 +1,5 @@
+import { WATCH_TOGETHER_INSTALLS } from "@/lib/constants";
+
 export interface CaseStudyLink {
   label: string;
   href: string;
@@ -45,8 +47,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Solo, design, server, extension, deploy",
     period: "Apr 2026 · shipping on Chrome Web Store",
     status: "Live",
-    thesis:
-      "Proves I can ship production-grade real-time systems under constraints that break most side projects: Manifest V3 kill windows, per-site player quirks, sync-vs-heartbeat races, and hold it together with 59 tests.",
+    thesis: `Proves I can ship production-grade real-time systems under constraints that break most side projects: Manifest V3 kill windows, per-site player quirks, sync-vs-heartbeat races, and hold it together with 59 tests. It is published, not a demo reel: ${WATCH_TOGETHER_INSTALLS} Chrome profiles have it installed and running right now.`,
     oneLiner:
       "One extension, any streaming site, any number of devices, anywhere on Earth, sub-second playback sync over WebSocket.",
     problem: [
@@ -101,6 +102,11 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     metrics: [
+      {
+        label: "Active installs",
+        value: `${WATCH_TOGETHER_INSTALLS}`,
+        note: "Chrome Web Store, live count",
+      },
       { label: "Platforms", value: "Chrome · Firefox · Safari" },
       { label: "Sync drift", value: "< 0.5s", note: "heartbeat correction" },
       { label: "Server tests", value: "59", note: "vitest" },

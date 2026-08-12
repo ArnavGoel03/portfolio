@@ -20,6 +20,20 @@ export const FAMILY_BUSINESS_FOUNDED = 1873;
 export const familyBusinessYears = () =>
   new Date().getFullYear() - FAMILY_BUSINESS_FOUNDED;
 
+/**
+ * Watch Together's live user count on the Chrome Web Store listing
+ * (chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa).
+ *
+ * Google's figure, not ours. It counts Chrome profiles that currently have the
+ * extension installed and active, NOT total downloads: anyone who installed it
+ * and then removed it has already dropped out, so this is the number that
+ * stuck. Unpacked dev-mode installs are not counted, only store installs.
+ *
+ * Read off the listing on 2026-08-13. It drifts, so re-read the listing before
+ * quoting it anywhere that matters and update it here, not at the call sites.
+ */
+export const WATCH_TOGETHER_INSTALLS = 26;
+
 export const SOCIAL_LINKS = {
   github: "https://github.com/ArnavGoel03",
   linkedin: "https://www.linkedin.com/in/arnav-goel--/",
