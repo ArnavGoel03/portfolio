@@ -45,15 +45,15 @@ const statusTone: Record<IdeaStatus, string> = {
 const ideas: Idea[] = [
   {
     id: "fair-ludo",
-    title: "Fair Ludo: Provably Fair Dice Game",
+    title: "Simple Games: Taking Provable Fairness to Scale",
     oneLiner:
-      "A consumer Ludo app where the dice are provably un-riggable.",
+      "The un-riggable dice are built and live. Getting them in front of players is the open half.",
     description:
-      "Ludo at scale on every Indian platform is infamously rigged, operators tune dice to keep losing players hooked and new players lucky. I want to build the opposite: a consumer-grade Ludo app (web + iOS + Android) where every roll is server-authoritative under a commit-reveal scheme. The server publishes a hashed seed before each game and reveals it after, so any player can replay and mathematically verify every roll in the match. Core RNG + game logic open-sourced so the fairness claim is independently auditable. Planned stack: Next.js for web, React Native / Expo for mobile, shared TypeScript game engine, Node + WebSockets backend, Postgres for accounts and match history. Big-app ambition, real-money tournaments, matchmaking, replay sharing, social. Still pre-build; the technical design is the easy part, the consumer-growth motion is where a co-founder changes everything.",
+      "Ludo at scale on every Indian platform is infamously rigged, operators tune dice to keep losing players hooked and new players lucky. I built the opposite, and it ships: Simple Games runs two live sites, Chaupal for Ludo and Snakes and Ladders and Taash for Judgement, 29, Call Break and Pachisa, every roll and every shuffle committed to under a hashed seed the server publishes before play and reveals after, so any player can replay the match and verify it without trusting me. That part is done and listed under Projects. What is still an idea is everything above the engine: native iOS and Android clients, matchmaking and ranked ladders, tournaments, replay sharing, and the growth motion that decides whether a fairness guarantee is a product or a nice README. The technical design was the easy half, and I have now proved that by finishing it. The Indian consumer-gaming distribution problem is the half a co-founder changes.",
     tags: ["Consumer App", "Provably Fair", "React Native", "Expo", "WebSockets", "Commit-Reveal"],
-    status: "concept",
+    status: "exploring",
     cofounderNote:
-      "Looking for a co-founder on this one, consumer-growth / marketing / Indian-gaming-market partner who can match the build pace.",
+      "Looking for a co-founder on this one, a consumer-growth / marketing / Indian-gaming-market partner who can match the build pace. The engine already exists, so you would be joining something running rather than something described.",
   },
   {
     id: "style-it",

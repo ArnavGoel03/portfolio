@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, PlayCircle, ExternalLink, Quote } from "lucide-react";
@@ -9,10 +10,8 @@ import { getCollection } from "@/lib/collections";
 import {
   caseStudies,
   getCaseStudy,
-  type CaseStudyLink,
 } from "@/lib/case-studies";
 import { staticProjects, getProjectById } from "@/lib/projects";
-import { memberName } from "@/lib/types";
 import type { Project } from "@/lib/types";
 import { SITE_URL } from "@/lib/constants";
 
@@ -32,7 +31,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
   if (cs) {
@@ -62,16 +61,6 @@ export async function generateMetadata({
     };
   }
   return {};
-}
-
-function linkLabel(link: CaseStudyLink): string {
-  if (link.kind === "github") return "Code";
-  if (link.kind === "demo") return link.label.toLowerCase().includes("install")
-    ? "Install"
-    : "Open";
-  if (link.kind === "video") return "Watch";
-  if (link.kind === "pdf") return "Read";
-  return "Open";
 }
 
 export default async function CaseStudyPage({
@@ -456,6 +445,47 @@ function ProjectProfile({ project }: { project: Project }) {
                 DOI: {project.doi}
               </a>
             )}
+          </div>
+        )}
+
+        {project.surfaces && project.surfaces.length > 0 && (
+          <div className="mt-10">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              In this studio
+            </p>
+            <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border border-foreground/10 bg-foreground/10 sm:grid-cols-2">
+              {project.surfaces.map((s) => (
+                <li key={s.href} className="bg-background">
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-full flex-col gap-1 p-4 transition-colors hover:bg-foreground/5"
+                  >
+                    {s.image && (
+                      <span className="mb-2 block overflow-hidden rounded-lg border border-foreground/10">
+                        <img
+                          src={s.image}
+                          alt=""
+                          loading="lazy"
+                          className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                      </span>
+                    )}
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
+                      {s.label}
+                      <ExternalLink
+                        size={12}
+                        className="text-muted-foreground transition-colors group-hover:text-foreground"
+                      />
+                    </span>
+                    <span className="text-sm leading-relaxed text-muted-foreground">
+                      {s.blurb}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </Section>

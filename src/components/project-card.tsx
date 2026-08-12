@@ -52,6 +52,8 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   "gondilal-saraf": Gem,
   "watch-together": Clapperboard,
   "fair-ludo": Dice6,
+  "simple-games": Dice6,
+  "goel-studio": Layers,
   "mlb-playoff-cogs108": Trophy,
   "arkinvest-anduril-mgt127r": Building2,
   "arkinvest-mgt127r": TrendingUp,
@@ -235,6 +237,40 @@ function ProjectModal({
             </div>
           )}
 
+          {project.surfaces && project.surfaces.length > 0 && (
+            <div className="mt-6 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4">
+              <p className="flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                <Layers size={11} aria-hidden="true" />
+                In this studio · {project.surfaces.length} sites
+              </p>
+              <ul className="mt-3 grid gap-2.5">
+                {project.surfaces.map((surface) => (
+                  <li key={surface.href} className="flex gap-3 text-[13px]">
+                    {surface.image && (
+                      <img
+                        src={surface.image}
+                        alt=""
+                        loading="lazy"
+                        className="mt-0.5 h-11 w-[72px] shrink-0 rounded-md border border-foreground/10 object-cover object-top"
+                      />
+                    )}
+                    <span>
+                      <a
+                        href={surface.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground/85 underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/60"
+                      >
+                        {surface.label}
+                      </a>
+                      <span className="text-muted-foreground"> {surface.blurb}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="mt-6 flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
               <Badge
@@ -381,6 +417,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-foreground/10 bg-foreground/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
                 <Layers size={10} aria-hidden="true" />
                 {collection.label} · 1 of {collection.surfaces.length} sites
+              </p>
+            )}
+            {project.surfaces && project.surfaces.length > 0 && (
+              <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-foreground/10 bg-foreground/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
+                <Layers size={10} aria-hidden="true" />
+                Studio · {project.surfaces.length} sites
               </p>
             )}
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">

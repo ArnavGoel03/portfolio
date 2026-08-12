@@ -6,20 +6,7 @@
 // relationship (project cards, project detail pages, the coursework page)
 // reads from here rather than restating the links.
 
-export interface CollectionSurface {
-  /** Short name for this surface within the series. */
-  label: string;
-  /** What this specific surface does that the others don't. */
-  blurb: string;
-  /** Where the link goes: an internal detail page when it is a listed project, the live site otherwise. */
-  href: string;
-  /** Set when the surface is also an entry in `staticProjects`. */
-  projectId?: string;
-  /** Public URL of the site itself, shown next to the detail-page link. */
-  liveUrl?: string;
-  /** Non-empty when the link is not publicly readable. Rendered as a warning so nobody hits a login wall unwarned. */
-  gated?: string;
-}
+import type { Surface } from "@/lib/types";
 
 export interface CollectionRelated {
   label: string;
@@ -33,7 +20,7 @@ export interface Collection {
   /** Course, college, term. */
   kicker: string;
   summary: string;
-  surfaces: CollectionSurface[];
+  surfaces: Surface[];
   /** Adjacent work in the same program, not part of this project itself. */
   related?: CollectionRelated[];
 }

@@ -4,6 +4,33 @@ export function memberName(m: TeamMember): string {
   return typeof m === "string" ? m : m.name;
 }
 
+/**
+ * One site within a larger body of work.
+ *
+ * Two relationships use this shape and they are not the same one. A
+ * `collections` entry cross-links surfaces that are each listed as projects in
+ * their own right, so a viewer landing on one can find the others. A studio
+ * project folds its surfaces in precisely so they are *not* listed separately,
+ * and this is then the only place those products stay clickable rather than
+ * merely named in prose. The shape is shared so neither grows its own copy.
+ */
+export interface Surface {
+  /** Short name for this surface within the series. */
+  label: string;
+  /** What this specific surface does that the others don't. */
+  blurb: string;
+  /** Where the link goes: an internal detail page when it is a listed project, the live site otherwise. */
+  href: string;
+  /** Set when the surface is also an entry in `staticProjects`. */
+  projectId?: string;
+  /** Public URL of the site itself, shown next to the detail-page link. */
+  liveUrl?: string;
+  /** Non-empty when the link is not publicly readable. Rendered as a warning so nobody hits a login wall unwarned. */
+  gated?: string;
+  /** Screenshot of the surface, so a studio reads as a shelf of products rather than a list of names. */
+  image?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -20,6 +47,8 @@ export interface Project {
   doi?: string;
   /** id of a `collections` entry when this project is one surface of a larger series. */
   collection?: string;
+  /** The individual products under a studio entry, each linked in its own right. */
+  surfaces?: Surface[];
   team?: {
     size: number;
     members?: TeamMember[];
