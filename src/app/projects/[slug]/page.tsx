@@ -11,7 +11,7 @@ import {
   caseStudies,
   getCaseStudy,
 } from "@/lib/case-studies";
-import { staticProjects, getProjectById } from "@/lib/projects";
+import { allProjects, getProjectById } from "@/lib/projects";
 import type { Project } from "@/lib/types";
 import { SITE_URL } from "@/lib/constants";
 
@@ -21,7 +21,7 @@ const NO_DETAIL_PAGE = new Set<string>();
 
 export async function generateStaticParams() {
   const caseSlugs = caseStudies.map((c) => c.slug);
-  const projectSlugs = staticProjects
+  const projectSlugs = allProjects
     .map((p) => p.id)
     .filter((id) => !caseSlugs.includes(id) && !NO_DETAIL_PAGE.has(id));
   return [...caseSlugs, ...projectSlugs].map((slug) => ({ slug }));

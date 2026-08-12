@@ -13,8 +13,21 @@ import {
 import Section from "@/components/section";
 import StatCounter from "@/components/stat-counter";
 import TestimonialWall from "@/components/testimonial-wall";
+import ProofStrip from "@/components/proof-strip";
 import { Badge } from "@/components/ui/badge";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, familyBusinessYears } from "@/lib/constants";
+import { allProjects } from "@/lib/projects";
+
+// Shown as artifacts rather than described. Ids only: the screenshot, title and
+// headline number come from the canonical project and case-study lists.
+const PROOF_IDS = [
+  "watch-together",
+  "studio",
+  "gondilal-saraf",
+  "serenity",
+  "redbull-youtube-analytics",
+  "buzz",
+];
 
 export const metadata = {
   title: "About",
@@ -307,11 +320,23 @@ export default function About() {
         <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             <StatCounter value={3.911} suffix="/4.0" label="GPA at UCSD" decimals={3} />
-            <StatCounter value={6} suffix="+" label="Projects Built" />
+            <StatCounter value={allProjects.length} suffix="+" label="Projects Shipped" />
             <StatCounter value={9} suffix="+" label="Certifications" />
-            <StatCounter value={110} suffix="+" label="Years of Family Legacy" />
+            <StatCounter
+              value={familyBusinessYears()}
+              label="Years of Family Legacy"
+            />
           </div>
         </div>
+      </Section>
+
+      <Section>
+        <ProofStrip
+          ids={PROOF_IDS}
+          eyebrow="The work"
+          heading="What that adds up to"
+          blurb="Six of them, with the screenshot and the number that matters. The rest are on the projects page."
+        />
       </Section>
 
       <Section>

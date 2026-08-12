@@ -8,6 +8,18 @@ export const SITE_DESCRIPTION =
 
 export const EMAIL = "a2goel@ucsd.edu";
 
+/**
+ * The year Gondilal Saraf was founded. Every "N-year family business" figure on
+ * the site derives from this: /about was hardcoding "110+ Years of Family
+ * Legacy" while the rest of the site said 150-year and the project card said
+ * est. 1873, so the same fact appeared three different ways.
+ */
+export const FAMILY_BUSINESS_FOUNDED = 1873;
+
+/** Years the family business has been running, as of whenever the page builds. */
+export const familyBusinessYears = () =>
+  new Date().getFullYear() - FAMILY_BUSINESS_FOUNDED;
+
 export const SOCIAL_LINKS = {
   github: "https://github.com/ArnavGoel03",
   linkedin: "https://www.linkedin.com/in/arnav-goel--/",

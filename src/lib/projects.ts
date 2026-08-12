@@ -387,6 +387,17 @@ export const staticProjects: Project[] = [
   },
 ];
 
+/**
+ * Every project, studio included.
+ *
+ * `studioProject` deliberately lives outside `staticProjects` so the suite apps
+ * can be folded into it, but that made it invisible to id lookups: its card
+ * renders a Details link to /projects/studio and the route answered 404,
+ * because the only lookup searched `staticProjects` alone. Anything resolving a
+ * project by id or enumerating routes should read this, not `staticProjects`.
+ */
+export const allProjects: Project[] = [studioProject, ...staticProjects];
+
 export function getProjectById(id: string): Project | undefined {
-  return staticProjects.find((p) => p.id === id);
+  return allProjects.find((p) => p.id === id);
 }

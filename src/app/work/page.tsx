@@ -2,8 +2,14 @@ import Link from "next/link";
 import { ArrowUpRight, CalendarClock, Mail } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa";
 import Section from "@/components/section";
+import ProofStrip from "@/components/proof-strip";
 import { FAQPageJsonLd } from "@/components/json-ld";
 import { SOCIAL_LINKS } from "@/lib/constants";
+
+// The three claims the "Why me" card below makes in prose, plus the studio,
+// shown as artifacts first. Ids only: everything else is read from the
+// canonical project list.
+const PROOF_IDS = ["watch-together", "gondilal-saraf", "serenity", "studio"];
 
 export const metadata = {
   title: "Work",
@@ -124,6 +130,14 @@ export default function Work() {
           modelling meets real products. This page is the short version of
           what&apos;s useful to know before reaching out.
         </p>
+      </Section>
+
+      <Section className="pt-4 pb-4">
+        <ProofStrip
+          ids={PROOF_IDS}
+          heading="Already shipped, before we talk"
+          blurb="A Chrome Web Store extension with real weekly users, a native macOS studio, an AI health tool in production, and the platform running a 150-year-old family business. Every one links to the write-up: the decisions, the trade-offs, and what the numbers came back as."
+        />
       </Section>
 
       <Section className="pt-4">

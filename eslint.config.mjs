@@ -5,6 +5,17 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      // Every image on this site is a pre-cropped, pre-compressed local .webp
+      // in /public, sized for the slot it fills. next/image would hand those
+      // same files to Vercel's image optimizer, which is metered, to redo work
+      // that is already done at build time. Plain <img> with loading="lazy" is
+      // the deliberate choice here, so the rule is off rather than disabled
+      // line by line in five files.
+      "@next/next/no-img-element": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
