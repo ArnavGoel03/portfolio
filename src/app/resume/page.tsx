@@ -2,7 +2,11 @@ import Link from "next/link";
 import { Download, Mail, MapPin, Globe } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import Section from "@/components/section";
+import ProofStrip from "@/components/proof-strip";
 import { SOCIAL_LINKS, SITE_URL, EMAIL } from "@/lib/constants";
+
+// Screen-only illustration of the Selected Projects list below.
+const PROOF_IDS = ["watch-together", "gondilal-saraf", "serenity"];
 
 export const metadata = {
   title: "Resume",
@@ -374,6 +378,13 @@ export default function Resume() {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Hidden when printed: a paper resume should stay one clean column
+              of type, and these are screenshots for the person reading on a
+              screen, who can click through to the write-up. */}
+          <div className="mt-8 print:hidden">
+            <ProofStrip ids={PROOF_IDS} eyebrow="" />
           </div>
         </ResumeBlock>
 

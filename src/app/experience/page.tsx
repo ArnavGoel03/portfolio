@@ -1,7 +1,17 @@
 import Section from "@/components/section";
 import Timeline from "@/components/timeline";
+import ProofStrip from "@/components/proof-strip";
 import { getExperience } from "@/lib/notion";
 import { Experience } from "@/lib/types";
+
+const PROOF_IDS = [
+  "watch-together",
+  "gondilal-saraf",
+  "serenity",
+  "redbull-youtube-analytics",
+  "studio",
+  "buzz",
+];
 
 export const revalidate = 3600;
 
@@ -172,6 +182,15 @@ export default async function ExperiencePage() {
 
       <Section className="pt-4">
         <Timeline items={experience} />
+      </Section>
+
+      <Section className="pt-6 pb-20">
+        <ProofStrip
+          ids={PROOF_IDS}
+          eyebrow="Alongside"
+          heading="What shipped while all that was happening"
+          blurb="The roles above are the context. These are the things that went out the door."
+        />
       </Section>
     </>
   );
