@@ -40,6 +40,19 @@ Skills: Entrepreneurship, Data Analysis, Business Strategy
 
 ## Projects (Detailed)
 
+### Glass Table Games: A Studio of Provably Fair Board and Card Games
+A four-site game studio built around one claim: every roll and every shuffle is committed to before anyone knows who it helps, and a player can check it afterwards without trusting the operator. Before a game starts the server publishes the SHA-256 of a secret seed, every player contributes their own random number so no single participant chooses the shuffle, each roll is HMAC-SHA256 of the seed and the roll's position, and the seed is published at the end for anyone to recompute. Glass Table Games is the developer of record for all four sites and owns the single legal surface they share.
+- **Circuit** (https://circuit.glasstablegames.com): Ludo and Snakes and Ladders, 2 to 4 players, with a Luck Ledger at the end that separates how much of the result was the dice from how much was the play.
+- **Deal** (https://deal.glasstablegames.com): eight card games from one table, 1 to 10 players. Judgement (Kachuful), 29, Call Break, Pachisa and 3-2-5 for a group; FreeCell, Klondike and Spider for one.
+- **Charade** (https://charade.glasstablegames.com): 2 to 12 players. One person draws and everybody else races to name it, or the whole table draws the same word at once and then votes.
+- **Lattice** (https://lattice.glasstablegames.com): words that cross on a board that says what they are worth, 2 to 4 players, or solo against five strengths of opponent that keep working offline after the first visit.
+- **Fair play, explained** (https://glasstablegames.com/fair-play): the commit-reveal ceremony in full, with a widget that runs the real thing in the reader's browser.
+- **Engineering:** one pnpm monorepo of 18 shared packages (fairness primitives, board, card, drawing and word engines, realtime protocol, identity, ratings, bots). Realtime is a Cloudflare Worker with a Durable Object per room and a multi-table protocol where players sit, stand and spectate across several sittings in one room. Judgement seats up to 10 with dynamic seat reassignment. 173 test files. Every site is a Worker built locally and uploaded, so the studio spends no build minutes and costs nothing to run.
+- **Tags:** Next.js 16, TypeScript, Cloudflare Workers, Durable Objects, WebSockets, Commit-Reveal, Game Design, Monorepo
+- **Live:** https://glasstablegames.com
+- **Status:** Live, in progress. Source private.
+- **Date:** August 2026
+
 ### Vaani: Multilingual AI Chatbot (Shelved)
 Co-built with Ahaskar. A voice-first AI chatbot for Indian-language customer support, with OpenAI LLM + speech APIs behind a Flask microservice backend and a speech-to-text → intent → text-to-speech pipeline across 5+ Indian languages. Shelved mid-build after a market-fit check: in the Indian SME market the unit economics did not work, because a human customer-support agent costs less per conversation than bleeding-edge LLM inference. Kept visible as a deliberate learning.
 - **Team:** Arnav Goel, Ahaskar

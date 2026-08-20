@@ -27,6 +27,14 @@ export interface Surface {
   liveUrl?: string;
   /** Non-empty when the link is not publicly readable. Rendered as a warning so nobody hits a login wall unwarned. */
   gated?: string;
+  /**
+   * What this surface actually contains, named the way a player or a user
+   * would name it. A studio surface is usually a container: nothing in the
+   * word "Deal" tells a reader that Call Break is behind it, so a card that
+   * only carries a label is asking to be clicked on trust. Rendered as a
+   * separate scannable line above the label rather than buried in the blurb.
+   */
+  holds?: string;
   /** Screenshot of the surface, so a studio reads as a shelf of products rather than a list of names. */
   image?: string;
 }

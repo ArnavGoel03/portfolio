@@ -20,6 +20,7 @@ Base location: San Diego, California. Origin: Delhi, India. International studen
 
 - [Projects](https://arnavgoel.dev/projects): Full portfolio grid of shipped, in-progress, and academic projects.
 - [Buzz](https://arnavgoel.dev/projects): Multiplatform SwiftUI native event-discovery app for US college students, launching at UC San Diego. Supabase with PostGIS + RLS, Stripe Connect, App Clip, ARKit, and a Next.js 16 PWA mirror.
+- [Glass Table Games](https://glasstablegames.com): A four-site studio of provably fair board and card games, where every roll and every shuffle is committed to under a published hash before play and revealed after, so any player can verify a match without trusting the operator. [Circuit](https://circuit.glasstablegames.com) holds Ludo and Snakes and Ladders; [Deal](https://deal.glasstablegames.com) holds Judgement, 29, Call Break, Pachisa, 3-2-5, FreeCell, Klondike and Spider; [Charade](https://charade.glasstablegames.com) holds Charade and Everyone Draws; [Lattice](https://lattice.glasstablegames.com) is a crossing-words board played at a table or solo against the computer. One pnpm monorepo of 18 shared packages, realtime on Cloudflare Workers with a Durable Object per room, 173 test files. Source private.
 - [Watch Together](https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa): Chrome, Firefox, and Safari extension that syncs video playback across Netflix, YouTube, Disney+, Prime Video, JioHotstar, and HBO Max. WebSocket relay with heartbeat drift correction, 59 server tests, shipping on the Chrome Web Store. [Repo](https://github.com/ArnavGoel03/watch-together).
 - [Serenity](https://serenity-pcos.vercel.app): AI-powered health-management app for women with PCOD/PCOS. Claude AI parses user rants and lab PDFs. Next.js 16, 15 Prisma models. Source private (medical-adjacent domain).
 - [Gondilal Saraf](https://gondilalsaraf.com): Full-stack bilingual platform for Arnav's family's 150-year jewelry business (founded 1873). Live gold rates, AR try-on, Gemini AI descriptions, admin ERP. 15 Prisma models, 26 API routes, 85 tests. Source private (family-business IP).
@@ -31,7 +32,7 @@ Base location: San Diego, California. Origin: Delhi, India. International studen
 - [Human Activity Recognition (CSE 158)](https://youtu.be/5Jzb_5LDcEg): Time-series classification from wearable-sensor data. Feature engineering across time and frequency domains.
 - [Handwritten Digits Classifier](https://github.com/ArnavGoel03/handwritten-digits-classifier): TensorFlow/Keras CNN on MNIST, about 99.2% test accuracy.
 - [Pet Classifier](https://github.com/ArnavGoel03/pet-classifier): MobileNetV2 transfer learning on the Oxford-IIIT Pet Dataset (37 breeds).
-(Fair Ludo, a consumer Ludo app with commit-reveal provably-fair dice, is pre-build and listed on [Ideas](https://arnavgoel.dev/ideas) as an open co-founding opportunity, not yet on the projects grid.)
+(The engine behind Glass Table Games is built and live. What is still open, and listed on [Ideas](https://arnavgoel.dev/ideas) as a co-founding opportunity, is everything above it: native mobile clients, matchmaking, ranked ladders and the distribution motion.)
 
 ## Experience
 

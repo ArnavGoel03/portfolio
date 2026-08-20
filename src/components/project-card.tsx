@@ -49,7 +49,7 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   "gondilal-saraf": Gem,
   "watch-together": Clapperboard,
   "fair-ludo": Dice6,
-  "simple-games": Dice6,
+  "glass-table-games": Dice6,
   "goel-studio": Layers,
   "mlb-playoff-cogs108": Trophy,
   "arkinvest-anduril-mgt127r": Building2,
@@ -261,6 +261,11 @@ function ProjectModal({
                         {surface.label}
                       </a>
                       <span className="text-muted-foreground"> {surface.blurb}</span>
+                      {surface.holds && (
+                        <span className="mt-0.5 block font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground/70">
+                          {surface.holds}
+                        </span>
+                      )}
                     </span>
                   </li>
                 ))}

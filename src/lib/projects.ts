@@ -48,10 +48,10 @@ export const staticProjects: Project[] = [
     inProgress: true,
   },
   {
-    id: "simple-games",
-    title: "Simple Games: A Studio of Provably Fair Board and Card Games",
+    id: "glass-table-games",
+    title: "Glass Table Games: A Studio of Provably Fair Board and Card Games",
     description:
-      "A two-site game studio built around one claim: every roll and every shuffle is committed to before anyone knows who it helps, and a player can check it afterwards without trusting the operator. Simple Games is the developer of record for both sites and owns the single legal surface they share, which is the reason the studio exists at all: writing terms three times is how three sets of terms drift apart. Chaupal is the dice half, Ludo and Snakes and Ladders, where the server publishes a hash of its seed before the roll and reveals the seed after, so any player can replay the match and verify every die themselves, and a Luck Ledger at the end separates how much of the result was the dice from how much was the play. Taash is the card half, a card room holding Judgement (Kachuful), 29, Call Break and Pachisa, dealt from a frozen deck order under the same commitment scheme. Both run off one pnpm monorepo of 15 shared packages: the fairness primitives, the board and card engines, a WebSocket realtime layer on a Cloudflare Worker where each room is a Durable Object, a multi-table room protocol in which players sit, stand and spectate across several sittings in one room, identity with Google and password sign-in linked to a single account, ratings, and bot opponents. Judgement seats up to 10 players with dynamic seat reassignment. 85 test files gate it, and the studio site carries byte-exact mirrors of the fairness and card code, pinned to recorded vectors, so the commit-reveal ceremony it runs in the browser cannot drift from what the games actually deal.",
+      "A four-game studio built around one claim: every roll and every shuffle is committed to before anyone knows who it helps, and a player can check it afterwards without trusting the operator. Glass Table Games is the developer of record for all four sites and owns the single legal surface they share, which is the reason the studio exists at all: writing terms four times is how four sets of terms drift apart. Circuit is the dice half, Ludo and Snakes and Ladders, where the server publishes a hash of its seed before the roll and reveals the seed after, so any player can replay the match and verify every die themselves, and a Luck Ledger at the end separates how much of the result was the dice from how much was the play. Deal is the card room, eight games from one table: Judgement (Kachuful), 29, Call Break, Pachisa and 3-2-5 for a group, and FreeCell, Klondike and Spider for one, every hand dealt from a frozen deck order under the same commitment. Charade is the drawing game, one person draws and everybody else races to name it, or the whole table draws the same word at once and then votes on whose is best. Lattice is the word board, words that cross for what the squares say they are worth, played with friends or alone against five strengths of opponent that keep working offline after the first visit. All four run off one pnpm monorepo of 18 shared packages: the fairness primitives, the board, card, drawing and word engines, a WebSocket realtime layer on a Cloudflare Worker where each room is a Durable Object, a multi-table room protocol in which players sit, stand and spectate across several sittings in one room, identity with Google and password sign-in linked to a single account, ratings, and bot opponents. Judgement seats up to 10 players with dynamic seat reassignment. 173 test files gate it, and the studio site carries byte-exact mirrors of the fairness and card code, pinned to recorded vectors, so the commit-reveal ceremony it runs in the browser cannot drift from what the games actually deal. Every site is a Cloudflare Worker built on a laptop and uploaded, so the whole studio spends no build minutes and costs nothing to keep up.",
     tags: [
       "Next.js 16",
       "TypeScript",
@@ -62,34 +62,65 @@ export const staticProjects: Project[] = [
       "Game Design",
       "Monorepo",
     ],
-    image: "/shots/simple-games.webp",
+    image: "/shots/glass-table-games.webp",
     github: "",
     privateRepo: true,
-    demo: "https://simplegames-chi.vercel.app",
+    demo: "https://glasstablegames.com",
+    // One card per site, and every card names the games inside it. A studio
+    // that lists four containers and expects a reader to guess what is in
+    // "Deal" is asking to be clicked on trust, which is the opposite of the
+    // thing these games are built to prove.
+    //
+    // The \u00A0 either side of the separator in `holds` is deliberate: the
+    // card room names eight games, so that line wraps, and without the
+    // non-breaking spaces the second line opens with an orphaned middot.
     surfaces: [
       {
-        label: "Simple Games",
-        href: "https://simplegames-chi.vercel.app",
-        image: "/shots/simple-games.webp",
-        blurb: "The studio. The fairness argument in full, and the legal surface both games share.",
+        label: "Glass Table Games",
+        href: "https://glasstablegames.com",
+        image: "/shots/glass-table-games.webp",
+        holds: "The studio",
+        blurb: "The fairness argument in full, and the legal surface all four games share.",
       },
       {
-        label: "Chaupal",
-        href: "https://chaupal-games.vercel.app",
-        image: "/shots/s-chaupal.webp",
-        blurb: "Ludo and Snakes and Ladders. Board games with dice you can check afterwards.",
+        label: "Circuit",
+        href: "https://circuit.glasstablegames.com",
+        image: "/shots/s-circuit.webp",
+        holds: "Ludo, Snakes and Ladders\u00A0·\u00A02 to 4 players",
+        blurb:
+          "The dice half. Every roll is sealed before it happens and published after, and a Luck Ledger at the end separates the dice from the play.",
       },
       {
-        label: "Taash",
-        href: "https://judgement-games.vercel.app",
-        image: "/shots/s-taash.webp",
-        blurb: "The card room: Judgement, 29, Call Break and Pachisa, dealt where anybody can check the deal.",
+        label: "Deal",
+        href: "https://deal.glasstablegames.com",
+        image: "/shots/s-deal.webp",
+        holds:
+          "Judgement, 29, Call Break, Pachisa, 3-2-5, FreeCell, Klondike, Spider\u00A0·\u00A01 to 10 players",
+        blurb:
+          "The card room: five games for a table and three games of patience for one, dealt from a shuffle nobody at the table chose.",
+      },
+      {
+        label: "Charade",
+        href: "https://charade.glasstablegames.com",
+        image: "/shots/s-charade.webp",
+        holds: "Charade, Everyone Draws\u00A0·\u00A02 to 12 players",
+        blurb:
+          "One person draws it and everybody else races to name it, or the whole table draws the same word at once and then votes.",
+      },
+      {
+        label: "Lattice",
+        href: "https://lattice.glasstablegames.com",
+        image: "/shots/s-lattice.webp",
+        holds: "Lattice, at a table or solo\u00A0·\u00A02 to 4 players",
+        blurb:
+          "Words that cross, on a board that says what counts. Solo play runs against five strengths of opponent and works offline after the first visit.",
       },
       {
         label: "Fair play, explained",
-        href: "https://simplegames-chi.vercel.app/fair-play",
+        href: "https://glasstablegames.com/fair-play",
         image: "/shots/s-fairplay.webp",
-        blurb: "The commit-reveal ceremony, with a widget that runs the real thing in your browser.",
+        holds: "The commit-reveal ceremony",
+        blurb: "The whole proof, with a widget that runs the real thing in your browser.",
       },
     ],
     featured: false,

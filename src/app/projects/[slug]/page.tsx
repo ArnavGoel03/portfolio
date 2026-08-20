@@ -471,6 +471,11 @@ function ProjectProfile({ project }: { project: Project }) {
                         />
                       </span>
                     )}
+                    {s.holds && (
+                      <span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground/80">
+                        {s.holds}
+                      </span>
+                    )}
                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
                       {s.label}
                       <ExternalLink
