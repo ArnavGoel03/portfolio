@@ -2,6 +2,11 @@
 
 A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizations, AI-optimized SEO, a blog, and a Notion-powered CMS. Fully installable as a PWA on any OS.
 
+**Start here if you are picking this up:** [`docs/STATE.md`](docs/STATE.md) is
+the handover. It carries what is open, what is broken, the two dependencies
+held one major back and why, and the way this repo can stop deploying without
+anybody noticing.
+
 ## Live Site
 
 [arnavgoel.com](https://arnavgoel.com)
