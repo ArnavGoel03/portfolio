@@ -4,7 +4,14 @@ import { FaLinkedinIn } from "react-icons/fa";
 import Section from "@/components/section";
 import ProofStrip from "@/components/proof-strip";
 import { FAQPageJsonLd } from "@/components/json-ld";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import {
+  SOCIAL_LINKS,
+  UC_GPA,
+  MAJOR_GPA,
+  MINOR_GPA,
+  GPA_AUDIT_DATE,
+  formatGpa,
+} from "@/lib/constants";
 
 // The three claims the "Why me" card below makes in prose, plus the studio,
 // shown as artifacts first. Ids only: everything else is read from the
@@ -84,7 +91,7 @@ const faqs = [
   {
     question: "What is Arnav Goel's GPA?",
     answer:
-      "UC GPA 3.911 out of 4.0, with a Major GPA of 3.860 and a Minor GPA of 3.950. Source: official UCSD degree audit, April 2026.",
+      `UC GPA ${formatGpa(UC_GPA)} out of 4.0, with a Major GPA of ${formatGpa(MAJOR_GPA)} and a Minor GPA of ${formatGpa(MINOR_GPA)}. Source: official UCSD degree audit, ${GPA_AUDIT_DATE}.`,
   },
   {
     question: "When does Arnav Goel graduate?",

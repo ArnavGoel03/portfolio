@@ -34,6 +34,26 @@ export const familyBusinessYears = () =>
  */
 export const WATCH_TOGETHER_INSTALLS = 26;
 
+/**
+ * Arnav's cumulative UC GPA, per his official UCSD degree audit (dated
+ * GPA_AUDIT_DATE below). This was hardcoded as 3.911 in nine-plus places
+ * across six files and drifted stale when the audited figure moved to
+ * 3.913. Change it here, not at the call sites.
+ */
+export const UC_GPA = 3.913;
+
+/** Major GPA, from the same UCSD degree audit. Change here, not at call sites. */
+export const MAJOR_GPA = 3.86;
+
+/** Minor GPA, from the same UCSD degree audit. Change here, not at call sites. */
+export const MINOR_GPA = 3.95;
+
+/** Date of the official UCSD degree audit the GPA figures above are sourced from. */
+export const GPA_AUDIT_DATE = "August 2026";
+
+/** Formats a GPA to three decimals, e.g. formatGpa(3.86) -> "3.860". */
+export const formatGpa = (value: number) => value.toFixed(3);
+
 export const SOCIAL_LINKS = {
   github: "https://github.com/ArnavGoel03",
   linkedin: "https://www.linkedin.com/in/arnav-goel--/",

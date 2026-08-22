@@ -12,6 +12,7 @@ import {
 import Section from "@/components/section";
 import { Badge } from "@/components/ui/badge";
 import { getCollection } from "@/lib/collections";
+import { UC_GPA, MAJOR_GPA, MINOR_GPA, formatGpa } from "@/lib/constants";
 
 export const metadata = {
   title: "Coursework",
@@ -321,7 +322,7 @@ const groups: Group[] = [
     title: "Entrepreneurship & Innovation (Minor)",
     icon: Briefcase,
     blurb:
-      "Rady School minor (M077) coursework, startups, product, finance, and technology strategy. Minor GPA: 3.950.",
+      `Rady School minor (M077) coursework, startups, product, finance, and technology strategy. Minor GPA: ${formatGpa(MINOR_GPA)}.`,
     courses: [
       {
         code: "MGT 16",
@@ -554,7 +555,7 @@ export default function Coursework() {
               UC GPA
             </p>
             <p className="mt-1 font-serif text-2xl font-semibold text-foreground">
-              3.911
+              {formatGpa(UC_GPA)}
             </p>
           </div>
           <div>
@@ -562,7 +563,7 @@ export default function Coursework() {
               Major GPA
             </p>
             <p className="mt-1 font-serif text-2xl font-semibold text-foreground">
-              3.860
+              {formatGpa(MAJOR_GPA)}
             </p>
           </div>
           <div>
@@ -570,7 +571,7 @@ export default function Coursework() {
               Minor GPA
             </p>
             <p className="mt-1 font-serif text-2xl font-semibold text-foreground">
-              3.950
+              {formatGpa(MINOR_GPA)}
             </p>
           </div>
           <div>

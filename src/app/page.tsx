@@ -11,6 +11,7 @@ import FocusParagraph from "@/components/focus-paragraph";
 import { getFeaturedProjects } from "@/lib/notion";
 import { studioProject, staticProjects, isSuiteApp } from "@/lib/projects";
 import { Project } from "@/lib/types";
+import { UC_GPA, formatGpa } from "@/lib/constants";
 
 export const revalidate = 3600;
 
@@ -199,7 +200,7 @@ export default async function Home() {
                 <p>
                   I&apos;m a senior in the BS Data Science program at UC San
                   Diego (minor in Entrepreneurship &amp; Innovation) graduating
-                  June 2027 with a 3.911 GPA. My work sits where machine
+                  June 2027 with a {formatGpa(UC_GPA)} GPA. My work sits where machine
                   learning meets systems that actually ship: Flask
                   microservices for a 50,000-patient hospital platform at ADA,
                   quantitative research at Triton Quant, and the full-stack

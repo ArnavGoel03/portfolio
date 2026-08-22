@@ -15,7 +15,14 @@ import StatCounter from "@/components/stat-counter";
 import TestimonialWall from "@/components/testimonial-wall";
 import ProofStrip from "@/components/proof-strip";
 import { Badge } from "@/components/ui/badge";
-import { SOCIAL_LINKS, familyBusinessYears } from "@/lib/constants";
+import {
+  SOCIAL_LINKS,
+  familyBusinessYears,
+  UC_GPA,
+  MAJOR_GPA,
+  MINOR_GPA,
+  formatGpa,
+} from "@/lib/constants";
 import { allProjects } from "@/lib/projects";
 
 // Shown as artifacts rather than described. Ids only: the screenshot, title and
@@ -32,11 +39,11 @@ const PROOF_IDS = [
 export const metadata = {
   title: "About",
   description:
-    "Learn about Arnav Goel: Data Science student at UC San Diego (GPA: 3.911), operator at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.",
+    `Learn about Arnav Goel: Data Science student at UC San Diego (GPA: ${formatGpa(UC_GPA)}), operator at Gondilal Saraf, and ML enthusiast with expertise in Graph Theory and deep learning.`,
   openGraph: {
     title: "About Arnav Goel",
     description:
-      "Data Science student at UCSD with a 3.911 GPA, helping run Gondilal Saraf, certified in ML from Stanford and DeepLearning.AI.",
+      `Data Science student at UCSD with a ${formatGpa(UC_GPA)} GPA, helping run Gondilal Saraf, certified in ML from Stanford and DeepLearning.AI.`,
   },
 };
 
@@ -45,7 +52,7 @@ const highlights = [
     icon: GraduationCap,
     title: "UCSD Data Science",
     description:
-      "Pursuing a BS in Data Science with a minor in Entrepreneurship & Innovation at UC San Diego. GPA: 3.911/4.0 (major 3.860, minor 3.950).",
+      `Pursuing a BS in Data Science with a minor in Entrepreneurship & Innovation at UC San Diego. GPA: ${formatGpa(UC_GPA)}/4.0 (major ${formatGpa(MAJOR_GPA)}, minor ${formatGpa(MINOR_GPA)}).`,
   },
   {
     icon: Globe,
@@ -73,7 +80,7 @@ const education = [
     degree:
       "Bachelor of Science: BS, Data Science (Minor: Entrepreneurship & Innovation)",
     period: "Sep 2022: Jun 2027",
-    grade: "3.911 (out of 4.0) · Major GPA 3.860 · Minor GPA 3.950",
+    grade: `${formatGpa(UC_GPA)} (out of 4.0) · Major GPA ${formatGpa(MAJOR_GPA)} · Minor GPA ${formatGpa(MINOR_GPA)}`,
     activities:
       "Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery. Two gap quarters: Fall 2024, took the term off to join ADA (Bengaluru) as an SWE intern after the team's work culture and the fit of their development org really resonated with me at the time. Spring 2026, had to pause studies after my visa was stolen in San Francisco.",
     skills: ["Communication", "Coding Experience"],
@@ -319,7 +326,7 @@ export default function About() {
       <Section>
         <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <StatCounter value={3.911} suffix="/4.0" label="GPA at UCSD" decimals={3} />
+            <StatCounter value={UC_GPA} suffix="/4.0" label="GPA at UCSD" decimals={3} />
             <StatCounter value={allProjects.length} suffix="+" label="Projects Shipped" />
             <StatCounter value={9} suffix="+" label="Certifications" />
             <StatCounter

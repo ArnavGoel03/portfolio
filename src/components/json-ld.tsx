@@ -1,4 +1,11 @@
-import { SITE_URL, SITE_NAME, SOCIAL_LINKS, EMAIL } from "@/lib/constants";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SOCIAL_LINKS,
+  EMAIL,
+  UC_GPA,
+  formatGpa,
+} from "@/lib/constants";
 
 export function PersonJsonLd() {
   const jsonLd = {
@@ -11,7 +18,7 @@ export function PersonJsonLd() {
     additionalName: "Yash",
     familyName: "Goel",
     description:
-      "Data Science student at UC San Diego graduating June 2027. UC GPA 3.911. Considering new-grad applied-scientist, ML-engineer, and software-engineer roles for summer 2027 onward.",
+      `Data Science student at UC San Diego graduating June 2027. UC GPA ${formatGpa(UC_GPA)}. Considering new-grad applied-scientist, ML-engineer, and software-engineer roles for summer 2027 onward.`,
     url: SITE_URL,
     email: EMAIL,
     image: `${SITE_URL}/opengraph-image`,

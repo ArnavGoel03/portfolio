@@ -3,6 +3,7 @@ import Timeline from "@/components/timeline";
 import ProofStrip from "@/components/proof-strip";
 import { getExperience } from "@/lib/notion";
 import { Experience } from "@/lib/types";
+import { UC_GPA, MAJOR_GPA, MINOR_GPA, formatGpa } from "@/lib/constants";
 
 const PROOF_IDS = [
   "watch-together",
@@ -127,7 +128,7 @@ const staticExperience: Experience[] = [
     startDate: "Sep 2022",
     endDate: "Jun 2027",
     description:
-      "GPA: 3.911/4.0 (major GPA 3.860, minor GPA 3.950). Key coursework: CSE 150A (AI: Probabilistic Models), CSE 151A (ML: Learning Algorithms), CSE 158R (Recommender Systems & Web Mining), DSC 80 (Practice of Data Science), DSC 100 (Data Management), MATH 183 (Statistical Methods), LIGN 167 (Deep Learning for NLP), MGT 127R (AI & Technology Strategy). Activities: Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery.",
+      `GPA: ${formatGpa(UC_GPA)}/4.0 (major GPA ${formatGpa(MAJOR_GPA)}, minor GPA ${formatGpa(MINOR_GPA)}). Key coursework: CSE 150A (AI: Probabilistic Models), CSE 151A (ML: Learning Algorithms), CSE 158R (Recommender Systems & Web Mining), DSC 80 (Practice of Data Science), DSC 100 (Data Management), MATH 183 (Statistical Methods), LIGN 167 (Deep Learning for NLP), MGT 127R (AI & Technology Strategy). Activities: Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery.`,
     skills: [
       "Machine Learning",
       "Graph Theory",

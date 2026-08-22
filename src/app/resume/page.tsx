@@ -3,7 +3,15 @@ import { Download, Mail, MapPin, Globe } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import Section from "@/components/section";
 import ProofStrip from "@/components/proof-strip";
-import { SOCIAL_LINKS, SITE_URL, EMAIL } from "@/lib/constants";
+import {
+  SOCIAL_LINKS,
+  SITE_URL,
+  EMAIL,
+  UC_GPA,
+  MAJOR_GPA,
+  MINOR_GPA,
+  formatGpa,
+} from "@/lib/constants";
 
 // Screen-only illustration of the Selected Projects list below.
 const PROOF_IDS = ["watch-together", "gondilal-saraf", "serenity"];
@@ -11,7 +19,7 @@ const PROOF_IDS = ["watch-together", "gondilal-saraf", "serenity"];
 export const metadata = {
   title: "Resume",
   description:
-    "Arnav Goel: Data Science student at UC San Diego (UC GPA 3.911, graduating June 2027). Full resume with education, experience, projects, skills, and certifications.",
+    `Arnav Goel: Data Science student at UC San Diego (UC GPA ${formatGpa(UC_GPA)}, graduating June 2027). Full resume with education, experience, projects, skills, and certifications.`,
   alternates: { canonical: `${SITE_URL}/resume` },
 };
 
@@ -155,7 +163,7 @@ const educationItems = [
       "BS Data Science · Minor in Entrepreneurship & Innovation (Rady School)",
     period: "Sep 2022: Jun 2027",
     detail:
-      "UC GPA 3.911 · Major GPA 3.860 · Minor GPA 3.950. Key coursework: CSE 150A (AI: Probabilistic Models), CSE 151A (ML: Learning Algorithms), CSE 151B (Deep Learning, Summer 2026), CSE 158R (Recommender Systems & Web Mining), LIGN 167 (Deep Learning for NLP), DSC 80, DSC 100, COGS 108, MATH 183, MATH 189, MGT 127R (AI & Technology Strategy).",
+      `UC GPA ${formatGpa(UC_GPA)} · Major GPA ${formatGpa(MAJOR_GPA)} · Minor GPA ${formatGpa(MINOR_GPA)}. Key coursework: CSE 150A (AI: Probabilistic Models), CSE 151A (ML: Learning Algorithms), CSE 151B (Deep Learning, Summer 2026), CSE 158R (Recommender Systems & Web Mining), LIGN 167 (Deep Learning for NLP), DSC 80, DSC 100, COGS 108, MATH 183, MATH 189, MGT 127R (AI & Technology Strategy).`,
   },
   {
     school: "Delhi Public School, R. K. Puram",
