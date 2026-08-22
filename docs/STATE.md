@@ -40,7 +40,20 @@ pnpm build           # production build, Turbopack
 pnpm lint            # eslint, and it must return nothing at all
 npx tsc --noEmit     # typecheck, which the build does NOT do for you
 pnpm cf:build        # build the Cloudflare Worker without deploying it
+
+node scripts/check-links.mjs   # every external link this site sends a reader to
 ```
+
+`check-links.mjs` is deliberately not in CI: it talks to forty other people's
+servers and would go red on somebody else's bad afternoon, which is how a report
+gets ignored. Run it monthly and before anything that matters. Its four
+categories exist because the first version reported the wrong two things:
+BROKEN is a defect, GATED is a link that resolves to a sign-in page without the
+site warning anybody, STALE is a link resolving through a redirect to another
+host (working today, somebody else's name tomorrow), and UNCHECKED is a host
+that refuses scripts. LinkedIn answers HTTP 999 to anything that is not a
+browser and is not broken; a surface carrying `gated: "..."` already shows the
+reader that warning and is reported as EXPECTED rather than as a finding.
 
 **`.github/workflows/gate.yml` now runs lint, typecheck, `check:llms` and the
 build on every push to `main` and every pull request**, with
@@ -218,8 +231,44 @@ or on a decision.
    `Page.captureScreenshot({captureBeyondViewport: false})` in the session that
    just read it.
 
-5. **Not this repo, but adjacent and open:** the Circuit front door still does
+5. **Countable claims in prose are unguarded.** `check:llms` covers project
+   coverage and the GPA figures, and nothing covers sentences that count
+   things. "Six sites are live" sits in the Goel Studio description in
+   `projects.ts`; `WATCH_TOGETHER_INSTALLS` is at least a constant, but the
+   number in it was last confirmed by hand. This is the same class as the 3.96
+   GPA that sat in `llms-full.txt` for weeks: a number in a sentence that no
+   longer matches the world, on a page a recruiter reads. Extending
+   `check-llms.mjs` to assert a handful of them against their source is the
+   obvious next step and has not been done.
+
+6. **Not this repo, but adjacent and open:** the Circuit front door still does
    not offer the app install. See section 6.
+
+---
+
+## 5a. What changed on 22 and 23 August 2026, and why
+
+Written so nobody re-opens a decision by finding its result strange.
+
+- The Glass Table Games listing was rebuilt: the studio had been renamed and
+  two of its games with it, and every link in the old entry was dead. Six
+  tappable surface cards now, each naming the games inside it.
+- The build had been failing for two days on `src/middleware.ts` exporting
+  `proxy` in a file named `middleware.ts`. That is what started all of this.
+- Every dependency went to its newest working version, pinned exact.
+  TypeScript stopped at 6.0.3 and ESLint at 9.39.5 for the reasons in
+  section 2, and those two are the only ones held back.
+- `notion.ts` lost eleven `any`s and gained a real type for the page shape it
+  reads. It was very nearly deleted as dead code: a grep run from the wrong
+  working directory reported no importers, and `tsc` caught it a minute later.
+  It has three.
+- `PRIVATE_AUTH` was generated and set on Vercel and on the Worker, so
+  `/private/outreach` answers 401 instead of 503.
+- The Cloudflare fallback was deployed, verified as a whole working site, and
+  then switched off with `workers_dev: false`. See section 4.
+- The Buzz card pointed at a generated Vercel hostname that 308s to the real
+  one. `check-links.mjs` exists because that had been true for months and
+  nothing would ever have said so.
 
 ---
 
