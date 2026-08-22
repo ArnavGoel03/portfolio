@@ -6,6 +6,13 @@
   // nodejs_compat is required: the Next server reaches for node builtins and
   // without it the Worker fails at import time, not at the call site.
   "compatibility_flags": ["nodejs_compat"],
+  // The Worker stays deployed and stays unreachable. Vercel is healthy again,
+  // so this copy is a fallback rather than a site, and a second public copy of
+  // a portfolio is a duplicate of every page competing with arnavgoel.dev in
+  // search results. `false` removes the workers.dev address without deleting
+  // the script, so taking the hatch later is this line plus a DNS record
+  // rather than a fresh deploy under pressure.
+  "workers_dev": false,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

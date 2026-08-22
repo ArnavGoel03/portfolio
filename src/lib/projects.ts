@@ -42,7 +42,11 @@ export const staticProjects: Project[] = [
     tags: ["SwiftUI", "Swift 6", "Supabase", "PostGIS", "Stripe Connect", "ARKit", "Next.js 16", "PWA"],
     image: "/shots/buzz.webp",
     github: "https://github.com/ArnavGoel03/buzz",
-    demo: "https://web-eta-two-84.vercel.app/",
+    // The project's own address. It answered on `web-eta-two-84.vercel.app`
+    // for a while, which is Vercel's generated name and now a 308 to this one:
+    // a redirect is a working link and a stale one at the same time, and the
+    // generated name is the half that will disappear first.
+    demo: "https://buzzcampus.vercel.app",
     featured: false,
     date: "2026-04",
     inProgress: true,

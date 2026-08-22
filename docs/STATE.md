@@ -20,7 +20,7 @@ noticing.
 | Domain | https://arnavgoel.dev |
 | Deploy | Push to `main`. There is no other path and no manual step |
 | Gate | `.github/workflows/gate.yml` on every push and PR: lint, typecheck, `check:llms`, build |
-| Fallback | https://portfolio.goelhome.workers.dev, a Cloudflare Worker of the same site |
+| Fallback | A Cloudflare Worker named `portfolio`, deployed and deliberately unreachable |
 | Package manager | **pnpm**. `pnpm-lock.yaml` is what Vercel installs from |
 | Framework | Next.js 16 App Router, React 19, Tailwind 4 |
 
@@ -155,12 +155,17 @@ integration is not worth a major.
 
 The site is on Vercel and should stay there while the account is healthy.
 
-**The hatch is deployed and serving**, at
-https://portfolio.goelhome.workers.dev. It is the same site: the home page, the
-project pages, `llms.txt` and the basic-auth private route all answer correctly
-there, checked over the network rather than assumed. `wrangler.jsonc` declares
-no routes and no custom domain, so it claims nothing and arnavgoel.dev is
-untouched by it.
+**The hatch is deployed, proven, and then switched off for readers.** It was
+deployed to `portfolio.goelhome.workers.dev` and checked over the network as a
+whole working site: home page, project pages, `llms.txt` and the basic-auth
+private route all correct. Then `workers_dev: false` went into `wrangler.jsonc`
+and it was redeployed, so the script is still there and the address answers 404.
+
+That is deliberate. Vercel is healthy again, and a second public copy of a
+portfolio is every page of it competing with arnavgoel.dev in search results,
+which is a real cost for a fallback nobody is using. Turning it back on is one
+line in `wrangler.jsonc` and one `pnpm cf:deploy`, or a DNS record if the point
+is to actually take over.
 
 If Vercel blocks the account again, the whole move is a DNS change. Two things
 that copy do NOT have, because moving a live API key between platforms is not
