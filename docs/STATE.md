@@ -1,6 +1,6 @@
 # Portfolio: state of play
 
-Last updated 22 August 2026. This is the pick-it-up-later document for
+Last updated 23 August 2026. This is the pick-it-up-later document for
 arnavgoel.dev. Read it before touching anything; it exists so the next session
 does not re-derive the same five facts, and so nobody has to discover the way
 this repo can silently stop deploying by watching it happen.
@@ -19,6 +19,8 @@ noticing.
 | Host | Vercel, project `arnavgoel03s-projects/portfolio` |
 | Domain | https://arnavgoel.dev |
 | Deploy | Push to `main`. There is no other path and no manual step |
+| Gate | `.github/workflows/gate.yml` on every push and PR: lint, typecheck, `check:llms`, build |
+| Fallback | https://portfolio.goelhome.workers.dev, a Cloudflare Worker of the same site |
 | Package manager | **pnpm**. `pnpm-lock.yaml` is what Vercel installs from |
 | Framework | Next.js 16 App Router, React 19, Tailwind 4 |
 
@@ -30,7 +32,7 @@ faster than guessing from the outside.
 
 ---
 
-## 1. Running it, and the gate that is not automatic
+## 1. Running it, and the gate
 
 ```bash
 pnpm dev             # dev server
@@ -40,9 +42,15 @@ npx tsc --noEmit     # typecheck, which the build does NOT do for you
 pnpm cf:build        # build the Cloudflare Worker without deploying it
 ```
 
-**Run `pnpm lint`, `npx tsc --noEmit` and `pnpm build` before every push.**
-Nothing in this repository runs them for you: there is no GitHub Action, no
-pre-push hook, and Next 16 does not lint or typecheck during `build`.
+**`.github/workflows/gate.yml` now runs lint, typecheck, `check:llms` and the
+build on every push to `main` and every pull request**, with
+`cancel-in-progress` so a chain of quick pushes leaves one run standing. First
+green run was 1m5s. Run the same four commands locally anyway: CI tells you
+after the push, and the build minute is spent either way.
+
+It is deliberately not part of the Vercel build. Next 16 does not lint or
+typecheck during `build`, and adding it there would pay for the work twice and
+put the gate in the path of shipping in a hurry.
 
 That gap has already cost two days of live time. `src/middleware.ts` exported a
 function called `proxy`, which is the Next 16 name for a file called
@@ -124,8 +132,13 @@ from anything.** This is the largest drift hazard in the repo. They are the
 files an AI crawler reads, and on 22 August they were missing eight shipped
 projects entirely, still described the games studio under a name it had not
 used for days, and carried a GPA of 3.96 that matched none of the three audited
-figures. They are correct as of that date. They will drift again, because
-nothing checks them. See open item 4.
+figures. They are correct now, and `pnpm check:llms` is what keeps them that
+way: it fails if a project in `projects.ts` is never mentioned in `llms.txt`, if
+either file quotes a GPA that is not in `lib/constants.ts`, or if it parses
+fewer than 15 projects, which is how a regex that has stopped matching announces
+itself instead of passing forever. The prose stays hand written on purpose. A
+generator would flatten a sentence of editorial judgement per project into a
+list of tags.
 
 **The Notion overlay is live code and currently dormant.** `src/lib/notion.ts`
 is imported by the home, projects and experience pages, each of which merges
@@ -138,66 +151,70 @@ integration is not worth a major.
 
 ---
 
-## 4. Hosting: Vercel now, Cloudflare tested and waiting
+## 4. Hosting: Vercel now, Cloudflare deployed and waiting
 
 The site is on Vercel and should stay there while the account is healthy.
 
-`@opennextjs/cloudflare` and `wrangler` are wired up, `open-next.config.ts` and
-`wrangler.jsonc` are committed, and `pnpm cf:build` really does produce
-`.open-next/worker.js`. That has been run and checked, not assumed. What has
-**not** been done is `pnpm cf:deploy`: no Worker exists under the account and
-no DNS points anywhere, so the hatch is one tested step short of proven. If
-Vercel 402s the account again, the move is `pnpm cf:deploy` plus a DNS change,
-and the first person to do it should expect to debug the parts a build cannot
-cover (env vars, the proxy, image handling).
+**The hatch is deployed and serving**, at
+https://portfolio.goelhome.workers.dev. It is the same site: the home page, the
+project pages, `llms.txt` and the basic-auth private route all answer correctly
+there, checked over the network rather than assumed. `wrangler.jsonc` declares
+no routes and no custom domain, so it claims nothing and arnavgoel.dev is
+untouched by it.
+
+If Vercel blocks the account again, the whole move is a DNS change. Two things
+that copy do NOT have, because moving a live API key between platforms is not
+something to do speculatively:
+
+- `RESEND_API_KEY`, so the contact form will 500 there until somebody sets it
+  (`npx wrangler secret put RESEND_API_KEY`).
+- The ORCID and PostHog variables, for the same reason.
+
+`PRIVATE_AUTH` **is** set on the Worker, so the private route behaves there
+exactly as it does in production.
 
 ---
 
 ## 5. Open, in the order worth doing
 
-1. **There is no gate on push.** Highest value item in this file. A GitHub
-   Action running `pnpm lint`, `npx tsc --noEmit` and `pnpm build` on every
-   push to `main` would have caught the middleware export before it cost two
-   days. A local pre-push hook is the cheaper half and catches it before the
-   build minute is spent. Neither exists.
+Six of the items that were here on 22 August are closed. What closed them is in
+sections 1 to 4: the CI gate, `check:llms`, `PRIVATE_AUTH` on Vercel, the
+deployed Cloudflare Worker, `shadcn` moved out of `dependencies`, and ESLint
+told to ignore build output. What is left is genuinely waiting on somebody else
+or on a decision.
 
-2. **`/private/outreach` returns 503 in production.** `PRIVATE_AUTH` is not set
-   on Vercel (`npx vercel env ls` lists PostHog, ORCID and Resend, and nothing
-   else). `src/middleware.ts` fails closed with "Private routes disabled: set
-   PRIVATE_AUTH env var.", which is the correct behaviour and also means the
-   page does not work. Either set the variable (`npx vercel env add
-   PRIVATE_AUTH production`, value `user:password`) or delete the route. It has
-   been broken quietly for some time.
+1. **TypeScript 7 and ESLint 10 are blocked upstream.** Mechanisms and unblock
+   conditions are in section 2. Re-checked on 23 August 2026: `typescript-eslint`
+   still declares `typescript >=4.8.4 <6.1.0`, and `eslint-plugin-react` is still
+   at 7.37.5 peering `eslint ^9.7`. Two `npm view` calls settle it; do not
+   re-derive by installing and watching it break.
 
-3. **TypeScript 7 and ESLint 10 are blocked upstream.** Mechanisms and the
-   exact unblock conditions are in section 2. Re-check with two `npm view`
-   calls; do not re-derive by installing and watching it break.
+2. **The Cloudflare fallback has no `RESEND_API_KEY`, ORCID or PostHog
+   variables.** The public site works there; the contact form would 500. Setting
+   them is `npx wrangler secret put <NAME>` and takes a minute, and it was not
+   done speculatively because copying a live API key onto a second platform is
+   a decision rather than a chore. Do it the day the hatch is taken.
 
-4. **The AEO files are hand-maintained copies of `projects.ts`.** A generator
-   that emits `llms.txt` from `staticProjects` (title, live URL, one line of
-   description, source status) would end this class of drift permanently, and
-   the same script could assert that every project either appears or is
-   explicitly excluded. Until then, editing `projects.ts` means editing both
-   text files in the same commit.
+3. **The Notion overlay is a decision, not a defect.** It is dormant in
+   production, typed, and pinned at `@notionhq/client` 2.x because version 5
+   renamed the query surface. Either switch it on (set `NOTION_*` on Vercel and
+   accept the v5 rewrite) or delete `src/lib/notion.ts` and its three importers.
+   Leaving it is fine; it costs one dependency and no runtime.
 
-5. **`shadcn` is in `dependencies` with zero imports.** It is a CLI, not a
-   runtime library: `grep -rn "from \"shadcn" src` returns nothing. It belongs
-   in devDependencies at most, and probably nowhere. Left alone because
-   removing a dependency deserves its own commit and its own build.
-
-6. **The Cloudflare hatch has never been deployed.** See section 4.
-
-7. **A blank screenshot of this site is probably the harness, not the site.**
+4. **A blank screenshot of this site is probably the harness, not the site.**
    After the framer-motion 12 to 13 upgrade, a full-page `shot.mjs` capture of
    the home page came back with the nav rendered and the entire hero black,
    twice, including with an 11 second settle. The page was fine: a CDP session
-   reported `h1` at opacity 1, no exceptions, and a viewport screenshot taken
-   in that same session showed the hero, the typewriter line and the status
-   cards exactly right. The animated hero paints into compositor layers the
+   reported `h1` at opacity 1, no exceptions, and a viewport screenshot taken in
+   that same session showed the hero, the typewriter line and the status cards
+   exactly right. The animated hero paints into compositor layers the
    beyond-viewport capture path does not always flush. Verify the DOM before
    concluding the page is broken, and capture with
    `Page.captureScreenshot({captureBeyondViewport: false})` in the session that
    just read it.
+
+5. **Not this repo, but adjacent and open:** the Circuit front door still does
+   not offer the app install. See section 6.
 
 ---
 
@@ -240,4 +257,4 @@ deployed, so the live front door still lacks it.
 - A change is not done until it is live, and live means checked over the
   network rather than inferred from a successful push.
 - Look at the rendered output before calling visual work done, and read
-  section 5 item 7 before believing a black frame.
+  section 5 item 4 before believing a black frame.
