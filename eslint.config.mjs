@@ -23,6 +23,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Build output, not source. `pnpm cf:build` writes a bundled copy of the
+    // whole app plus the OpenNext runtime here, and linting it reports other
+    // people's `require()` calls and unused catch bindings as defects in this
+    // repository. Both directories are gitignored; this is the same statement
+    // made to the linter.
+    ".open-next/**",
+    ".wrangler/**",
   ]),
 ]);
 

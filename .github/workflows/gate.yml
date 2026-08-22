@@ -1,0 +1,60 @@
+# The gate this repository did not have.
+#
+# Next 16 does not lint or typecheck during `build`, and Vercel only runs
+# `build`. So for a long time nothing checked anything: `src/middleware.ts`
+# exported a function under the wrong name, every deploy failed in 19 seconds,
+# the last good build stayed up, and the site served content two commits old
+# for two days while three pushes reported success at the git level. Nobody
+# reads a deployment list unprompted.
+#
+# This runs the four checks that would have caught it, in the order that fails
+# fastest. It is deliberately not part of the Vercel build: duplicating work
+# inside a deploy spends build minutes on both, and a gate that blocks the
+# deploy is a gate you disable the first time you need to ship in a hurry.
+name: gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# A chain of quick pushes should leave one run standing, not five. Build
+# minutes are metered money.
+concurrency:
+  group: gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+
+      # Frozen, so a lockfile that disagrees with package.json fails here
+      # rather than resolving to something nobody has run locally.
+      - run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      # The build does not do this, which is the whole reason the file exists.
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      # The two files a crawler reads, against the site they describe.
+      - name: Check llms.txt
+        run: pnpm check:llms
+
+      - name: Build
+        run: pnpm build
