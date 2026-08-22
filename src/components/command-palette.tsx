@@ -104,6 +104,16 @@ export default function CommandPalette() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
+  // The query this highlight belongs to. Typing a character makes row 0 the
+  // only sensible selection, and React's documented way to say that is to
+  // adjust the state during render rather than from an effect. Done in an
+  // effect it lands a frame late, so the list paints once with the highlight
+  // still on whichever row the previous query had left it on.
+  const [highlightedFor, setHighlightedFor] = useState(query);
+  if (highlightedFor !== query) {
+    setHighlightedFor(query);
+    setActive(0);
+  }
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -185,10 +195,6 @@ export default function CommandPalette() {
   useEffect(() => {
     if (open && inputRef.current) inputRef.current.focus();
   }, [open]);
-
-  useEffect(() => {
-    setActive(0);
-  }, [query]);
 
   useEffect(() => {
     if (!listRef.current) return;

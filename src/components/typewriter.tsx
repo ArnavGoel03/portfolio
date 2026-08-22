@@ -17,7 +17,11 @@ export default function Typewriter({
 }: TypewriterProps) {
   const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
-  const [done, setDone] = useState(false);
+  // Derived rather than stored. Whether the typing has finished is a fact about
+  // `displayed`, not a second thing to keep in step with it, and setting it
+  // from inside the effect below was a synchronous setState in an effect: an
+  // extra render pass on the one frame where the last character lands.
+  const done = started && displayed.length >= text.length;
 
   useEffect(() => {
     const t = setTimeout(() => setStarted(true), startDelay);
@@ -25,11 +29,7 @@ export default function Typewriter({
   }, [startDelay]);
 
   useEffect(() => {
-    if (!started) return;
-    if (displayed.length >= text.length) {
-      setDone(true);
-      return;
-    }
+    if (!started || displayed.length >= text.length) return;
     const t = setTimeout(
       () => setDisplayed(text.slice(0, displayed.length + 1)),
       delay

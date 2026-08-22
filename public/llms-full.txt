@@ -4,7 +4,7 @@
 
 ## About Arnav
 
-Arnav Goel, also known as Yash, is a Data Science student at the University of California, San Diego (UCSD) with a GPA of 3.96/4.0. He is pursuing a minor in Entrepreneurship & Innovation. Growing up in India, he developed an early interest in patterns, whether in mathematics, market trends, or the intricate designs of traditional jewelry. This curiosity led him to pursue Data Science at UCSD.
+Arnav Goel, also known as Yash, is a Data Science student at the University of California, San Diego (UCSD) with a cumulative UC GPA of 3.913. He is pursuing a minor in Entrepreneurship & Innovation. Growing up in India, he developed an early interest in patterns, whether in mathematics, market trends, or the intricate designs of traditional jewelry. This curiosity led him to pursue Data Science at UCSD.
 
 At UCSD, courses like CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), and CSE 150A (AI) shaped his approach to problem-solving. He developed a deep appreciation for how graph theory and machine learning can model real-world networks and decision systems.
 
@@ -15,7 +15,7 @@ Alongside his studies, he founded Gondilal Saraf, a jewelry business where he ap
 ### UC San Diego
 - **Degree:** Bachelor of Science (BS), Data Science (Minor: Entrepreneurship & Innovation)
 - **Period:** Sep 2022 to Jun 2027
-- **GPA:** 3.96/4.0
+- **GPA:** UC 3.913, Major 3.860, Minor 3.950 (official UCSD degree audit, August 2026)
 - **Key Coursework:** CSE 258 (Recommender Systems), DSC 80 (Data Science in Practice), CSE 150A (AI)
 - **Activities:** Wakesurfing, Swimming, Triton Thenix, Root]d Dance Club, Archery
 - **Skills:** Machine Learning, Graph Theory, Data Science, Communication
@@ -52,6 +52,38 @@ A four-site game studio built around one claim: every roll and every shuffle is 
 - **Live:** https://glasstablegames.com
 - **Status:** Live, in progress. Source private.
 - **Date:** August 2026
+
+### Quiver: A Studio of Private, Native Mac Apps
+A one-person studio building local-first macOS apps that never phone home: no accounts, no telemetry, nothing leaves the Mac, all unlocked by a single subscription key.
+- **Trove:** 40+ utilities in one native app, including a clipboard manager, window manager, system and GPU monitors, OCR, a full PDF kit and a disk cleaner.
+- **Relay:** a private local API client and Postman / Bruno alternative, with collections, environments, OAuth / AWS / digest auth, JavaScript pre and post-request scripting, and keys held in the Keychain.
+- **Tend:** a calm, local-first tasks and calendar app.
+- **Engineering:** Swift 6 and SwiftUI on a shared code core with one licensing model across every app, Developer-ID signed and direct-distributed rather than sold through the App Store, with a marketing site and per-app SEO.
+- **Tags:** Swift 6, SwiftUI, macOS, Local-first, Keychain, SwiftPM
+- **Live:** https://trove.arnavgoel.dev
+- **Status:** In progress. Source private.
+- **Date:** July 2026
+
+### Goel Studio: Client Websites and the Software Behind Them
+The commercial practice, kept deliberately separate from Arnav's own products: other people's businesses, built and written end to end, with the code staying in the client's repository. Six sites are live, plus two built as pitch templates rather than commissions.
+- **Fitout:** planning an Indian room, materials, glass, lighting and controls, costed by what each choice takes to live with.
+- **Upkeep:** what a house is made of, what to put on it, and which two bottles under the sink must never meet.
+- **Larder:** an Indian kitchen reference, heat, vessels, storage and what is actually in the food, sourced row by row.
+- **Brighter Rainbow:** a music academy in Ulsoor, Bengaluru, with courses, teachers and a drum machine on the front page.
+- **Get Fit With Rajat:** a fitness coach's whole practice on one page, and the studio's first paying client.
+- **Fevicryl Art On Sale:** a retail catalogue assembled from stock that existed only as photographs on a phone.
+- **The standard across all of them:** prerendered and served from the edge, self-hosted fonts, no third-party trackers, copy written as part of the build, and free tiers wherever the work allows so there is no monthly platform a client cannot leave. Enquiries write straight into Handover Studio, the CRM behind the client tier.
+- **Tags:** Next.js, TypeScript, Client Work, Static Rendering, SEO, Copywriting, Vercel
+- **Live:** https://goel-studio.vercel.app
+- **Status:** Live and taking work. Client source private.
+
+### Library Walk: A Playable Micromobility Thesis
+A campus micromobility runner that makes the argument rather than illustrating it, built solo for Group 3 in SYN 100 at Seventh College, UC San Diego. The player rides the real route: the Blue Line drops you at Central Campus station, the protected green lane runs down Gilman Drive past live traffic, and the lane ends exactly where Library Walk and the weekday dismount ban begin.
+- **Engineering:** Three.js and WebGL, multiplayer on Cloudflare Workers with Durable Objects, Neon Postgres, installable as a PWA.
+- **Companion research site:** Built for Cars, Banned for Bikes (https://syn100-micromobility.vercel.app), with Yuvia Cabral and Rut: the short-trip problem, ridership evidence, UC San Diego as a field site, the barriers that actually stop riders, a peer-campus benchmark and a policy playbook.
+- **Tags:** Three.js, WebGL, Game Development, Cloudflare Workers, Durable Objects, Neon, PWA, SYN 100
+- **Live:** https://library-walk.vercel.app
+- **Status:** Live.
 
 ### Vaani: Multilingual AI Chatbot (Shelved)
 Co-built with Ahaskar. A voice-first AI chatbot for Indian-language customer support, with OpenAI LLM + speech APIs behind a Flask microservice backend and a speech-to-text → intent → text-to-speech pipeline across 5+ Indian languages. Shelved mid-build after a market-fit check: in the Indian SME market the unit economics did not work, because a human customer-support agent costs less per conversation than bleeding-edge LLM inference. Kept visible as a deliberate learning.

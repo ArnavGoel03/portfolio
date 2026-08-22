@@ -40,7 +40,7 @@ A premium dark-themed portfolio built with Next.js 16, featuring 3D visualizatio
 | Styling | TailwindCSS 4 + tw-animate-css + custom CSS (glassmorphism, 3D cards, gradient borders) |
 | Animations | Framer Motion + canvas-based 3D icosahedron hero + CSS keyframes (typewriter, border-flow, glow) |
 | Fonts | Geist Sans (body), Geist Mono (code labels), Playfair Display (serif headings), via next/font |
-| CMS | Notion API (@notionhq/client) for projects, experience, skills, with static fallback + merge |
+| CMS | Notion API (@notionhq/client, pinned at 2.x) for projects, experience, skills, with static fallback + merge. Off unless `NOTION_API_KEY` is set, which is why the v5 rewrite of its query surface has not been taken |
 | Email | Resend API for contact form submissions delivered to inbox |
 | UI Components | shadcn + Lucide React + react-icons |
 | SEO | Dynamic OG/Twitter images, robots.ts, sitemap.ts (pages + blog slugs), manifest.ts, JSON-LD |
@@ -162,15 +162,33 @@ npm run dev                   # localhost:3000
 ## Commands
 
 ```bash
-npm run dev          # Dev server
-npm run build        # Production build
-npm run start        # Start production server
-npm run lint         # ESLint
+pnpm dev             # Dev server
+pnpm build           # Production build
+pnpm start           # Start production server
+pnpm lint            # ESLint, and it must come back with nothing
+npx tsc --noEmit     # Typecheck, which the build does not do for you
+pnpm cf:build        # Build the Cloudflare Worker, without deploying it
 ```
+
+Run `pnpm lint`, `npx tsc --noEmit` and `pnpm build` before pushing. There is no
+CI here, and the site once sat two days on a stale build because a one-word
+middleware export failed on Vercel and nothing local had been run.
+
+pnpm is the package manager: `pnpm-lock.yaml` is the lockfile Vercel installs
+from. A `package-lock.json` used to sit beside it, which made the host's choice
+a coin flip; do not add one back.
 
 ## Deployment
 
-Deployed on **Vercel**. Push to `main` triggers auto-deploy. PWA installable on iOS, Android, macOS, Windows, and ChromeOS.
+Deployed on **Vercel**. Push to `main` triggers auto-deploy. PWA installable on
+iOS, Android, macOS, Windows, and ChromeOS.
+
+**Cloudflare is a tested fallback, not a plan.** `@opennextjs/cloudflare` and
+`wrangler` are wired up, and `pnpm cf:build` really does produce a Worker at
+`.open-next/worker.js`; it is run and checked, not assumed. It exists because
+the Vercel account was bandwidth blocked in August 2026 and every site on it
+answered `402` for a week. If that happens again, `pnpm cf:deploy` and a DNS
+change are the whole move. Until then this stays on Vercel.
 
 ## License
 
