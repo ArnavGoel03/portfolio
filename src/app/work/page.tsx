@@ -5,6 +5,7 @@ import Section from "@/components/section";
 import ProofStrip from "@/components/proof-strip";
 import { FAQPageJsonLd } from "@/components/json-ld";
 import {
+  EMAIL,
   SOCIAL_LINKS,
   UC_GPA,
   MAJOR_GPA,
@@ -316,7 +317,7 @@ export default function Work() {
                 >
                   <span className="flex items-center gap-3 text-sm font-medium text-foreground">
                     <Mail size={16} className="text-muted-foreground" />
-                    a2goel@ucsd.edu
+                    {EMAIL}
                   </span>
                   <ArrowUpRight
                     size={14}

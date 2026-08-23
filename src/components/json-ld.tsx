@@ -90,7 +90,6 @@ export function PersonJsonLd() {
       SOCIAL_LINKS.linkedin,
       SOCIAL_LINKS.orcid,
       SOCIAL_LINKS.scholar,
-      "https://github.com/ArnavGoel03",
     ],
     address: {
       "@type": "PostalAddress",

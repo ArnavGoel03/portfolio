@@ -15,7 +15,7 @@ import {
 } from "@/components/json-ld";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SOCIAL_LINKS } from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -130,17 +130,24 @@ export default function RootLayout({
       }
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/*
+          There were preconnects to fonts.googleapis.com and fonts.gstatic.com
+          here. next/font/google downloads these three families at build time
+          and serves them from /_next/static/media, so the browser never
+          contacts Google at all: a CDP capture of the live page lists exactly
+          two origins, this one and PostHog. Two DNS lookups and two TLS
+          handshakes were being opened on every page load to hosts nothing
+          then asked for.
+        */}
         <meta name="theme-color" content="#121110" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Arnav Goel" />
+        <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-tap-highlight" content="no" />
-        <link rel="me" href="https://github.com/ArnavGoel03" />
-        <link rel="me" href="https://www.linkedin.com/in/arnav-goel--/" />
+        <link rel="me" href={SOCIAL_LINKS.github} />
+        <link rel="me" href={SOCIAL_LINKS.linkedin} />
         <link rel="author" href="/humans.txt" />
         <PersonJsonLd />
         <WebSiteJsonLd />

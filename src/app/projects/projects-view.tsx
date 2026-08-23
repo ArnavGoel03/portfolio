@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Section from "@/components/section";
 import ProjectCard from "@/components/project-card";
 import { Project } from "@/lib/types";
+import { isFocusKey, sortByRelevance } from "@/lib/project-ranking";
 
 const FILTERS: Record<string, string[] | null> = {
   All: null,
@@ -83,12 +84,25 @@ function matchesFilter(project: Project, filter: string): boolean {
   return terms.some((term) => tags.some((t) => t.includes(term)));
 }
 
+// Back and forward are the only ways the focus param changes without this
+// component remounting, so popstate is the whole subscription.
+function subscribeToLocation(onChange: () => void) {
+  window.addEventListener("popstate", onChange);
+  return () => window.removeEventListener("popstate", onChange);
+}
+
+// Returns a plain string or undefined, so React's Object.is check on repeated
+// getSnapshot calls sees a stable value and does not loop.
+function readFocusParam(): string | undefined {
+  const raw = new URLSearchParams(window.location.search).get("focus");
+  return isFocusKey(raw) ? raw.toLowerCase() : undefined;
+}
+
 interface ProjectsViewProps {
   inProgress: Project[];
   personal: Project[];
   team: Project[];
   coursework: Project[];
-  focus?: string;
 }
 
 /**
@@ -193,19 +207,49 @@ export default function ProjectsView({
   personal,
   team,
   coursework,
-  focus,
 }: ProjectsViewProps) {
   const [filter, setFilter] = useState<string>("All");
+
+  // `?focus=` is read here, after hydration, rather than from searchParams on
+  // the server. Reading it on the server made this whole route render per
+  // request; reading it through useSearchParams would have needed a Suspense
+  // boundary, and a prerender bails out of a Suspense subtree, so the project
+  // list would have been missing from the static HTML a crawler sees. This
+  // way the default order ships as real prerendered markup and the param,
+  // which nothing on the site links to, still works for anyone who types it.
+  //
+  // useSyncExternalStore rather than an effect that calls setState: the
+  // server snapshot is "no focus", which is exactly what the prerendered HTML
+  // contains, so hydration matches and React then swaps in the real value on
+  // its own. Reading it in an effect would do the same thing by a route
+  // react-hooks/set-state-in-effect rightly complains about.
+  const focus = useSyncExternalStore(
+    subscribeToLocation,
+    readFocusParam,
+    () => undefined
+  );
+
+  const ordered = useMemo(() => {
+    if (!focus) return { inProgress, personal, team, coursework };
+    return {
+      inProgress: sortByRelevance(inProgress, focus),
+      personal: sortByRelevance(personal, focus),
+      team: sortByRelevance(team, focus),
+      coursework: sortByRelevance(coursework, focus),
+    };
+  }, [focus, inProgress, personal, team, coursework]);
 
   // Ordered by recruiter-signal strength: shipped solo > actively being
   // built > team work > coursework (collapsed further down).
   const sections: [SectionKey, Project[]][] = [
-    ["personal", personal.filter((p) => matchesFilter(p, filter))],
-    ["inProgress", inProgress.filter((p) => matchesFilter(p, filter))],
-    ["team", team.filter((p) => matchesFilter(p, filter))],
+    ["personal", ordered.personal.filter((p) => matchesFilter(p, filter))],
+    ["inProgress", ordered.inProgress.filter((p) => matchesFilter(p, filter))],
+    ["team", ordered.team.filter((p) => matchesFilter(p, filter))],
   ];
 
-  const courseworkFiltered = coursework.filter((p) => matchesFilter(p, filter));
+  const courseworkFiltered = ordered.coursework.filter((p) =>
+    matchesFilter(p, filter)
+  );
 
   const totalVisible =
     sections.reduce((acc, [, arr]) => acc + arr.length, 0) +
