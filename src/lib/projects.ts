@@ -257,7 +257,7 @@ export const staticProjects: Project[] = [
   {
     id: "watch-together",
     title: "Watch Together: Cross-Site Video Sync",
-    description: `Built a Chrome/Firefox/Safari extension that syncs video playback across any number of devices worldwide. Works on Netflix, YouTube, JioHotstar, Disney+, HBO Max, and Amazon Prime Video, anyone can play, pause, seek, or change speed and it propagates instantly. WebSocket relay server on Render with heartbeat-based drift correction (within 0.5s), per-IP rate limiting, host-only mode, ad detection, and built-in chat. 59 server tests + Puppeteer browser tests. Manifest V3 with site-specific player adapters. Published on the Chrome Web Store and rated 5.0, with ${WATCH_TOGETHER_INSTALLS} profiles running it today.`,
+    description: `Built a Chrome/Firefox/Safari extension that syncs video playback across any number of devices worldwide. Works on Netflix, YouTube, JioHotstar, Disney+, HBO Max, and Amazon Prime Video, anyone can play, pause, seek, or change speed and it propagates instantly. WebSocket relay server on Render with heartbeat-based drift correction (within 0.5s), per-IP rate limiting, host-only mode, ad detection, and built-in chat. 59 server tests + Puppeteer browser tests. Manifest V3 with site-specific player adapters. Published on the Chrome Web Store and rated 5.0, with ${WATCH_TOGETHER_INSTALLS} profiles running it today, and submitted to the Microsoft Edge Add-ons store.`,
     tags: ["Chrome Extension", "WebSocket", "Node.js", "Manifest V3", "Render", "Vitest"],
     image: "/shots/watch-together.webp",
     github: "https://github.com/ArnavGoel03/watch-together",
