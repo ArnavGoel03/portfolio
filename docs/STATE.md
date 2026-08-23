@@ -312,3 +312,21 @@ deployed, so the live front door still lacks it.
   network rather than inferred from a successful push.
 - Look at the rendered output before calling visual work done, and read
   section 5 item 4 before believing a black frame.
+
+## Blocked on me
+
+Steps below need a human. They are read by `pnpm owner` in `~/dev/atlas`, which
+collects them from every repo and puts them in the Atlas briefing, so a step
+recorded here cannot quietly evaporate the way one relayed in chat does.
+
+Format: one record per blank-line-separated group, `key: value` per line.
+`what` is required. `command` is what to run, `cwd` is where it must run,
+`why` is why it cannot be done by an agent, `raised` is when it was first
+raised, and adding `done: YYYY-MM-DD` clears it. Silence is not a status: an
+item with no `done` date is still owed.
+
+```owner-actions
+what: Either switch it on (set `NOTION_*` on Vercel and accept the v5 rewrite) or delete `src/lib/notion.ts` and its three importers.
+why: his decision plus Vercel dashboard env vars.
+raised: 2026-08-23
+```
