@@ -61,7 +61,11 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-nav-menu"
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-            className="rounded-lg p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            /* 44x44, the size Apple documents as the smallest reliable touch
+               target. Padding alone gave 36x36 around a 20px icon, which is a
+               discrete primary control on a phone and the one worth raising.
+               Inline text links stay as they are: WCAG 2.5.5 exempts them. */
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:hidden"
           >
             {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>

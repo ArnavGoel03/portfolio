@@ -334,7 +334,7 @@ export default function Resume() {
                   ))}
                 </ul>
                 {e.skills.length > 0 && (
-                  <p className="mt-2 font-mono text-[11px] text-muted-foreground/75">
+                  <p className="mt-2 font-mono text-[11px] text-muted-foreground-dim">
                     {e.skills.join(" · ")}
                   </p>
                 )}

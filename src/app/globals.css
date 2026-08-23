@@ -52,6 +52,7 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
+  --color-muted-foreground-dim: var(--muted-foreground-dim);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
@@ -83,6 +84,11 @@
   --secondary-foreground: #ede6d5;
   --muted: rgba(237, 230, 213, 0.04);
   --muted-foreground: #a9a293;
+  /* The dimmest text allowed to carry meaning. Opacity modifiers on
+     --muted-foreground were failing WCAG AA badly: /30 measured 1.74:1,
+     /40 2.17:1 and /50 2.75:1 against the page. This clears 4.5:1 on the
+     page (5.14:1) and on a card (4.83:1), so one token covers both. */
+  --muted-foreground-dim: #8b8578;
   --accent: rgba(237, 230, 213, 0.08);
   --accent-foreground: #ede6d5;
   --destructive: #c66a5e;
@@ -118,6 +124,11 @@
   --secondary-foreground: #ede6d5;
   --muted: rgba(237, 230, 213, 0.04);
   --muted-foreground: #a9a293;
+  /* The dimmest text allowed to carry meaning. Opacity modifiers on
+     --muted-foreground were failing WCAG AA badly: /30 measured 1.74:1,
+     /40 2.17:1 and /50 2.75:1 against the page. This clears 4.5:1 on the
+     page (5.14:1) and on a card (4.83:1), so one token covers both. */
+  --muted-foreground-dim: #8b8578;
   --accent: rgba(237, 230, 213, 0.08);
   --accent-foreground: #ede6d5;
   --destructive: #c66a5e;

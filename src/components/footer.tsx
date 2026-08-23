@@ -103,14 +103,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-4 border-t border-border/20 pt-8 sm:flex-row sm:justify-between">
-          <p className="text-xs text-muted-foreground/50">
+          <p className="text-xs text-muted-foreground-dim">
             &copy; {new Date().getFullYear()} Arnav Goel{" "}
-            <span className="text-muted-foreground/40">
+            <span className="text-muted-foreground-dim">
               (a.k.a. Yash Goel)
             </span>
             . Built with Next.js &amp; Notion.
           </p>
-          <p className="font-mono text-[10px] tracking-wider text-muted-foreground/30">
+          <p className="font-mono text-[10px] tracking-wider text-muted-foreground-dim">
             SAN DIEGO, CA
           </p>
         </div>

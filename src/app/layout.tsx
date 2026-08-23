@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono, Fraunces } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { MotionProvider } from "@/components/motion-provider";
 import ScrollToTop from "@/components/scroll-to-top";
 import ScrollProgress from "@/components/scroll-progress";
 import PageTransition from "@/components/page-transition";
@@ -15,7 +16,12 @@ import {
 } from "@/components/json-ld";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, SOCIAL_LINKS } from "@/lib/constants";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SOCIAL_LINKS,
+} from "@/lib/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -141,7 +147,10 @@ export default function RootLayout({
         */}
         <meta name="theme-color" content="#121110" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#000000" />
@@ -161,14 +170,20 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <ScrollProgress />
-        <Navbar />
-        <main id="main-content" tabIndex={-1} className="min-h-screen focus:outline-none">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
-        <ScrollToTop />
-        <CommandPalette />
+        <MotionProvider>
+          <ScrollProgress />
+          <Navbar />
+          <main
+            id="main-content"
+            tabIndex={-1}
+            className="min-h-screen focus:outline-none"
+          >
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+          <ScrollToTop />
+          <CommandPalette />
+        </MotionProvider>
         <ServiceWorkerRegister />
         <Analytics />
         <SpeedInsights />

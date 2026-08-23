@@ -36,9 +36,7 @@ export const studioProject: Project = {
     {
       label: "Trove",
       href: "https://quiver.arnavgoel.dev/",
-      // No image on purpose. The Trove page hero paints nothing in headless
-      // Chrome even after a full scroll pass, so every capture is an empty
-      // frame under the navbar. A blank card reads worse than no card.
+      image: "/shots/s-trove.webp",
       holds: "v1.12.8\u00A0\u00B7\u00A0macOS 13+",
       blurb: "One app instead of a dozen.",
     },
