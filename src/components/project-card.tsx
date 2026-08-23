@@ -127,6 +127,8 @@ function ProjectModal({
               <img
                 src={project.image}
                 alt={project.title}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
@@ -248,6 +250,7 @@ function ProjectModal({
                         src={surface.image}
                         alt=""
                         loading="lazy"
+                        decoding="async"
                         className="mt-0.5 h-11 w-[72px] shrink-0 rounded-md border border-foreground/10 object-cover object-top"
                       />
                     )}
@@ -385,6 +388,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />

@@ -5,10 +5,19 @@ const isLocalhost =
   typeof window !== "undefined" && window.location.hostname === "localhost";
 const enabled = Boolean(token) && !isLocalhost;
 
-// posthog-js used to be a static import at the top of this file, which put
-// roughly 250 KB of analytics into the first script the browser had to parse
-// on every page, ahead of anything a reader came here to look at. It is the
-// same library doing the same job, just fetched once the page has gone idle.
+// posthog-js used to be a static import at the top of this file. It is a
+// dynamic one now, so the library is started once the page has gone idle
+// rather than during load: init, session recording setup and the first
+// beacons all move off the critical path.
+//
+// Measured caveat, so nobody re-derives it: this defers when posthog RUNS,
+// not when it ARRIVES. Turbopack still emits the 247 KB chunk as an async
+// script tag in the initial HTML, confirmed by reading the served markup.
+// Getting the bytes out of the first load needs the import moved out of the
+// instrumentation entry graph altogether, and moving it into a lazily
+// imported client component was tried and did NOT achieve that either. The
+// chunk is async so it blocks neither parsing nor first paint, but it is
+// still downloaded on first visit. Unfinished business rather than a win.
 //
 // The capture behaviour below is deliberately unchanged: `capture_pageview`
 // stays false and the only event sent is the one this file already sent, from

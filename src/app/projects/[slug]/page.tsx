@@ -467,6 +467,7 @@ function ProjectProfile({ project }: { project: Project }) {
                           src={s.image}
                           alt=""
                           loading="lazy"
+                          decoding="async"
                           className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                       </span>

@@ -87,6 +87,7 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
               src={project.image}
               alt={`${project.title} screenshot`}
               loading="lazy"
+              decoding="async"
               className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           ) : (

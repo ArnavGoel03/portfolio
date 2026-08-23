@@ -88,6 +88,7 @@ export default function ProofStrip({
                 src={project.image}
                 alt={`${project.title} screenshot`}
                 loading="lazy"
+                decoding="async"
                 className="aspect-[16/10] w-full border-b border-foreground/10 object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
             ) : (
