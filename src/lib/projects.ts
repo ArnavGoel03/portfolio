@@ -20,6 +20,38 @@ export const studioProject: Project = {
   // The studio's own site. Not `gettrove.vercel.app`, which belongs to an
   // unrelated company and has never had anything to do with these apps.
   demo: "https://trove.arnavgoel.dev",
+  // Every label, blurb and version below is copied verbatim from the suite own
+  // source of truth, ~/dev/trove/macos/suite.config.json and the VERSION file
+  // each app owns. Nothing here is written for the portfolio. When an app ships,
+  // update it there first and mirror it here; the two repos cannot import each
+  // other, so this is the one place a copy is allowed to exist.
+  surfaces: [
+    {
+      label: "Quiver",
+      href: "https://quiver.arnavgoel.dev",
+      image: "/shots/studio.webp",
+      holds: "The studio",
+      blurb: "Private, native Mac apps. One subscription.",
+    },
+    {
+      label: "Trove",
+      href: "https://quiver.arnavgoel.dev/",
+      holds: "v1.12.8\u00A0\u00B7\u00A0macOS 13+",
+      blurb: "One app instead of a dozen.",
+    },
+    {
+      label: "Relay",
+      href: "https://quiver.arnavgoel.dev/relay",
+      holds: "v0.1.0\u00A0\u00B7\u00A0macOS 13+",
+      blurb: "A private, local API client.",
+    },
+    {
+      label: "Tend",
+      href: "https://quiver.arnavgoel.dev/tend",
+      holds: "v0.11.0\u00A0\u00B7\u00A0macOS 14+",
+      blurb: "Tasks and calendar that never leave your Mac.",
+    },
+  ],
   featured: true,
   date: "2026-07",
   inProgress: true,
