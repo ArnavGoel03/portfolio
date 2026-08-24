@@ -24,11 +24,13 @@ const COURSEWORK_IDS = new Set([
 
 const isCoursework = (p: Project) => COURSEWORK_IDS.has(p.id);
 
-// Kept on the site, out of the shipped-work sections. Same reasoning as the
-// coursework band above: standing next to the studios it is judged against
-// them, and it does not hold up, so it sits in its own band instead of being
-// removed. Its /projects/[slug] page, Cmd+K entry and sitemap URL are untouched.
-const ASIDE_IDS = new Set(["claude-skills"]);
+// Kept on the site, out of the shipped-work sections. Built, but not what the
+// studios are judged against: Buzz and Serenity do not currently run, and the
+// skills repo does not hold up beside them. Standing in the same grid they
+// flatten the work that does run, so they sit in their own band instead of
+// being removed. Every /projects/[slug] page, Cmd+K entry and sitemap URL is
+// untouched.
+const ASIDE_IDS = new Set(["buzz", "serenity", "claude-skills"]);
 
 const isAside = (p: Project) => ASIDE_IDS.has(p.id);
 
