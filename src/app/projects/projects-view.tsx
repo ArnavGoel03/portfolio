@@ -101,7 +101,6 @@ function readFocusParam(): string | undefined {
 interface ProjectsViewProps {
   inProgress: Project[];
   personal: Project[];
-  team: Project[];
   coursework: Project[];
   aside: Project[];
 }
@@ -177,7 +176,7 @@ function CollapsibleBand({
   );
 }
 
-type SectionKey = "inProgress" | "personal" | "team";
+type SectionKey = "inProgress" | "personal";
 
 const SECTION_META: Record<
   SectionKey,
@@ -195,18 +194,11 @@ const SECTION_META: Record<
     subtitle:
       "Shipped by me, from empty folder to live users or open-source repo.",
   },
-  team: {
-    kicker: "Collaborations",
-    title: "Team projects",
-    subtitle:
-      "Group work from UCSD classes and research. Teammates credited on each card.",
-  },
 };
 
 export default function ProjectsView({
   inProgress,
   personal,
-  team,
   coursework,
   aside,
 }: ProjectsViewProps) {
@@ -232,21 +224,19 @@ export default function ProjectsView({
   );
 
   const ordered = useMemo(() => {
-    if (!focus) return { inProgress, personal, team, coursework };
+    if (!focus) return { inProgress, personal, coursework };
     return {
       inProgress: sortByRelevance(inProgress, focus),
       personal: sortByRelevance(personal, focus),
-      team: sortByRelevance(team, focus),
       coursework: sortByRelevance(coursework, focus),
     };
-  }, [focus, inProgress, personal, team, coursework]);
+  }, [focus, inProgress, personal, coursework]);
 
-  // Ordered by recruiter-signal strength: shipped solo > actively being
-  // built > team work > coursework (collapsed further down).
+  // Ordered by recruiter-signal strength: shipped > actively being built >
+  // coursework (collapsed further down).
   const sections: [SectionKey, Project[]][] = [
     ["personal", ordered.personal.filter((p) => matchesFilter(p, filter))],
     ["inProgress", ordered.inProgress.filter((p) => matchesFilter(p, filter))],
-    ["team", ordered.team.filter((p) => matchesFilter(p, filter))],
   ];
 
   const courseworkFiltered = ordered.coursework.filter((p) =>

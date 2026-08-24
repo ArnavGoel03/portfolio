@@ -11,10 +11,14 @@ import { sortByRelevance } from "@/lib/project-ranking";
 // just render in their own collapsed band so they do not sit next to shipped
 // work and flatten it. Kept as an explicit id list (same idiom as
 // FLAGSHIP_ORDER) so the canonical project list stays untouched.
-// Deliberately NOT here: power-grid-analysis (has a Zenodo DOI),
-// redbull-youtube-analytics (flagship), library-walk and syn100-micromobility
-// (course-originated but shipped, live products).
+// The line is what Arnav means by the words, not what the artifact became: a
+// class group project is coursework even when it shipped and even when it has a
+// DOI. Power Outages keeps its DOI badge and its live link on its own card.
+// Deliberately NOT here: library-walk, which is course-originated but is the
+// shipped game and carries the whole micromobility collection.
 const COURSEWORK_IDS = new Set([
+  "power-grid-analysis",
+  "vaani",
   "mlb-playoff-cogs108",
   "arkinvest-anduril-mgt127r",
   "arkinvest-mgt127r",
@@ -91,11 +95,12 @@ export default async function Projects() {
   const inProgress = sortByRelevance(
     rest.filter((p) => p.inProgress && !isCoursework(p))
   );
+  // One shipped section, not two. Personal and Team split finished work by who
+  // helped, which is a credit question rather than a kind question, and every
+  // card already names its teammates. Nothing is a personal collaboration today
+  // either, so the second section was empty as well as unclear.
   const personal = sortByRelevance(
-    rest.filter((p) => !p.inProgress && !p.team && !isCoursework(p))
-  );
-  const team = sortByRelevance(
-    rest.filter((p) => !p.inProgress && !!p.team && !isCoursework(p))
+    rest.filter((p) => !p.inProgress && !isCoursework(p))
   );
   const coursework = sortByRelevance(rest.filter(isCoursework));
 
@@ -126,7 +131,6 @@ export default async function Projects() {
       <ProjectsView
         inProgress={inProgress}
         personal={personal}
-        team={team}
         coursework={coursework}
         aside={aside}
       />
