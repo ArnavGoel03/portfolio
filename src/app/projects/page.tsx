@@ -32,6 +32,19 @@ const ASIDE_IDS = new Set(["claude-skills"]);
 
 const isAside = (p: Project) => ASIDE_IDS.has(p.id);
 
+// Folded into another entry rather than listed beside it. Library Walk and the
+// research site are one piece of work under the built-for-cars collection, and
+// both declared it, so the same four links rendered as two cards.
+//
+// Library Walk is the entry that shows, not the research site. It is the harder
+// build, and its own title already says both halves out loud, so the card reads
+// as one argument that was also made playable rather than as two coursework
+// pieces. The research site keeps its /projects/syn100-micromobility page and
+// is reached from the collection rail, so none of the four URLs change.
+const FOLDED_IDS = new Set(["syn100-micromobility"]);
+
+const isFolded = (p: Project) => FOLDED_IDS.has(p.id);
+
 export const revalidate = 3600;
 
 export const metadata = {
@@ -63,7 +76,9 @@ export default async function Projects() {
   const flagshipIds = new Set(flagshipProjects.map((p) => p.id));
   // Everything the flagship strip already showed is excluded below, so a
   // project appears once on this page rather than twice.
-  const rest = merged.filter((p) => !flagshipIds.has(p.id) && !isAside(p));
+  const rest = merged.filter(
+    (p) => !flagshipIds.has(p.id) && !isAside(p) && !isFolded(p)
+  );
   const aside = merged.filter(isAside);
 
   const inProgress = sortByRelevance(
