@@ -13,6 +13,7 @@
 // and every row is a link into the full write-up.
 
 import Link from "next/link";
+import { accentFor } from "@/lib/projects";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/lib/case-studies";
@@ -85,6 +86,8 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
   // large screenshots from reading as a single repeating template.
   const flipped = index % 2 === 1;
   const href = `/projects/${project.id}`;
+  // The same hue this project wears on its card and on the home page graph.
+  const accent = accentFor(project.id);
 
   return (
     <motion.article
@@ -164,7 +167,7 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
                 <span
                   aria-hidden="true"
                   className="block h-[3px] w-6 origin-left rounded-full transition-transform duration-500 group-hover/metric:scale-x-[1.6]"
-                  style={{ background: "var(--primary)" }}
+                  style={{ background: accent }}
                 />
                 <dt className="mt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
                   {metric.label}

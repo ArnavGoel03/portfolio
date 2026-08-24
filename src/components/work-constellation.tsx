@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { accentFor } from "@/lib/projects";
 import type { Project } from "@/lib/types";
 
 /**
@@ -42,13 +43,6 @@ type Node = {
   accent: string;
 };
 
-const ACCENTS = [
-  "var(--accent-1)",
-  "var(--accent-2)",
-  "var(--accent-4)",
-  "var(--accent-3)",
-];
-
 /** The first word of a title, which is what a person calls the project. */
 function shortName(title: string): string {
   return title.split(/[:,]/)[0].trim();
@@ -79,7 +73,9 @@ export default function WorkConstellation({
           // unit about 14 real pixels, so these are points, not planets.
           r: p.featured ? 0.55 : 0.32,
           featured: Boolean(p.featured),
-          accent: ACCENTS[i % ACCENTS.length],
+          // The project's own hue, the same one its card wears, so a node and
+          // a card are recognisably the same thing.
+          accent: accentFor(p.id),
         };
       });
 

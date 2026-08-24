@@ -442,3 +442,23 @@ export function getProjectById(id: string): Project | undefined {
  * Everything else still appears on /projects. Demoted is not deleted.
  */
 export const flagshipProjects: Project[] = staticProjects.filter((p) => p.featured);
+
+/**
+ * The colour a project wears wherever it appears.
+ *
+ * Identity, not rank. The same project is the same hue on its card, on its node
+ * in the home page graph and on its metrics, so colour answers "which project
+ * is this" rather than "which position is this in a list". That is the only
+ * thing on this site with enough entities to deserve a palette.
+ *
+ * Keyed off the id rather than the index, so inserting a project does not
+ * repaint every project after it, and the six hues are the validated set in
+ * globals.css. Reuse across eighteen projects is fine because two cards wearing
+ * the same hue never sit adjacent as a chart series would; each one is labelled
+ * with its own name, so colour is never the only thing telling them apart.
+ */
+export function accentFor(id: string): string {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+  return `var(--accent-${(h % 6) + 1})`;
+}

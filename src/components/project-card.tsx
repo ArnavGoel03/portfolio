@@ -29,6 +29,7 @@ import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Project, memberName } from "@/lib/types";
 import { getCollection } from "@/lib/collections";
+import { accentFor } from "@/lib/projects";
 import { track } from "@/lib/analytics";
 
 const CASE_STUDY_SLUGS = new Set([
@@ -78,6 +79,9 @@ function ProjectModal({
 }) {
   const Icon = projectIcons[project.id] || ScanEye;
   const collection = getCollection(project.collection);
+  // Identity, so this project looks the same here as it does in the home page
+  // graph and on its own metrics.
+  const accent = accentFor(project.id);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -147,7 +151,10 @@ function ProjectModal({
 
         <div className="p-8">
           {project.eyebrow && (
-            <p className="mb-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            <p
+              className="mb-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em]"
+              style={{ color: accent }}
+            >
               {project.eyebrow}
             </p>
           )}

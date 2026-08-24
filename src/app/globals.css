@@ -45,6 +45,8 @@
   --accent-2: #2f9c82;
   --accent-3: #ad8329;
   --accent-4: #3d74be;
+  --accent-5: #b4568f;
+  --accent-6: #4e9b4a;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -107,12 +109,12 @@
   --secondary: rgba(237, 230, 213, 0.06);
   --secondary-foreground: #f5f0e4;
   --muted: rgba(237, 230, 213, 0.04);
-  --muted-foreground: #b8b1a0;
+  --muted-foreground: #c9c2ae;
   /* The dimmest text allowed to carry meaning. Opacity modifiers on
      --muted-foreground were failing WCAG AA badly: /30 measured 1.74:1,
      /40 2.17:1 and /50 2.75:1 against the page. This clears 4.5:1 on the
      page (5.14:1) and on a card (4.83:1), so one token covers both. */
-  --muted-foreground-dim: #8b8578;
+  --muted-foreground-dim: #9d9686;
   --accent: rgba(237, 230, 213, 0.08);
   --accent-foreground: #ede6d5;
   --destructive: #c66a5e;
@@ -147,12 +149,12 @@
   --secondary: rgba(237, 230, 213, 0.06);
   --secondary-foreground: #f5f0e4;
   --muted: rgba(237, 230, 213, 0.04);
-  --muted-foreground: #b8b1a0;
+  --muted-foreground: #c9c2ae;
   /* The dimmest text allowed to carry meaning. Opacity modifiers on
      --muted-foreground were failing WCAG AA badly: /30 measured 1.74:1,
      /40 2.17:1 and /50 2.75:1 against the page. This clears 4.5:1 on the
      page (5.14:1) and on a card (4.83:1), so one token covers both. */
-  --muted-foreground-dim: #8b8578;
+  --muted-foreground-dim: #9d9686;
   --accent: rgba(237, 230, 213, 0.08);
   --accent-foreground: #ede6d5;
   --destructive: #c66a5e;
@@ -407,6 +409,8 @@
   --color-accent-2: var(--accent-2);
   --color-accent-3: var(--accent-3);
   --color-accent-4: var(--accent-4);
+  --color-accent-5: var(--accent-5);
+  --color-accent-6: var(--accent-6);
 }
 
 /* Section reveal, without shipping a hidden page ------------------------
