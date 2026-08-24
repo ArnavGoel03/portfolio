@@ -97,7 +97,6 @@ export default function Contact() {
           <div className="lg:col-span-3">
             {submitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex h-full min-h-[400px] items-center justify-center gradient-border rounded-md bg-card"
               >

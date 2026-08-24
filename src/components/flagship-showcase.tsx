@@ -86,6 +86,17 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
   const href = `/projects/${project.id}`;
   // The same hue this project wears on its card and on the home page graph.
   const accent = accentFor(project.id);
+  // Three of the five flagships have no case study, and everything on the right
+  // of this card was read off one: status, thesis, metrics, role. So Quiver,
+  // Glass Table Games and Pidilite rendered as a bare number and a paragraph
+  // while the two with studies carried a status and three figures beside them.
+  //
+  // The status at least is a fact this project already holds rather than
+  // something a case study has to restate, so it is derived: still being worked
+  // on, or shipped and reachable. The word LIVE is the one the existing studies
+  // already use, so nothing new is written here.
+  const status =
+    study?.status ?? (project.inProgress ? "IN PROGRESS" : project.demo ? "LIVE" : null);
 
   // The reveal is CSS now. It used to be a motion wrapper whose initial state
   // was opacity 0, which shipped in the HTML and left this card blank for
@@ -128,10 +139,10 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
       <div className={`lg:col-span-5 ${flipped ? "lg:order-1" : ""}`}>
         <p className="font-mono text-[10px] font-medium uppercase tracking-[0.26em] text-muted-foreground">
           {String(index + 1).padStart(2, "0")}
-          {study?.status && (
+          {status && (
             <>
               <span className="mx-2.5 text-foreground/25">/</span>
-              {study.status}
+              {status}
             </>
           )}
         </p>

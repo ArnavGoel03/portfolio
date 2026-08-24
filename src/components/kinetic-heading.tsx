@@ -43,7 +43,6 @@ export default function KineticHeading({
           }}
         >
           <motion.span
-            initial={{ y: "110%" }}
             animate={{ y: 0 }}
             transition={{
               duration,

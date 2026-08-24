@@ -23,7 +23,6 @@ export default function Timeline({ items }: TimelineProps) {
         return (
           <motion.div
             key={item.id}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{
