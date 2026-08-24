@@ -4,13 +4,12 @@ import {
   Globe,
   Gem,
   Code2,
-  Award,
-  Cpu,
-  BookOpen,
   ArrowUpRight,
   ExternalLink,
 } from "lucide-react";
 import Section from "@/components/section";
+import SectionMarker from "@/components/section-marker";
+import SectionRail from "@/components/section-rail";
 import StatCounter from "@/components/stat-counter";
 import TestimonialWall from "@/components/testimonial-wall";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +25,14 @@ import { allProjects } from "@/lib/projects";
 
 // Shown as artifacts rather than described. Ids only: the screenshot, title and
 // headline number come from the canonical project and case-study lists.
+const RAIL_STOPS = [
+  { id: "story", label: "Story", accent: "var(--accent-1)" },
+  { id: "education", label: "Education", accent: "var(--accent-2)" },
+  { id: "skills", label: "Skills", accent: "var(--accent-4)" },
+  { id: "writing", label: "Writing", accent: "var(--accent-3)" },
+  { id: "certifications", label: "Certs", accent: "var(--accent-2)" },
+];
+
 export const metadata = {
   title: "About",
   description:
@@ -262,6 +269,7 @@ const certifications: Certification[] = [
 export default function About() {
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           About Me
@@ -332,11 +340,10 @@ export default function About() {
       </Section>
 
       <Section>
-        <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
-          <h2 className="font-serif text-3xl font-bold tracking-tight">
-            My Story
-          </h2>
-          <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed">
+        <SectionMarker index={1} id="story" kicker="How I got here" title="My Story" accent="var(--accent-1)" />
+        {/* Out of the card it used to sit in. A wall of prose inside a box is a
+            wall of prose with a border; on the page, with a measure, it reads. */}
+        <div className="max-w-3xl space-y-5 text-[15px] leading-[1.75] text-muted-foreground">
             <p>
               Growing up in India, I was always drawn to patterns, whether in
               mathematics, market trends, or the intricate designs of traditional
@@ -369,18 +376,10 @@ export default function About() {
               rigor meets creative thinking and real-world constraints.
             </p>
           </div>
-        </div>
       </Section>
 
       <Section>
-        <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
-            <GraduationCap size={22} className="text-foreground/80 icon-glow" />
-          </div>
-          <h2 className="font-serif text-3xl font-bold tracking-tight">
-            Education
-          </h2>
-        </div>
+        <SectionMarker index={2} id="education" kicker="Where I studied" title={"Education"} accent="var(--accent-2)" />
         <div className="space-y-6">
           {education.map((edu) => (
             <div
@@ -425,20 +424,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
-            <Cpu size={22} className="text-foreground/80 icon-glow" />
-          </div>
-          <div>
-            <h2 className="font-serif text-3xl font-bold tracking-tight">
-              Skills
-            </h2>
-            <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              An honest breakdown, not a wall of logos. Three tiers by depth of
-              real use, not by what looks impressive on a resume.
-            </p>
-          </div>
-        </div>
+        <SectionMarker index={3} id="skills" kicker="What I reach for" title={"Skills"} accent="var(--accent-4)" />
         <div className="grid gap-6 md:grid-cols-3">
           {skillTiers.map((tier) => (
             <div
@@ -485,20 +471,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
-            <BookOpen size={22} className="text-foreground/80 icon-glow" />
-          </div>
-          <div>
-            <h2 className="font-serif text-3xl font-bold tracking-tight">
-              Writing &amp; Research
-            </h2>
-            <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              Where I think things through on the page, short notes, long
-              writeups, and the occasional class project worth sharing.
-            </p>
-          </div>
-        </div>
+        <SectionMarker index={4} id="writing" kicker="Published work" title={"Writing & Research"} accent="var(--accent-3)" />
         <div className="grid gap-6 md:grid-cols-3">
           {writing.map((entry) => {
             const Tag: React.ElementType = entry.external ? "a" : Link;
@@ -540,14 +513,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <div className="mb-10 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
-            <Award size={22} className="text-foreground/80 icon-glow" />
-          </div>
-          <h2 className="font-serif text-3xl font-bold tracking-tight">
-            Certifications
-          </h2>
-        </div>
+        <SectionMarker index={5} id="certifications" kicker="Verified elsewhere" title={"Certifications"} accent="var(--accent-2)" />
         <div className="grid gap-6 md:grid-cols-2">
           {certifications.map((cert) => (
             <div

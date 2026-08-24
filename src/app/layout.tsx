@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { MotionProvider } from "@/components/motion-provider";
 import ScrollToTop from "@/components/scroll-to-top";
+import ReadingProgress from "@/components/reading-progress";
 import ScrollProgress from "@/components/scroll-progress";
 import PageTransition from "@/components/page-transition";
 import CommandPalette from "@/components/command-palette";
@@ -171,7 +172,8 @@ export default function RootLayout({
           Skip to main content
         </a>
         <MotionProvider>
-          <ScrollProgress />
+          <ReadingProgress />
+        <ScrollProgress />
           <Navbar />
           <main
             id="main-content"
