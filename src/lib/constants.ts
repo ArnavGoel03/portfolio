@@ -72,7 +72,6 @@ export const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
   { href: "/resume", label: "Resume" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
 

@@ -50,7 +50,6 @@ const ITEMS: CommandItem[] = [
   { id: "work", label: "Work", section: "Navigation", icon: Briefcase, href: "/work", keywords: ["hire", "availability", "visa"] },
   { id: "now", label: "Now", section: "Navigation", icon: Zap, href: "/now" },
   { id: "uses", label: "Uses", section: "Navigation", icon: Wrench, href: "/uses", keywords: ["tools", "stack"] },
-  { id: "blog", label: "Blog", section: "Navigation", icon: BookOpen, href: "/blog" },
   { id: "contact", label: "Contact", section: "Navigation", icon: Mail, href: "/contact" },
 
   // Case studies

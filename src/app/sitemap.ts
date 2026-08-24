@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
-import { getAllPosts } from "@/lib/blog";
 import { staticProjects } from "@/lib/projects";
 import { caseStudies } from "@/lib/case-studies";
 
@@ -71,12 +70,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
       url: `${SITE_URL}/contact`,
       lastModified: new Date(),
       changeFrequency: "yearly",
@@ -95,12 +88,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: caseSlugs.has(p.id) ? 0.85 : 0.65,
     }));
 
-  const blogPosts: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
-    url: `${SITE_URL}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "yearly",
-    priority: 0.6,
-  }));
 
-  return [...pages, ...projectPages, ...blogPosts];
+  return [...pages, ...projectPages];
 }

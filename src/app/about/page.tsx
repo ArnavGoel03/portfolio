@@ -163,13 +163,6 @@ type WritingEntry = {
 
 const writing: WritingEntry[] = [
   {
-    title: "Blog",
-    blurb:
-      "Short notes on data science, building things, and the occasional deep-dive. Where I think out loud before ideas are fully formed.",
-    href: "/blog",
-    external: false,
-  },
-  {
     title: "Synthesis Writing Portfolio",
     blurb:
       "Seventh College Synthesis sequence (SYN 1 / SYN 2 / AWP 4A / AWP 4B), writing threaded around climate change, evidence, and community inquiry.",
