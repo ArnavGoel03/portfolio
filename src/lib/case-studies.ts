@@ -193,7 +193,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Trust surface, not just polish",
         body: [
-          "Performance matters when your users are on 3G in rural UP. BIS-hallmark certificate badges and transparent pricing breakdowns matter more than flashy animations. The admin panel uses Hindi labels so my uncle can upload product photos without training. Every new feature gets measured against \"does this help a real customer trust us more?\" before shipping.",
+          "Performance matters when your users are on 3G. BIS-hallmark certificate badges and transparent pricing breakdowns matter more than flashy animations. The admin panel uses Hindi labels so my uncle can upload product photos without training. Every new feature gets measured against \"does this help a real customer trust us more?\" before shipping.",
         ],
       },
     ],
@@ -206,7 +206,7 @@ export const caseStudies: CaseStudy[] = [
       {
         decision: "WhatsApp OTP over SMS",
         rationale:
-          "SMS OTP delivery in rural India is unreliable and expensive. Most customers already use WhatsApp every day. A WhatsApp business link with a pre-filled OTP request is higher conversion, cheaper, and lets the shop reply directly.",
+          "Most customers already use WhatsApp every day. A WhatsApp business link with a pre-filled OTP request is higher conversion, cheaper, and lets the shop reply directly.",
       },
       {
         decision: "Static catalogue seed, live database",

@@ -310,7 +310,7 @@ export default function ProjectsView({
             if (items.length === 0) return null;
             const meta = SECTION_META[key];
             return (
-              <Section key={key} className="pt-4">
+              <Section key={key} id={`${key}-section`} className="pt-4">
                 <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
                   <div>
                     <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -352,8 +352,8 @@ export default function ProjectsView({
           {aside.length > 0 && (
             <CollapsibleBand
               id="aside-section"
-              kicker=""
-              noun=""
+              kicker="Ideas I'm exploring"
+              noun="idea"
               blurb=""
               projects={aside}
               className="pt-0 pb-20"
