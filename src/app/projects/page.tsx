@@ -1,5 +1,5 @@
 import Section from "@/components/section";
-import ProjectExplorer from "@/components/project-explorer";
+import ProjectMatrix from "@/components/project-matrix";
 import ProjectsView from "./projects-view";
 import FlagshipShowcase from "@/components/flagship-showcase";
 import { getProjects } from "@/lib/notion";
@@ -94,9 +94,9 @@ export default async function Projects() {
     for (const t of p.tags) tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
   }
   const explorerTags = [...tagCounts.entries()]
-    .filter(([, n]) => n >= 3)
+    .filter(([, n]) => n >= 2)
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .slice(0, 10)
+    .slice(0, 16)
     .map(([t]) => t);
   // Everything the flagship strip already showed is excluded below, so a
   // project appears once on this page rather than twice.
@@ -142,7 +142,7 @@ export default async function Projects() {
       <FlagshipShowcase projects={flagships} />
 
       <Section className="pt-4 pb-2">
-        <ProjectExplorer projects={merged} tags={explorerTags} />
+        <ProjectMatrix projects={merged} columns={explorerTags} />
       </Section>
 
       <ProjectsView
