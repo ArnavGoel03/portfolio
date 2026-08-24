@@ -18,7 +18,6 @@ import { sortByRelevance } from "@/lib/project-ranking";
 // shipped game and carries the whole micromobility collection.
 const COURSEWORK_IDS = new Set([
   "power-grid-analysis",
-  "vaani",
   "mlb-playoff-cogs108",
   "arkinvest-anduril-mgt127r",
   "arkinvest-mgt127r",
@@ -36,6 +35,7 @@ const isCoursework = (p: Project) => COURSEWORK_IDS.has(p.id);
 // untouched.
 const ASIDE_IDS = new Set([
   "buzz",
+  "vaani",
   "serenity",
   "claude-skills",
   "redbull-youtube-analytics",
