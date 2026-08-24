@@ -23,6 +23,30 @@
   }
 }
 
+
+/* Accent scale -----------------------------------------------------------
+ *
+ * Four hues that carry meaning rather than decorate: a skill tier, a project,
+ * a status. Chosen by running the categorical validator against this page own
+ * surface (#121110) rather than by eye, which matters because the two sets
+ * picked by eye both failed: purple and blue sat 1.6 apart under protanopia,
+ * and red beside amber collapses under deuteranopia unless another hue sits
+ * between them, which is why the order below is red, teal, amber, blue.
+ *
+ * All four clear the OKLCH lightness band 0.48 to 0.67, the chroma floor, a
+ * worst adjacent colourblind separation of 9.6 deutan and 19.7 tritan, the
+ * normal-vision floor, and 3:1 contrast against the background.
+ *
+ * Colour never carries meaning alone. Every use pairs it with a label or a
+ * position, so the page still reads with no colour at all.
+ */
+:root {
+  --accent-1: #d9483c;
+  --accent-2: #2f9c82;
+  --accent-3: #ad8329;
+  --accent-4: #3d74be;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -376,4 +400,11 @@
 
 .btn-border-flow::before {
   content: none;
+}
+
+@theme inline {
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-4: var(--accent-4);
 }

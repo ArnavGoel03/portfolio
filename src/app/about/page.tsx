@@ -98,11 +98,17 @@ type SkillTier = {
   label: string;
   summary: string;
   items: string[];
+  /** Which accent this rung wears, and how full its bar is. Colour is never
+   *  the only signal: the label above it says the same thing in words. */
+  accent: string;
+  rung: number;
 };
 
 const skillTiers: SkillTier[] = [
   {
     id: "proficient",
+    accent: "var(--accent-2)",
+    rung: 3,
     label: "Proficient",
     summary:
       "Daily drivers, languages and tools I reach for without thinking, across shipped projects and research code.",
@@ -117,6 +123,8 @@ const skillTiers: SkillTier[] = [
   },
   {
     id: "comfortable",
+    accent: "var(--accent-4)",
+    rung: 2,
     label: "Comfortable",
     summary:
       "Solid across multiple projects: I know the trade-offs, debug my own mistakes, and can pair on them without hand-holding.",
@@ -135,6 +143,8 @@ const skillTiers: SkillTier[] = [
   },
   {
     id: "familiar",
+    accent: "var(--accent-3)",
+    rung: 1,
     label: "Familiar",
     summary:
       "Used in coursework, internships, or one-off projects. I can read the code, ship small features, and ramp quickly.",
@@ -309,11 +319,12 @@ export default function About() {
       <Section>
         <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <StatCounter value={UC_GPA} suffix="/4.0" label="GPA at UCSD" decimals={3} />
-            <StatCounter value={allProjects.length} suffix="+" label="Projects Shipped" />
-            <StatCounter value={9} suffix="+" label="Certifications" />
+            <StatCounter value={UC_GPA} suffix="/4.0" label="GPA at UCSD" decimals={3} accent="var(--accent-2)" />
+            <StatCounter value={allProjects.length} suffix="+" label="Projects Shipped" accent="var(--accent-1)" />
+            <StatCounter value={9} suffix="+" label="Certifications" accent="var(--accent-4)" />
             <StatCounter
               value={familyBusinessYears()}
+              accent="var(--accent-3)"
               label="Years of Family Legacy"
             />
           </div>
@@ -432,9 +443,23 @@ export default function About() {
           {skillTiers.map((tier) => (
             <div
               key={tier.id}
-              className="gradient-border rounded-2xl bg-card p-7 backdrop-blur-sm"
+              className="gradient-border relative overflow-hidden rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              {/* The rung, drawn. Three columns of identical bullets gave a
+                  reader no way to tell a daily driver from something read once,
+                  which is the only thing this section is for. */}
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-[3px]"
+                style={{
+                  background: tier.accent,
+                  width: `${(tier.rung / 3) * 100}%`,
+                }}
+              />
+              <p
+                className="text-[10px] font-medium uppercase tracking-[0.2em]"
+                style={{ color: tier.accent }}
+              >
                 {tier.label}
               </p>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground/90">
@@ -446,7 +471,10 @@ export default function About() {
                     key={item}
                     className="flex items-start gap-3 text-sm leading-relaxed text-foreground/90"
                   >
-                    <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary/60" />
+                    <span
+                      className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full"
+                      style={{ background: tier.accent }}
+                    />
                     <span>{item}</span>
                   </li>
                 ))}

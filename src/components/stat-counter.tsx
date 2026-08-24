@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 
 interface StatCounterProps {
   value: number;
+  /** The hue this number wears. Four numbers in one row all in the same cream
+   *  read as one block of text; a reader picks out none of them. */
+  accent?: string;
   suffix?: string;
   label: string;
   decimals?: number;
@@ -12,6 +15,7 @@ interface StatCounterProps {
 
 export default function StatCounter({
   value,
+  accent,
   suffix = "",
   label,
   decimals = 0,
@@ -52,8 +56,15 @@ export default function StatCounter({
 
   return (
     <div ref={ref} className="text-center">
-      <p className="font-serif text-4xl font-bold tracking-tight md:text-5xl">
-        <span className="heading-gradient">
+      {accent && (
+        <span
+          aria-hidden="true"
+          className="mx-auto mb-3 block h-[3px] w-8 rounded-full"
+          style={{ background: accent }}
+        />
+      )}
+      <p className="font-serif text-5xl font-bold tracking-tight md:text-6xl">
+        <span className={accent ? undefined : "heading-gradient"} style={accent ? { color: accent } : undefined}>
           {decimals > 0 ? display.toFixed(decimals) : Math.round(display)}
         </span>
         <span className="text-muted-foreground">{suffix}</span>
