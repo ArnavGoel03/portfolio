@@ -1,5 +1,7 @@
 "use client";
 
+import SectionMarker from "@/components/section-marker";
+
 import { useMemo, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -180,15 +182,17 @@ type SectionKey = "inProgress" | "personal";
 
 const SECTION_META: Record<
   SectionKey,
-  { kicker: string; title: string; subtitle: string }
+  { kicker: string; title: string; subtitle: string; accent: string }
 > = {
   inProgress: {
+    accent: "var(--accent-3)",
     kicker: "Currently Building",
     title: "In progress",
     subtitle:
       "Live projects I'm actively working on, specs may shift, links go up when they go up.",
   },
   personal: {
+    accent: "var(--accent-1)",
     kicker: "Solo Work",
     title: "Personal projects",
     subtitle:
@@ -296,24 +300,20 @@ export default function ProjectsView({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
-          {sections.map(([key, items]) => {
+          {sections.map(([key, items], i) => {
             if (items.length === 0) return null;
             const meta = SECTION_META[key];
             return (
               <Section key={key} id={`${key}-section`} className="pt-4">
-                <div className="mb-8 flex flex-wrap items-end justify-between gap-3">
-                  <div>
-                    <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                      {meta.kicker}
-                    </p>
-                    <h2 className="mt-2 font-serif text-2xl font-bold tracking-tight md:text-3xl">
-                      {meta.title}
-                    </h2>
-                  </div>
-                  <p className="max-w-md text-sm text-muted-foreground/80">
-                    {meta.subtitle}
-                  </p>
-                </div>
+                <SectionMarker
+                  index={i + 1}
+                  kicker={meta.kicker}
+                  title={meta.title}
+                  accent={meta.accent}
+                />
+                <p className="-mt-6 mb-9 max-w-xl text-sm leading-relaxed text-muted-foreground/80">
+                  {meta.subtitle}
+                </p>
                 <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
                   {items.map((project, i) => (
                     <ProjectCard
