@@ -162,7 +162,7 @@ export const staticProjects: Project[] = [
         blurb: "The whole proof, with a widget that runs the real thing in your browser.",
       },
     ],
-    featured: false,
+    featured: true,
     date: "2026-08",
     inProgress: true,
   },
@@ -310,7 +310,7 @@ export const staticProjects: Project[] = [
     github: "",
     privateRepo: true,
     demo: "https://serenity-pcos.vercel.app",
-    featured: true,
+    featured: false,
     date: "2025-03",
   },
   {
@@ -413,7 +413,7 @@ export const staticProjects: Project[] = [
     image: "/shots/redbull-youtube-analytics.webp",
     github: "https://github.com/ArnavGoel03/redbull-youtube-analytics",
     demo: "/artifacts/redbull-youtube-executive-summary.pdf",
-    featured: true,
+    featured: false,
     date: "2026-04",
   },
   {
@@ -471,3 +471,15 @@ export const allProjects: Project[] = [studioProject, ...staticProjects];
 export function getProjectById(id: string): Project | undefined {
   return allProjects.find((p) => p.id === id);
 }
+/**
+ * The four the home page leads with, and the only place prominence is decided.
+ *
+ * There used to be a second hand-typed list of ids in app/page.tsx. Two lists
+ * meant two answers: Red Bull was flagged here and absent there, buzz was there
+ * and unflagged here, and nothing reconciled them. Membership is now exactly
+ * `featured`, so a project is promoted or demoted in one edit, and the order is
+ * the order they are declared above.
+ *
+ * Everything else still appears on /projects. Demoted is not deleted.
+ */
+export const flagshipProjects: Project[] = staticProjects.filter((p) => p.featured);

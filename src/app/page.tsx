@@ -9,38 +9,22 @@ import KineticHeading from "@/components/kinetic-heading";
 import Magnetic from "@/components/magnetic";
 import FocusParagraph from "@/components/focus-paragraph";
 import { getFeaturedProjects } from "@/lib/notion";
-import { studioProject, staticProjects, isSuiteApp } from "@/lib/projects";
+import { flagshipProjects, isSuiteApp } from "@/lib/projects";
 import { Project } from "@/lib/types";
 import { UC_GPA, formatGpa } from "@/lib/constants";
 
 export const revalidate = 3600;
 
 /**
- * The home page shows a hand-picked few, in a deliberate order.
+ * The home page leads with the flagships, and does not decide which they are.
  *
- * Only the order lives here. The projects themselves come from
- * `staticProjects`, because this page used to keep its own retyped copies and
- * they drifted: every one of them was still carrying `image: ""` long after
- * the real entries had screenshots, so the home page showed six icon
- * placeholders while `/projects` showed the actual work.
+ * This used to hold its own hand-typed list of ids, which is two lists for one
+ * question and they disagreed: Red Bull was flagged a flagship in projects.ts
+ * and missing here, buzz was here and unflagged there, and nothing reconciled
+ * them. The list now comes from `featured` in projects.ts, so promoting or
+ * demoting a project is one edit in one file.
  */
-const HOME_FEATURED_IDS = [
-  "buzz",
-  "watch-together",
-  "redbull-youtube-analytics",
-  "serenity",
-  "gondilal-saraf",
-  "power-grid-analysis",
-];
-
-const projectsById = new Map(staticProjects.map((p) => [p.id, p]));
-
-const staticFeatured: Project[] = [
-  studioProject,
-  ...HOME_FEATURED_IDS.map((id) => projectsById.get(id)).filter(
-    (p): p is Project => Boolean(p)
-  ),
-];
+const staticFeatured: Project[] = flagshipProjects;
 
 export default async function Home() {
   const notionFeatured = await getFeaturedProjects();
@@ -124,7 +108,7 @@ export default async function Home() {
             </Magnetic>
           </div>
 
-          <div className="mt-14 grid gap-4 text-left sm:grid-cols-3">
+          <div className="mt-14 grid gap-4 text-left sm:grid-cols-2">
             <Link
               href="/projects/watch-together"
               className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
@@ -153,21 +137,6 @@ export default async function Home() {
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                 Full-stack e-commerce + admin ERP with 15 Prisma models, 26
                 API routes, 85 tests. Real customers. Real P&amp;L.
-              </p>
-            </Link>
-            <Link
-              href="/projects/serenity"
-              className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
-            >
-              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Production AI
-              </p>
-              <p className="mt-2 font-serif text-base font-semibold tracking-tight text-foreground">
-                Serenity
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                Free-form health rants parsed by Claude into structured
-                symptoms, meds, and labs. 15 Prisma models, privacy-first.
               </p>
             </Link>
           </div>
