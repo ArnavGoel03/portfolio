@@ -1,4 +1,6 @@
 import Link from "next/link";
+import SectionMarker from "@/components/section-marker";
+import SectionRail from "@/components/section-rail";
 import { ArrowUpRight, CalendarClock, Mail } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa";
 import Section from "@/components/section";
@@ -18,6 +20,14 @@ import {
 // shown as artifacts first. Ids only: everything else is read from the
 // canonical project list.
 const PROOF_IDS = ["watch-together", "gondilal-saraf", "serenity", "studio"];
+
+const RAIL_STOPS = [
+  { id: "whyme", label: "Why me", accent: "var(--accent-1)" },
+  { id: "roles", label: "Roles", accent: "var(--accent-2)" },
+  { id: "draws", label: "Draws", accent: "var(--accent-4)" },
+  { id: "notafit", label: "Not a fit", accent: "var(--accent-3)" },
+  { id: "questions", label: "Questions", accent: "var(--accent-2)" },
+];
 
 export const metadata = {
   title: "Work",
@@ -124,6 +134,7 @@ const faqs = [
 export default function Work() {
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <FAQPageJsonLd faqs={faqs} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
@@ -150,12 +161,13 @@ export default function Work() {
 
       <Section className="pt-4">
         <div className="gradient-border rounded-2xl bg-card p-8 md:p-10">
-          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            Why me
-          </p>
-          <h2 className="mt-3 font-serif text-2xl font-bold tracking-tight md:text-3xl">
-            Three things most new-grad DS candidates don&apos;t bring
-          </h2>
+          <SectionMarker
+            index={1}
+            id="whyme"
+            kicker="Why me"
+            title={"Three things most new-grad DS candidates don’t bring"}
+            accent="var(--accent-1)"
+          />
           <ol className="mt-8 space-y-7">
             <li>
               <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -241,9 +253,7 @@ export default function Work() {
       <Section className="pt-4">
         <div className="grid gap-10 md:grid-cols-2 md:gap-14">
           <div>
-            <h2 className="font-serif text-2xl font-bold tracking-tight">
-              Roles I&apos;m excited about
-            </h2>
+            <SectionMarker index={2} id="roles" kicker="The roles" title={"Roles I’m excited about"} accent="var(--accent-2)" />
             <ul className="mt-6 space-y-3">
               {roles.map((role) => (
                 <li key={role} className="flex items-start gap-3">
@@ -255,9 +265,7 @@ export default function Work() {
               ))}
             </ul>
 
-            <h2 className="mt-12 font-serif text-2xl font-bold tracking-tight">
-              What draws me in
-            </h2>
+            <SectionMarker index={3} id="draws" kicker="The problems" title={"What draws me in"} accent="var(--accent-4)" />
             <ul className="mt-6 space-y-3">
               {interests.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -269,9 +277,7 @@ export default function Work() {
               ))}
             </ul>
 
-            <h2 className="mt-12 font-serif text-2xl font-bold tracking-tight">
-              Probably not a fit
-            </h2>
+            <SectionMarker index={4} id="notafit" kicker="The mismatch" title={"Probably not a fit"} accent="var(--accent-3)" />
             <ul className="mt-6 space-y-3">
               {notInterested.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -414,9 +420,7 @@ export default function Work() {
       </Section>
 
       <Section className="pt-4 pb-20">
-        <h2 className="font-serif text-2xl font-bold tracking-tight md:text-3xl">
-          Common recruiter questions
-        </h2>
+<SectionMarker index={5} id="questions" kicker="Before you ask" title={"Common recruiter questions"} accent="var(--accent-2)" />
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
           Quick answers to what usually comes up in the first email.
         </p>
