@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Section from "@/components/section";
 import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
+import SectionMarker from "@/components/section-marker";
 import HeroNodes from "@/components/hero-nodes";
 import SplitText from "@/components/split-text";
 import KineticHeading from "@/components/kinetic-heading";
@@ -126,12 +127,13 @@ export default async function Home() {
       <Section>
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-3">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
-              About
-            </p>
-            <h2 className="mt-3 font-serif text-3xl font-bold tracking-tight md:text-4xl">
-              Data science at the intersection of research and real products
-            </h2>
+            <SectionMarker
+              index={1}
+              id="about-section"
+              kicker="About"
+              title="Data science at the intersection of research and real products"
+              accent="var(--accent-2)"
+            />
             <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
               <FocusParagraph>
                 <p>
@@ -222,12 +224,13 @@ export default async function Home() {
       <Section>
         <div className="mb-14 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
-              Featured Work
-            </p>
-            <h2 className="mt-3 font-serif text-4xl font-bold tracking-tight">
-              Selected Projects
-            </h2>
+            <SectionMarker
+              index={2}
+              id="work-section"
+              kicker="Featured Work"
+              title="Selected Projects"
+              accent="var(--accent-1)"
+            />
           </div>
           <Link
             href="/projects"
