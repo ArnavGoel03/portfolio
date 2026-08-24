@@ -29,10 +29,10 @@ export const familyBusinessYears = () =>
  * and then removed it has already dropped out, so this is the number that
  * stuck. Unpacked dev-mode installs are not counted, only store installs.
  *
- * Read off the listing on 2026-08-13. It drifts, so re-read the listing before
+ * Read off the listing on 2026-08-24. It drifts, so re-read the listing before
  * quoting it anywhere that matters and update it here, not at the call sites.
  */
-export const WATCH_TOGETHER_INSTALLS = 26;
+export const WATCH_TOGETHER_INSTALLS = 40;
 
 /**
  * Arnav's cumulative UC GPA, per his official UCSD degree audit (dated
