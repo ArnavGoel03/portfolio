@@ -123,8 +123,8 @@ export default function WorkConstellation({
                 x2={b.x}
                 y2={b.y}
                 stroke={on ? a.accent : "var(--foreground)"}
-                strokeWidth={on ? 0.12 : 0.045}
-                opacity={on ? 0.55 : 0.07}
+                strokeWidth={on ? 0.1 : 0.03}
+                opacity={on ? 0.45 : 0.05}
                 className="transition-all duration-500"
               />
             );
@@ -144,12 +144,24 @@ export default function WorkConstellation({
                   {/* A hit target a person can actually land on, which is
                       always bigger than the dot they are aiming at. */}
                   <circle cx={n.x} cy={n.y} r={1.6} fill="transparent" />
+                  {/* The ring is the mark. A filled disc reads as a bead;
+                      a thin ring with a core reads as a measurement. */}
                   <circle
                     cx={n.x}
                     cy={n.y}
-                    r={on ? n.r * 1.8 : n.r}
-                    fill={n.featured || on ? n.accent : "var(--muted-foreground)"}
-                    opacity={dim ? 0.2 : n.featured ? 0.85 : 0.4}
+                    r={on ? n.r * 2.2 : n.r * 1.5}
+                    fill="none"
+                    stroke={on ? n.accent : "var(--foreground)"}
+                    strokeWidth={on ? 0.12 : 0.07}
+                    opacity={dim ? 0.12 : on ? 0.9 : n.featured ? 0.4 : 0.22}
+                    className="transition-all duration-300"
+                  />
+                  <circle
+                    cx={n.x}
+                    cy={n.y}
+                    r={on ? n.r * 0.7 : n.r * 0.5}
+                    fill={on ? n.accent : "var(--foreground)"}
+                    opacity={dim ? 0.15 : on ? 1 : n.featured ? 0.55 : 0.25}
                     className="transition-all duration-300"
                   />
                   {on && (
@@ -160,8 +172,9 @@ export default function WorkConstellation({
                       className="font-mono"
                       style={{
                         fill: n.accent,
-                        fontSize: 1.15,
-                        letterSpacing: "0.06em",
+                        fontSize: 1.05,
+                        letterSpacing: "0.14em",
+                        textTransform: "uppercase",
                       }}
                     >
                       {n.short}
