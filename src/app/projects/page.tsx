@@ -1,4 +1,5 @@
 import Section from "@/components/section";
+import ProjectExplorer from "@/components/project-explorer";
 import ProjectsView from "./projects-view";
 import FlagshipShowcase from "@/components/flagship-showcase";
 import { getProjects } from "@/lib/notion";
@@ -85,6 +86,18 @@ export default async function Projects() {
   const merged = mergedRaw.filter((p) => !isSuiteApp(p));
 
   const flagshipIds = new Set(flagshipProjects.map((p) => p.id));
+
+  // The filters are the technologies that actually recur, counted rather than
+  // chosen, so the row cannot drift from what the projects are made of.
+  const tagCounts = new Map<string, number>();
+  for (const p of merged) {
+    for (const t of p.tags) tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1);
+  }
+  const explorerTags = [...tagCounts.entries()]
+    .filter(([, n]) => n >= 3)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 10)
+    .map(([t]) => t);
   // Everything the flagship strip already showed is excluded below, so a
   // project appears once on this page rather than twice.
   const rest = merged.filter(
@@ -127,6 +140,10 @@ export default async function Projects() {
       </Section>
 
       <FlagshipShowcase projects={flagships} />
+
+      <Section className="pt-4 pb-2">
+        <ProjectExplorer projects={merged} tags={explorerTags} />
+      </Section>
 
       <ProjectsView
         inProgress={inProgress}
