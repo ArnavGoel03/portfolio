@@ -4,7 +4,7 @@ import Section from "@/components/section";
 import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
 import SectionMarker from "@/components/section-marker";
-import WorkConstellation from "@/components/work-constellation";
+import HeroFrame from "@/components/hero-frame";
 import SplitText from "@/components/split-text";
 import KineticHeading from "@/components/kinetic-heading";
 import Magnetic from "@/components/magnetic";
@@ -49,11 +49,13 @@ export default async function Home() {
   return (
     <>
       <section className="relative min-h-screen flex items-start md:items-center justify-center overflow-hidden pt-28 pb-16 md:pt-20 md:pb-20">
-        {/* The work itself, as the backdrop. It replaced a rotating
-            icosahedron, which was decoration and said nothing about whose page
-            this is. Every node is a real project and every edge is a shared
-            technology, so the picture cannot drift from the project list. */}
-        <WorkConstellation projects={allProjects} />
+        {/* Framed, not wallpapered. The project graph was scattered behind this
+            headline and read as dust with wires crossing the text; it lives on
+            the projects page now, at a size where it can actually be used. */}
+        <HeroFrame
+          projectCount={allProjects.length}
+          flagshipCount={flagshipProjects.length}
+        />
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
 
