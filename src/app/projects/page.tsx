@@ -30,7 +30,12 @@ const isCoursework = (p: Project) => COURSEWORK_IDS.has(p.id);
 // flatten the work that does run, so they sit in their own band instead of
 // being removed. Every /projects/[slug] page, Cmd+K entry and sitemap URL is
 // untouched.
-const ASIDE_IDS = new Set(["buzz", "serenity", "claude-skills"]);
+const ASIDE_IDS = new Set([
+  "buzz",
+  "serenity",
+  "claude-skills",
+  "redbull-youtube-analytics",
+]);
 
 const isAside = (p: Project) => ASIDE_IDS.has(p.id);
 
