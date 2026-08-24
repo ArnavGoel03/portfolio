@@ -182,17 +182,15 @@ type SectionKey = "inProgress" | "personal";
 
 const SECTION_META: Record<
   SectionKey,
-  { kicker: string; title: string; subtitle: string; accent: string }
+  { kicker: string; title: string; subtitle: string }
 > = {
   inProgress: {
-    accent: "var(--accent-3)",
     kicker: "Currently Building",
     title: "In progress",
     subtitle:
       "Live projects I'm actively working on, specs may shift, links go up when they go up.",
   },
   personal: {
-    accent: "var(--accent-1)",
     kicker: "Solo Work",
     title: "Personal projects",
     subtitle:
@@ -309,7 +307,6 @@ export default function ProjectsView({
                   index={i + 1}
                   kicker={meta.kicker}
                   title={meta.title}
-                  accent={meta.accent}
                 />
                 <p className="-mt-6 mb-9 max-w-xl text-sm leading-relaxed text-muted-foreground/80">
                   {meta.subtitle}

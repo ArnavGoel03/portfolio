@@ -105,16 +105,18 @@ type SkillTier = {
   label: string;
   summary: string;
   items: string[];
-  /** Which accent this rung wears, and how full its bar is. Colour is never
-   *  the only signal: the label above it says the same thing in words. */
-  accent: string;
+  /** How far up the ladder this rung is. Proficiency is an ordinal scale, so
+   *  it gets one hue at three intensities rather than three unrelated hues:
+   *  three colours would say these are three kinds of thing, when they are
+   *  three amounts of one thing. The label still says it in words. */
+  strength: number;
   rung: number;
 };
 
 const skillTiers: SkillTier[] = [
   {
     id: "proficient",
-    accent: "var(--accent-2)",
+    strength: 1,
     rung: 3,
     label: "Proficient",
     summary:
@@ -130,7 +132,7 @@ const skillTiers: SkillTier[] = [
   },
   {
     id: "comfortable",
-    accent: "var(--accent-4)",
+    strength: 0.62,
     rung: 2,
     label: "Comfortable",
     summary:
@@ -150,7 +152,7 @@ const skillTiers: SkillTier[] = [
   },
   {
     id: "familiar",
-    accent: "var(--accent-3)",
+    strength: 0.34,
     rung: 1,
     label: "Familiar",
     summary:
@@ -327,12 +329,11 @@ export default function About() {
       <Section>
         <div className="gradient-border rounded-2xl bg-card p-8 backdrop-blur-sm md:p-12">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            <StatCounter value={UC_GPA} suffix="/4.0" label="GPA at UCSD" decimals={3} accent="var(--accent-2)" />
-            <StatCounter value={allProjects.length} suffix="+" label="Projects Shipped" accent="var(--accent-1)" />
-            <StatCounter value={9} suffix="+" label="Certifications" accent="var(--accent-4)" />
+            <StatCounter value={UC_GPA} suffix="/4.0" label="GPA at UCSD" decimals={3} />
+            <StatCounter value={allProjects.length} suffix="+" label="Projects Shipped" />
+            <StatCounter value={9} suffix="+" label="Certifications" />
             <StatCounter
               value={familyBusinessYears()}
-              accent="var(--accent-3)"
               label="Years of Family Legacy"
             />
           </div>
@@ -340,7 +341,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <SectionMarker index={1} id="story" kicker="How I got here" title="My Story" accent="var(--accent-1)" />
+        <SectionMarker index={1} id="story" kicker="How I got here" title="My Story" />
         {/* Out of the card it used to sit in. A wall of prose inside a box is a
             wall of prose with a border; on the page, with a measure, it reads. */}
         <div className="max-w-3xl space-y-5 text-[15px] leading-[1.75] text-muted-foreground">
@@ -379,7 +380,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <SectionMarker index={2} id="education" kicker="Where I studied" title={"Education"} accent="var(--accent-2)" />
+        <SectionMarker index={2} id="education" kicker="Where I studied" title={"Education"} />
         <div className="space-y-6">
           {education.map((edu) => (
             <div
@@ -424,7 +425,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <SectionMarker index={3} id="skills" kicker="What I reach for" title={"Skills"} accent="var(--accent-4)" />
+        <SectionMarker index={3} id="skills" kicker="What I reach for" title={"Skills"} />
         <div className="grid gap-6 md:grid-cols-3">
           {skillTiers.map((tier) => (
             <div
@@ -438,13 +439,14 @@ export default function About() {
                 aria-hidden="true"
                 className="absolute inset-x-0 top-0 h-[3px]"
                 style={{
-                  background: tier.accent,
+                  background: "var(--primary)",
+                  opacity: tier.strength,
                   width: `${(tier.rung / 3) * 100}%`,
                 }}
               />
               <p
-                className="text-[10px] font-medium uppercase tracking-[0.2em]"
-                style={{ color: tier.accent }}
+                className="text-[10px] font-medium uppercase tracking-[0.2em] text-primary"
+                style={{ opacity: 0.45 + tier.strength * 0.55 }}
               >
                 {tier.label}
               </p>
@@ -459,7 +461,7 @@ export default function About() {
                   >
                     <span
                       className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full"
-                      style={{ background: tier.accent }}
+                      style={{ background: "var(--primary)", opacity: tier.strength }}
                     />
                     <span>{item}</span>
                   </li>
@@ -471,7 +473,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <SectionMarker index={4} id="writing" kicker="Published work" title={"Writing & Research"} accent="var(--accent-3)" />
+        <SectionMarker index={4} id="writing" kicker="Published work" title={"Writing & Research"} />
         <div className="grid gap-6 md:grid-cols-3">
           {writing.map((entry) => {
             const Tag: React.ElementType = entry.external ? "a" : Link;
@@ -513,7 +515,7 @@ export default function About() {
       </Section>
 
       <Section>
-        <SectionMarker index={5} id="certifications" kicker="Verified elsewhere" title={"Certifications"} accent="var(--accent-2)" />
+        <SectionMarker index={5} id="certifications" kicker="Verified elsewhere" title={"Certifications"} />
         <div className="grid gap-6 md:grid-cols-2">
           {certifications.map((cert) => (
             <div

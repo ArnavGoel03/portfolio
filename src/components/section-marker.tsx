@@ -12,26 +12,24 @@ import { motion, useReducedMotion } from "framer-motion";
  *
  * A number and a rule fix that cheaply. The number says how far through you
  * are, which is what makes a long page feel finite rather than endless, and the
- * rule draws itself on arrival so a section announces that it has started. The
- * accent is the section's identity and repeats on its own content below, so
- * colour sorts the page rather than decorating it.
+ * rule draws itself on arrival so a section announces that it has started.
  *
- * Colour is never the only signal here: the number, the kicker and the heading
- * all say the same thing in text, so the page reads with no colour at all.
+ * There is deliberately no per-section hue. A section's ordinal is not an
+ * entity, so giving section two a different colour from section one encodes
+ * nothing and reads as decoration. One signature used identically every time is
+ * the stronger and more confident choice, and it leaves the palette free to
+ * mean something where it is actually carrying data.
  */
 export default function SectionMarker({
   index,
   kicker,
   title,
-  accent,
   id,
 }: {
   /** 1-based. Printed as 01, 02, and used for nothing else. */
   index: number;
   kicker: string;
   title: string;
-  /** A CSS colour, normally one of the four --accent tokens. */
-  accent: string;
   id?: string;
 }) {
   const still = useReducedMotion();
@@ -39,10 +37,7 @@ export default function SectionMarker({
   return (
     <div id={id} className="mb-10 scroll-mt-28">
       <div className="flex items-baseline gap-4">
-        <span
-          className="font-mono text-xs font-medium tabular-nums"
-          style={{ color: accent }}
-        >
+        <span className="font-mono text-xs font-medium tabular-nums text-primary">
           {String(index).padStart(2, "0")}
         </span>
         <span className="font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
@@ -51,7 +46,7 @@ export default function SectionMarker({
         <motion.span
           aria-hidden="true"
           className="h-px flex-1 origin-left"
-          style={{ background: accent, opacity: 0.55 }}
+          style={{ background: "var(--foreground)", opacity: 0.14 }}
           initial={still ? false : { scaleX: 0 }}
           whileInView={still ? undefined : { scaleX: 1 }}
           viewport={{ once: true, margin: "-60px" }}

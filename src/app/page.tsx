@@ -136,7 +136,6 @@ export default async function Home() {
               id="about-section"
               kicker="About"
               title="Data science at the intersection of research and real products"
-              accent="var(--accent-2)"
             />
             <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
               <FocusParagraph>
@@ -233,7 +232,6 @@ export default async function Home() {
               id="work-section"
               kicker="Featured Work"
               title="Selected Projects"
-              accent="var(--accent-1)"
             />
           </div>
           <Link

@@ -166,7 +166,6 @@ export default function Work() {
             id="whyme"
             kicker="Why me"
             title={"Three things most new-grad DS candidates don’t bring"}
-            accent="var(--accent-1)"
           />
           <ol className="mt-8 space-y-7">
             <li>
@@ -253,7 +252,7 @@ export default function Work() {
       <Section className="pt-4">
         <div className="grid gap-10 md:grid-cols-2 md:gap-14">
           <div>
-            <SectionMarker index={2} id="roles" kicker="The roles" title={"Roles I’m excited about"} accent="var(--accent-2)" />
+            <SectionMarker index={2} id="roles" kicker="The roles" title={"Roles I’m excited about"} />
             <ul className="mt-6 space-y-3">
               {roles.map((role) => (
                 <li key={role} className="flex items-start gap-3">
@@ -265,7 +264,7 @@ export default function Work() {
               ))}
             </ul>
 
-            <SectionMarker index={3} id="draws" kicker="The problems" title={"What draws me in"} accent="var(--accent-4)" />
+            <SectionMarker index={3} id="draws" kicker="The problems" title={"What draws me in"} />
             <ul className="mt-6 space-y-3">
               {interests.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -277,7 +276,7 @@ export default function Work() {
               ))}
             </ul>
 
-            <SectionMarker index={4} id="notafit" kicker="The mismatch" title={"Probably not a fit"} accent="var(--accent-3)" />
+            <SectionMarker index={4} id="notafit" kicker="The mismatch" title={"Probably not a fit"} />
             <ul className="mt-6 space-y-3">
               {notInterested.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -420,7 +419,7 @@ export default function Work() {
       </Section>
 
       <Section className="pt-4 pb-20">
-<SectionMarker index={5} id="questions" kicker="Before you ask" title={"Common recruiter questions"} accent="var(--accent-2)" />
+<SectionMarker index={5} id="questions" kicker="Before you ask" title={"Common recruiter questions"} />
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
           Quick answers to what usually comes up in the first email.
         </p>
