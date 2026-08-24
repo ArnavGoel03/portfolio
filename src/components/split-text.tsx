@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 
 interface SplitTextProps {
   text: string;
@@ -64,21 +61,19 @@ export default function SplitText({
                     verticalAlign: "top",
                   }}
                 >
-                  <motion.span
-                    initial={{ y: "110%", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      duration,
-                      delay: delay + i * stagger,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    style={{
-                      display: "inline-block",
-                      willChange: "transform, opacity",
-                    }}
+                  <span
+                    className="char-rise"
+                    style={
+                      {
+                        display: "inline-block",
+                        willChange: "transform, opacity",
+                        "--char-delay": `${delay + i * stagger}s`,
+                        "--char-duration": `${duration}s`,
+                      } as React.CSSProperties
+                    }
                   >
                     {part}
-                  </motion.span>
+                  </span>
                 </span>
               );
             })}

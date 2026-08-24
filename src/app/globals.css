@@ -408,3 +408,69 @@
   --color-accent-3: var(--accent-3);
   --color-accent-4: var(--accent-4);
 }
+
+/* Section reveal, without shipping a hidden page ------------------------
+ *
+ * This was framer-motion: initial opacity 0 and translateY, revealed by
+ * IntersectionObserver. It looked right in a browser and was wrong everywhere
+ * else, because the hidden state was in the server HTML. Sixteen inline
+ * opacity:0 declarations shipped on /about alone, so anything that PAINTS the
+ * page rather than parsing it got blank sections: link previews, OG image
+ * renderers, screenshot services, and the rendering pass of a crawler that may
+ * then discount what it sees as invisible. The words were always in the DOM,
+ * so indexing was fine; the picture was not.
+ *
+ * A scroll-driven animation inverts the default. The element is visible in the
+ * markup and stays visible anywhere this is unsupported, and the reveal is
+ * added only where the browser can do it without JavaScript. Failing to
+ * "visible" is the only safe direction for this effect.
+ */
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .section-reveal {
+      animation: section-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+
+/* Per-character rise, in CSS so the text is in the markup unhidden --------
+ *
+ * This was framer-motion animating every character from opacity 0, which put
+ * 273 inline opacity:0 declarations into the home page HTML. A link preview or
+ * an OG renderer that paints before the animation runs saw a blank hero, which
+ * is the worst possible page to have blank.
+ *
+ * As a CSS animation the character is visible in the markup, the delay is the
+ * only thing the component computes, and a renderer that does not run
+ * animations shows finished text rather than nothing.
+ */
+@keyframes char-rise {
+  from {
+    opacity: 0;
+    transform: translateY(110%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .char-rise {
+    animation: char-rise var(--char-duration, 0.6s) cubic-bezier(0.22, 1, 0.36, 1)
+      var(--char-delay, 0s) both;
+  }
+}
