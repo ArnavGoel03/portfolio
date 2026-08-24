@@ -96,18 +96,18 @@
 }
 
 :root {
-  --background: #121110;
-  --foreground: #ede6d5;
-  --card: #1a1815;
-  --card-foreground: #ede6d5;
-  --popover: #1a1815;
-  --popover-foreground: #ede6d5;
-  --primary: #ede6d5;
-  --primary-foreground: #121110;
+  --background: #0b0a09;
+  --foreground: #f5f0e4;
+  --card: #17150f;
+  --card-foreground: #f5f0e4;
+  --popover: #17150f;
+  --popover-foreground: #f5f0e4;
+  --primary: #d9483c;
+  --primary-foreground: #0b0a09;
   --secondary: rgba(237, 230, 213, 0.06);
-  --secondary-foreground: #ede6d5;
+  --secondary-foreground: #f5f0e4;
   --muted: rgba(237, 230, 213, 0.04);
-  --muted-foreground: #a9a293;
+  --muted-foreground: #b8b1a0;
   /* The dimmest text allowed to carry meaning. Opacity modifiers on
      --muted-foreground were failing WCAG AA badly: /30 measured 1.74:1,
      /40 2.17:1 and /50 2.75:1 against the page. This clears 4.5:1 on the
@@ -136,18 +136,18 @@
 }
 
 .dark {
-  --background: #121110;
-  --foreground: #ede6d5;
-  --card: #1a1815;
-  --card-foreground: #ede6d5;
-  --popover: #1a1815;
-  --popover-foreground: #ede6d5;
-  --primary: #ede6d5;
-  --primary-foreground: #121110;
+  --background: #0b0a09;
+  --foreground: #f5f0e4;
+  --card: #17150f;
+  --card-foreground: #f5f0e4;
+  --popover: #17150f;
+  --popover-foreground: #f5f0e4;
+  --primary: #d9483c;
+  --primary-foreground: #0b0a09;
   --secondary: rgba(237, 230, 213, 0.06);
-  --secondary-foreground: #ede6d5;
+  --secondary-foreground: #f5f0e4;
   --muted: rgba(237, 230, 213, 0.04);
-  --muted-foreground: #a9a293;
+  --muted-foreground: #b8b1a0;
   /* The dimmest text allowed to carry meaning. Opacity modifiers on
      --muted-foreground were failing WCAG AA badly: /30 measured 1.74:1,
      /40 2.17:1 and /50 2.75:1 against the page. This clears 4.5:1 on the
