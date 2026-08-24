@@ -14,7 +14,6 @@
 
 import Link from "next/link";
 import { accentFor } from "@/lib/projects";
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/lib/case-studies";
 import { Project } from "@/lib/types";
@@ -79,7 +78,6 @@ export default function FlagshipShowcase({ projects }: FlagshipShowcaseProps) {
 }
 
 function FlagshipRow({ project, index }: { project: Project; index: number }) {
-  const prefersReduced = useReducedMotion();
   const study = caseStudies.find((s) => s.slug === project.id);
   const metrics = study?.metrics.slice(0, METRICS_SHOWN) ?? [];
   // Rows alternate so the eye has to travel, which keeps a long column of
@@ -89,14 +87,11 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
   // The same hue this project wears on its card and on the home page graph.
   const accent = accentFor(project.id);
 
+  // The reveal is CSS now. It used to be a motion wrapper whose initial state
+  // was opacity 0, which shipped in the HTML and left this card blank for
+  // anything that paints the page instead of parsing it.
   return (
-    <motion.article
-      initial={prefersReduced ? false : { opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="grid items-center gap-8 lg:grid-cols-12 lg:gap-14"
-    >
+    <article className="section-reveal grid items-center gap-8 lg:grid-cols-12 lg:gap-14">
       <div
         className={`lg:col-span-7 ${flipped ? "lg:order-2" : ""}`}
       >
@@ -214,6 +209,6 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
           </p>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }

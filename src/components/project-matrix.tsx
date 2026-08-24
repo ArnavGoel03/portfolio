@@ -88,7 +88,7 @@ export default function ProjectMatrix({
         </caption>
         <thead>
           <tr>
-            <th scope="col" className="w-[13rem] p-0" />
+            <th scope="col" className="w-[15rem] p-0" />
             {columns.map((c, i) => (
               <th
                 key={c}
@@ -129,7 +129,7 @@ export default function ProjectMatrix({
                 <th scope="row" className="p-0 text-left font-normal">
                   <Link
                     href={r.href}
-                    className="flex items-center gap-2 border-t border-foreground/8 py-1.5 pr-3"
+                    className="flex items-center gap-2 py-1.5 pr-3"
                   >
                     <span
                       aria-hidden="true"
@@ -140,12 +140,12 @@ export default function ProjectMatrix({
                       }}
                     />
                     <span
-                      className={`truncate uppercase tracking-[0.12em] transition-colors ${
+                      className={`truncate font-serif text-[13px] tracking-tight transition-colors ${
                         lit
                           ? "text-foreground"
                           : r.featured
-                          ? "text-foreground/85"
-                          : "text-muted-foreground/70"
+                          ? "text-foreground/90"
+                          : "text-muted-foreground/75"
                       }`}
                     >
                       {r.name}
@@ -158,10 +158,10 @@ export default function ProjectMatrix({
                   return (
                     <td
                       key={c}
-                      className="border-t border-foreground/8 p-0"
+                      className="p-0"
                       title={on ? `${r.name} uses ${c}` : undefined}
                     >
-                      <div className="flex h-[26px] items-center justify-center">
+                      <div className="flex h-[30px] items-center justify-center">
                         {on ? (
                           <span
                             className="block transition-all duration-200"
