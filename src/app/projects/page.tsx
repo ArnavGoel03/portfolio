@@ -3,15 +3,8 @@ import ProjectsView from "./projects-view";
 import FlagshipShowcase from "@/components/flagship-showcase";
 import { getProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
-import { staticProjects, isSuiteApp } from "@/lib/projects";
+import { staticProjects, isSuiteApp, flagshipProjects } from "@/lib/projects";
 import { sortByRelevance } from "@/lib/project-ranking";
-
-const FLAGSHIP_ORDER = [
-  "watch-together",
-  "gondilal-saraf",
-  "serenity",
-  "redbull-youtube-analytics",
-];
 
 // Graded course deliverables. Nothing is removed from the site: these keep
 // their /projects/[slug] page, their Cmd+K entry, and their sitemap URL, they
@@ -59,23 +52,26 @@ export default async function Projects() {
   // Fold the individual suite apps into the single studio entry.
   const merged = mergedRaw.filter((p) => !isSuiteApp(p));
 
+  const flagshipIds = new Set(flagshipProjects.map((p) => p.id));
+  // Everything the flagship strip already showed is excluded below, so a
+  // project appears once on this page rather than twice.
+  const rest = merged.filter((p) => !flagshipIds.has(p.id));
+
   const inProgress = sortByRelevance(
-    merged.filter((p) => p.inProgress && !isCoursework(p))
+    rest.filter((p) => p.inProgress && !isCoursework(p))
   );
   const personal = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !p.team && !isCoursework(p))
+    rest.filter((p) => !p.inProgress && !p.team && !isCoursework(p))
   );
   const team = sortByRelevance(
-    merged.filter((p) => !p.inProgress && !!p.team && !isCoursework(p))
+    rest.filter((p) => !p.inProgress && !!p.team && !isCoursework(p))
   );
-  const coursework = sortByRelevance(merged.filter(isCoursework));
+  const coursework = sortByRelevance(rest.filter(isCoursework));
 
-  const flagshipMap = new Map(
-    merged.filter((p) => p.featured).map((p) => [p.id, p])
-  );
-  const flagships = FLAGSHIP_ORDER.map((id) => flagshipMap.get(id)).filter(
-    (p): p is Project => Boolean(p)
-  );
+  // The flagships, in the one order decided in projects.ts. This page used to
+  // keep a third hand-typed list of ids, which still named Serenity and Red
+  // Bull weeks after they were demoted, so the strip contradicted the flag.
+  const flagships = merged.filter((p) => flagshipIds.has(p.id));
 
   return (
     <>
