@@ -24,6 +24,14 @@ const COURSEWORK_IDS = new Set([
 
 const isCoursework = (p: Project) => COURSEWORK_IDS.has(p.id);
 
+// Kept on the site, out of the shipped-work sections. Same reasoning as the
+// coursework band above: standing next to the studios it is judged against
+// them, and it does not hold up, so it sits in its own band instead of being
+// removed. Its /projects/[slug] page, Cmd+K entry and sitemap URL are untouched.
+const ASIDE_IDS = new Set(["claude-skills"]);
+
+const isAside = (p: Project) => ASIDE_IDS.has(p.id);
+
 export const revalidate = 3600;
 
 export const metadata = {
@@ -55,7 +63,8 @@ export default async function Projects() {
   const flagshipIds = new Set(flagshipProjects.map((p) => p.id));
   // Everything the flagship strip already showed is excluded below, so a
   // project appears once on this page rather than twice.
-  const rest = merged.filter((p) => !flagshipIds.has(p.id));
+  const rest = merged.filter((p) => !flagshipIds.has(p.id) && !isAside(p));
+  const aside = merged.filter(isAside);
 
   const inProgress = sortByRelevance(
     rest.filter((p) => p.inProgress && !isCoursework(p))
@@ -97,6 +106,7 @@ export default async function Projects() {
         personal={personal}
         team={team}
         coursework={coursework}
+        aside={aside}
       />
     </>
   );

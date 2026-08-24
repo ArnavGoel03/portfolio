@@ -103,6 +103,7 @@ interface ProjectsViewProps {
   personal: Project[];
   team: Project[];
   coursework: Project[];
+  aside: Project[];
 }
 
 /**
@@ -207,6 +208,7 @@ export default function ProjectsView({
   personal,
   team,
   coursework,
+  aside,
 }: ProjectsViewProps) {
   const [filter, setFilter] = useState<string>("All");
 
@@ -343,6 +345,20 @@ export default function ProjectsView({
             projects={courseworkFiltered}
             className="pt-8 pb-20"
           />
+
+          {/* Its own band, so it is kept without standing beside the studios.
+              kicker, noun and blurb are deliberately empty: naming this band is
+              Arnav's to write, and the band renders without them until he does. */}
+          {aside.length > 0 && (
+            <CollapsibleBand
+              id="aside-section"
+              kicker=""
+              noun=""
+              blurb=""
+              projects={aside}
+              className="pt-0 pb-20"
+            />
+          )}
 
           {totalVisible === 0 && (
             <Section className="pt-8 pb-20">

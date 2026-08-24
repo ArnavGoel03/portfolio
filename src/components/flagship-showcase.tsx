@@ -25,6 +25,26 @@ interface FlagshipShowcaseProps {
 /** Numbers carry further than adjectives, but only while they stay scannable. */
 const METRICS_SHOWN = 3;
 
+/**
+ * The opening of a description, for a project with no case study.
+ *
+ * The showcase shows a case study's oneLiner when there is one, and fell back to
+ * the whole description when there was not. Glass Table Games has no case study
+ * and a 2,171 character description, so its card was a wall of text while the
+ * cards beside it were a sentence. This takes the opening sentences and nothing
+ * else; the full text is on the project's own page, which the card links to.
+ * No words are written here, only fewer of them shown.
+ */
+function opening(text: string): string {
+  const sentences = text.split(/(?<=\.)\s+/);
+  let out = "";
+  for (const sentence of sentences) {
+    if (out && (out + " " + sentence).length > 260) break;
+    out = out ? out + " " + sentence : sentence;
+  }
+  return out;
+}
+
 export default function FlagshipShowcase({ projects }: FlagshipShowcaseProps) {
   if (projects.length === 0) return null;
 
@@ -129,7 +149,7 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
         )}
 
         <p className="mt-3 text-sm leading-[1.7] text-muted-foreground">
-          {study?.oneLiner ?? project.description}
+          {study?.oneLiner ?? opening(project.description)}
         </p>
 
         {metrics.length > 0 && (

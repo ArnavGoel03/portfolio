@@ -64,19 +64,6 @@ A one-person studio building local-first macOS apps that never phone home: no ac
 - **Status:** In progress. Source private.
 - **Date:** July 2026
 
-### Goel Studio: Client Websites and the Software Behind Them
-The commercial practice, kept deliberately separate from Arnav's own products: other people's businesses, built and written end to end, with the code staying in the client's repository. Six sites are live, plus two built as pitch templates rather than commissions.
-- **Fitout:** planning an Indian room, materials, glass, lighting and controls, costed by what each choice takes to live with.
-- **Upkeep:** what a house is made of, what to put on it, and which two bottles under the sink must never meet.
-- **Larder:** an Indian kitchen reference, heat, vessels, storage and what is actually in the food, sourced row by row.
-- **Brighter Rainbow:** a music academy in Ulsoor, Bengaluru, with courses, teachers and a drum machine on the front page.
-- **Get Fit With Rajat:** a fitness coach's whole practice on one page, and the studio's first paying client.
-- **Fevicryl Art On Sale:** a retail catalogue assembled from stock that existed only as photographs on a phone.
-- **The standard across all of them:** prerendered and served from the edge, self-hosted fonts, no third-party trackers, copy written as part of the build, and free tiers wherever the work allows so there is no monthly platform a client cannot leave. Enquiries write straight into Handover Studio, the CRM behind the client tier.
-- **Tags:** Next.js, TypeScript, Client Work, Static Rendering, SEO, Copywriting, Vercel
-- **Live:** https://goel-studio.vercel.app
-- **Status:** Live and taking work. Client source private.
-
 ### Library Walk: A Playable Micromobility Thesis
 A campus micromobility runner that makes the argument rather than illustrating it, built solo for Group 3 in SYN 100 at Seventh College, UC San Diego. The player rides the real route: the Blue Line drops you at Central Campus station, the protected green lane runs down Gilman Drive past live traffic, and the lane ends exactly where Library Walk and the weekday dismount ban begin.
 - **Engineering:** Three.js and WebGL, multiplayer on Cloudflare Workers with Durable Objects, Neon Postgres, installable as a PWA.
