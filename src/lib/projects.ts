@@ -220,7 +220,19 @@ export const staticProjects: Project[] = [
     github: "",
     privateRepo: true,
     demo: "https://pidilite-school-checkin.vercel.app",
-    featured: false,
+    // Both Pidilite pieces under one entry: the tracker is this project, and
+    // the catalogue is the other half of the same client relationship. The
+    // catalogue blurb is moved verbatim from the retired Goel Studio entry.
+    surfaces: [
+      {
+        label: "Fevicryl Art On Sale",
+        href: "https://fevicryl-art-catalog.vercel.app",
+        image: "/shots/s-fevicryl.webp",
+        blurb:
+          "A retail catalogue built from stock that until then existed only as photographs on a phone.",
+      },
+    ],
+    featured: true,
     date: "2026-05",
   },
   {
