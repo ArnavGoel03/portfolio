@@ -23,6 +23,11 @@ interface FlagshipShowcaseProps {
 }
 
 /** Numbers carry further than adjectives, but only while they stay scannable. */
+/** Rotated across a card's three metrics so they read as three separate facts
+ *  rather than one block of text. Validated against this surface, see the
+ *  accent scale note in globals.css. */
+const METRIC_HUES = ["var(--accent-2)", "var(--accent-1)", "var(--accent-4)"];
+
 const METRICS_SHOWN = 3;
 
 /**
@@ -154,12 +159,25 @@ function FlagshipRow({ project, index }: { project: Project; index: number }) {
 
         {metrics.length > 0 && (
           <dl className="mt-7 grid grid-cols-3 gap-4 border-t border-foreground/10 pt-5">
-            {metrics.map((metric) => (
-              <div key={metric.label}>
-                <dt className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
+            {metrics.map((metric, m) => (
+              <div key={metric.label} className="group/metric">
+                {/* The numbers are the strongest evidence on the card and they
+                    were set in the same cream as the sentence above them, so a
+                    reader scanning for proof found a paragraph. A rule in the
+                    card's rotation of hues gives each one somewhere to land,
+                    and the label above still says what it is without colour. */}
+                <span
+                  aria-hidden="true"
+                  className="block h-[3px] w-6 origin-left rounded-full transition-transform duration-500 group-hover/metric:scale-x-[1.6]"
+                  style={{ background: METRIC_HUES[m % METRIC_HUES.length] }}
+                />
+                <dt className="mt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
                   {metric.label}
                 </dt>
-                <dd className="mt-1.5 font-serif text-xl font-semibold tracking-tight text-foreground">
+                <dd
+                  className="mt-1 font-serif text-2xl font-semibold tracking-tight"
+                  style={{ color: METRIC_HUES[m % METRIC_HUES.length] }}
+                >
                   {metric.value}
                 </dd>
               </div>
