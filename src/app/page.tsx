@@ -108,38 +108,6 @@ export default async function Home() {
             </Magnetic>
           </div>
 
-          <div className="mt-14 grid gap-4 text-left sm:grid-cols-2">
-            <Link
-              href="/projects/watch-together"
-              className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
-            >
-              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Chrome Web Store
-              </p>
-              <p className="mt-2 font-serif text-base font-semibold tracking-tight text-foreground">
-                Watch Together
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                Cross-site video sync extension live on the Web Store. 59
-                server tests, heartbeat drift correction under 0.5s.
-              </p>
-            </Link>
-            <Link
-              href="/projects/gondilal-saraf"
-              className="group rounded-2xl border border-foreground/10 bg-foreground/[0.03] p-5 transition-colors hover:border-foreground/20 hover:bg-foreground/5"
-            >
-              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Family business &middot; est. 1873
-              </p>
-              <p className="mt-2 font-serif text-base font-semibold tracking-tight text-foreground">
-                Gondilal Saraf
-              </p>
-              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                Full-stack e-commerce + admin ERP with 15 Prisma models, 26
-                API routes, 85 tests. Real customers. Real P&amp;L.
-              </p>
-            </Link>
-          </div>
 
           <p className="mt-10 text-xs text-muted-foreground">
             Building something of your own?{" "}

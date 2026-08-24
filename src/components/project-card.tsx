@@ -146,6 +146,11 @@ function ProjectModal({
         </div>
 
         <div className="p-8">
+          {project.eyebrow && (
+            <p className="mb-2 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              {project.eyebrow}
+            </p>
+          )}
           <h2 className="font-serif text-2xl font-bold tracking-tight">
             {project.title}
           </h2>

@@ -48,6 +48,14 @@ export interface Project {
   github: string;
   demo: string;
   featured: boolean;
+  /**
+   * One fact the card cannot show for itself, above the title.
+   *
+   * These were written by hand into a second row of cards on the home page,
+   * which meant the flagships appeared twice on one screen. The row is gone;
+   * the words it carried live here so they are said once, in the one card.
+   */
+  eyebrow?: string;
   date: string;
   inProgress?: boolean;
   privateRepo?: boolean;
