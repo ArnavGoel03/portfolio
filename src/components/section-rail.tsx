@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface RailStop {
   id: string;
@@ -16,45 +16,70 @@ export interface RailStop {
  * much was left nor jump to the part you wanted. A table of contents at the top
  * would be read once and then be gone; a rail stays.
  *
- * Observed with IntersectionObserver rather than by measuring scroll offsets on
- * every frame, so it costs nothing while idle and cannot drift when a section
- * above it changes height. Hidden below xl, where there is no room beside the
- * content and the reader can use the page itself.
+ * Hidden below xl, where there is no room beside the content and the reader can
+ * use the page itself.
+ *
+ * This used to pick the section showing the most of itself, measured with an
+ * IntersectionObserver. That is wrong at the foot of a page and wrong for short
+ * sections, which is the same bug twice: two collapsed bands at the bottom of
+ * /projects were both fully on screen, both scored a ratio of 1, and the tie
+ * went to whichever came first in document order. The last stop on that page
+ * could therefore never light up, no matter where the reader was, and clicking
+ * it did nothing visible either, because the page was already scrolled as far
+ * as it goes.
+ *
+ * So the answer is geometric instead: the section you are in is the last one
+ * whose top has passed the reading line, and at the very bottom of the page it
+ * is the last section, because there is nothing below it to scroll to. Measured
+ * on scroll behind a rAF gate, which is one layout read per frame at most and
+ * nothing at all while the page is still.
  */
+const READING_LINE = 0.35;
+
 export default function SectionRail({ stops }: { stops: RailStop[] }) {
   const [active, setActive] = useState<string | null>(stops[0]?.id ?? null);
+  const frame = useRef<number | null>(null);
+
+  const measure = useCallback(() => {
+    const line = window.innerHeight * READING_LINE;
+    const doc = document.documentElement;
+    const atBottom =
+      window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
+
+    let current: string | null = null;
+    let last: string | null = null;
+
+    for (const stop of stops) {
+      const el = document.getElementById(stop.id);
+      if (!el) continue;
+      last = stop.id;
+      if (el.getBoundingClientRect().top <= line) current = stop.id;
+    }
+
+    setActive(atBottom && last ? last : (current ?? stops[0]?.id ?? null));
+  }, [stops]);
 
   useEffect(() => {
-    const nodes = stops
-      .map((s) => document.getElementById(s.id))
-      .filter((n): n is HTMLElement => Boolean(n));
-    if (nodes.length === 0) return;
+    const onScroll = () => {
+      if (frame.current !== null) return;
+      frame.current = requestAnimationFrame(() => {
+        frame.current = null;
+        measure();
+      });
+    };
 
-    const seen = new Map<string, number>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          seen.set(entry.target.id, entry.intersectionRatio);
-        }
-        // The section showing the most of itself wins, which is what a reader
-        // would say they are looking at. Ties keep document order.
-        let best: string | null = null;
-        let bestRatio = 0;
-        for (const s of stops) {
-          const ratio = seen.get(s.id) ?? 0;
-          if (ratio > bestRatio) {
-            bestRatio = ratio;
-            best = s.id;
-          }
-        }
-        if (best) setActive(best);
-      },
-      { threshold: [0, 0.15, 0.35, 0.6, 0.9], rootMargin: "-15% 0px -35% 0px" }
-    );
-
-    nodes.forEach((n) => observer.observe(n));
-    return () => observer.disconnect();
-  }, [stops]);
+    // Scheduled rather than called straight from the effect body: the first
+    // measurement is a state update, and a synchronous one here cascades a
+    // render. The frame gate is already the right place for it.
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
+    };
+  }, [measure]);
 
   return (
     <nav
@@ -69,6 +94,13 @@ export default function SectionRail({ stops }: { stops: RailStop[] }) {
               <a
                 href={`#${stop.id}`}
                 aria-current={on ? "true" : undefined}
+                onClick={() => {
+                  // Set immediately rather than waiting for the scroll that
+                  // follows: at the foot of a page there may be no scroll at
+                  // all, and a control that answers a click with nothing reads
+                  // as broken whatever the reason.
+                  setActive(stop.id);
+                }}
                 className="group flex items-center gap-3 py-1"
               >
                 <span

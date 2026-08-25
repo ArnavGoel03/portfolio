@@ -2,7 +2,7 @@
 
 import SectionMarker from "@/components/section-marker";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Section from "@/components/section";
@@ -128,10 +128,26 @@ function CollapsibleBand({
   className: string;
 }) {
   const [open, setOpen] = useState(false);
+  const anchor = `${id}-band`;
+
+  // Open when the URL points here. The rail's stop for a band is a link to a
+  // band that may be shut, and a jump to a shut band looks exactly like a dead
+  // link: nothing appears, and at the foot of the page there is not even a
+  // scroll to show for it. The same effect makes a shared #anchor land on the
+  // thing it names rather than on a closed lid.
+  useEffect(() => {
+    const openIfTargeted = () => {
+      if (window.location.hash === `#${anchor}`) setOpen(true);
+    };
+    openIfTargeted();
+    window.addEventListener("hashchange", openIfTargeted);
+    return () => window.removeEventListener("hashchange", openIfTargeted);
+  }, [anchor]);
+
   if (projects.length === 0) return null;
 
   return (
-    <Section id={`${id}-band`} className={`scroll-mt-28 ${className}`}>
+    <Section id={anchor} className={`scroll-mt-28 ${className}`}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

@@ -31,6 +31,7 @@ import { Project, memberName } from "@/lib/types";
 import { getCollection } from "@/lib/collections";
 import { accentFor } from "@/lib/projects";
 import { track } from "@/lib/analytics";
+import { isYoutube } from "@/lib/utils";
 
 const CASE_STUDY_SLUGS = new Set([
   "watch-together",
@@ -60,10 +61,6 @@ const projectIcons: Record<string, typeof AudioWaveform> = {
   "redbull-youtube-analytics": BarChart3,
   "power-grid-analysis": Zap,
 };
-
-function isYoutube(url: string): boolean {
-  return /youtu\.?be/.test(url);
-}
 
 interface ProjectCardProps {
   project: Project;

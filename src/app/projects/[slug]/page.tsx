@@ -15,6 +15,7 @@ import {
 import { allProjects, getProjectById } from "@/lib/projects";
 import type { Project } from "@/lib/types";
 import { SITE_URL } from "@/lib/constants";
+import { isYoutube } from "@/lib/utils";
 
 // Projects that intentionally don't get a detail page, card click still
 // opens the quick-preview modal, but /projects/<id> 404s for these.
@@ -349,10 +350,6 @@ export default async function CaseStudyPage({
       </Section>
     </>
   );
-}
-
-function isYoutube(url: string): boolean {
-  return /youtu\.?be/.test(url);
 }
 
 function demoLabel(url: string): string {

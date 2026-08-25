@@ -134,6 +134,27 @@ blurb. Glass Table Games is the worked example: six cards, and every one names
 the games behind it, because nothing in the word "Deal" tells a reader that
 Call Break is in there.
 
+`Project.surfacesLabel` retitles that block. It defaults to "In this studio",
+which is true of Quiver and Glass Table Games and false of the `links` entry,
+the index of the five personal sites, which prints its own shelf line instead.
+Set it whenever the block is not a studio.
+
+**Which band a project lands in on `/projects` is decided in
+`src/app/projects/page.tsx`, not in `projects.ts`.** `ASIDE_IDS` sends an entry
+to the "Ideas I'm exploring" band, `COURSEWORK_IDS` to Coursework, `FOLDED_IDS`
+removes it from the grid entirely, `featured` puts it in the flagship strip,
+and everything left over is Personal projects or In progress depending on
+`inProgress`. An entry added to `projects.ts` and nowhere else lands in
+Personal projects. That is four id lists in one file and it is deliberate:
+membership is a placement question, not a property of the project.
+
+**Every word in a project entry is copied verbatim from that project's own
+README or its own shipped page**, and the entry carries a comment saying so.
+The two repos cannot import each other, so `projects.ts` is the one place a
+copy of that wording is allowed to live. When a project's own words change,
+change them at the source first and mirror them here. Nothing in this file is
+written for the portfolio.
+
 **Screenshots live in `public/shots/`**, `s-<name>.webp` for surface cards and
 `<name>.webp` for a project's own image. Capture them from the live site at
 1600 wide, crop to 16:10 from the top (the card is `aspect-[16/10]
@@ -161,6 +182,19 @@ stands. No `NOTION_*` variable is set on Vercel, so in production this path is
 inert. It is typed properly (no `any`) and pinned at `@notionhq/client` 2.x on
 purpose; version 5 renamed the query surface, and rewriting a dormant
 integration is not worth a major.
+
+---
+
+**The section rail is on every page but the ones with nothing to navigate.**
+`src/components/section-rail.tsx` takes `{id, label, accent}[]` and observes
+those ids with an IntersectionObserver. Two rules hold everywhere it is used:
+a stop's label is the heading its section already prints, never a shorter one
+written for the rail, and where that heading would otherwise be typed twice it
+lives in a `BLOCK`/`HEADING` constant that the block, the anchor and the stop
+all read. Long labels truncate in the rail, with the full string in `title` and
+in the DOM. `/projects` builds its stops from what the current filter actually
+renders, so an emptied band takes its stop with it. The anchored element needs
+`scroll-mt-28` or the sticky nav eats its heading.
 
 ---
 
@@ -329,4 +363,8 @@ item with no `done` date is still owed.
 what: Either switch it on (set `NOTION_*` on Vercel and accept the v5 rewrite) or delete `src/lib/notion.ts` and its three importers.
 why: his decision plus Vercel dashboard env vars.
 raised: 2026-08-23
+
+what: Put the `statureindia.vercel.app` alias back on the `stature` project, or tell me the address STATURE should carry. It answers 404 today and the Vercel project reports no production deployment, so the entry here ships with no link at all.
+why: Vercel dashboard, and a decision about which address is the real one.
+raised: 2026-08-25
 ```
