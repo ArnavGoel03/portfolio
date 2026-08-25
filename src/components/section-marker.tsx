@@ -35,7 +35,7 @@ export default function SectionMarker({
   const still = useReducedMotion();
 
   return (
-    <div id={id} className="mb-10 scroll-mt-28">
+    <div id={id} className="mb-10 scroll-mt-36 xl:scroll-mt-28">
       <div className="flex items-baseline gap-4">
         <span className="font-mono text-xs font-medium tabular-nums text-primary">
           {String(index).padStart(2, "0")}

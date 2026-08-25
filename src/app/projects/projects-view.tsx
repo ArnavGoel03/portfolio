@@ -147,7 +147,7 @@ function CollapsibleBand({
   if (projects.length === 0) return null;
 
   return (
-    <Section id={anchor} className={`scroll-mt-28 ${className}`}>
+    <Section id={anchor} className={`scroll-mt-36 xl:scroll-mt-28 ${className}`}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -352,7 +352,7 @@ export default function ProjectsView({
             if (items.length === 0) return null;
             const meta = SECTION_META[key];
             return (
-              <Section key={key} id={`${key}-section`} className="pt-4 scroll-mt-28">
+              <Section key={key} id={`${key}-section`} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
                 <SectionMarker
                   index={i + 1}
                   kicker={meta.kicker}

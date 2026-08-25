@@ -185,9 +185,18 @@ integration is not worth a major.
 
 ---
 
-**The section rail is on every page but the ones with nothing to navigate.**
-`src/components/section-rail.tsx` takes `{id, label, accent}[]` and observes
-those ids with an IntersectionObserver. Two rules hold everywhere it is used:
+**The section rail is on every page, in two presentations.**
+`src/components/section-rail.tsx` takes `{id, label, accent}[]`. At `xl` and up
+it is a vertical rail in the left margin; below that there is no margin to put
+it in, so it is a strip under the header that scrolls sideways and appears once
+you are 220px down. Which one renders is decided after mount by `matchMedia`
+rather than by CSS over both, because two navigation landmarks with the same
+name is a worse answer for a screen reader than either alone; the server
+renders the rail, which CSS hides on a phone anyway. Active is geometric, not
+observed: the last section whose top has passed 35% of the viewport, and the
+last section outright at the foot of the page. Anything anchored needs
+`scroll-mt-36 xl:scroll-mt-28`, which clears the header alone on desktop and
+the header plus the strip on a phone. Two rules hold everywhere it is used:
 a stop's label is the heading its section already prints, never a shorter one
 written for the rail, and where that heading would otherwise be typed twice it
 lives in a `BLOCK`/`HEADING` constant that the block, the anchor and the stop

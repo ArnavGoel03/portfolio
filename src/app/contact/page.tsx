@@ -112,7 +112,7 @@ export default function Contact() {
 
       <Section className="pt-4">
         <div className="grid gap-12 lg:grid-cols-5">
-          <div id="contact-form" className="scroll-mt-28 lg:col-span-3">
+          <div id="contact-form" className="scroll-mt-36 xl:scroll-mt-28 lg:col-span-3">
             {submitted ? (
               <motion.div
                 animate={{ opacity: 1, scale: 1 }}
@@ -222,7 +222,7 @@ export default function Contact() {
               href="https://cal.com/arnavgoel"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden gradient-border scroll-mt-28 rounded-md bg-card p-7 transition-colors hover:bg-card/80"
+              className="group relative overflow-hidden gradient-border scroll-mt-36 xl:scroll-mt-28 rounded-md bg-card p-7 transition-colors hover:bg-card/80"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
@@ -249,7 +249,7 @@ export default function Contact() {
               </p>
             </a>
 
-            <div id="find-me" className="gradient-border scroll-mt-28 rounded-md bg-card p-7">
+            <div id="find-me" className="gradient-border scroll-mt-36 xl:scroll-mt-28 rounded-md bg-card p-7">
               <h3 className="font-serif text-lg font-semibold">{BLOCK.find}</h3>
               <div className="mt-4 flex items-start gap-3">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-foreground/10 bg-foreground/5">
@@ -264,7 +264,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div id="socials" className="gradient-border scroll-mt-28 rounded-md bg-card p-7">
+            <div id="socials" className="gradient-border scroll-mt-36 xl:scroll-mt-28 rounded-md bg-card p-7">
               <h3 className="font-serif text-lg font-semibold">{BLOCK.socials}</h3>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {socials.map((social) => (

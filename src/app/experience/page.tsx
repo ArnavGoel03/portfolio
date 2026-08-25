@@ -193,11 +193,11 @@ export default async function ExperiencePage() {
         </p>
       </Section>
 
-      <Section id="journey" className="pt-4 scroll-mt-28">
+      <Section id="journey" className="pt-4 scroll-mt-36 xl:scroll-mt-28">
         <Timeline items={experience} />
       </Section>
 
-      <Section id="alongside" className="pt-6 pb-20 scroll-mt-28">
+      <Section id="alongside" className="pt-6 pb-20 scroll-mt-36 xl:scroll-mt-28">
         <ProofStrip
           ids={PROOF_IDS}
           eyebrow={ALONGSIDE_EYEBROW}

@@ -112,7 +112,7 @@ export default function Now() {
             <div
               key={area.title}
               id={slugOf(area.label)}
-              className="gradient-border glow-card scroll-mt-28 rounded-2xl bg-card p-6 backdrop-blur-sm"
+              className="gradient-border glow-card scroll-mt-36 xl:scroll-mt-28 rounded-2xl bg-card p-6 backdrop-blur-sm"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
@@ -135,7 +135,7 @@ export default function Now() {
         </div>
       </Section>
 
-      <Section id="looking-for" className="pt-4 pb-20 scroll-mt-28">
+      <Section id="looking-for" className="pt-4 pb-20 scroll-mt-36 xl:scroll-mt-28">
         <div className="gradient-border glow-card rounded-2xl bg-card p-8 backdrop-blur-sm">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
             {LOOKING_HEADING}

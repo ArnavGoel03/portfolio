@@ -184,7 +184,7 @@ export default async function CaseStudyPage({
         )}
       </Section>
 
-      <Section id={anchor(HEADING.proves)} className="pt-4 scroll-mt-28">
+      <Section id={anchor(HEADING.proves)} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
         <div className="max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             {HEADING.proves}
@@ -198,7 +198,7 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section id={anchor(HEADING.problem)} className="pt-4 scroll-mt-28">
+      <Section id={anchor(HEADING.problem)} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -213,7 +213,7 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section id={anchor(HEADING.approach)} className="pt-4 scroll-mt-28">
+      <Section id={anchor(HEADING.approach)} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -237,7 +237,7 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section id={anchor(HEADING.decisions)} className="pt-4 scroll-mt-28">
+      <Section id={anchor(HEADING.decisions)} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -262,7 +262,7 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section id={anchor(HEADING.metrics)} className="pt-4 scroll-mt-28">
+      <Section id={anchor(HEADING.metrics)} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -293,7 +293,7 @@ export default async function CaseStudyPage({
       </Section>
 
       {cs.slug === "redbull-youtube-analytics" && (
-        <Section id={anchor(HEADING.chart)} className="pt-4 scroll-mt-28">
+        <Section id={anchor(HEADING.chart)} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
           <div className="grid gap-10 md:grid-cols-5 md:gap-14">
             <div className="md:col-span-1">
               <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -310,7 +310,7 @@ export default async function CaseStudyPage({
         </Section>
       )}
 
-      <Section id={anchor(HEADING.stack)} className="pt-4 pb-20 scroll-mt-28">
+      <Section id={anchor(HEADING.stack)} className="pt-4 pb-20 scroll-mt-36 xl:scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -506,7 +506,7 @@ function ProjectProfile({ project }: { project: Project }) {
         {project.surfaces && project.surfaces.length > 0 && (
           <div
             id={anchor(project.surfacesLabel ?? HEADING.studio)}
-            className="mt-10 scroll-mt-28"
+            className="mt-10 scroll-mt-36 xl:scroll-mt-28"
           >
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
               {project.surfacesLabel ?? HEADING.studio}
@@ -554,7 +554,7 @@ function ProjectProfile({ project }: { project: Project }) {
         )}
       </Section>
 
-      <Section id={anchor(HEADING.overview)} className="pt-4 scroll-mt-28">
+      <Section id={anchor(HEADING.overview)} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -578,7 +578,7 @@ function ProjectProfile({ project }: { project: Project }) {
         </Section>
       )}
 
-      <Section id={anchor(HEADING.stack)} className="pt-4 pb-20 scroll-mt-28">
+      <Section id={anchor(HEADING.stack)} className="pt-4 pb-20 scroll-mt-36 xl:scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">

@@ -163,7 +163,7 @@ export default function Uses() {
             <div
               key={cat.title}
               id={slugOf(cat.title)}
-              className="gradient-border glow-card scroll-mt-28 rounded-2xl bg-card p-7 backdrop-blur-sm"
+              className="gradient-border glow-card scroll-mt-36 xl:scroll-mt-28 rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">

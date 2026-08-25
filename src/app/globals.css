@@ -478,3 +478,14 @@
       var(--char-delay, 0s) both;
   }
 }
+
+/* A scroller with no visible scrollbar, for the mobile section strip: the
+   strip is 40px tall and a scrollbar track inside it would eat a quarter of
+   that. The overflow itself stays real, so a thumb and a trackpad both work. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

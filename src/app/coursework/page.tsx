@@ -601,7 +601,7 @@ export default function Coursework() {
       </Section>
 
       {groups.map((group) => (
-        <Section key={group.id} id={group.id} className="pt-4 scroll-mt-28">
+        <Section key={group.id} id={group.id} className="pt-4 scroll-mt-36 xl:scroll-mt-28">
           <div className="mb-8 flex items-center gap-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
               <group.icon size={22} className="text-foreground/80 icon-glow" />

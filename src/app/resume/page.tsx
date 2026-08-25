@@ -475,7 +475,7 @@ function ResumeBlock({
   return (
     <section
       id={blockId(title)}
-      className="mt-10 scroll-mt-28 border-t border-foreground/10 pt-8 first:mt-0 first:border-0 first:pt-0 print:mt-6 print:pt-4"
+      className="mt-10 scroll-mt-36 xl:scroll-mt-28 border-t border-foreground/10 pt-8 first:mt-0 first:border-0 first:pt-0 print:mt-6 print:pt-4"
     >
       <h2 className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
         {title}

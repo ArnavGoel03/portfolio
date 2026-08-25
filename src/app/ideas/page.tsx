@@ -286,11 +286,11 @@ export default function Ideas() {
         </p>
       </Section>
 
-      <Section id="building-with-me" className="pt-2 scroll-mt-28">
+      <Section id="building-with-me" className="pt-2 scroll-mt-36 xl:scroll-mt-28">
         <CofounderPanel />
       </Section>
 
-      <Section id="on-my-desk" className="pt-10 pb-8 scroll-mt-28">
+      <Section id="on-my-desk" className="pt-10 pb-8 scroll-mt-36 xl:scroll-mt-28">
         <p className="mb-6 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
           {BLOCK.desk}
         </p>
@@ -301,7 +301,7 @@ export default function Ideas() {
         </div>
       </Section>
 
-      <Section id="also-pitch-me" className="pb-20 scroll-mt-28">
+      <Section id="also-pitch-me" className="pb-20 scroll-mt-36 xl:scroll-mt-28">
         <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8">
           <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
             {BLOCK.pitch}
