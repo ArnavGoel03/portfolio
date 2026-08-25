@@ -250,7 +250,7 @@ function ProjectModal({
             <div className="mt-6 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4">
               <p className="flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
                 <Layers size={11} aria-hidden="true" />
-                In this studio · {project.surfaces.length} sites
+                {project.surfacesLabel ?? `In this studio · ${project.surfaces.length} sites`}
               </p>
               <ul className="mt-3 grid gap-2.5">
                 {project.surfaces.map((surface) => (
@@ -438,7 +438,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.surfaces && project.surfaces.length > 0 && (
               <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-foreground/10 bg-foreground/5 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground">
                 <Layers size={10} aria-hidden="true" />
-                Studio · {project.surfaces.length} sites
+                {project.surfacesLabel ?? `Studio · ${project.surfaces.length} sites`}
               </p>
             )}
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">

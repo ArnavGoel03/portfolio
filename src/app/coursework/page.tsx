@@ -10,6 +10,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 import { Badge } from "@/components/ui/badge";
 import { getCollection } from "@/lib/collections";
 import { UC_GPA, MAJOR_GPA, MINOR_GPA, formatGpa } from "@/lib/constants";
@@ -532,9 +533,20 @@ function GradeBadge({ grade, wip }: { grade?: string; wip?: boolean }) {
   );
 }
 
+// One stop per group, read off the same list the page renders, so a group
+// cannot exist without a way to reach it. The accents cycle through the four
+// validated hues; a group's ordinal is not an entity, so the colour here is
+// only telling you which stop you are on.
+const RAIL_STOPS = groups.map((group, i) => ({
+  id: group.id,
+  label: group.title,
+  accent: `var(--accent-${(i % 4) + 1})`,
+}));
+
 export default function Coursework() {
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Coursework
@@ -589,7 +601,7 @@ export default function Coursework() {
       </Section>
 
       {groups.map((group) => (
-        <Section key={group.id} className="pt-4">
+        <Section key={group.id} id={group.id} className="pt-4 scroll-mt-28">
           <div className="mb-8 flex items-center gap-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
               <group.icon size={22} className="text-foreground/80 icon-glow" />

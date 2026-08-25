@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 import { Badge } from "@/components/ui/badge";
 import { Lightbulb, ArrowUpRight, Mail, CalendarClock } from "lucide-react";
 import { EMAIL } from "@/lib/constants";
@@ -41,6 +42,19 @@ const statusTone: Record<IdeaStatus, string> = {
   shelved:
     "border-muted-foreground/20 bg-muted-foreground/5 text-muted-foreground",
 };
+
+/** The three block headings this page prints. Read by the blocks and the rail. */
+const BLOCK = {
+  cofounder: "Building with me",
+  desk: "On my desk",
+  pitch: "Also pitch me",
+} as const;
+
+const RAIL_STOPS = [
+  { id: "building-with-me", label: BLOCK.cofounder, accent: "var(--accent-1)" },
+  { id: "on-my-desk", label: BLOCK.desk, accent: "var(--accent-2)" },
+  { id: "also-pitch-me", label: BLOCK.pitch, accent: "var(--accent-4)" },
+];
 
 const ideas: Idea[] = [
   {
@@ -135,7 +149,7 @@ function CofounderPanel() {
   return (
     <div className="gradient-border rounded-3xl bg-card p-8 md:p-10">
       <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-        Building with me
+        {BLOCK.cofounder}
       </p>
       <h2 className="mt-3 font-serif text-3xl font-bold leading-tight tracking-tight md:text-4xl">
         I&apos;m open to co-founding.
@@ -255,6 +269,7 @@ function CofounderPanel() {
 export default function Ideas() {
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Ideas &middot; Open to Co-Founding
@@ -271,13 +286,13 @@ export default function Ideas() {
         </p>
       </Section>
 
-      <Section className="pt-2">
+      <Section id="building-with-me" className="pt-2 scroll-mt-28">
         <CofounderPanel />
       </Section>
 
-      <Section className="pt-10 pb-8">
+      <Section id="on-my-desk" className="pt-10 pb-8 scroll-mt-28">
         <p className="mb-6 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          On my desk
+          {BLOCK.desk}
         </p>
         <div className="grid gap-6 md:grid-cols-2">
           {ideas.map((idea) => (
@@ -286,10 +301,10 @@ export default function Ideas() {
         </div>
       </Section>
 
-      <Section className="pb-20">
+      <Section id="also-pitch-me" className="pb-20 scroll-mt-28">
         <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.02] p-6 md:p-8">
           <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            Also pitch me
+            {BLOCK.pitch}
           </p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-foreground/85">
             Have an idea that isn&apos;t on this page? Even better. The ones

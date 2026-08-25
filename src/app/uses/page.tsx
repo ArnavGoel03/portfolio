@@ -11,6 +11,7 @@ import {
   TestTube2,
 } from "lucide-react";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 
 export const metadata = {
   title: "Uses",
@@ -127,9 +128,21 @@ const categories = [
   },
 ];
 
+/** The anchor for a category, derived from its own name so the two cannot drift. */
+const slugOf = (title: string) =>
+  title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+// One stop per card, labelled with the card's own heading.
+const RAIL_STOPS = categories.map((cat, i) => ({
+  id: slugOf(cat.title),
+  label: cat.title,
+  accent: `var(--accent-${(i % 4) + 1})`,
+}));
+
 export default function Uses() {
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Uses
@@ -149,7 +162,8 @@ export default function Uses() {
           {categories.map((cat) => (
             <div
               key={cat.title}
-              className="gradient-border glow-card rounded-2xl bg-card p-7 backdrop-blur-sm"
+              id={slugOf(cat.title)}
+              className="gradient-border glow-card scroll-mt-28 rounded-2xl bg-card p-7 backdrop-blur-sm"
             >
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">

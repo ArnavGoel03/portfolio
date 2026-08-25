@@ -12,6 +12,7 @@ import {
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,22 @@ const socials = [
     href: SOCIAL_LINKS.email,
     color: "group-hover:text-violet-400",
   },
+];
+
+// The four blocks on this page, named once. Each string is printed by its own
+// block and read by the rail, so renaming a block renames its stop with it.
+const BLOCK = {
+  form: "Contact form",
+  call: "Book 15 minutes",
+  find: "Find Me",
+  socials: "Socials",
+} as const;
+
+const RAIL_STOPS = [
+  { id: "contact-form", label: BLOCK.form, accent: "var(--accent-1)" },
+  { id: "book-15-minutes", label: BLOCK.call, accent: "var(--accent-2)" },
+  { id: "find-me", label: BLOCK.find, accent: "var(--accent-4)" },
+  { id: "socials", label: BLOCK.socials, accent: "var(--accent-3)" },
 ];
 
 export default function Contact() {
@@ -79,6 +96,7 @@ export default function Contact() {
 
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Contact
@@ -94,7 +112,7 @@ export default function Contact() {
 
       <Section className="pt-4">
         <div className="grid gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-3">
+          <div id="contact-form" className="scroll-mt-28 lg:col-span-3">
             {submitted ? (
               <motion.div
                 animate={{ opacity: 1, scale: 1 }}
@@ -115,7 +133,7 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                aria-label="Contact form"
+                aria-label={BLOCK.form}
                 className="gradient-border rounded-md bg-card p-8 space-y-6"
               >
                 <div className="grid gap-6 sm:grid-cols-2">
@@ -200,10 +218,11 @@ export default function Contact() {
 
           <div className="flex flex-col gap-6 lg:col-span-2">
             <a
+              id="book-15-minutes"
               href="https://cal.com/arnavgoel"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden gradient-border rounded-md bg-card p-7 transition-colors hover:bg-card/80"
+              className="group relative overflow-hidden gradient-border scroll-mt-28 rounded-md bg-card p-7 transition-colors hover:bg-card/80"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
@@ -212,7 +231,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-serif text-lg font-semibold">
-                      Book 15 minutes
+                      {BLOCK.call}
                     </h3>
                     <p className="text-xs text-muted-foreground">
                       Recruiters, teammates, anyone curious
@@ -230,8 +249,8 @@ export default function Contact() {
               </p>
             </a>
 
-            <div className="gradient-border rounded-md bg-card p-7">
-              <h3 className="font-serif text-lg font-semibold">Find Me</h3>
+            <div id="find-me" className="gradient-border scroll-mt-28 rounded-md bg-card p-7">
+              <h3 className="font-serif text-lg font-semibold">{BLOCK.find}</h3>
               <div className="mt-4 flex items-start gap-3">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-foreground/10 bg-foreground/5">
                   <MapPin size={18} className="text-foreground/80" />
@@ -245,8 +264,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="gradient-border rounded-md bg-card p-7">
-              <h3 className="font-serif text-lg font-semibold">Socials</h3>
+            <div id="socials" className="gradient-border scroll-mt-28 rounded-md bg-card p-7">
+              <h3 className="font-serif text-lg font-semibold">{BLOCK.socials}</h3>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {socials.map((social) => (
                   <a

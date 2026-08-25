@@ -59,7 +59,7 @@ export default function SectionRail({ stops }: { stops: RailStop[] }) {
   return (
     <nav
       aria-label="Sections on this page"
-      className="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 xl:block"
+      className="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 print:!hidden xl:block"
     >
       <ul className="flex flex-col gap-3">
         {stops.map((stop) => {
@@ -80,8 +80,14 @@ export default function SectionRail({ stops }: { stops: RailStop[] }) {
                     opacity: on ? 1 : 0.4,
                   }}
                 />
+                {/* Capped and truncated rather than shortened by hand: a stop
+                    label is the section's own heading, and abbreviating one
+                    here would be a second, quieter name for the same block.
+                    The full string stays in the DOM for a screen reader and in
+                    the title attribute for a cursor. */}
                 <span
-                  className="font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-300"
+                  title={stop.label}
+                  className="max-w-[11rem] truncate font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-300"
                   style={{
                     color: on ? stop.accent : "var(--muted-foreground)",
                     opacity: on ? 1 : 0.55,

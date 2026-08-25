@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Download, Mail, MapPin, Globe } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 import ProofStrip from "@/components/proof-strip";
 import {
   SOCIAL_LINKS,
@@ -215,9 +216,29 @@ const certifications = [
   { name: "Google Data Analytics Professional Certificate", issuer: "Google", date: "Jul 2024" },
 ];
 
+// The blocks this page prints, named once. The heading, the anchor and the
+// rail stop are all read from here, so renaming a block renames all three and
+// a stop cannot end up pointing at a section that no longer answers to it.
+// Declaration order is print order.
+const BLOCK = {
+  about: "About",
+  experience: "Experience",
+  education: "Education",
+  projects: "Selected Projects",
+  skills: "Skills",
+  certifications: "Certifications",
+} as const;
+
+const RAIL_STOPS = Object.values(BLOCK).map((title, i) => ({
+  id: blockId(title),
+  label: title,
+  accent: `var(--accent-${(i % 4) + 1})`,
+}));
+
 export default function Resume() {
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <div className="mx-auto max-w-4xl px-6 pt-32 pb-6 print:pt-0 print:pb-0">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
@@ -291,7 +312,7 @@ export default function Resume() {
       </div>
 
       <Section className="pt-4 print:py-2">
-        <ResumeBlock title="About">
+        <ResumeBlock title={BLOCK.about}>
           <p className="text-[15px] leading-relaxed text-muted-foreground">
             Senior in the BS Data Science program at UC San Diego (minor in
             Entrepreneurship & Innovation). Work sits where machine learning
@@ -310,7 +331,7 @@ export default function Resume() {
           </p>
         </ResumeBlock>
 
-        <ResumeBlock title="Experience">
+        <ResumeBlock title={BLOCK.experience}>
           <div className="space-y-6">
             {experience.map((e) => (
               <div key={`${e.company}-${e.period}`}>
@@ -343,7 +364,7 @@ export default function Resume() {
           </div>
         </ResumeBlock>
 
-        <ResumeBlock title="Education">
+        <ResumeBlock title={BLOCK.education}>
           <div className="space-y-5">
             {educationItems.map((edu) => (
               <div key={edu.school}>
@@ -366,7 +387,7 @@ export default function Resume() {
           </div>
         </ResumeBlock>
 
-        <ResumeBlock title="Selected Projects">
+        <ResumeBlock title={BLOCK.projects}>
           <div className="space-y-4">
             {selectedProjects.map((p) => (
               <div key={p.name}>
@@ -396,7 +417,7 @@ export default function Resume() {
           </div>
         </ResumeBlock>
 
-        <ResumeBlock title="Skills">
+        <ResumeBlock title={BLOCK.skills}>
           <div className="space-y-4">
             {Object.entries(skills).map(([tier, items]) => (
               <div key={tier}>
@@ -411,7 +432,7 @@ export default function Resume() {
           </div>
         </ResumeBlock>
 
-        <ResumeBlock title="Certifications">
+        <ResumeBlock title={BLOCK.certifications}>
           <div className="grid gap-2 sm:grid-cols-2">
             {certifications.map((c) => (
               <div key={c.name}>
@@ -439,6 +460,11 @@ export default function Resume() {
   );
 }
 
+/** The anchor for a block, derived from its own heading so the two cannot drift. */
+function blockId(title: string): string {
+  return `resume-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+}
+
 function ResumeBlock({
   title,
   children,
@@ -447,7 +473,10 @@ function ResumeBlock({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mt-10 border-t border-foreground/10 pt-8 first:mt-0 first:border-0 first:pt-0 print:mt-6 print:pt-4">
+    <section
+      id={blockId(title)}
+      className="mt-10 scroll-mt-28 border-t border-foreground/10 pt-8 first:mt-0 first:border-0 first:pt-0 print:mt-6 print:pt-4"
+    >
       <h2 className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
         {title}
       </h2>

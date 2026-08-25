@@ -64,6 +64,40 @@ A one-person studio building local-first macOS apps that never phone home: no ac
 - **Status:** In progress. Source private.
 - **Date:** July 2026
 
+### SOMA: An Anatomical Diagnostic Console
+A holographic human body rendered from real anatomical geometry: select an organ to read the panels that report on it, and scrub the timeline to watch every marker move. A lab report you can look at from the inside. The figure is not decoration for the data, it is the data.
+- **Heat is pathology:** an organ shows the worst verdict among its markers, not an average, because averaging hides exactly the finding you opened the page for.
+- **One driver, two renderers:** a single MotionValue holds the current draw; the DOM readouts subscribe to it directly and the canvas writes it into a shader uniform, so the number on screen and the colour of the organ behind it cannot desync. Five years of bloodwork animates 24 readouts and 10 organs at 60fps with zero React re-renders.
+- **The registry:** two figures, male and female, layer switches for surface, skeleton, vessels and muscles, and 112 authored markers across 14 clinical systems with reference bands, print aliases and SI factors.
+- **The record:** Postgres on Neon behind Clerk accounts, accepting 19 file extensions across PDF, photographs (JPEG, PNG, HEIC, WebP, TIFF), DOCX, plain text, CSV and DICOM, each filed as lab, prescription, imaging, discharge, vaccination, insurance, dental, eye or document and searchable afterwards.
+- **Disclaimer:** every panel is synthetic, reference ranges are conventional clinical ranges, and nothing on the page is medical advice.
+- **Tags:** Next.js 16, React Three Fiber, WebGL, GLSL, Motion, Neon, Clerk, TypeScript
+- **Live:** https://soma.arnavgoel.dev
+- **Status:** Live. Source private.
+- **Date:** August 2026
+
+### Meshport: Convert 3D files, right in your browser
+A 3D file converter that runs entirely in your browser. Drop a model, pick a format, download the result. Nothing is uploaded, there is no size limit, and it works offline. Typical online 3D converters upload your file to a server, make you wait in a queue behind ads, and cap the size unless you pay.
+- **Formats:** reads 13 and writes 5, so any readable format can convert to any writable format, 60 combinations in all.
+- **Engineering:** assimp compiled to WebAssembly normalises the source format to GLB and a three.js module worker writes the final STL, OBJ or PLY, both stages off the main thread. Vite and React prerendered to static HTML, with no server and no server runtime.
+- **Tags:** WebAssembly, three.js, React, Vite, TypeScript, Web Workers, PWA
+- **Live:** https://meshport.vercel.app
+- **Status:** Live. Source private.
+- **Date:** July 2026
+
+### Links: Five places I keep things
+The index of my five sites, drawn spine-first as five matched volumes on a board, each in its own binding cloth. Clicking a spine takes that volume off the shelf and opens it.
+- **Portfolio** (https://arnavgoel.dev): the professional record.
+- **The review record** (https://yashgoel.vercel.app): everything I own, judged after living with it. Nothing is reviewed there until I have used it daily for a month or more.
+- **Upkeep** (https://yashgoel-handyman.vercel.app): a maintenance reference for Indian homes, written so that the advice cannot be wrong in one place and right in another.
+- **Fitout** (https://yashgoel-interiors.vercel.app): what a room is made of, before it is built.
+- **Larder** (https://yashgoel-larder.vercel.app): what keeps, what burns, and what the packet is not saying.
+- **Engineering:** one static HTML file, no runtime JavaScript, no framework, no dependencies. Everything a reader or a crawler sees comes from one config file, which is the only reason the page has a build step at all.
+- **Tags:** Static HTML, CSS 3D, JSON-LD, Zero Dependencies, Prerendering
+- **Live:** https://goel-links.vercel.app
+- **Status:** Live. Source private.
+- **Date:** August 2026
+
 ### Library Walk: A Playable Micromobility Thesis
 A campus micromobility runner that makes the argument rather than illustrating it, built solo for Group 3 in SYN 100 at Seventh College, UC San Diego. The player rides the real route: the Blue Line drops you at Central Campus station, the protected green lane runs down Gilman Drive past live traffic, and the lane ends exactly where Library Walk and the weekday dismount ban begin.
 - **Engineering:** Three.js and WebGL, multiplayer on Cloudflare Workers with Durable Objects, Neon Postgres, installable as a PWA.

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, PlayCircle, ExternalLink, Quote } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 import RedBullViz from "@/components/redbull-viz";
 import CollectionRail from "@/components/collection-rail";
 import { getCollection } from "@/lib/collections";
@@ -18,6 +19,42 @@ import { SITE_URL } from "@/lib/constants";
 // Projects that intentionally don't get a detail page, card click still
 // opens the quick-preview modal, but /projects/<id> 404s for these.
 const NO_DETAIL_PAGE = new Set<string>();
+
+// The headings a project page prints, named once. Each one is read three
+// times: by the block that prints it, by the anchor it scrolls to, and by the
+// rail stop that reaches it. Typing any of the three separately is how a rail
+// ends up offering a jump to a section that has been renamed.
+const HEADING = {
+  proves: "What this proves",
+  problem: "The Problem",
+  approach: "The Approach",
+  decisions: "Key Decisions",
+  metrics: "Metrics",
+  chart: "Live Chart",
+  studio: "In this studio",
+  overview: "Overview",
+  stack: "Stack",
+} as const;
+
+/** The anchor for a heading, derived from the heading itself. */
+const anchor = (heading: string) =>
+  heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const ACCENTS = [
+  "var(--accent-1)",
+  "var(--accent-2)",
+  "var(--accent-4)",
+  "var(--accent-3)",
+];
+
+/** Stops for whichever headings this particular page actually rendered. */
+function railStops(headings: string[]) {
+  return headings.map((label, i) => ({
+    id: anchor(label),
+    label,
+    accent: ACCENTS[i % ACCENTS.length],
+  }));
+}
 
 export async function generateStaticParams() {
   const caseSlugs = caseStudies.map((c) => c.slug);
@@ -77,8 +114,19 @@ export default async function CaseStudyPage({
     return <ProjectProfile project={proj} />;
   }
 
+  const stops = railStops([
+    HEADING.proves,
+    HEADING.problem,
+    HEADING.approach,
+    HEADING.decisions,
+    HEADING.metrics,
+    ...(cs.slug === "redbull-youtube-analytics" ? [HEADING.chart] : []),
+    HEADING.stack,
+  ]);
+
   return (
     <>
+      <SectionRail stops={stops} />
       <Section className="pt-36 pb-8">
         <Link
           href="/projects"
@@ -135,10 +183,10 @@ export default async function CaseStudyPage({
         )}
       </Section>
 
-      <Section className="pt-4">
+      <Section id={anchor(HEADING.proves)} className="pt-4 scroll-mt-28">
         <div className="max-w-3xl">
           <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-            What this proves
+            {HEADING.proves}
           </p>
           <p className="mt-4 font-serif text-2xl font-semibold leading-snug tracking-tight text-foreground md:text-[1.75rem]">
             {cs.thesis}
@@ -149,11 +197,11 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section className="pt-4">
+      <Section id={anchor(HEADING.problem)} className="pt-4 scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              The Problem
+              {HEADING.problem}
             </p>
           </div>
           <div className="md:col-span-4 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -164,11 +212,11 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section className="pt-4">
+      <Section id={anchor(HEADING.approach)} className="pt-4 scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              The Approach
+              {HEADING.approach}
             </p>
           </div>
           <div className="md:col-span-4 space-y-10">
@@ -188,11 +236,11 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section className="pt-4">
+      <Section id={anchor(HEADING.decisions)} className="pt-4 scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Key Decisions
+              {HEADING.decisions}
             </p>
           </div>
           <div className="md:col-span-4 space-y-6">
@@ -213,11 +261,11 @@ export default async function CaseStudyPage({
         </div>
       </Section>
 
-      <Section className="pt-4">
+      <Section id={anchor(HEADING.metrics)} className="pt-4 scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Metrics
+              {HEADING.metrics}
             </p>
           </div>
           <div className="md:col-span-4 grid grid-cols-2 gap-5 sm:grid-cols-3">
@@ -244,11 +292,11 @@ export default async function CaseStudyPage({
       </Section>
 
       {cs.slug === "redbull-youtube-analytics" && (
-        <Section className="pt-4">
+        <Section id={anchor(HEADING.chart)} className="pt-4 scroll-mt-28">
           <div className="grid gap-10 md:grid-cols-5 md:gap-14">
             <div className="md:col-span-1">
               <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Live Chart
+                {HEADING.chart}
               </p>
               <p className="mt-2 text-xs italic text-muted-foreground/70">
                 Rendered from the actual summary.json of the analysis run.
@@ -261,11 +309,11 @@ export default async function CaseStudyPage({
         </Section>
       )}
 
-      <Section className="pt-4 pb-20">
+      <Section id={anchor(HEADING.stack)} className="pt-4 pb-20 scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Stack
+              {HEADING.stack}
             </p>
           </div>
           <div className="md:col-span-4 space-y-6">
@@ -328,8 +376,19 @@ function ProjectProfile({ project }: { project: Project }) {
   );
   const collection = getCollection(project.collection);
 
+  // A studio entry names its own surfaces block, so the stop takes that word
+  // rather than the default one: the rail says what the section says.
+  const stops = railStops([
+    ...(project.surfaces && project.surfaces.length > 0
+      ? [project.surfacesLabel ?? HEADING.studio]
+      : []),
+    HEADING.overview,
+    HEADING.stack,
+  ]);
+
   return (
     <>
+      <SectionRail stops={stops} />
       <Section className="pt-36 pb-8">
         <Link
           href="/projects"
@@ -448,9 +507,12 @@ function ProjectProfile({ project }: { project: Project }) {
         )}
 
         {project.surfaces && project.surfaces.length > 0 && (
-          <div className="mt-10">
+          <div
+            id={anchor(project.surfacesLabel ?? HEADING.studio)}
+            className="mt-10 scroll-mt-28"
+          >
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              In this studio
+              {project.surfacesLabel ?? HEADING.studio}
             </p>
             <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border border-foreground/10 bg-foreground/10 sm:grid-cols-2">
               {project.surfaces.map((s) => (
@@ -495,11 +557,11 @@ function ProjectProfile({ project }: { project: Project }) {
         )}
       </Section>
 
-      <Section className="pt-4">
+      <Section id={anchor(HEADING.overview)} className="pt-4 scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Overview
+              {HEADING.overview}
             </p>
           </div>
           <div className="md:col-span-4">
@@ -519,11 +581,11 @@ function ProjectProfile({ project }: { project: Project }) {
         </Section>
       )}
 
-      <Section className="pt-4 pb-20">
+      <Section id={anchor(HEADING.stack)} className="pt-4 pb-20 scroll-mt-28">
         <div className="grid gap-10 md:grid-cols-5 md:gap-14">
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Stack
+              {HEADING.stack}
             </p>
           </div>
           <div className="md:col-span-4">

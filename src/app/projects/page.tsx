@@ -34,12 +34,23 @@ const isCoursework = (p: Project) => COURSEWORK_IDS.has(p.id);
 // flatten the work that does run, so they sit in their own band instead of
 // being removed. Every /projects/[slug] page, Cmd+K entry and sitemap URL is
 // untouched.
+//
+// The five at the bottom are a different case from the five above them. They
+// run, and four of the five can be opened right now; what they are not is work
+// being carried. A concept armoury, a globe, a studio showcase, an investor
+// site and a pre-launch brand are pieces being explored, and this band is
+// where the site says so out loud instead of letting the grid imply otherwise.
 const ASIDE_IDS = new Set([
   "buzz",
   "vaani",
   "serenity",
   "claude-skills",
   "redbull-youtube-analytics",
+  "pitcrew",
+  "meridian",
+  "qbranch",
+  "cutroom",
+  "stature",
 ]);
 
 const isAside = (p: Project) => ASIDE_IDS.has(p.id);

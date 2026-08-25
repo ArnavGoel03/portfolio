@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 
 export const metadata = {
   title: "Now",
@@ -51,9 +52,28 @@ const looking = [
   "Conversations with people building real-time systems, agentic AI, or ML platforms for SMBs",
 ];
 
+/** The anchor for a card, derived from its own label so the two cannot drift. */
+const slugOf = (label: string) =>
+  label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+/** The closing panel's heading. Printed by the panel and read by the rail. */
+const LOOKING_HEADING = "What I'm Looking For";
+
+// One stop per focus card plus the closing panel, each labelled with the words
+// that card already prints above its own heading.
+const RAIL_STOPS = [
+  ...focusAreas.map((area, i) => ({
+    id: slugOf(area.label),
+    label: area.label,
+    accent: `var(--accent-${(i % 4) + 1})`,
+  })),
+  { id: "looking-for", label: LOOKING_HEADING, accent: "var(--accent-4)" },
+];
+
 export default function Now() {
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Now
@@ -91,7 +111,8 @@ export default function Now() {
           {focusAreas.map((area) => (
             <div
               key={area.title}
-              className="gradient-border glow-card rounded-2xl bg-card p-6 backdrop-blur-sm"
+              id={slugOf(area.label)}
+              className="gradient-border glow-card scroll-mt-28 rounded-2xl bg-card p-6 backdrop-blur-sm"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5">
@@ -114,10 +135,10 @@ export default function Now() {
         </div>
       </Section>
 
-      <Section className="pt-4 pb-20">
+      <Section id="looking-for" className="pt-4 pb-20 scroll-mt-28">
         <div className="gradient-border glow-card rounded-2xl bg-card p-8 backdrop-blur-sm">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            What I&apos;m Looking For
+            {LOOKING_HEADING}
           </p>
           <h2 className="mt-3 font-serif text-2xl font-bold tracking-tight">
             Open to the right opportunity

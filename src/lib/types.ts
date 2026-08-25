@@ -64,6 +64,15 @@ export interface Project {
   collection?: string;
   /** The individual products under a studio entry, each linked in its own right. */
   surfaces?: Surface[];
+  /**
+   * What to call the `surfaces` block, when "In this studio" is a lie.
+   *
+   * The block was written for the two studios and hard-codes their word. An
+   * index of personal sites is not a studio, and a heading that says it is
+   * would be the one line on the card that a reader could catch out. Set this
+   * and it is used verbatim in place of the default heading and its count.
+   */
+  surfacesLabel?: string;
   team?: {
     size: number;
     members?: TeamMember[];

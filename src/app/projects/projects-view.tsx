@@ -6,6 +6,7 @@ import { useMemo, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 import ProjectCard from "@/components/project-card";
 import { Project } from "@/lib/types";
 import { isFocusKey, sortByRelevance } from "@/lib/project-ranking";
@@ -130,7 +131,7 @@ function CollapsibleBand({
   if (projects.length === 0) return null;
 
   return (
-    <Section className={className}>
+    <Section id={`${id}-band`} className={`scroll-mt-28 ${className}`}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -177,6 +178,12 @@ function CollapsibleBand({
     </Section>
   );
 }
+
+/** The two collapsible bands' kickers. Printed by the bands, read by the rail. */
+const BAND = {
+  coursework: "Coursework",
+  aside: "Ideas I'm exploring",
+} as const;
 
 type SectionKey = "inProgress" | "personal";
 
@@ -236,14 +243,41 @@ export default function ProjectsView({
 
   // Ordered by recruiter-signal strength: shipped > actively being built >
   // coursework (collapsed further down).
-  const sections: [SectionKey, Project[]][] = [
-    ["personal", ordered.personal.filter((p) => matchesFilter(p, filter))],
-    ["inProgress", ordered.inProgress.filter((p) => matchesFilter(p, filter))],
-  ];
-
-  const courseworkFiltered = ordered.coursework.filter((p) =>
-    matchesFilter(p, filter)
+  // Memoised because the rail below reads them: rebuilt on every render, these
+  // arrays would be a new identity each time and the rail's observer would be
+  // torn down and rebuilt with them.
+  const sections: [SectionKey, Project[]][] = useMemo(
+    () => [
+      ["personal", ordered.personal.filter((p) => matchesFilter(p, filter))],
+      ["inProgress", ordered.inProgress.filter((p) => matchesFilter(p, filter))],
+    ],
+    [ordered, filter]
   );
+
+  const courseworkFiltered = useMemo(
+    () => ordered.coursework.filter((p) => matchesFilter(p, filter)),
+    [ordered, filter]
+  );
+
+  // The rail is built from what this render actually shows: a filter that
+  // empties a band removes its stop too, so the rail can never offer a jump to
+  // a section that is not on the page.
+  const railStops = useMemo(() => {
+    const accents = ["var(--accent-1)", "var(--accent-2)", "var(--accent-4)", "var(--accent-3)"];
+    const stops: { id: string; label: string; accent: string }[] = [];
+    for (const [key, items] of sections) {
+      if (items.length > 0) {
+        stops.push({ id: `${key}-section`, label: SECTION_META[key].title, accent: "" });
+      }
+    }
+    if (courseworkFiltered.length > 0) {
+      stops.push({ id: "coursework-section-band", label: BAND.coursework, accent: "" });
+    }
+    if (aside.length > 0) {
+      stops.push({ id: "aside-section-band", label: BAND.aside, accent: "" });
+    }
+    return stops.map((stop, i) => ({ ...stop, accent: accents[i % accents.length] }));
+  }, [sections, courseworkFiltered, aside]);
 
   const totalVisible =
     sections.reduce((acc, [, arr]) => acc + arr.length, 0) +
@@ -251,6 +285,7 @@ export default function ProjectsView({
 
   return (
     <>
+      <SectionRail stops={railStops} />
       <Section className="pt-0 pb-6">
         <div className="flex flex-wrap items-center gap-2">
           {Object.keys(FILTERS).map((f) => {
@@ -301,7 +336,7 @@ export default function ProjectsView({
             if (items.length === 0) return null;
             const meta = SECTION_META[key];
             return (
-              <Section key={key} id={`${key}-section`} className="pt-4">
+              <Section key={key} id={`${key}-section`} className="pt-4 scroll-mt-28">
                 <SectionMarker
                   index={i + 1}
                   kicker={meta.kicker}
@@ -325,7 +360,7 @@ export default function ProjectsView({
 
           <CollapsibleBand
             id="coursework-section"
-            kicker="Coursework"
+            kicker={BAND.coursework}
             noun="course project"
             blurb="Graded UCSD deliverables. Full write-ups and recorded presentations on every card."
             projects={courseworkFiltered}
@@ -338,7 +373,7 @@ export default function ProjectsView({
           {aside.length > 0 && (
             <CollapsibleBand
               id="aside-section"
-              kicker="Ideas I'm exploring"
+              kicker={BAND.aside}
               noun="idea"
               blurb=""
               projects={aside}

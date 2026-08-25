@@ -178,6 +178,207 @@ export const staticProjects: Project[] = [
     featured: false,
     date: "2026-07",
   },
+  // Copied verbatim out of ~/dev/soma's own README and its shipped eyebrow.
+  // The disclaimer travels with the entry on purpose: the panels are synthetic
+  // and the console says so on its own first screen, so a card that quoted the
+  // rest of the page and dropped that line would be the one place the claim
+  // goes unqualified.
+  {
+    id: "soma",
+    title: "SOMA: An Anatomical Diagnostic Console",
+    description:
+      "A holographic human body rendered from real anatomical geometry: select an organ to read the panels that report on it, and scrub the timeline to watch every marker move. A lab report you can look at from the inside. The figure is not decoration for the data, it is the data: an organ's colour is the worst verdict among the markers that report on it, so a red liver means something specific and the number that proves it is one tap away. WebGL and Motion sit on different axes. WebGL is a renderer; Motion is a driver. This page has two renderers, the canvas and the DOM, and they must never disagree, so they get exactly one driver. A single MotionValue holds the current draw. The DOM readouts subscribe to it directly. The canvas subscribes to it inside useFrame and writes it into a shader uniform. The number on screen and the colour of the organ behind it are therefore incapable of desyncing, and dragging across five years of bloodwork animates 24 readouts and 10 organs at 60fps with zero React re-renders. Interpolate the value, never the verdict: between two draws the panel lerps the measured value and then resolves the verdict, so an organ can't flicker through a colour that no draw ever recorded. Heat is pathology: an organ shows the worst verdict among its markers, not an average, because averaging hides exactly the finding you opened the page for. Two figures, male and female. Layer switches (surface, skeleton, vessels, muscles), system filters, verdict heat, per-organ cutaway, ghost mode, labels on and off, every merged structure named. 112 authored markers across 14 clinical systems, 15 prose files, reference bands, print aliases and SI factors. The record is Postgres on Neon with six tables and Clerk accounts. Every document a person is carrying is accepted, not only a lab PDF: 19 extensions across PDF, photographs (JPEG, PNG, HEIC, WebP, TIFF), DOCX, plain text, CSV and DICOM, worked out from the file name when the browser will not say, then filed as lab, prescription, imaging, discharge, vaccination, insurance, dental, eye or document, correctable in one select and searchable afterwards. Every panel here is synthetic. Reference ranges are conventional clinical ranges, and nothing on the page is medical advice.",
+    tags: [
+      "Next.js 16",
+      "React Three Fiber",
+      "WebGL",
+      "GLSL",
+      "Motion",
+      "Neon",
+      "Clerk",
+      "TypeScript",
+    ],
+    image: "/shots/soma.webp",
+    github: "",
+    privateRepo: true,
+    demo: "https://soma.arnavgoel.dev",
+    eyebrow: "Synthetic panels · no medical advice",
+    featured: false,
+    date: "2026-08",
+  },
+  // Every sentence below is copied verbatim out of ~/dev/meshport's own README
+  // and src/lib/site.ts. The two repos cannot import each other, so this is the
+  // one place a copy of that wording is allowed to exist; when the converter's
+  // own words change, change them there first and mirror them here.
+  {
+    id: "meshport",
+    title: "Meshport: Convert 3D files, right in your browser",
+    description:
+      "A 3D file converter that runs entirely in your browser. Drop a model, pick a format, download the result. Nothing is uploaded, there is no size limit, and it works offline. Typical online 3D converters upload your file to a server, make you wait in a queue behind ads, and cap the size unless you pay. Meshport does the conversion on your own machine using WebAssembly. Reads 13 formats, writes 5. Read: STL, OBJ, PLY, GLB, glTF, DAE (COLLADA), 3MF, FBX, 3DS, DirectX (X), Blender (.blend), OFF, DXF. Write: STL, OBJ, PLY, GLB, glTF. Any readable format can convert to any writable format (60 combinations). Conversion is two stages, both off the main thread: assimp compiled to WASM (assimpjs) reads the source format and normalizes it to GLB, and a three.js module worker parses that GLB and writes the final STL / OBJ / PLY. The 3D preview uses three.js with a consistent clay material so previews never depend on external textures. Vite + React, prerendered to static HTML. There is no server and no server runtime: the build produces a directory of finished pages. Each page ships its own head (title, description, canonical, Open Graph, JSON-LD) and its own Content-Security-Policy meta tag, whose script hashes are computed from the bytes that actually shipped.",
+    tags: [
+      "WebAssembly",
+      "three.js",
+      "React",
+      "Vite",
+      "TypeScript",
+      "Web Workers",
+      "PWA",
+    ],
+    image: "/shots/meshport.webp",
+    github: "",
+    privateRepo: true,
+    demo: "https://meshport.vercel.app",
+    eyebrow: "Reads 13 formats, writes 5",
+    featured: false,
+    date: "2026-07",
+  },
+  // The personal sites, listed once as the index that already binds them
+  // rather than as five entries competing with the engineering work. Labels,
+  // roles and ledes are copied verbatim from ~/dev/links/src/config.mjs, which
+  // is the shelf's own source of truth; the count in the title is that file's
+  // count and moves when SITES does.
+  {
+    id: "links",
+    title: "Links: Five places I keep things",
+    description:
+      "The index of my five sites: an engineering portfolio, a review record of everything I own written after a month or more of use, a maintenance reference for Indian homes, a specification record for fitting one out, and a kitchen reference for Indian cooking. One static HTML file, no runtime JavaScript, no framework, no dependencies. The set is drawn spine-first: five matched volumes on a board, each in its own binding cloth. Clicking a spine takes that volume off the shelf. It hooks out by the headcap, draws forward, turns to face the reader, travels to the far end of the board and swings open on its hinge, with the two front leaves going over to leave a frontispiece facing a title page. The rest of the set stands down behind it and stays in view, which is the reason to draw a book off a shelf in front of somebody at all. Everything a reader or a crawler sees comes from one config file: add an entry to SITES and it appears on the shelf, in its record, in the JSON-LD and in the preconnect hints with no other edit. That single source is the only reason this page has a build step: without it the same URL and description would be typed twice and would drift.",
+    tags: [
+      "Static HTML",
+      "CSS 3D",
+      "JSON-LD",
+      "Zero Dependencies",
+      "Prerendering",
+    ],
+    image: "/shots/links.webp",
+    github: "",
+    privateRepo: true,
+    demo: "https://goel-links.vercel.app",
+    surfacesLabel: "Five places I keep things",
+    surfaces: [
+      {
+        label: "Portfolio",
+        href: "/",
+        image: "/shots/s-portfolio.webp",
+        holds: "The professional record",
+        blurb:
+          "What I have built, what I built it with, and the reasoning behind each one written out at length.",
+      },
+      {
+        label: "The review record",
+        href: "https://yashgoel.vercel.app",
+        image: "/shots/s-reviews.webp",
+        holds: "Everything I own, judged after living with it",
+        blurb:
+          "Nothing is reviewed here until I have used it daily for a month or more.",
+      },
+      {
+        label: "Upkeep",
+        href: "https://yashgoel-handyman.vercel.app",
+        image: "/shots/s-upkeep.webp",
+        holds: "What goes on what, and what quietly ruins it",
+        blurb:
+          "A maintenance reference for Indian homes, written so that the advice cannot be wrong in one place and right in another.",
+      },
+      {
+        label: "Fitout",
+        href: "https://yashgoel-interiors.vercel.app",
+        image: "/shots/s-fitout.webp",
+        holds: "What a room is made of, before it is built",
+        blurb:
+          "The other half of the same house: not what has gone wrong with a room, but what you are about to commit it to.",
+      },
+      {
+        label: "Larder",
+        href: "https://yashgoel-larder.vercel.app",
+        image: "/shots/s-larder.webp",
+        holds: "What keeps, what burns, and what the packet is not saying",
+        blurb:
+          "The same engine again, pointed at an Indian kitchen: the questions that get asked every day, answered as charts rather than as paragraphs.",
+      },
+    ],
+    featured: false,
+    date: "2026-08",
+  },
+  // The five below sit in the "Ideas I'm exploring" band on /projects, not
+  // beside the shipped work: four of them are built and online, but they are
+  // pieces being explored rather than products being run, and standing them in
+  // the same grid would flatten the things that are. Every sentence is copied
+  // verbatim from each project's own README or its own shipped page.
+  {
+    id: "pitcrew",
+    title: "PITCREW: The Pit Lane for Robot Fleets",
+    description:
+      "A repair cell that lives inside your building. Downed robots drive in, get diagnosed, get a new module, and get proven before they rejoin the fleet. An investor-facing site whose centrepiece is one continuous WebGL scene, scroll-scrubbed through ten stages, where the 3D carries the argument rather than decorating it. Nothing on this site may fabricate traction. No invented metrics, no logos, no partners, no advisors, no customer counts. Every economic figure is a computed output of assumptions the visitor can see and edit in the calculator, never a statistic stated as fact. Three external anchors are cited and all three are verifiable: F1 pit stop timing, Northrop Grumman's MEV-1 docking with Intelsat-901 in 2020, and NIO automated battery swap.",
+    tags: ["Next.js 16", "React Three Fiber", "WebGL", "Three.js", "Lenis"],
+    image: "/shots/pitcrew.webp",
+    github: "",
+    privateRepo: true,
+    demo: "https://pitcrew-five.vercel.app",
+    eyebrow: "A robot that repairs robots",
+    featured: false,
+    date: "2026-08",
+  },
+  {
+    id: "meridian",
+    title: "Meridian: An Interactive 3D Earth",
+    description:
+      "Every country is drawn from real Natural Earth vector borders, every land dot is sampled from a real land mask, and the whole thing runs on WebGPU with a WebGL2 fallback and a still 2D poster below that. Turn the globe by dragging, zoom with the wheel or a pinch, reset with R or a double click. It drifts on its own after four seconds idle, and not at all under prefers-reduced-motion. Hover or click any country and the readout names it, gives its official long form, ISO codes, capital, region, area and land neighbours, and lights that country's dots and border on the sphere. Search any of 241 countries and territories by name, ISO alpha-2 or alpha-3, or official long form, and the camera slerps to it. Toggle borders, the 15 degree graticule, and a network overlay of 48 real cities with great-circle arcs between them. Arc labels quote the physical floor for light in fibre, which is a distance calculation and is labelled as such, not a measured latency. Drag the density slider to resample the dot field live, from about 14,000 to about 140,000 dots. There is no build step and no dependency at runtime.",
+    tags: ["WebGPU", "WebGL2", "GLSL", "Natural Earth", "Zero Dependencies"],
+    image: "/shots/meridian.webp",
+    github: "https://github.com/ArnavGoel03/region-earth",
+    demo: "https://region-earth.vercel.app",
+    eyebrow: "Real borders, real coastlines, one dot per sampled square of land",
+    featured: false,
+    date: "2026-08",
+  },
+  {
+    id: "qbranch",
+    title: "Q Branch: Covert Instruments",
+    description:
+      "A cinematic, Bond-inspired concept armoury: classified gadget dossiers as photoreal SVG bench renders with lab annotations. Pure static HTML/CSS/JS, zero build step, zero dependencies, edge-cached. A boot and clearance sequence on first visit, session-scoped, skippable and reduced-motion aware. A HUD targeting reticle in the hero that locks onto targets under the cursor. Five gadget dossiers, spectacles, blast ring, laser watch, class-four pen and vehicle fob, each a hand-authored photoreal-style SVG render with metallic gradients, glass, spotlight, contact shadow and glowing LEDs, with gold callouts that draw in on scroll. Hover-to-declassify redaction bars in the dossier copy, a division manifest table, a standing directive and a live UTC clock. Each dossier defaults to a real-time 3D model, drag to rotate, tap empty space to expand into a fullscreen inspect mode, built procedurally from the same tokens as the SVG plates; a per-gadget view toggle switches back to the annotated plate, which also remains the no-JS and no-WebGL fallback. A service worker precaches the shell, so repeat visits paint from cache.",
+    tags: ["Static HTML", "SVG", "WebGL", "Service Worker", "Zero Dependencies"],
+    image: "/shots/qbranch.webp",
+    github: "",
+    privateRepo: true,
+    demo: "https://q-armoury.vercel.app",
+    eyebrow: "5 instruments · 3 field-ready · 1 armed",
+    featured: false,
+    date: "2026-07",
+  },
+  {
+    id: "cutroom",
+    title: "CUTROOM: A Cinematic Editing-Studio Showcase",
+    description:
+      "The site itself is the reel: a scroll-driven color grade, an NLE-style sequence timeline, hover-scrub work tiles, a custom cursor, and a running timecode. Built to look like the room where footage gets cut. It ships with a curated demo reel and a passcode-gated /studio admin so the editor can add projects and upload video without touching code. Next.js 16 on the App Router with React 19 and TypeScript, Tailwind v4 and bleeding-edge CSS (animation-timeline, scroll(), view(), @property, color-mix), so the animation is mostly zero-JS. Neon Postgres holds project metadata and Cloudflare R2 holds video and poster files, both optional: everything degrades gracefully, and with no database or storage configured the public site still runs and serves the demo reel while the admin reports exactly what is missing.",
+    tags: ["Next.js 16", "React 19", "Tailwind 4", "Neon", "Cloudflare R2"],
+    image: "/shots/cutroom.webp",
+    github: "",
+    privateRepo: true,
+    demo: "https://cutroom-one.vercel.app",
+    eyebrow: "The site itself is the reel",
+    featured: false,
+    date: "2026-06",
+  },
+  {
+    id: "stature",
+    title: "STATURE: Clothing for Men Built Tall",
+    description:
+      "Premium clothing engineered exclusively for tall people in India. STATURE sits in the premium-quality category, not loud luxury. The promise is narrow and real: every garment is drafted from a tall block first, so length and proportion are right before anything is sewn. Sleeves that end at the wrist, bodies that stay tucked, trousers that break at the shoe. Quiet, editorial, and built around the one thing the high street keeps getting wrong for tall frames. The v0.1 brand and lookbook site is a single-page editorial experience with an interactive Fit Engine and a pre-launch waitlist: enter your height, see your STATURE size, the engineered sleeve, body and inseam, and exactly how much wrist a standard shirt leaves bare. Your size is remembered on-device for return visits. The Collection is a six-piece first-drop lookbook, composed placeholders until final photography lands.",
+    tags: ["Next.js 16", "Tailwind 4", "Brand System", "Pre-launch Waitlist"],
+    image: "/shots/stature.webp",
+    github: "",
+    privateRepo: true,
+    // No link on purpose. `statureindia.vercel.app` answers 404 today and the
+    // Vercel project reports no production deployment, so the only reachable
+    // address is a per-deployment URL that disappears on the next push. A card
+    // with no link is better than a card with a dead one; put the alias back
+    // and the address goes here.
+    demo: "",
+    eyebrow: "Cut for six foot and over",
+    featured: false,
+    date: "2026-06",
+    inProgress: true,
+  },
   {
     id: "library-walk",
     title: "Library Walk: A Playable Micromobility Thesis",

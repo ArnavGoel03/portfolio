@@ -4,6 +4,7 @@ import Section from "@/components/section";
 import SkillsTicker from "@/components/skills-ticker";
 import ProjectCard from "@/components/project-card";
 import SectionMarker from "@/components/section-marker";
+import SectionRail from "@/components/section-rail";
 import HeroFrame from "@/components/hero-frame";
 import SplitText from "@/components/split-text";
 import KineticHeading from "@/components/kinetic-heading";
@@ -27,6 +28,13 @@ export const revalidate = 3600;
  */
 const staticFeatured: Project[] = flagshipProjects;
 
+// Every label here is the kicker the section already prints for itself, so the
+// rail and the page cannot come to say different things about the same block.
+const RAIL_STOPS = [
+  { id: "about-section", label: "About", accent: "var(--accent-1)" },
+  { id: "work-section", label: "Featured Work", accent: "var(--accent-2)" },
+];
+
 export default async function Home() {
   const notionFeatured = await getFeaturedProjects();
   const notionIds = new Set(notionFeatured.map((p) => p.title.toLowerCase()));
@@ -48,6 +56,7 @@ export default async function Home() {
 
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <section className="relative min-h-screen flex items-start md:items-center justify-center overflow-hidden pt-28 pb-16 md:pt-20 md:pb-20">
         {/* Framed, not wallpapered. The project graph was scattered behind this
             headline and read as dust with wires crossing the text; it lives on

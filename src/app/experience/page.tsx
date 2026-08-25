@@ -1,4 +1,5 @@
 import Section from "@/components/section";
+import SectionRail from "@/components/section-rail";
 import Timeline from "@/components/timeline";
 import ProofStrip from "@/components/proof-strip";
 import { getExperience } from "@/lib/notion";
@@ -160,6 +161,16 @@ const staticExperience: Experience[] = [
   },
 ];
 
+/** The proof strip's eyebrow. Printed by the strip and read by the rail. */
+const ALONGSIDE_EYEBROW = "Alongside";
+
+// Two stops, because the page has two things on it: the roles, and the work
+// that shipped alongside them. Both labels are strings the page already prints.
+const RAIL_STOPS = [
+  { id: "journey", label: "Experience", accent: "var(--accent-1)" },
+  { id: "alongside", label: ALONGSIDE_EYEBROW, accent: "var(--accent-2)" },
+];
+
 export default async function ExperiencePage() {
   const notionExperience = await getExperience();
   const experience =
@@ -167,6 +178,7 @@ export default async function ExperiencePage() {
 
   return (
     <>
+      <SectionRail stops={RAIL_STOPS} />
       <Section className="pt-36 pb-8">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
           Experience
@@ -181,14 +193,14 @@ export default async function ExperiencePage() {
         </p>
       </Section>
 
-      <Section className="pt-4">
+      <Section id="journey" className="pt-4 scroll-mt-28">
         <Timeline items={experience} />
       </Section>
 
-      <Section className="pt-6 pb-20">
+      <Section id="alongside" className="pt-6 pb-20 scroll-mt-28">
         <ProofStrip
           ids={PROOF_IDS}
-          eyebrow="Alongside"
+          eyebrow={ALONGSIDE_EYEBROW}
           heading="What shipped while all that was happening"
           blurb="The roles above are the context. These are the things that went out the door."
         />
