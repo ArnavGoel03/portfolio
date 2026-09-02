@@ -512,14 +512,16 @@ function ProjectProfile({ project }: { project: Project }) {
               {project.surfacesLabel ?? HEADING.studio}
             </p>
             <ul className="mt-4 grid gap-px overflow-hidden rounded-xl border border-foreground/10 bg-foreground/10 sm:grid-cols-2">
-              {project.surfaces.map((s) => (
-                <li key={s.href} className="bg-background">
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex h-full flex-col gap-1 p-4 transition-colors hover:bg-foreground/5"
-                  >
+              {project.surfaces.map((s) => {
+                // An empty href is a product with no address to send a reader
+                // to, which is the same thing `Project.demo: ""` already means
+                // one level up. The card keeps its shot and its words; what it
+                // drops is the link and the arrow that promises one, because an
+                // anchor with no href reloads the page and an arrow next to a
+                // name that cannot be opened is a lie the card tells. Keyed by
+                // label, since two unshipped surfaces would collide on "".
+                const inner = (
+                  <>
                     {s.image && (
                       <span className="mb-2 block overflow-hidden rounded-lg border border-foreground/10">
                         <img
@@ -538,17 +540,37 @@ function ProjectProfile({ project }: { project: Project }) {
                     )}
                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
                       {s.label}
-                      <ExternalLink
-                        size={12}
-                        className="text-muted-foreground transition-colors group-hover:text-foreground"
-                      />
+                      {s.href && (
+                        <ExternalLink
+                          size={12}
+                          className="text-muted-foreground transition-colors group-hover:text-foreground"
+                        />
+                      )}
                     </span>
                     <span className="text-sm leading-relaxed text-muted-foreground">
                       {s.blurb}
                     </span>
-                  </a>
-                </li>
-              ))}
+                  </>
+                );
+                return (
+                  <li key={s.label} className="bg-background">
+                    {s.href ? (
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex h-full flex-col gap-1 p-4 transition-colors hover:bg-foreground/5"
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      <div className="group flex h-full flex-col gap-1 p-4">
+                        {inner}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}

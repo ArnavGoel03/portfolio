@@ -251,7 +251,7 @@ function ProjectModal({
               </p>
               <ul className="mt-3 grid gap-2.5">
                 {project.surfaces.map((surface) => (
-                  <li key={surface.href} className="flex gap-3 text-[13px]">
+                  <li key={surface.label} className="flex gap-3 text-[13px]">
                     {surface.image && (
                       <img
                         src={surface.image}
@@ -262,14 +262,25 @@ function ProjectModal({
                       />
                     )}
                     <span>
-                      <a
-                        href={surface.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground/85 underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/60"
-                      >
-                        {surface.label}
-                      </a>
+                      {/* An empty href is a product with no address to send a
+                          reader to, which is the same thing `Project.demo: ""`
+                          already means one level up. It renders as plain text,
+                          because an anchor with no href reloads the page and
+                          reads to a screen reader as a link that goes nowhere.
+                          The key is the label for the same reason: two unshipped
+                          surfaces would otherwise collide on "". */}
+                      {surface.href ? (
+                        <a
+                          href={surface.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-foreground/85 underline decoration-foreground/25 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/60"
+                        >
+                          {surface.label}
+                        </a>
+                      ) : (
+                        <span className="text-foreground/85">{surface.label}</span>
+                      )}
                       <span className="text-muted-foreground"> {surface.blurb}</span>
                       {surface.holds && (
                         <span className="mt-0.5 block font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground/70">

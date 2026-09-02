@@ -232,6 +232,95 @@ export const staticProjects: Project[] = [
     featured: false,
     date: "2026-07",
   },
+  // Two apps on one engine, listed as ONE entry the way the studio is, because
+  // the interesting thing is the seam between them rather than either app.
+  //
+  // Every sentence below is copied verbatim from ~/dev/halation: README.md, its
+  // CLAUDE.md, docs/PARITY.md, docs/LOOKS.md and docs/LEFTOVERS.md. The two
+  // repos cannot import each other, so this is the one place a copy of that
+  // wording is allowed to live. When the wording changes there, change it there
+  // first and mirror it here. Nothing in this entry is written for the
+  // portfolio, and the slots that would have needed new prose are empty rather
+  // than filled with a guess: no subtitle after the title, no image, no link.
+  //
+  // The second app is NOT named here on purpose, in the entry, in the surface
+  // labels or in the image paths. Its name is provisional in exactly the way
+  // "Halation" is, for the same mechanical reason (a bundle identifier is
+  // renameable until the first store upload and permanent after it), and it has
+  // never been uploaded. `docs/LOOKS.md` calls it "a grading app on the same
+  // engine, whose looks are grades", so that is what it is called here and what
+  // its screenshot file is named for.
+  //
+  // Both surfaces carry `href: ""`, which is what `Project.demo: ""` already
+  // means on STATURE: there is no address to send a reader to. Neither app has
+  // shipped anywhere. They render as cards with their shot and their words and
+  // no link.
+  //
+  // Nothing here may imply availability. Halation's own README says so in the
+  // line used as the eyebrow.
+  {
+    id: "halation",
+    title: "Halation: Two Apps on One Core",
+    description:
+      "A Y2K and CCD film camera for Android. Pick a look, and the viewfinder shows you exactly what you are about to save. The preview, the saved photo and the recorded video are produced by the same shader chain with the same parameters, and differ only in resolution. Most retro camera apps preview a cheap approximation and then run a different, heavier process at capture, so the photo you get is not the one you framed. This one uses a single CameraX CameraEffect targeting PREVIEW, VIDEO_CAPTURE and IMAGE_CAPTURE at once, which makes the guarantee structural rather than a convention someone has to remember. The usual way to break it is a resolution dependent parameter: grain sized in pixels looks right at 1080p preview and turns to invisible dust on a 12 MP still. So every spatial parameter in a Look is a fraction of image height, never a pixel count, and a unit test rejects any value large enough to be a pixel count that escaped review. A photograph has two independent layers, and they answer different questions. Only the grade is taste, and conflating the two is the mistake this project made for its whole first week. The engine now serves two products. Roughly 5,200 lines are shared and about 2,800 belong to each app's own chrome, measured on the day. Halation ships cameras: resolution, compression, noise, smear, a burned date. The second app ships the grade alone, applied to photographs somebody already took. A Look with every mechanism off IS a grade, so the second app composes one rather than needing a second engine. The capture stack, the JPEG encoder, the Exif writer, the render loop and the stored settings are about photographs; the SwiftUI chrome is about a product. Nightbus and Crossprint left Halation: they are grades rather than cameras, and they are now the seed of that product, a grading app on the same engine, whose looks are grades. The registry is 13 looks now, down from 15, and their tables moved to grades/. Every table the app ships is generated, not sourced. tools/lutgen/lutgen.py holds one Profile per look, applies ASC CDL slope, offset and power plus saturation, contrast, a highlight shoulder and a shadow tint, and bakes a .cube. No dependencies, so it runs anywhere Python does. Every look carries an AudioProfile and they are period accurate rather than invented: handset-05 is 8 kHz mono at 300 to 3400 Hz, which is telephone bandwidth; the two camcorders run automatic gain at 0.85 and 0.9, whose audible artefact is the RELEASE, the room noise swelling back up over about a second after a loud sound stops; the 35mm and instant stocks are transparent, because a stills camera has no microphone to model. Seven drift gates, and every one of them was written after something got through. They exist because the Android and iOS trees are hand maintained copies of each other, and nothing but these can see the moment the two stop agreeing. The seventh guards the boundary between what two apps share and what belongs to one app's chrome, and enforces a rule that previously had nothing behind it: the core owns no words and no colours. Verified on real hardware 2026-08-27. A Vivo V2356 on Android 14: stills save at 3072x4096. The resolution rule holds at that size: Handycam 99's interlace measures 240 cycles per image height at 139 times the local noise floor in a 12.58 MP photograph, which is 17 pixels per scanline, the identical pattern that measures 428 times the floor in a 1080 tall render. That is the whole invariant, demonstrated on a real sensor rather than argued for. Zero warnings, enforced rather than requested. The app makes no network calls and holds no INTERNET permission. Filter names are invented. Real film stock names are trademarks.",
+    tags: [
+      "Kotlin",
+      "Jetpack Compose",
+      "CameraX",
+      "OpenGL ES",
+      "GLSL",
+      "Swift 6",
+      "SwiftUI",
+      "Metal",
+      "Android",
+      "iOS",
+      "macOS",
+      "Python",
+    ],
+    // Both shots are iPhone 17 Pro simulator captures at the device's native
+    // 1206x2622, converted with `cwebp -q 82` and otherwise untouched. They are
+    // stored full height rather than pre-cropped to the card's 16:10, which is
+    // what `serenity`, `watch-together` and `buzz` already do for captures that
+    // are not 16:10 to begin with: the card's `object-cover object-top` does the
+    // crop, and picking a 754px band out of a phone screenshot would be an
+    // editorial choice about which part of the app is the app.
+    //
+    // The viewfinder in the Halation shot is the synthetic colour chart, not a
+    // scene: a simulator has no camera. Nothing here describes it as a
+    // photograph, and both surface images are `alt=""` decorative.
+    image: "/shots/halation.webp",
+    // Two products on one engine, which is what the entry is about, so they are
+    // listed the way the studio lists its apps. Not a studio, so the default
+    // "In this studio · N sites" heading is replaced below.
+    surfaces: [
+      {
+        label: "Halation",
+        href: "",
+        image: "/shots/halation.webp",
+        holds: "13 looks · Android, iOS, macOS",
+        blurb:
+          "Halation ships cameras: resolution, compression, noise, smear, a burned date.",
+      },
+      {
+        label: "The grading app",
+        href: "",
+        image: "/shots/s-grading-app.webp",
+        holds: "2 grades · iOS",
+        blurb:
+          "The second app ships the grade alone, applied to photographs somebody already took.",
+      },
+    ],
+    surfacesLabel: "The engine now serves two products",
+    github: "",
+    privateRepo: true,
+    // No link on purpose. Neither app has been uploaded to any store and there
+    // is no site, so there is no address a reader could open.
+    demo: "",
+    eyebrow: "Working name. Not yet on Google Play.",
+    featured: false,
+    date: "2026-08",
+    inProgress: true,
+  },
   // The personal sites, listed once as the index that already binds them
   // rather than as five entries competing with the engineering work. Labels,
   // roles and ledes are copied verbatim from ~/dev/links/src/config.mjs, which
