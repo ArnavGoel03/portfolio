@@ -140,6 +140,13 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
+// Says what was actually checked, and no more. Coverage is asserted against
+// llms.txt alone, because that file is the index and every project belongs in
+// it; llms-full.txt is a curated subset of detailed write-ups and most projects
+// are deliberately absent from it, so the same assertion there would fail on a
+// correct file. The GPA assertions above do cover both. The older wording
+// claimed llms-full.txt was checked for coverage too, which was a green tick on
+// something nothing had looked at.
 console.log(
-  `llms.txt and llms-full.txt: all ${titles.length} projects are listed and every GPA matches lib/constants.ts.`,
+  `llms.txt: all ${titles.length} projects are listed. Both files: every GPA matches lib/constants.ts.`,
 );
