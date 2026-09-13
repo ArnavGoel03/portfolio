@@ -8,6 +8,27 @@ this repo can silently stop deploying by watching it happen.
 Written the day the site spent two days serving a stale build without anybody
 noticing.
 
+## Project preview overlap, 13 September 2026
+
+The user supplied a rendered failure: the photography preview overlapped the
+Coursework section and sat below navigation. `ProjectModal` was mounted inside
+animated sections. A transformed ancestor can contain a fixed element and create
+a stacking context, so raising the child's z-index does not fix that structure.
+
+All project previews now use the existing Base UI Dialog: a body portal,
+backdrop and viewport above navigation, an internally scrolling popup bounded by
+the dynamic viewport height, accessible title and close control, modal focus
+management and background scroll locking. No project copy or dependencies changed.
+Keep global dialogs outside transformed page sections. Regression review must
+open a long preview near the bottom of Projects, check desktop and narrow
+viewports, then check inner scrolling, background blocking and dismissal.
+
+Local lint, TypeScript, `check:llms` and production build passed without warnings.
+Browser verification is still blocked: the in-app runtime lists zero browsers;
+standard Chromium headless shell aborts with Mach port registration denied
+(exit -5). No rendered pass is claimed. Evidence is in the ignored
+`.firecrawl/modal-overlap/` directory. Publication receipt follows after deploy.
+
 ## App listing audit, 13 September 2026
 
 The existing Projects page remains the designated app directory. Quiver names
