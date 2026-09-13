@@ -28,7 +28,12 @@ an initial disk-full failure; final verification is recorded in
 `docs/REQUESTS-2026-09-13.md`. No screenshot was claimed: Firecrawl credits are
 exhausted, the browser runtime has no connected browser, and normal Chrome
 headless launch aborts with exit -6. Rendered visual review remains outstanding.
-Publishing and live-content verification are pending.
+Application change `204b5a0` is live at https://arnavgoel.dev/projects.
+Vercel deployment `dpl_B3fGJ2ZjYCRVxKy8BQMbVXMSygzQ` is Ready in
+production and aliases the apex. Live visible HTML and both crawler indexes
+were checked after deployment for the new names, three current versions,
+platforms and prototype status. The receipt-only commit does not change
+application output.
 
 ---
 
