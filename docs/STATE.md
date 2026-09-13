@@ -27,7 +27,11 @@ Local lint, TypeScript, `check:llms` and production build passed without warning
 Browser verification is still blocked: the in-app runtime lists zero browsers;
 standard Chromium headless shell aborts with Mach port registration denied
 (exit -5). No rendered pass is claimed. Evidence is in the ignored
-`.firecrawl/modal-overlap/` directory. Publication receipt follows after deploy.
+`.firecrawl/modal-overlap/` directory. Application commit `00feacb` is live:
+Vercel production deployment `dpl_BTa5bft2E2pJcZd8KUELaYQcDLCZ` is Ready and
+aliases arnavgoel.dev. Live `/projects` returned HTTP 200; its referenced assets
+contain the dialog portal, viewport bound, scroll containment and close label.
+That verifies publication, not rendered interaction behavior.
 
 ## App listing audit, 13 September 2026
 
