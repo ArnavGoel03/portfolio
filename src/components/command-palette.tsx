@@ -24,13 +24,15 @@ import type { LucideIcon } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import type { IconType } from "react-icons";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import { staticProjects } from "@/lib/projects";
 
 type IconComponent = LucideIcon | IconType;
+const SECTION_ORDER = ["Navigation", "Case Studies", "Projects", "External", "Actions"] as const;
 
 type CommandItem = {
   id: string;
   label: string;
-  section: "Navigation" | "Case Studies" | "External" | "Actions";
+  section: (typeof SECTION_ORDER)[number];
   icon: IconComponent;
   href: string;
   external?: boolean;
@@ -57,6 +59,18 @@ const ITEMS: CommandItem[] = [
   { id: "cs-gondilal", label: "Gondilal Saraf, case study", section: "Case Studies", icon: BookOpen, href: "/projects/gondilal-saraf", keywords: ["jewelry", "full-stack", "family business"] },
   { id: "cs-pcod", label: "Serenity, case study", section: "Case Studies", icon: BookOpen, href: "/projects/serenity", keywords: ["health", "claude", "ai"] },
   { id: "cs-redbull", label: "Red Bull YouTube Analytics, case study", section: "Case Studies", icon: BookOpen, href: "/projects/redbull-youtube-analytics", keywords: ["vader", "sentiment", "youtube"] },
+
+  // Named apps remain searchable even when their project is a shared studio.
+  ...staticProjects
+    .filter((project) => project.surfaces?.length || project.id === "saycut")
+    .map((project): CommandItem => ({
+      id: `project-${project.id}`,
+      label: project.title,
+      section: "Projects",
+      icon: Zap,
+      href: `/projects/${project.id}`,
+      keywords: [...project.tags, ...(project.surfaces?.map((surface) => surface.label) ?? [])],
+    })),
 
   // External
   { id: "ext-github", label: "GitHub · ArnavGoel03", section: "External", icon: FaGithub, href: SOCIAL_LINKS.github, external: true },
@@ -139,14 +153,8 @@ export default function CommandPalette() {
   }, [filtered]);
 
   const flatList = useMemo(() => {
-    const order: CommandItem["section"][] = [
-      "Navigation",
-      "Case Studies",
-      "External",
-      "Actions",
-    ];
     const flat: CommandItem[] = [];
-    for (const s of order) {
+    for (const s of SECTION_ORDER) {
       if (grouped[s]) flat.push(...grouped[s]);
     }
     return flat;
@@ -248,7 +256,7 @@ export default function CommandPalette() {
                   <span className="text-foreground">{query}</span>.
                 </p>
               ) : (
-                (["Navigation", "Case Studies", "External", "Actions"] as const).map(
+                SECTION_ORDER.map(
                   (section) => {
                     const items = grouped[section];
                     if (!items || items.length === 0) return null;

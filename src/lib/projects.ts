@@ -13,13 +13,13 @@ export const studioProject: Project = {
   id: "studio",
   title: "Quiver: A Studio of Private, Native Mac Apps",
   description:
-    "A one-person studio building a suite of local-first macOS apps that never phone home: no accounts, no telemetry, nothing leaves your Mac, all unlocked by a single subscription key. Trove packs 40+ utilities (clipboard manager, window manager, system and GPU monitors, OCR, a full PDF kit, disk cleaner, and more) into one native app. Relay is a private, local API client (a Postman / Bruno alternative) with collections, environments, OAuth / AWS / digest auth, and JavaScript pre and post-request scripting, keys stored in the Keychain. Tend is a calm, local-first tasks and calendar app. Built in Swift 6 and SwiftUI with a shared code core and one licensing model across every app, direct-distributed and Developer-ID signed, with a marketing site and per-app SEO.",
+    "A one-person studio building a suite of local-first macOS apps that never phone home: no accounts, no telemetry, nothing leaves your Mac, all unlocked by a single subscription key. Trove packs 40+ utilities (clipboard manager, window manager, system and GPU monitors, OCR, a full PDF kit, disk cleaner, and more) into one native app. Relay is a private, local API client (a Postman / Bruno alternative) with collections, environments, OAuth / AWS / digest auth, and JavaScript pre and post-request scripting, keys stored in the Keychain. Tend is a calm, local-first tasks and calendar app. Built in Swift 6 and SwiftUI with a shared code core and one licensing model across every app, direct-distributed, with a marketing site and per-app SEO.",
   tags: ["Swift 6", "SwiftUI", "macOS", "Local-first", "Keychain", "SwiftPM"],
   image: "/shots/studio.webp",
   github: "",
   // The studio's own site. Not `gettrove.vercel.app`, which belongs to an
   // unrelated company and has never had anything to do with these apps.
-  demo: "https://trove.arnavgoel.dev",
+  demo: "https://quiver.arnavgoel.dev",
   // Every label, blurb and version below is copied verbatim from the suite own
   // source of truth, ~/dev/trove/macos/suite.config.json and the VERSION file
   // each app owns. Nothing here is written for the portfolio. When an app ships,
@@ -37,21 +37,21 @@ export const studioProject: Project = {
       label: "Trove",
       href: "https://quiver.arnavgoel.dev/",
       image: "/shots/s-trove.webp",
-      holds: "v1.12.8\u00A0\u00B7\u00A0macOS 13+",
+      holds: "v1.13.0\u00A0\u00B7\u00A0macOS 13+",
       blurb: "One app instead of a dozen.",
     },
     {
       label: "Relay",
       href: "https://quiver.arnavgoel.dev/relay",
       image: "/shots/s-relay.webp",
-      holds: "v0.1.0\u00A0\u00B7\u00A0macOS 13+",
+      holds: "v0.3.1\u00A0\u00B7\u00A0macOS 13+",
       blurb: "A private, local API client.",
     },
     {
       label: "Tend",
       href: "https://quiver.arnavgoel.dev/tend",
       image: "/shots/s-tend.webp",
-      holds: "v0.11.0\u00A0\u00B7\u00A0macOS 14+",
+      holds: "v0.13.2\u00A0\u00B7\u00A0macOS 14+",
       blurb: "Tasks and calendar that never leave your Mac.",
     },
   ],
@@ -232,37 +232,14 @@ export const staticProjects: Project[] = [
     featured: false,
     date: "2026-07",
   },
-  // Two apps on one engine, listed as ONE entry the way the studio is, because
-  // the interesting thing is the seam between them rather than either app.
-  //
-  // Every sentence below is copied verbatim from ~/dev/halation: README.md, its
-  // CLAUDE.md, docs/PARITY.md, docs/LOOKS.md and docs/LEFTOVERS.md. The two
-  // repos cannot import each other, so this is the one place a copy of that
-  // wording is allowed to live. When the wording changes there, change it there
-  // first and mirror it here. Nothing in this entry is written for the
-  // portfolio, and the slots that would have needed new prose are empty rather
-  // than filled with a guess: no subtitle after the title, no image, no link.
-  //
-  // The second app is NOT named here on purpose, in the entry, in the surface
-  // labels or in the image paths. Its name is provisional in exactly the way
-  // "Halation" is, for the same mechanical reason (a bundle identifier is
-  // renameable until the first store upload and permanent after it), and it has
-  // never been uploaded. `docs/LOOKS.md` calls it "a grading app on the same
-  // engine, whose looks are grades", so that is what it is called here and what
-  // its screenshot file is named for.
-  //
-  // Both surfaces carry `href: ""`, which is what `Project.demo: ""` already
-  // means on STATURE: there is no address to send a reader to. Neither app has
-  // shipped anywhere. They render as cards with their shot and their words and
-  // no link.
-  //
-  // Nothing here may imply availability. Halation's own README says so in the
-  // line used as the eyebrow.
+  // Product copy is mirrored from Halation's README and Apple Words.swift.
+  // Both development apps are named explicitly. Neither has a public release
+  // URL, so their surfaces intentionally render without availability links.
   {
     id: "halation",
     title: "Halation: Two Apps on One Core",
     description:
-      "A Y2K and CCD film camera for Android. Pick a look, and the viewfinder shows you exactly what you are about to save. The preview, the saved photo and the recorded video are produced by the same shader chain with the same parameters, and differ only in resolution. Most retro camera apps preview a cheap approximation and then run a different, heavier process at capture, so the photo you get is not the one you framed. This one uses a single CameraX CameraEffect targeting PREVIEW, VIDEO_CAPTURE and IMAGE_CAPTURE at once, which makes the guarantee structural rather than a convention someone has to remember. The usual way to break it is a resolution dependent parameter: grain sized in pixels looks right at 1080p preview and turns to invisible dust on a 12 MP still. So every spatial parameter in a Look is a fraction of image height, never a pixel count, and a unit test rejects any value large enough to be a pixel count that escaped review. A photograph has two independent layers, and they answer different questions. Only the grade is taste, and conflating the two is the mistake this project made for its whole first week. The engine now serves two products. Roughly 5,200 lines are shared and about 2,800 belong to each app's own chrome, measured on the day. Halation ships cameras: resolution, compression, noise, smear, a burned date. The second app ships the grade alone, applied to photographs somebody already took. A Look with every mechanism off IS a grade, so the second app composes one rather than needing a second engine. The capture stack, the JPEG encoder, the Exif writer, the render loop and the stored settings are about photographs; the SwiftUI chrome is about a product. Nightbus and Crossprint left Halation: they are grades rather than cameras, and they are now the seed of that product, a grading app on the same engine, whose looks are grades. The registry is 13 looks now, down from 15, and their tables moved to grades/. Every table the app ships is generated, not sourced. tools/lutgen/lutgen.py holds one Profile per look, applies ASC CDL slope, offset and power plus saturation, contrast, a highlight shoulder and a shadow tint, and bakes a .cube. No dependencies, so it runs anywhere Python does. Every look carries an AudioProfile and they are period accurate rather than invented: handset-05 is 8 kHz mono at 300 to 3400 Hz, which is telephone bandwidth; the two camcorders run automatic gain at 0.85 and 0.9, whose audible artefact is the RELEASE, the room noise swelling back up over about a second after a loud sound stops; the 35mm and instant stocks are transparent, because a stills camera has no microphone to model. Seven drift gates, and every one of them was written after something got through. They exist because the Android and iOS trees are hand maintained copies of each other, and nothing but these can see the moment the two stop agreeing. The seventh guards the boundary between what two apps share and what belongs to one app's chrome, and enforces a rule that previously had nothing behind it: the core owns no words and no colours. Verified on real hardware 2026-08-27. A Vivo V2356 on Android 14: stills save at 3072x4096. The resolution rule holds at that size: Handycam 99's interlace measures 240 cycles per image height at 139 times the local noise floor in a 12.58 MP photograph, which is 17 pixels per scanline, the identical pattern that measures 428 times the floor in a 1080 tall render. That is the whole invariant, demonstrated on a real sensor rather than argued for. Zero warnings, enforced rather than requested. The app makes no network calls and holds no INTERNET permission. Filter names are invented. Real film stock names are trademarks.",
+      "A Y2K and CCD film camera for Android. Pick a look, and the viewfinder shows you exactly what you are about to save. The preview, the saved photo and the recorded video are produced by the same shader chain with the same parameters, and differ only in resolution. The engine now serves two products. Halation ships cameras: resolution, compression, noise, smear, a burned date. Emulsion's first screen shows a locally bundled photograph and selectable grades. Its canvas fills the available workspace; Mac uses an inspector and native sliders, while narrow windows use scrollable touch controls with import/save kept reachable. Emulsion supports iPhone and iPad rotation. Emulsion now has a native Android target; device execution remains pending. Every table the app ships is generated, not sourced. The app makes no network calls and holds no INTERNET permission.",
     tags: [
       "Kotlin",
       "Jetpack Compose",
@@ -297,17 +274,17 @@ export const staticProjects: Project[] = [
         label: "Halation",
         href: "",
         image: "/shots/halation.webp",
-        holds: "13 looks · Android, iOS, macOS",
+        holds: "13 looks · Android, iPhone, macOS",
         blurb:
           "Halation ships cameras: resolution, compression, noise, smear, a burned date.",
       },
       {
-        label: "The grading app",
+        label: "Emulsion",
         href: "",
         image: "/shots/s-grading-app.webp",
-        holds: "2 grades · iOS",
+        holds: "Android, iPhone, iPad, macOS",
         blurb:
-          "The second app ships the grade alone, applied to photographs somebody already took.",
+          "Grade a photograph you already took",
       },
     ],
     surfacesLabel: "The engine now serves two products",
@@ -317,6 +294,20 @@ export const staticProjects: Project[] = [
     // is no site, so there is no address a reader could open.
     demo: "",
     eyebrow: "Working name. Not yet on Google Play.",
+    featured: false,
+    date: "2026-08",
+    inProgress: true,
+  },
+  {
+    id: "saycut",
+    title: "Saycut",
+    description:
+      "Edit your video by editing the words. Saycut transcribes your clip on device, shows you the transcript, and lets you cut the video by tapping words and running plain commands (\"remove filler words\", \"remove silences\"). It only ever cuts what you filmed. It never generates or invents footage. Working prototype.",
+    tags: ["SwiftUI", "iOS", "AVFoundation", "Speech"],
+    image: "",
+    github: "",
+    demo: "",
+    eyebrow: "Working prototype.",
     featured: false,
     date: "2026-08",
     inProgress: true,

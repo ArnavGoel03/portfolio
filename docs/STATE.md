@@ -1,12 +1,34 @@
 # Portfolio: state of play
 
-Last updated 23 August 2026. This is the pick-it-up-later document for
+Last updated 13 September 2026. This is the pick-it-up-later document for
 arnavgoel.dev. Read it before touching anything; it exists so the next session
 does not re-derive the same five facts, and so nobody has to discover the way
 this repo can silently stop deploying by watching it happen.
 
 Written the day the site spent two days serving a stale build without anybody
 noticing.
+
+## App listing audit, 13 September 2026
+
+The existing Projects page remains the designated app directory. Quiver names
+Trove 1.13.0, Relay 0.3.1 and Tend 0.13.2 with their canonical studio URLs.
+GitHub's live release API confirmed those assets on 13 September; Relay and Tend
+are public prereleases. Removed an incorrect Developer ID signing claim, since
+the apps' source records confirm Apple Development signing.
+
+The photography entry now names Emulsion and lists each app's actual targets.
+Emulsion's Android implementation is present, but device execution remains
+pending; neither photography app has a public store/download link. Saycut is
+listed as an iOS working prototype, using its README wording. Named studio/app
+surfaces now participate in Cmd+K search through canonical project metadata.
+Both crawler indexes include Halation, Emulsion and Saycut.
+
+Local lint, TypeScript and the index gate pass. A production build passed after
+an initial disk-full failure; final verification is recorded in
+`docs/REQUESTS-2026-09-13.md`. No screenshot was claimed: Firecrawl credits are
+exhausted, the browser runtime has no connected browser, and normal Chrome
+headless launch aborts with exit -6. Rendered visual review remains outstanding.
+Publishing and live-content verification are pending.
 
 ---
 

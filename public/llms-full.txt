@@ -55,12 +55,12 @@ A four-site game studio built around one claim: every roll and every shuffle is 
 
 ### Quiver: A Studio of Private, Native Mac Apps
 A one-person studio building local-first macOS apps that never phone home: no accounts, no telemetry, nothing leaves the Mac, all unlocked by a single subscription key.
-- **Trove:** 40+ utilities in one native app, including a clipboard manager, window manager, system and GPU monitors, OCR, a full PDF kit and a disk cleaner.
-- **Relay:** a private local API client and Postman / Bruno alternative, with collections, environments, OAuth / AWS / digest auth, JavaScript pre and post-request scripting, and keys held in the Keychain.
-- **Tend:** a calm, local-first tasks and calendar app.
-- **Engineering:** Swift 6 and SwiftUI on a shared code core with one licensing model across every app, Developer-ID signed and direct-distributed rather than sold through the App Store, with a marketing site and per-app SEO.
+- **Trove v1.13.0 (macOS 13+):** 40+ utilities in one native app, including a clipboard manager, window manager, system and GPU monitors, OCR, a full PDF kit and a disk cleaner.
+- **Relay v0.3.1 (macOS 13+):** a private local API client and Postman / Bruno alternative, with collections, environments, OAuth / AWS / digest auth, JavaScript pre and post-request scripting, and keys held in the Keychain.
+- **Tend v0.13.2 (macOS 14+):** a calm, local-first tasks and calendar app.
+- **Engineering:** Swift 6 and SwiftUI on a shared code core with one licensing model across every app, direct-distributed rather than sold through the App Store, with a marketing site and per-app SEO.
 - **Tags:** Swift 6, SwiftUI, macOS, Local-first, Keychain, SwiftPM
-- **Live:** https://trove.arnavgoel.dev
+- **Live:** https://quiver.arnavgoel.dev
 - **Status:** In progress. Source private.
 - **Date:** July 2026
 
@@ -84,6 +84,19 @@ A 3D file converter that runs entirely in your browser. Drop a model, pick a for
 - **Live:** https://meshport.vercel.app
 - **Status:** Live. Source private.
 - **Date:** July 2026
+
+### Halation: Two Apps on One Core
+A Y2K and CCD film camera for Android. Pick a look, and the viewfinder shows you exactly what you are about to save. The preview, the saved photo and the recorded video are produced by the same shader chain with the same parameters, and differ only in resolution. The engine now serves two products.
+- **Halation:** Halation ships cameras: resolution, compression, noise, smear, a burned date. Android, iPhone, macOS.
+- **Emulsion:** Grade a photograph you already took. Android, iPhone, iPad, macOS. Emulsion now has a native Android target; device execution remains pending.
+- **Status:** In progress. Working name. Not yet on Google Play. Source private.
+- **Project:** https://arnavgoel.dev/projects/halation
+
+### Saycut
+Edit your video by editing the words. Saycut transcribes your clip on device, shows you the transcript, and lets you cut the video by tapping words and running plain commands ("remove filler words", "remove silences"). It only ever cuts what you filmed. It never generates or invents footage.
+- **Platform:** iOS native SwiftUI.
+- **Status:** Working prototype.
+- **Project:** https://arnavgoel.dev/projects/saycut
 
 ### Links: Five places I keep things
 The index of my five sites, drawn spine-first as five matched volumes on a board, each in its own binding cloth. Clicking a spine takes that volume off the shelf and opens it.
