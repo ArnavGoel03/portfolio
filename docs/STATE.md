@@ -1,12 +1,29 @@
 # Portfolio: state of play
 
-Last updated 13 September 2026. This is the pick-it-up-later document for
+Last updated 15 September 2026. This is the pick-it-up-later document for
 arnavgoel.dev. Read it before touching anything; it exists so the next session
 does not re-derive the same five facts, and so nobody has to discover the way
 this repo can silently stop deploying by watching it happen.
 
 Written the day the site spent two days serving a stale build without anybody
 noticing.
+
+## Rendered verification retry, 15 September 2026
+
+The requested desktop/mobile interaction review remains unexecuted. Fresh browser
+connection discovery returned no browsers. A standard installed Chromium headless
+positive control against `about:blank` exited -5 before rendering:
+`bootstrap_check_in ... MachPortRendezvousServer: Permission denied (1100)`.
+No screenshot was created, and no sandbox-disabling flags or alternate launch
+broker were used. Evidence: `.firecrawl/modal-overlap-20260915/browser.log`.
+
+Vercel inspection on this retry confirms the production alias is Ready at
+`dpl_Fn7AZYgnFWH3zC1a3zQypEbJjG3R`, created after the prior receipt-only commit.
+This is deployment status only. The unresolved rendered checks are long previews
+opened near the bottom of Projects, desktop and mobile viewport bounds, inner
+scrolling, background blocking, Escape/backdrop dismissal and keyboard focus.
+No application code or dependencies changed in this retry; the previously passing
+build gates were not repeated for a documentation-only status update.
 
 ## Project preview overlap, 13 September 2026
 
