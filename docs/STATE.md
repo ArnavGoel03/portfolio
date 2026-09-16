@@ -472,3 +472,14 @@ what: Put the `statureindia.vercel.app` alias back on the `stature` project, or 
 why: Vercel dashboard, and a decision about which address is the real one.
 raised: 2026-08-25
 ```
+
+## Sequential performance implementation, 2026-09-17
+
+Shared performance guidance is saved in `~/dev/standards/BEST_PRACTICES.md`,
+referenced by CORE and DEVELOP_RULES for every configured harness and agent.
+Fevicreate is the only active implementation: commit `2cd452d`, draft PR
+https://github.com/ArnavGoel03/pidilite-school-checkin/pull/1. Its full visit
+history/filter/export and territory moderation changes pass 228 HTTP checks,
+SQL/restore/static gates and a warning-free build. Browser verification remains
+blocked by unavailable browser access; it is not merged or live. Other projects
+remain queued in `docs/audits/performance-2026-09-17/IMPLEMENTATION.md`.
