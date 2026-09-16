@@ -483,3 +483,9 @@ history/filter/export and territory moderation changes pass 228 HTTP checks,
 SQL/restore/static gates and a warning-free build. Browser verification remains
 blocked by unavailable browser access; it is not merged or live. Other projects
 remain queued in `docs/audits/performance-2026-09-17/IMPLEMENTATION.md`.
+
+Follow-up: the owner requested completion of all remaining queued projects without
+stopping for Fevicreate's blocked browser gate. Review record is the first shipped
+fix (responsive cover, merged 5d38b79, live HTML verified). The implementation
+queue is the canonical per-project progress and verification-limit record; it is
+updated after each project. Work remains sequential.
