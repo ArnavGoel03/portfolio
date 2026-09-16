@@ -8,7 +8,7 @@ and DEVELOP_RULES so every configured harness/agent reads the same source.
 
 | Status | Project | Work |
 |---|---|---|
-| Awaiting browser verification | Fevicreate | Implemented at 2cd452d, draft PR #1. 228 HTTP checks, SQL/restore/static gates and warning-free build pass. Rendered desktop/mobile check, merge and live verification remain. |
+| Awaiting browser verification | Fevicreate | Implemented at 2cd452d, browser harness at b74caf6, draft PR #1. 228 HTTP checks, SQL/restore/static gates and warning-free build pass. Rendered checks blocked by macOS browser denial and GitHub billing rejection (run 35157835149); merge and live verification remain. |
 | Queued | Review record | Responsive homepage photograph derivatives |
 | Queued | CUTROOM | Nonblocking intro while preserving existing user controls |
 | Queued | Q Branch | Nonblocking boot and correct first/repeat/reduced-motion behavior |
