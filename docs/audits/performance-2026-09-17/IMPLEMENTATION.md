@@ -18,8 +18,8 @@ and DEVELOP_RULES so every configured harness/agent reads the same source.
 | Live | Q Branch | PR #1 merged as bcad903. Live HTML, CSS, app.js and service worker match source bytes. Fixed boot delay removed; release/cache markers generated consistently. Syntax/calibration checks pass; browser/offline/3D measurements unavailable. |
 | Live | Library Walk | PR #1 merged as d813619; production HTML, JS, CSS, polling and SW match source bytes; immutable cache headers verified. HTML 518,348 to 33,297 raw bytes. Lint and 171 API/poll checks pass. Browser/gameplay/offline verification remains unavailable. |
 | Candidate; release blocked | Glass Table Games | Implemented at 760e273; five production builds and full gate (4,100 package tests, 102 Node checks) pass. Workerd gzip/identity bytes pass at supported compatibility date. Exact-candidate browsers and runtime date unavailable; promotion and separate studio mirror remain recorded in project LEFTOVERS. |
-| In progress | Gondilal | Tracing rate refresh, cache invalidation and settings callers. |
-| Queued | Buzz | Visibility-gated map; complete organization history where practical |
+| Live | Gondilal | PR #22 merged as deaed7d; production v1.2.6 verified on home/shop with private/no-store and fresh matching CSP nonces. Full 412 tests and production build pass. Warm rates avoid DB for 60s; settings batched. Redis-outage consistency window documented; browser device acceptance remains open. |
+| Live | Buzz | PR #1 merged as 5ac9b5b. Five live routes return 200; all map routes show the gate; initial JS/CSS excludes map payloads. Seven Node tests, typecheck/build and Chromium desktop/phone run 35163988412 pass. Map/event-list screenshots inspected with a Carto fixture; live tiles, production RLS and native acceptance remain outside this pass. |
 | Queued | PITCREW | Actual visibility gate for heavy scene |
 | Queued | Trove / Relay shared core | Bounded cached response formatting off main; verify both apps sequentially |
 | Queued | Tend | Reuse derived counts/groups and bound history; preserve deferred iPhone testing |
