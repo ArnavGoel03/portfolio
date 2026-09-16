@@ -1,0 +1,275 @@
+[
+  {
+    "id": "studio",
+    "title": "Quiver: A Studio of Private, Native Mac Apps",
+    "demo": "https://quiver.arnavgoel.dev",
+    "github": "",
+    "surfaces": [
+      {
+        "label": "Quiver",
+        "href": "https://quiver.arnavgoel.dev"
+      },
+      {
+        "label": "Trove",
+        "href": "https://quiver.arnavgoel.dev/"
+      },
+      {
+        "label": "Relay",
+        "href": "https://quiver.arnavgoel.dev/relay"
+      },
+      {
+        "label": "Tend",
+        "href": "https://quiver.arnavgoel.dev/tend"
+      }
+    ]
+  },
+  {
+    "id": "buzz",
+    "title": "Buzz: College Event Discovery",
+    "demo": "https://buzzcampus.vercel.app",
+    "github": "https://github.com/ArnavGoel03/buzz",
+    "surfaces": []
+  },
+  {
+    "id": "glass-table-games",
+    "title": "Glass Table Games: A Studio of Provably Fair Board and Card Games",
+    "demo": "https://glasstablegames.com",
+    "github": "",
+    "surfaces": [
+      {
+        "label": "Glass Table Games",
+        "href": "https://glasstablegames.com"
+      },
+      {
+        "label": "Circuit",
+        "href": "https://circuit.glasstablegames.com"
+      },
+      {
+        "label": "Deal",
+        "href": "https://deal.glasstablegames.com"
+      },
+      {
+        "label": "Charade",
+        "href": "https://charade.glasstablegames.com"
+      },
+      {
+        "label": "Lattice",
+        "href": "https://lattice.glasstablegames.com"
+      },
+      {
+        "label": "Fair play, explained",
+        "href": "https://glasstablegames.com/fair-play"
+      }
+    ]
+  },
+  {
+    "id": "claude-skills",
+    "title": "arnav-skills: Claude Code Skills Marketplace",
+    "demo": "",
+    "github": "https://github.com/ArnavGoel03/claude-skills",
+    "surfaces": []
+  },
+  {
+    "id": "soma",
+    "title": "SOMA: An Anatomical Diagnostic Console",
+    "demo": "https://soma.arnavgoel.dev",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "meshport",
+    "title": "Meshport: Convert 3D files, right in your browser",
+    "demo": "https://meshport.vercel.app",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "halation",
+    "title": "Halation: Two Apps on One Core",
+    "demo": "",
+    "github": "",
+    "surfaces": [
+      {
+        "label": "Halation",
+        "href": ""
+      },
+      {
+        "label": "Emulsion",
+        "href": ""
+      }
+    ]
+  },
+  {
+    "id": "saycut",
+    "title": "Saycut",
+    "demo": "",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "links",
+    "title": "Links: Five places I keep things",
+    "demo": "https://goel-links.vercel.app",
+    "github": "",
+    "surfaces": [
+      {
+        "label": "Portfolio",
+        "href": "/"
+      },
+      {
+        "label": "The review record",
+        "href": "https://yashgoel.vercel.app"
+      },
+      {
+        "label": "Upkeep",
+        "href": "https://yashgoel-handyman.vercel.app"
+      },
+      {
+        "label": "Fitout",
+        "href": "https://yashgoel-interiors.vercel.app"
+      },
+      {
+        "label": "Larder",
+        "href": "https://yashgoel-larder.vercel.app"
+      }
+    ]
+  },
+  {
+    "id": "pitcrew",
+    "title": "PITCREW: The Pit Lane for Robot Fleets",
+    "demo": "https://pitcrew-five.vercel.app",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "meridian",
+    "title": "Meridian: An Interactive 3D Earth",
+    "demo": "https://region-earth.vercel.app",
+    "github": "https://github.com/ArnavGoel03/region-earth",
+    "surfaces": []
+  },
+  {
+    "id": "qbranch",
+    "title": "Q Branch: Covert Instruments",
+    "demo": "https://q-armoury.vercel.app",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "cutroom",
+    "title": "CUTROOM: A Cinematic Editing-Studio Showcase",
+    "demo": "https://cutroom-one.vercel.app",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "stature",
+    "title": "STATURE: Clothing for Men Built Tall",
+    "demo": "",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "library-walk",
+    "title": "Library Walk: A Playable Micromobility Thesis",
+    "demo": "https://library-walk.vercel.app",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "syn100-micromobility",
+    "title": "Built for Cars, Banned for Bikes: Micromobility Research Site",
+    "demo": "https://syn100-micromobility.vercel.app",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "pidilite-fevicreate",
+    "title": "Pidilite Fevicreate: Internal School-Engagement Tracker",
+    "demo": "https://pidilite-school-checkin.vercel.app",
+    "github": "",
+    "surfaces": [
+      {
+        "label": "Fevicryl Art On Sale",
+        "href": "https://fevicryl-art-catalog.vercel.app"
+      }
+    ]
+  },
+  {
+    "id": "watch-together",
+    "title": "Watch Together: Cross-Site Video Sync",
+    "demo": "https://chromewebstore.google.com/detail/kilmggcpfkcfpkaapillgloabbgmeeoa",
+    "github": "https://github.com/ArnavGoel03/watch-together",
+    "surfaces": []
+  },
+  {
+    "id": "serenity",
+    "title": "Serenity: AI Health Companion",
+    "demo": "https://serenity-pcos.vercel.app",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "mlb-playoff-cogs108",
+    "title": "MLB Playoff Prediction: COGS 108",
+    "demo": "https://youtu.be/nEdCi9loxAI",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "arkinvest-anduril-mgt127r",
+    "title": "Anduril Industries: MGT 127R S-Curve Case",
+    "demo": "https://youtu.be/gMxLb814kPM",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "arkinvest-mgt127r",
+    "title": "ARK Invest: MGT 127R Disruptive-Tech Case",
+    "demo": "https://youtu.be/iEqXolIMZVE",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "har-cse158",
+    "title": "Human Activity Recognition: CSE 158",
+    "demo": "https://youtu.be/5Jzb_5LDcEg",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "cogs9-final",
+    "title": "COGS 9: Final Group Project",
+    "demo": "https://youtu.be/ZcxTi0N75BI",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "gondilal-saraf",
+    "title": "Gondilal Saraf: Full-Stack Jewelry Platform",
+    "demo": "https://gondilalsaraf.com",
+    "github": "",
+    "surfaces": []
+  },
+  {
+    "id": "redbull-youtube-analytics",
+    "title": "Red Bull YouTube Sentiment Analytics",
+    "demo": "/artifacts/redbull-youtube-executive-summary.pdf",
+    "github": "https://github.com/ArnavGoel03/redbull-youtube-analytics",
+    "surfaces": []
+  },
+  {
+    "id": "power-grid-analysis",
+    "title": "U.S. Power Outages: DSC 80",
+    "demo": "https://arnavgoel03.github.io/Power-grid-analysis/",
+    "github": "https://github.com/ArnavGoel03/Power-grid-analysis",
+    "surfaces": []
+  },
+  {
+    "id": "vaani",
+    "title": "Vaani: Multilingual AI Chatbot",
+    "demo": "",
+    "github": "",
+    "surfaces": []
+  }
+]

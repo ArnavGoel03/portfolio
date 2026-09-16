@@ -1,12 +1,38 @@
 # Portfolio: state of play
 
-Last updated 15 September 2026. This is the pick-it-up-later document for
+Last updated 17 September 2026. This is the pick-it-up-later document for
 arnavgoel.dev. Read it before touching anything; it exists so the next session
 does not re-derive the same five facts, and so nobody has to discover the way
 this repo can silently stop deploying by watching it happen.
 
 Written the day the site spent two days serving a stale build without anybody
 noticing.
+
+## Portfolio-wide performance audit, 17 September 2026
+
+The owner requested an audit against the best-practice checklist in an AirDropped
+image. The report is `docs/audits/performance-2026-09-17/README.md`, with per-project
+source citations and machine-readable delivery evidence. All 28 project IDs match
+the live Projects page. The 31 public document/artifact probes, 298 same-origin
+script/style probes and 20 sampled images returned HTTP 200. This is delivery
+coverage, not protected-flow or browser performance certification.
+
+Priority opportunities include Pidilite's truncated visit filtering/export,
+the review site's 2.75 MB original photograph, CUTROOM/Q Branch intro delays,
+Library Walk's embedded executable, GTG HTML compression with no-transform retained,
+and Gondilal's rate-cache read order. Native and archived projects have separate
+applicability and source-confidence records. No product fix or release was made.
+
+Browser discovery returned no browsers and Firecrawl credits are exhausted.
+Lighthouse, rendered interaction, native profiling and production query plans
+remain unexecuted; five coursework analysis repositories were not identifiable.
+Implementation remains a follow-up to the requested audit. The prior modal
+rendered-verification blocker remains open.
+
+Live Vercel inspection now reports arnavgoel.dev READY at
+`dpl_Fw25bv2ZDA222nFzb7tLC6m4cUUT`; public /projects and its inventory were verified.
+Audit collectors and coverage checks passed. App gates were not repeated because
+only documentation and audit utilities changed.
 
 ## Rendered verification retry, 15 September 2026
 

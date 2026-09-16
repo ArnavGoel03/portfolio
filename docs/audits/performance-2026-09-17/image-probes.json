@@ -1,0 +1,488 @@
+[
+  {
+    "url": "https://arnavgoel.dev/shots/studio.webp",
+    "pages": [
+      "https://arnavgoel.dev/projects",
+      "https://arnavgoel.dev/"
+    ],
+    "loading": "lazy",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://arnavgoel.dev/shots/studio.webp",
+    "transfer_bytes": 41340,
+    "ttfb_s": 0.177354,
+    "total_s": 0.204742,
+    "exit": 0,
+    "headers": {
+      "age": "93194",
+      "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+      "content-type": "image/webp",
+      "etag": "\"91e737e23249d1536e70b912953d473e\"",
+      "server": "Vercel",
+      "x-vercel-cache": "HIT",
+      "content-length": "41340"
+    },
+    "decoded_bytes": 41340,
+    "decoded_sha256": "0ce7eeabe9b35dffa4bb51e611c9da4649aa77a09da774e734a294574824f674"
+  },
+  {
+    "url": "https://arnavgoel.dev/shots/glass-table-games.webp",
+    "pages": [
+      "https://arnavgoel.dev/projects",
+      "https://arnavgoel.dev/"
+    ],
+    "loading": "lazy",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://arnavgoel.dev/shots/glass-table-games.webp",
+    "transfer_bytes": 50120,
+    "ttfb_s": 0.166525,
+    "total_s": 0.205114,
+    "exit": 0,
+    "headers": {
+      "age": "93194",
+      "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+      "content-type": "image/webp",
+      "etag": "\"2eb2863ef44194f42b0adacb68c682e6\"",
+      "server": "Vercel",
+      "x-vercel-cache": "HIT",
+      "content-length": "50120"
+    },
+    "decoded_bytes": 50120,
+    "decoded_sha256": "2565cc127f37c243c4594da8edc777b42c5992821590acfaab7e574b82aee140"
+  },
+  {
+    "url": "https://glasstablegames.com/art/chaupal-ludo.webp",
+    "pages": [
+      "https://glasstablegames.com"
+    ],
+    "loading": null,
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://glasstablegames.com/art/chaupal-ludo.webp",
+    "transfer_bytes": 63686,
+    "ttfb_s": 0.28793,
+    "total_s": 0.309689,
+    "exit": 0,
+    "headers": {
+      "content-type": "image/webp",
+      "content-length": "63686",
+      "cf-cache-status": "HIT",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "etag": "\"6ba001240f9eec95fb80ac285a154ae7\"",
+      "server": "cloudflare"
+    },
+    "decoded_bytes": 63686,
+    "decoded_sha256": "4a8166ba4d463c14902612b4d467635ebc501a4bb174f5ef8b4fefb0a4dfea5a"
+  },
+  {
+    "url": "https://glasstablegames.com/art/chaupal-snakes-and-ladders.webp",
+    "pages": [
+      "https://glasstablegames.com"
+    ],
+    "loading": "lazy",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://glasstablegames.com/art/chaupal-snakes-and-ladders.webp",
+    "transfer_bytes": 85594,
+    "ttfb_s": 0.319222,
+    "total_s": 0.413407,
+    "exit": 0,
+    "headers": {
+      "content-type": "image/webp",
+      "content-length": "85594",
+      "cf-cache-status": "HIT",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "etag": "\"8ff0b1ac8f74a018a60071526ad4c82d\"",
+      "server": "cloudflare"
+    },
+    "decoded_bytes": 85594,
+    "decoded_sha256": "68e86c95b4edefa37f19f8584740bd60fd9f51c1cc48214d296540a9bb906ecd"
+  },
+  {
+    "url": "https://github.com/ArnavGoel03/yashgoel/releases/download/dslr-archive-v1/2022-11-04_playa-sunset-lone-silhouette-v3.jpg",
+    "pages": [
+      "https://yashgoel.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://release-assets.githubusercontent.com/github-production-release-asset/1219104044/290fe227-b588-48dc-8cfe-04490ed48b8b?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-09-16T22%3A36%3A18Z&rscd=attachment%3B+filename%3D2022-11-04_playa-sunset-lone-silhouette-v3.jpg&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-09-16T21%3A35%3A20Z&ske=2026-09-16T22%3A36%3A18Z&sks=b&skv=2018-11-09&sig=M5UKJhrauRh3v29pWcQwgp3CDY%2B8AvbDmNSBkyOLQc0%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4OTU5NTY0OSwibmJmIjoxNzg5NTk1MzQ5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.zD9jyJ0GDYFVkhkBUd-2nwe7CuPnH8GRB6SVuAXslpw&response-content-disposition=attachment%3B%20filename%3D2022-11-04_playa-sunset-lone-silhouette-v3.jpg&response-content-type=application%2Foctet-stream",
+    "transfer_bytes": 2746090,
+    "ttfb_s": 4.943314,
+    "total_s": 5.325182,
+    "exit": 0,
+    "headers": {
+      "etag": "\"0x8DEB0DB40BF7BBA\"",
+      "server": "Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0",
+      "age": "0",
+      "content-type": "application/octet-stream",
+      "content-length": "2746090"
+    },
+    "decoded_bytes": 2746090,
+    "decoded_sha256": "d8dee2cebd7ab826a5af293dd2af6be1b33028d2a570c1cc75cb163282359cf2"
+  },
+  {
+    "url": "https://yashgoel-handyman.vercel.app/specimen/marble/800.jpg",
+    "pages": [
+      "https://yashgoel-handyman.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://yashgoel-handyman.vercel.app/specimen/marble/800.jpg",
+    "transfer_bytes": 25249,
+    "ttfb_s": 0.409813,
+    "total_s": 0.412588,
+    "exit": 0,
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/jpeg",
+      "etag": "\"06c544091972a5f38d8eb6ddd36b3767\"",
+      "server": "Vercel",
+      "x-vercel-cache": "MISS",
+      "content-length": "25249"
+    },
+    "decoded_bytes": 25249,
+    "decoded_sha256": "45430b8159cd54dc9b192a98a13b206cfd3d0a94846b82669c0010127089e97b"
+  },
+  {
+    "url": "https://yashgoel-handyman.vercel.app/specimen/scene-spill/800.jpg",
+    "pages": [
+      "https://yashgoel-handyman.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://yashgoel-handyman.vercel.app/specimen/scene-spill/800.jpg",
+    "transfer_bytes": 79390,
+    "ttfb_s": 0.452255,
+    "total_s": 0.482076,
+    "exit": 0,
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/jpeg",
+      "etag": "\"51f5d966c1c10def5ccf96085358151c\"",
+      "server": "Vercel",
+      "x-vercel-cache": "MISS",
+      "content-length": "79390"
+    },
+    "decoded_bytes": 79390,
+    "decoded_sha256": "da6a5d8b79eaca7c9f03de6399af095e64d084ac08447a71eb8278775f5a0bc6"
+  },
+  {
+    "url": "https://yashgoel-interiors.vercel.app/plate/opening/1400.jpg",
+    "pages": [
+      "https://yashgoel-interiors.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://yashgoel-interiors.vercel.app/plate/opening/1400.jpg",
+    "transfer_bytes": 98458,
+    "ttfb_s": 0.508116,
+    "total_s": 0.540713,
+    "exit": 0,
+    "headers": {
+      "age": "189493",
+      "cache-control": "public, max-age=604800, stale-while-revalidate=2592000",
+      "content-type": "image/jpeg",
+      "etag": "\"fe1a5925402a205eb09174436df94022\"",
+      "server": "Vercel",
+      "x-vercel-cache": "HIT",
+      "content-length": "98458"
+    },
+    "decoded_bytes": 98458,
+    "decoded_sha256": "090e98127184e6177ed3caa5543540a2fabab11e12792a29d6d9dbecc1c148ec"
+  },
+  {
+    "url": "https://yashgoel-interiors.vercel.app/specimen/ply-bwp/800.jpg",
+    "pages": [
+      "https://yashgoel-interiors.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://yashgoel-interiors.vercel.app/specimen/ply-bwp/800.jpg",
+    "transfer_bytes": 44551,
+    "ttfb_s": 0.519226,
+    "total_s": 0.550094,
+    "exit": 0,
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=60, s-maxage=31536000, stale-while-revalidate=604800",
+      "content-type": "image/jpeg",
+      "etag": "\"7457d8e02c7c156a8f9d42e56836fdeb\"",
+      "server": "Vercel",
+      "x-vercel-cache": "MISS",
+      "content-length": "44551"
+    },
+    "decoded_bytes": 44551,
+    "decoded_sha256": "9d0c25adc6fec577a0750df81ca30bd359b4acf592e31f0f7593cb4e16173f0b"
+  },
+  {
+    "url": "https://pub-c081745b42a649f78f3cb8a904f13e6a.r2.dev/spice/cumin-1600.webp",
+    "pages": [
+      "https://yashgoel-larder.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://pub-c081745b42a649f78f3cb8a904f13e6a.r2.dev/spice/cumin-1600.webp",
+    "transfer_bytes": 411134,
+    "ttfb_s": 0.912024,
+    "total_s": 1.21125,
+    "exit": 0,
+    "headers": {
+      "content-type": "image/webp",
+      "content-length": "411134",
+      "etag": "\"41c3cacb856cff06dea1e80ed0cf9cdc\"",
+      "server": "cloudflare"
+    },
+    "decoded_bytes": 411134,
+    "decoded_sha256": "8fc712ff52d4cef67d2ab92f3d34388e812586e5440be2ad56e97f2cb35ec485"
+  },
+  {
+    "url": "https://pub-c081745b42a649f78f3cb8a904f13e6a.r2.dev/spice/turmeric-1600.webp",
+    "pages": [
+      "https://yashgoel-larder.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://pub-c081745b42a649f78f3cb8a904f13e6a.r2.dev/spice/turmeric-1600.webp",
+    "transfer_bytes": 121766,
+    "ttfb_s": 0.73899,
+    "total_s": 0.846136,
+    "exit": 0,
+    "headers": {
+      "content-type": "image/webp",
+      "content-length": "121766",
+      "etag": "\"6a955c797b096d509c3a23ffec78ef27\"",
+      "server": "cloudflare"
+    },
+    "decoded_bytes": 121766,
+    "decoded_sha256": "9f072aed9aa383625ae88bbfeb101e974359ec90ef0bebf7ea1eb26ffff3ed68"
+  },
+  {
+    "url": "https://syn100-micromobility.vercel.app/img/poster-p1.jpg",
+    "pages": [
+      "https://syn100-micromobility.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://syn100-micromobility.vercel.app/img/poster-p1.jpg",
+    "transfer_bytes": 219435,
+    "ttfb_s": 0.473509,
+    "total_s": 0.544835,
+    "exit": 0,
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/jpeg",
+      "etag": "\"fd0df88878dd1f3d3bb438857866e278\"",
+      "server": "Vercel",
+      "x-vercel-cache": "MISS",
+      "content-length": "219435"
+    },
+    "decoded_bytes": 219435,
+    "decoded_sha256": "e7aa82571f61d64edc161432c27fe67980359b0d7deda48c67041bd7f568eeed"
+  },
+  {
+    "url": "https://syn100-micromobility.vercel.app/img/poster-p2.jpg",
+    "pages": [
+      "https://syn100-micromobility.vercel.app"
+    ],
+    "loading": "lazy",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://syn100-micromobility.vercel.app/img/poster-p2.jpg",
+    "transfer_bytes": 204888,
+    "ttfb_s": 1.13952,
+    "total_s": 1.21029,
+    "exit": 0,
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/jpeg",
+      "etag": "\"6229a36aa680664583deee704eea5816\"",
+      "server": "Vercel",
+      "x-vercel-cache": "MISS",
+      "content-length": "204888"
+    },
+    "decoded_bytes": 204888,
+    "decoded_sha256": "4a49d4c2bc7bb08fbce0b6028d7d28d12d9c3b104283eecdf5991bbceafdb9e3"
+  },
+  {
+    "url": "https://pidilite-school-checkin.vercel.app/fevicreate-logo.png",
+    "pages": [
+      "https://pidilite-school-checkin.vercel.app"
+    ],
+    "loading": null,
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://pidilite-school-checkin.vercel.app/fevicreate-logo.png",
+    "transfer_bytes": 199001,
+    "ttfb_s": 0.167476,
+    "total_s": 0.220754,
+    "exit": 0,
+    "headers": {
+      "age": "290594",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/png",
+      "etag": "\"4921c01ec84d07e46bd080df8b39c385\"",
+      "server": "Vercel",
+      "x-vercel-cache": "HIT",
+      "content-length": "199001"
+    },
+    "decoded_bytes": 199001,
+    "decoded_sha256": "0762cbf75d668b6a55addee0973a33add8614111517464a1aa68f1f661f0c593"
+  },
+  {
+    "url": "https://pub-36d8ea96f2b04b5b8fff8adb46e30e5a.r2.dev/images/the-divine-presence-revealed-sf4hwg.jpg",
+    "pages": [
+      "https://fevicryl-art-catalog.vercel.app"
+    ],
+    "loading": "eager",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://pub-36d8ea96f2b04b5b8fff8adb46e30e5a.r2.dev/images/the-divine-presence-revealed-sf4hwg.jpg",
+    "transfer_bytes": 312414,
+    "ttfb_s": 1.349454,
+    "total_s": 1.643821,
+    "exit": 0,
+    "headers": {
+      "content-type": "image/jpeg",
+      "content-length": "312414",
+      "cache-control": "public, max-age=31536000, immutable",
+      "etag": "\"5dcfcd12ae7a9227b4292a587ed8c9ae\"",
+      "server": "cloudflare"
+    },
+    "decoded_bytes": 312414,
+    "decoded_sha256": "2eedb3665cbb1c80b6e308a3c1f195434bef13c0bbe0863380ebf9adb4b1657b"
+  },
+  {
+    "url": "https://pub-36d8ea96f2b04b5b8fff8adb46e30e5a.r2.dev/images/vignaharta-bloom-kn3z77.jpg",
+    "pages": [
+      "https://fevicryl-art-catalog.vercel.app"
+    ],
+    "loading": "eager",
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://pub-36d8ea96f2b04b5b8fff8adb46e30e5a.r2.dev/images/vignaharta-bloom-kn3z77.jpg",
+    "transfer_bytes": 453144,
+    "ttfb_s": 1.084565,
+    "total_s": 1.38763,
+    "exit": 0,
+    "headers": {
+      "content-type": "image/jpeg",
+      "content-length": "453144",
+      "cache-control": "public, max-age=31536000, immutable",
+      "etag": "\"a204d131ef01d901440bcd5412944389\"",
+      "server": "cloudflare"
+    },
+    "decoded_bytes": 453144,
+    "decoded_sha256": "0653b5c4a3415246f8ab5991621ab03dd58d8631e8327f18f4da84c881f9fece"
+  },
+  {
+    "url": "https://gondilalsaraf.com/_next/image?url=%2Fimg%2Flogo.webp&w=256&q=75",
+    "pages": [
+      "https://gondilalsaraf.com"
+    ],
+    "loading": null,
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://gondilalsaraf.com/_next/image?url=%2Fimg%2Flogo.webp&w=256&q=75",
+    "transfer_bytes": 4986,
+    "ttfb_s": 0.401969,
+    "total_s": 0.403716,
+    "exit": 0,
+    "headers": {
+      "age": "1074630",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/jpeg",
+      "server": "Vercel",
+      "vary": "Accept",
+      "x-vercel-cache": "HIT",
+      "content-length": "4986"
+    },
+    "decoded_bytes": 4986,
+    "decoded_sha256": "fb0b74c54142f331be3ca3e2b02d4ce4cb256734262704b4f941a28b81d7c52b"
+  },
+  {
+    "url": "https://gondilalsaraf.com/_next/image?url=%2Fimg%2Fshop%2Fgold-choker-set.webp&w=3840&q=75",
+    "pages": [
+      "https://gondilalsaraf.com"
+    ],
+    "loading": null,
+    "responsive": true,
+    "status": 200,
+    "effective_url": "https://gondilalsaraf.com/_next/image?url=%2Fimg%2Fshop%2Fgold-choker-set.webp&w=3840&q=75",
+    "transfer_bytes": 76385,
+    "ttfb_s": 0.445897,
+    "total_s": 0.474427,
+    "exit": 0,
+    "headers": {
+      "age": "290918",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/jpeg",
+      "server": "Vercel",
+      "vary": "Accept",
+      "x-vercel-cache": "HIT",
+      "content-length": "76385"
+    },
+    "decoded_bytes": 76385,
+    "decoded_sha256": "072ad7e22c77244bd52ca5e005edcbaaaedfa7de090af863cf07c527394818a3"
+  },
+  {
+    "url": "https://zenodo.org/badge/DOI/10.5281/zenodo.19707994.svg",
+    "pages": [
+      "https://arnavgoel03.github.io/Power-grid-analysis/"
+    ],
+    "loading": null,
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://zenodo.org/badge/DOI/10.5281/zenodo.19707994.svg",
+    "transfer_bytes": 1217,
+    "ttfb_s": 0.862699,
+    "total_s": 0.863735,
+    "exit": 0,
+    "headers": {
+      "server": "nginx",
+      "content-type": "image/svg+xml; charset=utf-8",
+      "content-length": "1217",
+      "etag": "\"99160a9b2c0177f66b6a71ccb7de0ba5756872b1\"",
+      "cache-control": "no-cache, max-age=0"
+    },
+    "decoded_bytes": 1217,
+    "decoded_sha256": "ca597048be90ae1f25c7e7dbf0864ab4942a381d14c24aa89a51305b2c2be3f7"
+  },
+  {
+    "url": "https://img.shields.io/badge/License-MIT-yellow.svg",
+    "pages": [
+      "https://arnavgoel03.github.io/Power-grid-analysis/"
+    ],
+    "loading": null,
+    "responsive": false,
+    "status": 200,
+    "effective_url": "https://img.shields.io/badge/License-MIT-yellow.svg",
+    "transfer_bytes": 534,
+    "ttfb_s": 0.373878,
+    "total_s": 0.37459,
+    "exit": 0,
+    "headers": {
+      "content-type": "image/svg+xml;charset=utf-8",
+      "cache-control": "max-age=432000, s-maxage=432000",
+      "vary": "accept-encoding",
+      "server": "cloudflare",
+      "age": "316862",
+      "cf-cache-status": "HIT",
+      "content-encoding": "gzip"
+    },
+    "decoded_bytes": 1275,
+    "decoded_sha256": "db531ea522213924b8a97c16fa0921d9bfa1fcfa1bba0498812c912b937dbf17"
+  }
+]
