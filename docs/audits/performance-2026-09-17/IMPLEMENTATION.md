@@ -63,7 +63,7 @@ work queue; the previous final-pass section is a dated checkpoint.
 | Pending | SOMA: pause offscreen/idle rendering |
 | Pending | Watch Together: idle demo and failed-embed polling |
 | Pending | Quiver: release-request deduplication and scroll work |
-| Next, owner priority | Upkeep: audit and extend knowledge graph depth across every aspect, with progressive disclosure; retain Fitout cache repair in queue. |
+| Candidate, browser acceptance pending | Upkeep/Fitout: 66021a7, draft PR #1. Both private PDFs integrated without home details, 452 model/family records and 12 reference topics. 970 tests, nine HTTP-verifier tests, all three builds and 44/460 owner-route HTTP checks pass. Catalogue completeness and browser/publication gates remain. Retain remaining Fitout cache work. |
 | Pending | Fevicryl: share repeated scoring work |
 | Pending | Portfolio: attribute and defer preview/analytics modules |
 | Pending | Vaani: repair runnable baseline before optimizing |
@@ -94,3 +94,21 @@ thorough in every aspect while progressively disclosing detail to avoid overload
 Establish actual graph/data coverage, provenance, relationship depth, missing
 concepts and end-to-end user paths before choosing architecture or UI changes.
 Preserve the full cross-project queue and the explicit regression requirement.
+
+
+### Upkeep/Fitout knowledge checkpoint, 2026-09-17
+
+Source `66021a7`, draft https://github.com/ArnavGoel03/upkeep/pull/1.
+Both private reference PDFs are integrated with public official citations and
+without personal/home details. Existing canonical topics and softener visuals
+were corrected rather than recreated. Product selection/catalogues are on
+Fitout; care/diagnosis is on Upkeep. The graph has 764 nodes and 1,265 authored or
+structural edges, with bounded exploration and visible uncertainty.
+
+970 tests, nine verifier tests, lint, TypeScript and all three production builds
+pass. Local HTTP checks cover 44 Upkeep and 460 Fitout reference/model routes.
+All three Vercel previews report success. Production remains unchanged pending
+browser acceptance. Search grew with coverage, so no bandwidth improvement is
+claimed. Full receipt and remaining manufacturer/manual/quantitative-spec gaps
+are in upkeep/docs/STATE.md and docs/KNOWLEDGE_DEPTH_WORK.md. Other project work
+above remains queued; this is not a completed portfolio-wide release.

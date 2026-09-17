@@ -8,6 +8,16 @@ this repo can silently stop deploying by watching it happen.
 Written the day the site spent two days serving a stale build without anybody
 noticing.
 
+## Upkeep/Fitout continuation checkpoint, 17 September 2026
+
+Candidate `66021a7`, draft Upkeep PR #1, integrates two private technical PDFs
+without personal/home details and adds source-linked catalogue/care references.
+970 tests, nine HTTP-verifier tests, clean lint and all three app builds pass;
+44 Upkeep and 460 Fitout reference/model routes pass local HTTP verification.
+All three Vercel previews report success. Browser acceptance and production
+publication remain pending. Full queue and explicit remaining coverage gaps are
+in `docs/audits/performance-2026-09-17/IMPLEMENTATION.md` and Upkeep's STATE.
+
 ## Portfolio-wide performance audit, 17 September 2026
 
 The owner requested an audit against the best-practice checklist in an AirDropped
