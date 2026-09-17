@@ -59,7 +59,7 @@ try {
     await page.goto(`${origin}/projects`, { waitUntil: "networkidle" });
     assert.equal(previewRequests.length, 0, "Preview loaded before intent");
     assert.equal(sdkRequests.length, 0, "SDK loaded before idle or interaction");
-    const card = page.locator(".card-3d").filter({ has: page.getByRole("heading", { name: "Halation: Two Apps on One Core", exact: true }) });
+    const card = page.locator(".card-3d").filter({ has: page.getByRole("heading", { name: "Halation: Two Apps on One Core", exact: true, includeHidden: true }) });
     await card.scrollIntoViewIfNeeded();
     await card.click({ position: { x: 30, y: 30 } });
     const dialog = page.getByRole("dialog");
@@ -127,7 +127,7 @@ try {
       await page.goto(`${origin}/projects`, { waitUntil: "networkidle" });
       assert.equal(intercepted, 0, "Preview requested before intent");
       const cards = page.locator(".card-3d");
-      const card = cards.filter({ has: page.getByRole("heading", { name: "Halation: Two Apps on One Core", exact: true }) });
+      const card = cards.filter({ has: page.getByRole("heading", { name: "Halation: Two Apps on One Core", exact: true, includeHidden: true }) });
       const detail = await card.getByRole("link", { name: "Details", exact: true }).getAttribute("href");
       await card.click({ position: { x: 30, y: 30 } });
       await expect.poll(() => intercepted).toBeGreaterThan(0);
