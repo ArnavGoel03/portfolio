@@ -8,6 +8,17 @@ this repo can silently stop deploying by watching it happen.
 Written the day the site spent two days serving a stale build without anybody
 noticing.
 
+## Completion continuation, 18 September 2026
+
+Restaurant PR9 and Quiver website PR6 are merged after source/browser acceptance;
+both live hosts remain paused. Serenity draft PR16 head96ccfca repairs native wire
+contracts, Letters and Quiz with 333 passing tests and actual Swift transport
+checks. Strict DTO validation still has 155 findings; native/device acceptance
+and incompatible feature semantics remain. Studio still fails its unchanged
+startup budget and awaits legal approval. Halation stays with Claude.
+The current table in IMPLEMENTATION.md records exact receipts and remaining work.
+These records are isolated from another session's dependency/worktree changes.
+
 ## Cross-project repair checkpoint, 17 September 2026
 
 Restart continuation, 18 September: Portfolio `/projects` returns 503
