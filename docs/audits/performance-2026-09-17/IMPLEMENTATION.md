@@ -1,5 +1,47 @@
 # Performance implementation queue
 
+## Restart continuation, 18 September 2026
+
+New owner screenshot request: Halation Mac scrolling UI is poor. The owner then
+clarified Claude is already working on it. Root made no Halation code changes
+and yielded the UI, native testing and installation work to Claude to avoid
+concurrent mutations. The scrolling repair remains with that session.
+Owner also requested Apple's corner/inset/radius API wherever applicable and a
+rule in the shared Mac development standards. Root verified ConcentricRectangle
+and containerCornerInsets against Apple docs and the installed macOS 26.5 SDK,
+and added the applicability, geometry and acceptance rule to the canonical
+standards/DEVELOP_RULES.md. No competing native UI edit was made.
+
+Portfolio analytics and preview source e936ac4 passes hosted Chromium
+run35266518327, nine calibrated tests and lint/types/build/bundle gates. Final
+screenshots inspected. Home/projects initial script references save about 324 KB
+raw/104 KB gzip estimate, with failure/cancellation/race acceptance passing.
+Publication is held by hosting; performance timing beyond build bytes is unmeasured.
+
+Owner requested completion from the restart screenshot. Active ownership:
+
+| Status | Owner | Work |
+| --- | --- | --- |
+| Verified source; hosting held | Root | Portfolio PR2 e936ac4 passes final hosted browser acceptance. Cross-project Atlas/source records reconciled below. |
+| Pushed/local candidates; release holds | Native agent | Quiver 725174b draft PR6; Serenity d4012b6 draft PR16 clears all lint findings with 306 tests; Saycut 6ff5fc7 local (no remote). Trove compiler hook and Halation hosted native checks remain blocked. |
+| Pushed candidates; release holds | Web agent | SOMA e146dfd draft PR1 (1,719 ordinary +11 server tests); Fevicryl 28b06be draft PR1 halves query scoring and passes 100 comparison combinations; Vaani 8945424 draft PR1 repairs mocked lifecycle baseline. |
+| Five games live; Studio held | Held-release agent | GTG source 345285d passes both browsers, full release validators, 49 live checks and 87 asset plus five service-worker byte comparisons. Studio a82c11f remains draft PR19: Chromium startup 812.5 ms exceeds unchanged 750 ms. Final records merged through PR28/7ea8f20; receipt gtg-casino-ui-release/docs/HTML-COMPRESSION-RELEASE-2026-09-18.md. Studio candidate record 6d312ec stays in draft PR19. PITCREW/Fevicreate/Upkeep records are pushed; hosting/browser holds remain. |
+| Reviewed; measurement held | Root/agents | Meridian bc863e1, Meshport d2b99b9, micromobility c53e91f and Larder retain existing behavior without speculative scheduling/offline changes; browser profiles remain unavailable. |
+| Verified and pushed | Web agent | Eleven current STATE receipts: ten Vercel sites remain paused; Power Grid article and ten frames return 200 and match source. Prior browser evidence retained for unchanged source; device/protected-user gaps remain. See yashgoel/docs/RELEASE-RECHECK-2026-09-18.md. |
+| Verified candidate; hosting held | Native agent | Restaurant draft PR9 421d7c9: all 11 real PostgreSQL cases and 12 local tests pass, plus lint/types/build/package. Isolated and drained quota fixtures fix the false expiry failure without changing production auth or relaxing budgets. |
+| Feasibility answered; build scope pending | Root | Owner asked about building a Chromium browser. Electron can supply Chromium; building a shell does not remove OS sandbox restrictions. Testing support versus standalone-product scope remains unanswered. |
+
+Fresh Portfolio public GET headers return HTTP 503 DEPLOYMENT_PAUSED. Browser
+connection selection reports no browser. Existing hosting, legal and native
+acceptance holds remain effective; no local Chrome fallback is authorized by
+this continuation. Earlier receipts below are historical until reverified.
+
+Portfolio is public according to fresh GitHub API visibility, correcting stale
+private-repository documentation. Its successful hosted gate is not evidence
+that private CI billing is restored. Fresh Fevicreate, SOMA and Fevicryl runs
+were refused with zero steps and explicit payment/spending-limit annotations.
+Portfolio PR2 has verified analytics and preview candidates; browser acceptance passes and hosting still blocks publication.
+
 User authorization, 2026-09-17: finish the best audit recommendations, one project
 at a time. Understand each project in detail and finish its verification/live
 publication before opening the next. This original sequencing instruction was
@@ -52,6 +94,8 @@ only because Atlas has a separate pre-existing undeployed application rebuild.
 Do not deploy that larger rebuild as a side effect of updating this audit index.
 
 ## Continuation authorized, 2026-09-17
+
+This table is historical; the restart table above supersedes its pending statuses.
 
 Owner requested "finish all" again. Recheck held release blockers, then process
 remaining actionable audit findings one project at a time. This is the current
