@@ -20,8 +20,8 @@ and DEVELOP_RULES so every configured harness/agent reads the same source.
 | Candidate; release blocked | Glass Table Games | Implemented at 760e273; five production builds and full gate (4,100 package tests, 102 Node checks) pass. Workerd gzip/identity bytes pass at supported compatibility date. Exact-candidate browsers and runtime date unavailable; promotion and separate studio mirror remain recorded in project LEFTOVERS. |
 | Live | Gondilal | PR #22 merged as deaed7d; production v1.2.6 verified on home/shop with private/no-store and fresh matching CSP nonces. Full 412 tests and production build pass. Warm rates avoid DB for 60s; settings batched. Redis-outage consistency window documented; browser device acceptance remains open. |
 | Live | Buzz | PR #1 merged as 5ac9b5b. Five live routes return 200; all map routes show the gate; initial JS/CSS excludes map payloads. Seven Node tests, typecheck/build and Chromium desktop/phone run 35163988412 pass. Map/event-list screenshots inspected with a Carto fixture; live tiles, production RLS and native acceptance remain outside this pass. |
-| Queued | PITCREW | Actual visibility gate for heavy scene |
-| Queued | Trove / Relay shared core | Bounded cached response formatting off main; verify both apps sequentially |
+| Candidate; browser acceptance pending | PITCREW | a4d34a5 defers GL probe and renderer until scrolling into the visible story. Lint, 56 tests, TypeScript/build and byte budgets pass (137 kB route, 264 kB deferred, Brotli). Required desktop/phone render and network verification unavailable; production unchanged. |
+| In progress | Trove / Relay shared core | Bounded response cache implemented; shared and consumer verification in progress. |
 | Queued | Tend | Reuse derived counts/groups and bound history; preserve deferred iPhone testing |
 | Queued | Serenity | Navigable lab archive, compatible API/native consumption |
 | Queued | Power Grid | Lazy chart/table frames with stable dimensions |
