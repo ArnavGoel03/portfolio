@@ -177,7 +177,7 @@ pnpm cf:build        # Build the Cloudflare Worker, without deploying it
 
 Run `pnpm lint`, `pnpm exec tsc --noEmit`, `pnpm check:llms` and `pnpm build`
 before pushing. `.github/workflows/gate.yml` runs these checks on main and PRs,
-followed by `node --test scripts/analytics.test.mjs` and
+followed by `node --test scripts/*.test.mjs` and
 `node scripts/check-initial-analytics.mjs`. Hosted Linux CI also runs
 `node scripts/browser-check.mjs` against an owned temporary server. It verifies
 desktop/phone modal behavior and SDK scheduling with fixture analytics requests,

@@ -10,13 +10,17 @@ noticing.
 
 ## Cross-project repair checkpoint, 17 September 2026
 
-Restart continuation, 18 September: Portfolio `/projects` currently returns 503
-DEPLOYMENT_PAUSED. Analytics loader candidate removes 253,101 raw bytes from
-initial script references on home/projects/contact (about 82 KB gzip estimate).
-Four behavior tests, lint/types, crawler index, build and calibrated SDK bundle
-gate pass. See `docs/audits/performance-2026-09-17/PORTFOLIO-2026-09-18.md`.
-Browser discovery is empty; rendered acceptance and publication remain held.
-The full active cross-project queue remains in IMPLEMENTATION.md below.
+Restart continuation, 18 September: Portfolio `/projects` returns 503
+DEPLOYMENT_PAUSED. PR2 candidate e936ac4 defers analytics and project previews.
+Home/projects initial script references save about 324 KB raw and 104 KB gzip
+estimate versus baseline. Nine calibrated tests, lint/types, crawler index,
+warning-free build and bundle gates pass. Hosted Chromium run35266518327 passes
+desktop/phone modal bounds/focus/scroll/dismissal, analytics scheduling and
+preview loading/failure/cancellation/races. Final screenshots were inspected.
+See `docs/audits/performance-2026-09-17/PORTFOLIO-2026-09-18.md` for exact metrics
+and limits. Publication/live acceptance remains held; no LCP/INP win is claimed.
+The full current queue is IMPLEMENTATION.md. Halation UI work belongs to the
+owner's concurrent Claude session; no competing native edits were made here.
 
 The owner's Claude audit is being repaired in parallel. Current source and
 verification status, including unresolved items, live in

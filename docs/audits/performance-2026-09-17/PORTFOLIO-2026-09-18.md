@@ -1,45 +1,67 @@
-# Portfolio analytics continuation
+# Portfolio initial JavaScript and preview continuation
 
-Baseline: merged main `369d366`. Public `/projects` returns HTTP 503 with
-`x-vercel-error: DEPLOYMENT_PAUSED`, checked after restart on 18 September IST.
-Browser selection reports no browser, and supported discovery returns `[]`.
+Baseline: merged main `369d366`. Verified candidate: `e936ac4`, PR2.
+Public `/projects` returns HTTP 503 `DEPLOYMENT_PAUSED`. Local browser discovery
+is empty; rendered acceptance below comes from hosted Linux Chromium.
 
 The static import in `lib/analytics.ts` forced PostHog into initial scripts.
 One lazy loader now owns initialization and capture for both instrumentation
-and interactions. It preserves existing initialization settings and event names,
-coalesces imports, queues early events in order and permits retry after failure.
-The queue retains the latest 100 events to bound a stalled load. Failed loads
-discard pending events, so no delivery guarantee is claimed during an outage.
+and interactions. It preserves initialization settings and event names,
+coalesces imports and queues early events in order. Failed loads discard the
+bounded 100-event queue and permit retry; outage delivery is not guaranteed.
+
+The project preview is imported on demand. One loader coalesces imports, caches
+successful loading, bounds each wait to eight seconds and makes the latest card
+request win. Escape and unmount cancel the consumer so late imports cannot open
+an old dialog or redirect. Failure/timeout navigates to the existing project
+detail route. Pending feedback reuses the existing spinner and project title;
+existing modal content and public wording are unchanged.
 
 ## Build evidence
 
-Same lockfile, local production builds, distinct script src references in built
-HTML. Gzip is a level-9 local estimate, not negotiated wire transfer or browser
-request timing. Routes can also load transitive/dynamic imports.
+Distinct script src references in locally built production HTML, same lockfile.
+Gzip is a level-9 estimate, not negotiated wire transfer or browser timing.
+Routes can also load transitive/dynamic imports.
 
 | Route | Baseline raw JS | Candidate raw JS | Baseline gzip estimate | Candidate gzip estimate |
 | --- | ---: | ---: | ---: | ---: |
-| Home | 1,182,250 | 929,149 | 379,118 | 297,328 |
-| Projects | 1,211,229 | 958,128 | 389,833 | 308,046 |
-| Contact | 1,125,046 | 871,945 | 361,744 | 279,955 |
+| Home | 1,182,250 | 858,544 | 379,118 | 274,988 |
+| Projects | 1,211,229 | 887,636 | 389,833 | 285,489 |
+| Contact | 1,125,046 | 871,890 | 361,744 | 278,992 |
 
-The 253,186-byte emitted SDK chunk remains in the build and is absent from
-initial HTML. This is the bundle detector's positive control. The net reduction
-is 253,101 raw bytes per route after including the small loader changes.
+Home/projects save about 324 KB raw and 104 KB gzip estimate overall. Preview
+splitting contributes 70,605/70,492 raw bytes versus the analytics-only build.
+The emitted SDK and preview chunks remain available but are absent from initial
+HTML; emitted-module positive controls calibrate both absence checks.
 
-Four production-module tests pass: idle evaluation and shared initialization,
-disabled/server paths, failed-import retry and bounded pending events. Tests
-transpile the actual TypeScript module and substitute only the external SDK.
-Lint, TypeScript, crawler-index check, production build and calibrated bundle
-gate pass without warnings. The behavior and bundle gates now run in CI.
+Hosted output differs slightly with platform/build environment: raw/gzip9
+home 858,513/275,400, projects 887,605/285,939, contact 871,859/279,426.
+No LCP/INP or first-preview latency improvement is claimed. A first preview now
+needs its deferred module; the delayed/error tests qualify that tradeoff.
+
+## Verification
+
+[Hosted gate 35266518327](https://github.com/ArnavGoel03/portfolio/actions/runs/35266518327)
+passes at exact candidate `e936ac4`: nine calibrated production-module tests,
+lint, TypeScript, crawler index, warning-free build and initial-bundle checks.
+The receiver-sensitive timer regression fails the original incorrect binding.
+
+Chromium covers desktop 1440 and phone 393 widths: modal viewport bounds,
+settled focus, actual inner scrolling, background lock, Escape/backdrop dismissal,
+analytics scheduling, delayed preview, cancellation, unmount, failed download,
+eight-second deadline and competing-card selection. No page errors occurred.
+External analytics are intercepted with fixtures. Final pending/open/scrolled
+screenshots were inspected; layout is preserved and scrolling remains contained.
+Artifacts are attached to the run, with local copies under
+`.firecrawl/browser-20260918-run35266518327`.
+
+Initial harness runs exposed a native timer receiver defect (fixed in source)
+and test assumptions about focus/overflow/hidden background content (fixed
+in the harness). Final success belongs to the exact corrected candidate above.
 
 ## Remaining acceptance
 
-Rendered route/contact/card behavior, network scheduling and LCP/INP comparisons
-need an available browser. Hosting restoration is still required for live
-verification. This change is a source candidate, not a completed release.
-
-Preview splitting remains separate: its existing dialog already has unresolved
-focus, viewport, scroll and dismissal acceptance. Adding asynchronous mounting
-without verifying loading/failure/focus behavior would not establish a safe
-improvement. No preview module or public wording changed in this candidate.
+Hosting restoration and live verification remain. Browser coverage is Chromium,
+not all engines/devices; real production analytics delivery, contact completion
+and LCP/INP comparisons remain unmeasured. This is verified source, not a live
+release. No spending setting or local browser restriction was changed.
