@@ -1,5 +1,23 @@
 # Performance implementation queue
 
+## Restart continuation, 18 September 2026
+
+Owner requested completion from the restart screenshot. Active ownership:
+
+| Status | Owner | Work |
+| --- | --- | --- |
+| In progress | Root | Portfolio preview/analytics attribution, current availability, remaining cross-project records and Atlas consolidation. |
+| In progress | Native agent | Trove/Relay/Tend and Quiver site, Serenity, Saycut, conditional Halation/Emulsion. |
+| In progress | Web agent | SOMA, Fevicryl, Meshport, micromobility and Vaani baseline. |
+| In progress | Held-release agent | Glass Table Games/studio, PITCREW, Fevicreate and Upkeep/Fitout. |
+| Pending | Root | Meridian/Larder conditional measurement and prior-release comparison gaps. |
+| Awaiting scope | Root | Owner asked about building a Chromium browser; clarify testing support versus standalone product. |
+
+Fresh Portfolio public GET headers return HTTP 503 DEPLOYMENT_PAUSED. Browser
+connection selection reports no browser. Existing hosting, legal and native
+acceptance holds remain effective; no local Chrome fallback is authorized by
+this continuation. Earlier receipts below are historical until reverified.
+
 User authorization, 2026-09-17: finish the best audit recommendations, one project
 at a time. Understand each project in detail and finish its verification/live
 publication before opening the next. This original sequencing instruction was

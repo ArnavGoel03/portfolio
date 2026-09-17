@@ -175,9 +175,16 @@ npx tsc --noEmit     # Typecheck, which the build does not do for you
 pnpm cf:build        # Build the Cloudflare Worker, without deploying it
 ```
 
-Run `pnpm lint`, `npx tsc --noEmit` and `pnpm build` before pushing. There is no
-CI here, and the site once sat two days on a stale build because a one-word
-middleware export failed on Vercel and nothing local had been run.
+Run `pnpm lint`, `pnpm exec tsc --noEmit`, `pnpm check:llms` and `pnpm build`
+before pushing. `.github/workflows/gate.yml` runs these checks on main and PRs,
+followed by `node --test scripts/analytics.test.mjs` and
+`node scripts/check-initial-analytics.mjs`.
+
+PostHog initialization and event queuing are owned by `src/lib/analytics.ts`.
+The SDK loads on idle or the first tracked interaction, with one shared import
+for route and click events. Missing configuration and localhost disable it.
+Failed imports permit retry; at most 100 pending events are retained. The bundle
+gate verifies that the SDK exists but is absent from initial HTML references.
 
 pnpm is the package manager: `pnpm-lock.yaml` is the lockfile Vercel installs
 from. A `package-lock.json` used to sit beside it, which made the host's choice

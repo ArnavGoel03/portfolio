@@ -58,3 +58,6 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Analytics behavior and initial bundle
+        run: node --test scripts/analytics.test.mjs && node scripts/check-initial-analytics.mjs
