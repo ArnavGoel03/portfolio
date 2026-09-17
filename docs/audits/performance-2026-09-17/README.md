@@ -2,6 +2,10 @@
 
 Audited 17 September 2026 against the 20 recommendations in the owner's AirDropped `IMG_8935.PNG`. Scope: all 28 project entries linked by the live Projects page, including studio apps, named website surfaces and the folded micromobility research entry. This is an opportunity audit, not a claim that all 28 projects are slow.
 
+Implementation follow-through: [current queue and live receipts](IMPLEMENTATION.md).
+The findings and measurement limits below describe the original audit snapshot;
+implementation status is maintained in that queue.
+
 ## What to improve first
 
 | Order | Project | Concrete improvement | Evidence and practical benefit |
@@ -30,7 +34,7 @@ Vani needs correctness repair before performance work: compile-only verification
 
 **Not measured:** Lighthouse, LCP/INP/CLS, rendered screenshots, actual browser request waterfalls, protected user journeys, database execution plans/installed indexes, real-user percentiles, native CPU/GPU traces or device thermals. Browser discovery returned no available browser; Firecrawl has exhausted credits. HTTP timing is a single transport observation, not user-perceived load time. No performance scores or percentage speedups are invented.
 
-No product code, database, infrastructure or deployment was changed. Application-wide test/build sweeps were not run because this task produces audit evidence and recommendations. The sole application executable check was Vani's compile-only validation, which failed as recorded.
+At the audit snapshot, no product code, database, infrastructure or deployment had been changed. Application-wide test/build sweeps were not run because this task produces audit evidence and recommendations. The sole application executable check was Vani's compile-only validation, which failed as recorded.
 
 ## All project entries
 
@@ -112,4 +116,4 @@ Project cards use raw lazy WebP images without responsive variants (`project-car
 - `probe.py`, `probe-assets.py`: bounded public GET collectors. Rerun from this directory with Python 3 and curl; the inventory snapshot is the input. No schedule was created.
 - Raw responses remain in ignored `.firecrawl/performance-2026-09-17/`. No secrets or private API bodies are included in the report.
 
-Implementation remains outstanding by design: the request was to audit and identify improvements. Browser/device/database-plan validation remains explicitly unexecuted. Start with the first six findings, measure each baseline, implement one coherent change per project, then verify its actual user-visible result before declaring a speedup.
+Implementation subsequently proceeded under the owner's follow-up authorization; see [the implementation queue](IMPLEMENTATION.md) for completed releases and held candidates. Browser/device/database-plan validation remains explicitly unexecuted. Start with the first six findings, measure each baseline, implement one coherent change per project, then verify its actual user-visible result before declaring a speedup.
