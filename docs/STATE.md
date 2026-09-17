@@ -8,6 +8,27 @@ this repo can silently stop deploying by watching it happen.
 Written the day the site spent two days serving a stale build without anybody
 noticing.
 
+## Verification and deployment, 18 September 2026
+
+Explicit owner request: verify and deploy. No Git merge was performed in this
+pass. Portfolio was resumed on the existing active Hobby plan, with billing
+controls unchanged. Canonical arnavgoel.dev now returns HTTP200 on historical
+READY deployment `dpl_Fw25bv2ZDA222nFzb7tLC6m4cUUT`, source `82a4fd4125b9b99c1bc6be3a79de945ba93ffe7c`.
+That source still imports PostHog statically and renders the inline project modal.
+Both the verified performance repair and merged stack upgrade remain undeployed.
+
+Deployment of merged main `a25ff950` was rejected with HTTP402,
+`api-deployments-free-per-day`: "Resource is limited - try again in24hours
+(more than100)". No retries, limit increases or plan changes. Existing hosted gate
+`35271399190` passes for the merged history. The Cloudflare fallback lacks the
+write-only RESEND_API_KEY, so no DNS cutover or incomplete contact release was
+attempted. Provider credentials and pulled application environment remain local
+and untracked.
+
+The current cross-project receipt and all outstanding items are in
+`docs/audits/performance-2026-09-17/IMPLEMENTATION.md`. Halation stays with Claude;
+Chromium browser scope and the held native/private-web acceptance remain open.
+
 ## Completion continuation, 18 September 2026
 
 Restaurant PR9 and Quiver website PR6 are merged after source/browser acceptance;

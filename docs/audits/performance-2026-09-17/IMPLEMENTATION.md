@@ -1,5 +1,31 @@
 # Performance implementation queue
 
+## Verify and deploy authorization, 18 September 2026
+
+Owner explicitly requested verification and deployment after challenging the
+prior merges. This authorizes verified publication, with no further Git merges,
+legal-copy approval, paid upgrade, or spending-limit increase. Claude retains
+Halation ownership. Work is isolated from concurrent stack upgrades.
+
+| Status | Owner | Work |
+| --- | --- | --- |
+| New release live | Web agent | Quiver deployment dpl_592MM9DbQHNrbifaiZLTcLd6PqbT, source7689e266, canonical HTTP200 and exact assets verified. Hosted browser35268926975 passes. Final recordfedee449 pushed. |
+| New release live | Root | Atlas merged sourced882ad6, Worker89df3d35 at100%, deploymentf2b92193. All58 tests, types and CFbuild pass;23 candidate plus23 public checks include14 exact assets and six signed-out redirects. Clerk/D1 bindings preserved. No new authenticated browser session available. |
+| New release live | Studio agent | Studio0.5.3 sourcecfdf6a4, Workera7e23fdd at100%. Both exact-candidate browsers and unchanged startup limits pass;144 publicHTTP assertions and all10 startup asset/SW comparisons pass.28 captures inspected; previews restoredfalse/false. Receipt d53ac95, draftPR21. No legal proposal applied or PR merged. |
+| Older production restored; new release held | Web agent | Restaurant0.4.0 source2e5c9f3, Portfolio82a4fd4 and Watch Together62944e6 are reachable again. New deployments refusedHTTP402 api-deployments-free-per-day: more than100, retry24hours. No retries or limit/plan change. Watch secondary GitHubPages matches mergedf52074a bytes; canonical remains older. Restaurantrecord6693defd and Watchrecord51bea4fe pushed. |
+| Existing releases restored | Native/web agents | Reviewrecord/Yashgoel5d38b79, CUTROOM3afc6dc, QBranchbcad903, LibraryWalkd813619, Gondilaldeaed7d, Collab6012c9a and Seen6c30e01: independent provider paused:false, canonicalHTTP200, project-specific source/asset/auth/cache checks pass. No new builds or merges were needed to restore those existing versions. Reviewrecord stack PR5 subsequently merged in the concurrent session as a110065; hosted35273828251 passes, but production remains5d38b79 and the same deployment quota blocks new publication. Other stack drafts remain separate. |
+| Older production restored; new candidate held | Native/web agents | Buzz5ac9b5b is reachable. New mergedmain2fe2d18 remains undeployed: hostedrun35272624001 atcd7b1c fails phone map boundingBox in performance.spec.ts21 (4/5browser cases pass); deployment quota also applies. Concurrent Claude candidate left untouched. |
+| Repair pushed; release held | Native agent | Serenity CI repair269c956 and receipt4324ef6 pushed to draftPR16. Workflow validation passes; run35273359730 now creates eight jobs, but GitHub refuses execution for billing. Strict155 and native acceptance remain open. Trove727ddbe remains local; Saycut6ff5fc7 cannot reach CoreSimulator. |
+| Held | Web agents | Stature browser acceptance remains incomplete and host remains503. Fevicreate, PITCREW, Upkeep/Fitout, SOMA, Fevicryl and Vaani retain their documented browser/device/feature gates. No draft merge or publication. |
+| Owned by Claude | Claude | Halation scrolling and native corner application. Canonical Mac corner/inset standard is already committed. |
+| Scope pending | Owner | Chromium standalone browser versus test-support tool remains unanswered. |
+
+Production source references above are distinct from later documentation commits.
+Atlas receipts hold provider IDs and independent readbacks. Existing five GTG
+games and Power Grid remain live; Power Grid's ten frames and complete assets
+were reverified against source. Legal wording approval and Studio compression
+PR19 remain open. No scheduler was created for the quota retry.
+
 ## Completion continuation, 18 September 2026
 
 Owner requested "finish" again after the merged restart records. This table is
