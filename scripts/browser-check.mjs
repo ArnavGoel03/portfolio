@@ -71,6 +71,12 @@ try {
       // containment, not the transient sentinel immediately after Tab.
       await expect.poll(() => dialog.evaluate(node => node.contains(document.activeElement))).toBe(true);
     }
+    // The desktop popup fits at 1000px tall. Constrain height to exercise
+    // actual overflow rather than expecting a fitting document to scroll.
+    if (await dialog.evaluate(node => node.scrollHeight <= node.clientHeight)) {
+      await page.setViewportSize({ width: viewport.width, height: 700 });
+    }
+    await expect.poll(() => dialog.evaluate(node => node.scrollHeight > node.clientHeight)).toBe(true);
     const pageScroll = await page.evaluate(() => scrollY);
     await dialog.hover();
     await page.mouse.wheel(0, 700);
