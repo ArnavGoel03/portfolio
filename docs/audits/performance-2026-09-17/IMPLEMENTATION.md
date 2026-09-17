@@ -123,19 +123,19 @@ and did not run most builds. Its assertions are inputs to verify, not new receip
 | Status | Owner | Finding and acceptance |
 |---|---|---|
 | Verified changed | Root | Disk now has about 20 GiB available. Another session cleared regenerable caches; no further deletion requested or performed here. |
-| Merged, promotion held | Studio agent | PR17 source 63a9c5f removes studio telemetry, preserves recovery and restores Prize Wheel probe. 167 application/33 release tests, functional Chromium/WebKit and 144 HTTP checks pass. WebKit 840 ms exceeds unchanged 750 ms budget; controlled diagnosis continues. |
+| Merged, promotion held | Studio agent | PR17 source 63a9c5f removes studio telemetry, preserves recovery and restores Prize Wheel probe. 167 application/33 release tests, functional Chromium/WebKit and 144 HTTP checks pass. Timer correction merged in PR18/1010336, main ee3dbad. Corrected full candidate median is 1,641 ms against unchanged 750 ms; document first-byte waiting dominates. Production promotion remains held. |
 | Exact proposal awaiting owner | Studio agent | Legal corrections in simplegames/docs/LEGAL-APPROVAL.diff are checked and reviewable; no new legal copy published. Fair-play uses earlier approved About text. Gallery/probe reviewed in project receipt. |
 | Merged | Studio agent | PR16 merged bef637a; live/main ancestry mismatch resolved. Later telemetry candidate is merged but not promoted, so live remains prior 0.5.2. |
-| Local/D1 fixed; frontend held | Atlas agent | PR17 and PR18 merged through b217566. Canonical briefing: 131 actions, 114 open; missing Chaupal/Serenity/Gondilal records retained. 58 tests/typecheck/build pass with existing adapter warning; 27 D1 fields across 11 projects read back. One Halation identity added. Bundled frontend remains held. |
+| Local/D1 fixed; frontend held | Atlas agent | PR17-19 merged through 3ed5629. Canonical briefing: 131 actions, 114 open; missing Chaupal/Serenity/Gondilal records retained. 58 tests/typecheck/build pass with existing adapter warning; 27 D1 fields across 11 projects and 12 later corrections read back. One Halation identity added. Bundled frontend remains held. |
 | Local fix; push blocked | Trove agent | d1a7c92 fixes reproduced rollback defect; 22 installer + 81 shared tests and 178-file lint pass. Normal pre-push refused Relay sandbox/Tend SwiftData build failures; no bypass or installation. |
 | Merged, hosting paused | Repair agent | Buzz PR2 merge 66846ab preserves profile and retry during event-fetch failure. 11 tests, typecheck/build, four browser cases and desktop/phone screenshots pass. Public 503 is Vercel spend-budget pause, not a verified code regression. |
 | Merged, private launch held | Repair agent | Unmet PR2 merge 8ddf8dd integrates stranded hardening and fixes moderated titles leaking through undone-fold history. 25 tests, lint/types/build and disposable HTTP pass. No public host; copy/browser/moderator/persistence gates remain. |
-| Complete locally | Root | Standards a4aa577 on clean main: preserved the existing uncommitted lessons, corrected garbled date text, retained a byte-verified local checklist image. No remote configured; no private charter copied into projects. |
-| PR publication in progress | Root | Portfolio audit/index queue is preserved on docs/performance-audit-20260917; documentation changes only. Shared dirty checkouts remain untouched. |
+| Complete locally | Root | Standards a4aa577 and 3524b27 on clean local main: preserved the existing uncommitted lessons, corrected garbled date text, retained a byte-verified local checklist image. Browser-refusal and timing-measurement lessons added. No remote configured; no private charter copied into projects. |
+| PR1 published | Root | Portfolio audit/index queue is reviewable in https://github.com/ArnavGoel03/portfolio/pull/1; documentation changes only. Shared dirty checkouts remain untouched. |
 | Draft PR9 | Restaurant agent | 3c2fdec fixes active quotas, paginated history and seated overrun; strategy updated with primary competitor sources. 10 HTTP/SQLite tests, lint, types and build pass. Postgres connection/sandbox gate blocked; production 0.4.0 unchanged. Stable client rotation/receipt retention remain. |
 | Released and verified, hosting recheck needed | Repair agent | Collab 6012c9a fails closed on partial auth and corrects current/historical STATE. 562 tests and 51 live checks passed deployment dpl_9GcDsXBWtdutdKtkEag3EJLjGvDK before later team spend pause. No founder visual sign-in claimed. |
 | Audited; editorial work held | Repair agent | Gondilal PR23 d5c38de preserves removal: original substantive paragraph promised perpetual gains and cannot safely be restored. Unrelated dirty files preserved. Existing investment guide needs dated tax/product review; image credentials remain separate. CI billing blocked. |
-| Rationale resolved; gates held | Repair agent | Pidilite 50a3321 restores comments, dataset/syntax checks pass; browser CI receives zero steps due billing. Halation rationale already committed 1c43129/dfd7921. Its permission detector misses uses-permission-sdk-23, calibrated source fixture; active writer owns that file, fix still needed. |
+| Rationale resolved; gates held | Repair agent | Pidilite 50a3321 restores comments, dataset/syntax checks pass; browser CI receives zero steps due billing. Halation rationale already committed 1c43129/dfd7921. Permission detector repaired in b442fde: three real JVM tests pass, original detector fails two calibrated cases. No native source changed; hosted CI again refused before execution for billing. |
 | Seen documented; branch review partial | Root | Seen b5d0f57 documents Node24 as supported Vercel runtime, confirmed by provider deployment metadata; no invented Node26 failure. Shared dirty checkouts preserved. Broader branch/deploy review remains partial. |
 | Pushed candidate; publication held | Root | Upkeep 0dd5dd9 has all three PDFs, source provenance, 13 video previews, bounded product/manual data and shared helper repairs. 1,001 tests and local HTTP pass. Browser and spend-budget deployment gates remain. |
 
@@ -153,7 +153,24 @@ the separate GitHub Actions failed-payment gate. No spending limit, pause,
 paid plan or provider setting was changed. Earlier successful deployments are
 historical evidence, not proof of current availability.
 
-Watch Together's demo scheduling/retry repair and Stature's batched checkout
-lookup are now in progress. Serenity's native lab detail/update contract remains
-queued, alongside the original unresolved projects above. Private shared memory
-is not activated while the provider privacy route remains unresolved.
+### Further verified repairs, 18 September 2026
+
+- Watch Together PR5 merged as `0217c79`, receipt `8559afa`: demand/visibility
+  scheduling replaces perpetual demo frames and retries. 368 tests and all six
+  hosted CI jobs pass, including actual browser checks and reviewed desktop/phone
+  screenshots. Public site remains paused. One local Chrome fallback crashed;
+  it used a disposable profile. Local browser attempts stopped across agents.
+- Stature PR1 merged as `48722a3`: one distinct-slug price read replaces repeated
+  per-cart-line queries while preserving server pricing and failure behavior.
+  Eight calibrated tests, lint, types, build and four HTTP checks pass. All 21
+  newer security commits and the unrelated dirty CLAUDE file were preserved.
+  Provider alias `lebel.vercel.app` returns 503; old `statureindia.vercel.app` is 404.
+- Serenity source `333731c`, draft PR16: owned transactional lab detail/edit and
+  atomic extraction, shared serializers, native wire-contract corrections.
+  304 ordinary tests, three real PostgreSQL checks and iOS transport checks pass;
+  types/build pass with existing warnings. Full lint (20 errors/10 warnings),
+  broad DTO drift (172), native iOS macros and uncompiled Android tests remain
+  release blockers. Current preview is provider-BLOCKED before build.
+
+The original unresolved project queue above remains authoritative. Private shared
+memory is not activated while the provider privacy route remains unresolved.

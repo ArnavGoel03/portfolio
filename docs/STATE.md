@@ -1,6 +1,6 @@
 # Portfolio: state of play
 
-Last updated 17 September 2026. This is the pick-it-up-later document for
+Last updated 18 September 2026. This is the pick-it-up-later document for
 arnavgoel.dev. Read it before touching anything; it exists so the next session
 does not re-derive the same five facts, and so nobody has to discover the way
 this repo can silently stop deploying by watching it happen.
@@ -14,10 +14,14 @@ The owner's Claude audit is being repaired in parallel. Current source and
 verification status, including unresolved items, live in
 `docs/audits/performance-2026-09-17/IMPLEMENTATION.md`. Collab's auth fix was
 released and checked; Buzz and Unmet fixes are merged; Trove's rollback repair
-is local with native pre-push checks blocked. Studio telemetry removal is merged
+is local with native pre-push checks blocked. Studio telemetry removal and timing-probe correction are merged,
 but promotion still fails its unchanged WebKit timing budget. Legal wording is
 a concrete proposal awaiting approval. Pidilite rationale and Seen runtime
-rationale are pushed. No operator demand or browser acceptance is fabricated.
+rationale are pushed. Watch Together and Stature fixes are merged after tests;
+Serenity lab contracts are tested in draft PR16, with broader native/lint/DTO
+gates still failing. Halation's permission detector correction passes calibrated
+JVM tests and is pushed to draft PR1. No operator demand or native acceptance
+is fabricated.
 
 Upkeep source `0dd5dd9`, draft PR1, integrates all three private technical PDFs,
 825 canonical model/family records and 13 real video previews. 1,001 tests, nine
