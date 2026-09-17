@@ -8,15 +8,26 @@ this repo can silently stop deploying by watching it happen.
 Written the day the site spent two days serving a stale build without anybody
 noticing.
 
-## Upkeep/Fitout continuation checkpoint, 17 September 2026
+## Cross-project repair checkpoint, 17 September 2026
 
-Candidate `66021a7`, draft Upkeep PR #1, integrates two private technical PDFs
-without personal/home details and adds source-linked catalogue/care references.
-970 tests, nine HTTP-verifier tests, clean lint and all three app builds pass;
-44 Upkeep and 460 Fitout reference/model routes pass local HTTP verification.
-All three Vercel previews report success. Browser acceptance and production
-publication remain pending. Full queue and explicit remaining coverage gaps are
-in `docs/audits/performance-2026-09-17/IMPLEMENTATION.md` and Upkeep's STATE.
+The owner's Claude audit is being repaired in parallel. Current source and
+verification status, including unresolved items, live in
+`docs/audits/performance-2026-09-17/IMPLEMENTATION.md`. Collab's auth fix was
+released and checked; Buzz and Unmet fixes are merged; Trove's rollback repair
+is local with native pre-push checks blocked. Studio telemetry removal is merged
+but promotion still fails its unchanged WebKit timing budget. Legal wording is
+a concrete proposal awaiting approval. Pidilite rationale and Seen runtime
+rationale are pushed. No operator demand or browser acceptance is fabricated.
+
+Upkeep source `0dd5dd9`, draft PR1, integrates all three private technical PDFs,
+825 canonical model/family records and 13 real video previews. 1,001 tests, nine
+verifier tests, lint, all three builds and 45/834 local owner-site HTTP route
+checks pass. Rendered/keyboard acceptance and publication remain held.
+
+At 23:02:45 IST Vercel paused 47 projects because the team spend-management
+budget was reached. New Upkeep previews are BLOCKED before building. Buzz,
+Pidilite and Seen publicly return 503 DEPLOYMENT_PAUSED. No cap or pause was
+changed. Earlier release receipts below must not be read as current availability.
 
 ## Portfolio-wide performance audit, 17 September 2026
 

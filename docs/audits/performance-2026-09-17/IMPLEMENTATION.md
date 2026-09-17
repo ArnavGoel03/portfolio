@@ -2,7 +2,8 @@
 
 User authorization, 2026-09-17: finish the best audit recommendations, one project
 at a time. Understand each project in detail and finish its verification/live
-publication before opening the next. No parallel project implementation agents.
+publication before opening the next. This original sequencing instruction was
+superseded by explicit parallel-work authorization below.
 
 Follow-up authorization: finish the other projects without stopping for the
 Fevicreate browser block. Process each project sequentially; preserve any genuine
@@ -98,17 +99,61 @@ Preserve the full cross-project queue and the explicit regression requirement.
 
 ### Upkeep/Fitout knowledge checkpoint, 2026-09-17
 
-Source `66021a7`, draft https://github.com/ArnavGoel03/upkeep/pull/1.
-Both private reference PDFs are integrated with public official citations and
-without personal/home details. Existing canonical topics and softener visuals
-were corrected rather than recreated. Product selection/catalogues are on
-Fitout; care/diagnosis is on Upkeep. The graph has 764 nodes and 1,265 authored or
-structural edges, with bounded exploration and visible uncertainty.
+Source `0dd5dd9`, draft https://github.com/ArnavGoel03/upkeep/pull/1, integrates
+all three private reference PDFs with public citations and no home details.
+825 canonical model/family records span 42 ranges and 21 manufacturers; graph
+projection has 1,164 nodes and 2,063 authored/structural edges. All 13 existing
+videos have source previews and visible play controls. Search retry and handoff
+repairs reuse shared helpers. Exact descriptions/specifications cite their sources.
 
-970 tests, nine verifier tests, lint, TypeScript and all three production builds
-pass. Local HTTP checks cover 44 Upkeep and 460 Fitout reference/model routes.
-All three Vercel previews report success. Production remains unchanged pending
-browser acceptance. Search grew with coverage, so no bandwidth improvement is
-claimed. Full receipt and remaining manufacturer/manual/quantitative-spec gaps
-are in upkeep/docs/STATE.md and docs/KNOWLEDGE_DEPTH_WORK.md. Other project work
-above remains queued; this is not a completed portfolio-wide release.
+1,001 tests, nine verifier tests, lint and three production builds pass; local
+HTTP covers 45 Upkeep and 834 Fitout reference/model routes. Current Vercel previews
+were blocked before building by spend-management enforcement. Earlier preview
+success belongs to `66021a7`. Full browser/keyboard acceptance and publication
+remain held, and catalogue/manual coverage is bounded rather than exhaustive.
+
+## Claude audit repair queue, 17 September 2026
+
+Owner explicitly authorized subagents and parallel project repairs at 22:21 IST.
+This supersedes sequential-only implementation. One writer per target; preserve
+existing work and validate findings against current code and live deployments.
+The supplied audit reviewed 465 commits across 25 repositories, excluded Upkeep,
+and did not run most builds. Its assertions are inputs to verify, not new receipts.
+
+| Status | Owner | Finding and acceptance |
+|---|---|---|
+| Verified changed | Root | Disk now has about 20 GiB available. Another session cleared regenerable caches; no further deletion requested or performed here. |
+| Merged, promotion held | Studio agent | PR17 source 63a9c5f removes studio telemetry, preserves recovery and restores Prize Wheel probe. 167 application/33 release tests, functional Chromium/WebKit and 144 HTTP checks pass. WebKit 840 ms exceeds unchanged 750 ms budget; controlled diagnosis continues. |
+| Exact proposal awaiting owner | Studio agent | Legal corrections in simplegames/docs/LEGAL-APPROVAL.diff are checked and reviewable; no new legal copy published. Fair-play uses earlier approved About text. Gallery/probe reviewed in project receipt. |
+| Merged | Studio agent | PR16 merged bef637a; live/main ancestry mismatch resolved. Later telemetry candidate is merged but not promoted, so live remains prior 0.5.2. |
+| Local/D1 fixed; frontend held | Atlas agent | PR17 and PR18 merged through b217566. Canonical briefing: 131 actions, 114 open; missing Chaupal/Serenity/Gondilal records retained. 58 tests/typecheck/build pass with existing adapter warning; 27 D1 fields across 11 projects read back. One Halation identity added. Bundled frontend remains held. |
+| Local fix; push blocked | Trove agent | d1a7c92 fixes reproduced rollback defect; 22 installer + 81 shared tests and 178-file lint pass. Normal pre-push refused Relay sandbox/Tend SwiftData build failures; no bypass or installation. |
+| Merged, hosting paused | Repair agent | Buzz PR2 merge 66846ab preserves profile and retry during event-fetch failure. 11 tests, typecheck/build, four browser cases and desktop/phone screenshots pass. Public 503 is Vercel spend-budget pause, not a verified code regression. |
+| Merged, private launch held | Repair agent | Unmet PR2 merge 8ddf8dd integrates stranded hardening and fixes moderated titles leaking through undone-fold history. 25 tests, lint/types/build and disposable HTTP pass. No public host; copy/browser/moderator/persistence gates remain. |
+| Complete locally | Root | Standards a4aa577 on clean main: preserved the existing uncommitted lessons, corrected garbled date text, retained a byte-verified local checklist image. No remote configured; no private charter copied into projects. |
+| PR publication in progress | Root | Portfolio audit/index queue is preserved on docs/performance-audit-20260917; documentation changes only. Shared dirty checkouts remain untouched. |
+| Draft PR9 | Restaurant agent | 3c2fdec fixes active quotas, paginated history and seated overrun; strategy updated with primary competitor sources. 10 HTTP/SQLite tests, lint, types and build pass. Postgres connection/sandbox gate blocked; production 0.4.0 unchanged. Stable client rotation/receipt retention remain. |
+| Released and verified, hosting recheck needed | Repair agent | Collab 6012c9a fails closed on partial auth and corrects current/historical STATE. 562 tests and 51 live checks passed deployment dpl_9GcDsXBWtdutdKtkEag3EJLjGvDK before later team spend pause. No founder visual sign-in claimed. |
+| Audited; editorial work held | Repair agent | Gondilal PR23 d5c38de preserves removal: original substantive paragraph promised perpetual gains and cannot safely be restored. Unrelated dirty files preserved. Existing investment guide needs dated tax/product review; image credentials remain separate. CI billing blocked. |
+| Rationale resolved; gates held | Repair agent | Pidilite 50a3321 restores comments, dataset/syntax checks pass; browser CI receives zero steps due billing. Halation rationale already committed 1c43129/dfd7921. Its permission detector misses uses-permission-sdk-23, calibrated source fixture; active writer owns that file, fix still needed. |
+| Seen documented; branch review partial | Root | Seen b5d0f57 documents Node24 as supported Vercel runtime, confirmed by provider deployment metadata; no invented Node26 failure. Shared dirty checkouts preserved. Broader branch/deploy review remains partial. |
+| Pushed candidate; publication held | Root | Upkeep 0dd5dd9 has all three PDFs, source provenance, 13 video previews, bounded product/manual data and shared helper repairs. 1,001 tests and local HTTP pass. Browser and spend-budget deployment gates remain. |
+
+No operator interviews, new public legal wording, paid infrastructure, scheduled
+jobs or third-party outreach are authorized by this repair queue. Personal shared
+memory remains local and inactive until its model/provider privacy route is settled.
+
+### Provider availability, 17 September 2026
+
+Vercel `/v3/events` records 47 projects paused at 23:02:45 IST because the
+spend-management budget was reached. Buzz, Seen and Pidilite named events are
+confirmed; their public routes return 503 DEPLOYMENT_PAUSED. Upkeep's three new
+previews are BLOCKED before build. Team Pro billing remains active; this is not
+the separate GitHub Actions failed-payment gate. No spending limit, pause,
+paid plan or provider setting was changed. Earlier successful deployments are
+historical evidence, not proof of current availability.
+
+Watch Together's demo scheduling/retry repair and Stature's batched checkout
+lookup are now in progress. Serenity's native lab detail/update contract remains
+queued, alongside the original unresolved projects above. Private shared memory
+is not activated while the provider privacy route remains unresolved.
