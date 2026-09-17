@@ -11,6 +11,9 @@ verification/deployment blockers explicitly and continue the remaining queue.
 Shared rules: `~/dev/standards/BEST_PRACTICES.md`, referenced from shared CORE
 and DEVELOP_RULES so every configured harness/agent reads the same source.
 
+The following priority-pass table is historical. Later repair receipts and the
+23:02 IST provider pause below supersede its live/current-state claims.
+
 | Status | Project | Work |
 |---|---|---|
 | Awaiting browser verification | Fevicreate | Implemented at 2cd452d, browser harness at b74caf6, draft PR #1. 228 HTTP checks, SQL/restore/static gates and warning-free build pass. Rendered checks blocked by macOS browser denial and GitHub billing rejection (run 35157835149); merge and live verification remain. |
@@ -52,7 +55,7 @@ Do not deploy that larger rebuild as a side effect of updating this audit index.
 
 Owner requested "finish all" again. Recheck held release blockers, then process
 remaining actionable audit findings one project at a time. This is the current
-work queue; the previous final-pass section is a dated checkpoint.
+work queue, updated through 18 September; the previous final-pass section is historical.
 
 | Status | Remaining work |
 |---|---|
@@ -60,16 +63,16 @@ work queue; the previous final-pass section is a dated checkpoint.
 | Checkpoint, unshipped | Glass Table Games: current workerd now certifies2026-08-09; streaming regression fixed by restricting gzip to completed cached prerenders. Full rebuild/browser/publication gates remain. |
 | Pending | PITCREW: desktop/phone render and network acceptance, publish |
 | Pending | Trove: diagnose CLI failure, verify release and publish |
-| Pending | Serenity: repair release gates/client contracts and establish native build |
+| Draft PR16; release held | Serenity: 333731c repairs lab contracts; 304 ordinary and three real PostgreSQL tests pass. Broader lint/DTO/native gates remain. |
 | Pending | SOMA: pause offscreen/idle rendering |
-| Pending | Watch Together: idle demo and failed-embed polling |
+| Merged, hosting paused | Watch Together: PR5/0217c79 fixes idle demo and failed-embed polling; browser CI and 368 tests pass. |
 | Pending | Quiver: release-request deduplication and scroll work |
-| Candidate, browser acceptance pending | Upkeep/Fitout: 66021a7, draft PR #1. Both private PDFs integrated without home details, 452 model/family records and 12 reference topics. 970 tests, nine HTTP-verifier tests, all three builds and 44/460 owner-route HTTP checks pass. Catalogue completeness and browser/publication gates remain. Retain remaining Fitout cache work. |
+| Candidate; browser and hosting held | Upkeep/Fitout: 0dd5dd9, draft PR1. All three private PDFs integrated without home details; 825 model/family records, 14 topics and 13 real video previews. 1,001 tests, nine verifier tests, three builds and 45/834 HTTP routes pass. Cache retry repaired. Bounded catalogue coverage, browser and publication gates remain. |
 | Pending | Fevicryl: share repeated scoring work |
 | Pending | Portfolio: attribute and defer preview/analytics modules |
 | Pending | Vaani: repair runnable baseline before optimizing |
 | Pending | Saycut: cancellation and bounded transcription/playback work |
-| Pending | Stature: batch cart reads and separate schema work |
+| Merged, hosting paused | Stature: PR1/48722a3 batches distinct cart slugs; eight calibrated tests and build pass; no schema mutation. |
 | Pending | Meshport and micromobility: reconcile lazy work with offline precache |
 | Pending | Meridian, Halation/Emulsion and Larder: measure conditional opportunities before changing |
 
@@ -126,7 +129,7 @@ and did not run most builds. Its assertions are inputs to verify, not new receip
 | Merged, promotion held | Studio agent | PR17 source 63a9c5f removes studio telemetry, preserves recovery and restores Prize Wheel probe. 167 application/33 release tests, functional Chromium/WebKit and 144 HTTP checks pass. Timer correction merged in PR18/1010336, main ee3dbad. Corrected full candidate median is 1,641 ms against unchanged 750 ms; document first-byte waiting dominates. Production promotion remains held. |
 | Exact proposal awaiting owner | Studio agent | Legal corrections in simplegames/docs/LEGAL-APPROVAL.diff are checked and reviewable; no new legal copy published. Fair-play uses earlier approved About text. Gallery/probe reviewed in project receipt. |
 | Merged | Studio agent | PR16 merged bef637a; live/main ancestry mismatch resolved. Later telemetry candidate is merged but not promoted, so live remains prior 0.5.2. |
-| Local/D1 fixed; frontend held | Atlas agent | PR17-19 merged through 3ed5629. Canonical briefing: 131 actions, 114 open; missing Chaupal/Serenity/Gondilal records retained. 58 tests/typecheck/build pass with existing adapter warning; 27 D1 fields across 11 projects and 12 later corrections read back. One Halation identity added. Bundled frontend remains held. |
+| Local/D1 fixed; frontend held | Atlas agent | PR17-20 merged through 19d9922. Canonical briefing: 131 actions, 114 open; missing Chaupal/Serenity/Gondilal records retained. 58 tests/typecheck/build pass with existing adapter warning; 27 D1 fields across 11 projects, 12 later corrections and four final contract/detector fields read back. One Halation identity added. Bundled frontend remains held. |
 | Local fix; push blocked | Trove agent | d1a7c92 fixes reproduced rollback defect; 22 installer + 81 shared tests and 178-file lint pass. Normal pre-push refused Relay sandbox/Tend SwiftData build failures; no bypass or installation. |
 | Merged, hosting paused | Repair agent | Buzz PR2 merge 66846ab preserves profile and retry during event-fetch failure. 11 tests, typecheck/build, four browser cases and desktop/phone screenshots pass. Public 503 is Vercel spend-budget pause, not a verified code regression. |
 | Merged, private launch held | Repair agent | Unmet PR2 merge 8ddf8dd integrates stranded hardening and fixes moderated titles leaking through undone-fold history. 25 tests, lint/types/build and disposable HTTP pass. No public host; copy/browser/moderator/persistence gates remain. |
