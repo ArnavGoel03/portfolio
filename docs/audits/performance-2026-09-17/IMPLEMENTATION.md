@@ -1,5 +1,24 @@
 # Performance implementation queue
 
+## Completion continuation, 18 September 2026
+
+Owner requested "finish" again after the merged restart records. This table is
+the current result; lower tables are dated history. Records were isolated from
+concurrent Atlas dependency edits and Portfolio worktree creation.
+
+| Status | Owner | Remaining acceptance |
+| --- | --- | --- |
+| Source merged; hosting held | Root | Restaurant PR9 merged as 6fb8036 after 11 real Postgres cases, 12 local tests and clean lint/types/build. Fresh health still 503 DEPLOYMENT_PAUSED; source record9f9c2bd is pushed. |
+| Repairs pushed; release held | Native agent | Serenity PR16 head96ccfca fixes shared camelCase encoding, fertility/photo/lab contracts, Letters and Quiz. 333 ordinary tests, Swift wire checks, lint/types/build pass; 3 database-gated tests skipped. Strict audit retains 155 findings. Native UI/device/XCTest and 17 Android cases remain unexecuted; incompatible feature semantics await owner choice. |
+| Diagnosis pushed; release held | Studio agent | Record 9765599 preserves six existing startup samples and missing network/provider/CPU attribution. No demonstrated fix, no retry or promotion. Startup budget remains 750 ms; legal approval remains. |
+| Source merged; hosting held | Web agent | Quiver PR6 merged e439e51, record7689e26. All 80 tests and hosted run35268926975 pass release-fetch/scroll/responsive/download acceptance; screenshots inspected. Canonical selection prevents Relay/Tend tags becoming Trove downloads. SOMA/Fevicryl/PITCREW remain private with no usable browser path. |
+| Owned by Claude | Claude | Halation scrolling and application of native corner geometry. Shared standard is already committed. |
+| Scope pending | Owner | Chromium browser: testing support versus standalone product remains unspecified. No project created. |
+
+Seven Atlas field updates passed canonical validation, guarded append and exact
+readback. Its 58 tests pass; owner scan retains 114/131 open actions across 44
+STATE files. Shared standards 779453d captures the wire/persistence lesson.
+
 ## Restart continuation, 18 September 2026
 
 New owner screenshot request: Halation Mac scrolling UI is poor. The owner then
