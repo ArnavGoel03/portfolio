@@ -56,14 +56,14 @@ work queue; the previous final-pass section is a dated checkpoint.
 | Status | Remaining work |
 |---|---|
 | Blocked on browser access | Fevicreate: 3f38352 fixes refresh/focus and export races; build and228 HTTP checks pass. Private Actions attempt2 still refused, no connected browser. Initial fixture transfer increases about5%; no bandwidth win claimed. |
-| Active | Glass Table Games: exact runtime/browser certification, publish and studio mirror |
+| Checkpoint, unshipped | Glass Table Games: current workerd now certifies2026-08-09; streaming regression fixed by restricting gzip to completed cached prerenders. Full rebuild/browser/publication gates remain. |
 | Pending | PITCREW: desktop/phone render and network acceptance, publish |
 | Pending | Trove: diagnose CLI failure, verify release and publish |
 | Pending | Serenity: repair release gates/client contracts and establish native build |
 | Pending | SOMA: pause offscreen/idle rendering |
 | Pending | Watch Together: idle demo and failed-embed polling |
 | Pending | Quiver: release-request deduplication and scroll work |
-| Pending | Fitout and Upkeep: index-cache failure handling and ranking/payload work |
+| Next, owner priority | Upkeep: audit and extend knowledge graph depth across every aspect, with progressive disclosure; retain Fitout cache repair in queue. |
 | Pending | Fevicryl: share repeated scoring work |
 | Pending | Portfolio: attribute and defer preview/analytics modules |
 | Pending | Vaani: repair runnable baseline before optimizing |
@@ -86,3 +86,11 @@ not establish better interaction or scroll-to-ready latency. Revisit the nine
 already-live releases for remaining browser/device comparison gaps after the
 active project's checks. Do not claim universal improvement or no regressions
 from source review, HTTP status, or unit tests alone.
+
+### Upkeep scope added by owner
+
+Inspect how deep the knowledge graph and the rest of Upkeep can go. It must be
+thorough in every aspect while progressively disclosing detail to avoid overload.
+Establish actual graph/data coverage, provenance, relationship depth, missing
+concepts and end-to-end user paths before choosing architecture or UI changes.
+Preserve the full cross-project queue and the explicit regression requirement.
