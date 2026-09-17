@@ -74,3 +74,15 @@ work queue; the previous final-pass section is a dated checkpoint.
 
 Coursework entries without identifiable computation source remain artifact-only
 audits; no artificial runtime changes are warranted for hosted video links.
+
+### Added acceptance requirement
+
+The owner explicitly requires verification that changes did not break behavior or
+make performance worse, and asks whether the checklist delivered real benefits.
+For each project compare affected behavior against its previous release, including
+failure/cancellation/offline paths where relevant. Record measured benefits,
+tradeoffs and unmeasured outcomes separately. Smaller initial payloads alone do
+not establish better interaction or scroll-to-ready latency. Revisit the nine
+already-live releases for remaining browser/device comparison gaps after the
+active project's checks. Do not claim universal improvement or no regressions
+from source review, HTTP status, or unit tests alone.
