@@ -58,6 +58,22 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: phc_ci_fixture
 
       - name: Analytics behavior and initial bundle
         run: node --test scripts/analytics.test.mjs && node scripts/check-initial-analytics.mjs
+
+      - name: Install browser for hosted verification
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Browser behavior
+        run: node scripts/browser-check.mjs
+
+      - name: Browser evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: portfolio-browser
+          path: .firecrawl/browser-20260918/
+          if-no-files-found: ignore

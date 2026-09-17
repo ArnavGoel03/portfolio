@@ -178,7 +178,10 @@ pnpm cf:build        # Build the Cloudflare Worker, without deploying it
 Run `pnpm lint`, `pnpm exec tsc --noEmit`, `pnpm check:llms` and `pnpm build`
 before pushing. `.github/workflows/gate.yml` runs these checks on main and PRs,
 followed by `node --test scripts/analytics.test.mjs` and
-`node scripts/check-initial-analytics.mjs`.
+`node scripts/check-initial-analytics.mjs`. Hosted Linux CI also runs
+`node scripts/browser-check.mjs` against an owned temporary server. It verifies
+desktop/phone modal behavior and SDK scheduling with fixture analytics requests,
+and uploads screenshots. Local Mac browser launch remains unavailable.
 
 PostHog initialization and event queuing are owned by `src/lib/analytics.ts`.
 The SDK loads on idle or the first tracked interaction, with one shared import
