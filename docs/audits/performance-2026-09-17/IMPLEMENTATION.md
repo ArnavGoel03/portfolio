@@ -22,7 +22,7 @@ and DEVELOP_RULES so every configured harness/agent reads the same source.
 | Live | Buzz | PR #1 merged as 5ac9b5b. Five live routes return 200; all map routes show the gate; initial JS/CSS excludes map payloads. Seven Node tests, typecheck/build and Chromium desktop/phone run 35163988412 pass. Map/event-list screenshots inspected with a Carto fixture; live tiles, production RLS and native acceptance remain outside this pass. |
 | Candidate; browser acceptance pending | PITCREW | a4d34a5 defers GL probe and renderer until scrolling into the visible story. Lint, 56 tests, TypeScript/build and byte budgets pass (137 kB route, 264 kB deferred, Brotli). Required desktop/phone render and network verification unavailable; production unchanged. |
 | Relay live; Trove candidate held | Trove / Relay shared core | Relay 0.3.2 public ZIP matches signed universal build, PR #7 merged b67a96c. 81 shared/138 Relay tests, builds, response renders and packaged HTTP smoke pass. Trove signed 1.13.1 candidate held: both it and installed 1.13.0 abort CLI here. Shared draft PR #9 records blocker. Website metadata refresh batches with Tend. |
-| In progress | Tend | Inspecting derived counts and completed-history access against current SwiftData code. |
+| Live | Tend | PR #12 merged decba828; public 0.13.3 ZIP matches signed universal build. 164 tests, 56-file iOS typecheck and builds pass; numeric page controls inspected. Aggregated counts/groups and 100-row Logbook pages. Physical iPhone testing remains deferred; installed app remains0.13.2. Website metadata deployment in progress. |
 | Queued | Serenity | Navigable lab archive, compatible API/native consumption |
 | Queued | Power Grid | Lazy chart/table frames with stable dimensions |
 
