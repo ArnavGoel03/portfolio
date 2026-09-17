@@ -19,6 +19,25 @@ startup budget and awaits legal approval. Halation stays with Claude.
 The current table in IMPLEMENTATION.md records exact receipts and remaining work.
 These records are isolated from another session's dependency/worktree changes.
 
+## Stable stack upgrade candidate, 18 September 2026
+
+Isolated worktree `.worktrees/stack-upgrade-20260918`, branch
+`chore/stable-stack-20260918`, upgrades Next to 16.3.5, React to 19.3.0,
+OpenNext Cloudflare to 1.20.6 and Wrangler to 4.134.0. Native TypeScript 7.0.2
+runs through an explicit package path locally and in CI; the official TS6 API
+package remains available to ESLint and Next tooling. ESLint9 is retained
+because current Next plugins do not support ESLint10.
+
+Lint, native typecheck, all nine behavior tests, crawler consistency,
+warning-free production build and initial-analytics bundle guard pass.
+Hosted run35269888137 passed every gate, including desktop/phone modal bounds,
+focus, scroll, dismissal, analytics scheduling and preview activation. All seven
+captures were visually inspected and retained in
+`docs/evidence/stack-upgrade-2026-09-18/`. PR3 merged as `d2ac40b`.
+A fresh `/projects` request returns503 DEPLOYMENT_PAUSED, so source is merged
+but this upgrade is not live. No host or billing setting changed.
+The existing checkout and its unrelated audit-document edit are preserved.
+
 ## Cross-project repair checkpoint, 17 September 2026
 
 Restart continuation, 18 September: Portfolio `/projects` returns 503
