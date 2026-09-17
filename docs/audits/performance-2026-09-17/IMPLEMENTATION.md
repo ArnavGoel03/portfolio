@@ -21,8 +21,8 @@ and DEVELOP_RULES so every configured harness/agent reads the same source.
 | Live | Gondilal | PR #22 merged as deaed7d; production v1.2.6 verified on home/shop with private/no-store and fresh matching CSP nonces. Full 412 tests and production build pass. Warm rates avoid DB for 60s; settings batched. Redis-outage consistency window documented; browser device acceptance remains open. |
 | Live | Buzz | PR #1 merged as 5ac9b5b. Five live routes return 200; all map routes show the gate; initial JS/CSS excludes map payloads. Seven Node tests, typecheck/build and Chromium desktop/phone run 35163988412 pass. Map/event-list screenshots inspected with a Carto fixture; live tiles, production RLS and native acceptance remain outside this pass. |
 | Candidate; browser acceptance pending | PITCREW | a4d34a5 defers GL probe and renderer until scrolling into the visible story. Lint, 56 tests, TypeScript/build and byte budgets pass (137 kB route, 264 kB deferred, Brotli). Required desktop/phone render and network verification unavailable; production unchanged. |
-| In progress | Trove / Relay shared core | Bounded response cache implemented; shared and consumer verification in progress. |
-| Queued | Tend | Reuse derived counts/groups and bound history; preserve deferred iPhone testing |
+| Relay live; Trove candidate held | Trove / Relay shared core | Relay 0.3.2 public ZIP matches signed universal build, PR #7 merged b67a96c. 81 shared/138 Relay tests, builds, response renders and packaged HTTP smoke pass. Trove signed 1.13.1 candidate held: both it and installed 1.13.0 abort CLI here. Shared draft PR #9 records blocker. Website metadata refresh batches with Tend. |
+| In progress | Tend | Inspecting derived counts and completed-history access against current SwiftData code. |
 | Queued | Serenity | Navigable lab archive, compatible API/native consumption |
 | Queued | Power Grid | Lazy chart/table frames with stable dimensions |
 
