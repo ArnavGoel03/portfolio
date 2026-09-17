@@ -1,12 +1,63 @@
 # Portfolio: state of play
 
-Last updated 15 September 2026. This is the pick-it-up-later document for
+Last updated 18 September 2026. This is the pick-it-up-later document for
 arnavgoel.dev. Read it before touching anything; it exists so the next session
 does not re-derive the same five facts, and so nobody has to discover the way
 this repo can silently stop deploying by watching it happen.
 
 Written the day the site spent two days serving a stale build without anybody
 noticing.
+
+## Cross-project repair checkpoint, 17 September 2026
+
+The owner's Claude audit is being repaired in parallel. Current source and
+verification status, including unresolved items, live in
+`docs/audits/performance-2026-09-17/IMPLEMENTATION.md`. Collab's auth fix was
+released and checked; Buzz and Unmet fixes are merged; Trove's rollback repair
+is local with native pre-push checks blocked. Studio telemetry removal and timing-probe correction are merged,
+but promotion still fails its unchanged WebKit timing budget. Legal wording is
+a concrete proposal awaiting approval. Pidilite rationale and Seen runtime
+rationale are pushed. Watch Together and Stature fixes are merged after tests;
+Serenity lab contracts are tested in draft PR16, with broader native/lint/DTO
+gates still failing. Halation's permission detector correction passes calibrated
+JVM tests and is pushed to draft PR1. No operator demand or native acceptance
+is fabricated.
+
+Upkeep source `0dd5dd9`, draft PR1, integrates all three private technical PDFs,
+825 canonical model/family records and 13 real video previews. 1,001 tests, nine
+verifier tests, lint, all three builds and 45/834 local owner-site HTTP route
+checks pass. Rendered/keyboard acceptance and publication remain held.
+
+At 23:02:45 IST Vercel paused 47 projects because the team spend-management
+budget was reached. New Upkeep previews are BLOCKED before building. Buzz,
+Pidilite and Seen publicly return 503 DEPLOYMENT_PAUSED. No cap or pause was
+changed. Earlier release receipts below must not be read as current availability.
+
+## Portfolio-wide performance audit, 17 September 2026
+
+The owner requested an audit against the best-practice checklist in an AirDropped
+image. The report is `docs/audits/performance-2026-09-17/README.md`, with per-project
+source citations and machine-readable delivery evidence. All 28 project IDs match
+the live Projects page. The 31 public document/artifact probes, 298 same-origin
+script/style probes and 20 sampled images returned HTTP 200. This is delivery
+coverage, not protected-flow or browser performance certification.
+
+Priority opportunities include Pidilite's truncated visit filtering/export,
+the review site's 2.75 MB original photograph, CUTROOM/Q Branch intro delays,
+Library Walk's embedded executable, GTG HTML compression with no-transform retained,
+and Gondilal's rate-cache read order. Native and archived projects have separate
+applicability and source-confidence records. No product fix or release was made.
+
+Browser discovery returned no browsers and Firecrawl credits are exhausted.
+Lighthouse, rendered interaction, native profiling and production query plans
+remain unexecuted; five coursework analysis repositories were not identifiable.
+Implementation remains a follow-up to the requested audit. The prior modal
+rendered-verification blocker remains open.
+
+Live Vercel inspection now reports arnavgoel.dev READY at
+`dpl_Fw25bv2ZDA222nFzb7tLC6m4cUUT`; public /projects and its inventory were verified.
+Audit collectors and coverage checks passed. App gates were not repeated because
+only documentation and audit utilities changed.
 
 ## Rendered verification retry, 15 September 2026
 
@@ -446,3 +497,20 @@ what: Put the `statureindia.vercel.app` alias back on the `stature` project, or 
 why: Vercel dashboard, and a decision about which address is the real one.
 raised: 2026-08-25
 ```
+
+## Sequential performance implementation, 2026-09-17
+
+Shared performance guidance is saved in `~/dev/standards/BEST_PRACTICES.md`,
+referenced by CORE and DEVELOP_RULES for every configured harness and agent.
+Fevicreate is the only active implementation: commit `2cd452d`, draft PR
+https://github.com/ArnavGoel03/pidilite-school-checkin/pull/1. Its full visit
+history/filter/export and territory moderation changes pass 228 HTTP checks,
+SQL/restore/static gates and a warning-free build. Browser verification remains
+blocked by unavailable browser access; it is not merged or live. Other projects
+remain queued in `docs/audits/performance-2026-09-17/IMPLEMENTATION.md`.
+
+Follow-up: the owner requested completion of all remaining queued projects without
+stopping for Fevicreate's blocked browser gate. Review record is the first shipped
+fix (responsive cover, merged 5d38b79, live HTML verified). The implementation
+queue is the canonical per-project progress and verification-limit record; it is
+updated after each project. Work remains sequential.
