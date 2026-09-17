@@ -19,6 +19,27 @@ startup budget and awaits legal approval. Halation stays with Claude.
 The current table in IMPLEMENTATION.md records exact receipts and remaining work.
 These records are isolated from another session's dependency/worktree changes.
 
+## Release qualification, 18 September 2026
+
+Current `main` at `a25ff95` contains only documentation/evidence changes after
+certified stack merge `d2ac40b`; its existing source and hosted-browser gates remain
+applicable. Vercel now reports project paused=false, Hobby plan, no team soft block,
+Node 24, and the existing GitHub/main connection. No configuration was changed.
+
+One production deployment request for exact GitHub source `a25ff95` was rejected
+with HTTP 402 `payment_required`: `api-deployments-free-per-day`, total 100,
+remaining 0. No deployment was created and no retry, budget or billing edit was
+attempted. Provider reset: 2026-09-18 23:12:08.379 UTC (19 September 04:42:08 IST).
+
+The domain has resumed serving the older READY deployment
+`dpl_Fw25bv2ZDA222nFzb7tLC6m4cUUT`, source `82a4fd4` (Next 16.3.2, React 19.2.8).
+Provider alias and deployment source agree. Live home, projects and llms.txt
+return 200; all 18 referenced same-origin JS/CSS assets return 200 with the correct
+content types. This is restored availability of old source, not the upgraded
+release. After the daily allowance resets, requeue the verified GitHub source,
+then verify the new source, alias and live assets. No automated retry was armed.
+Details: [release qualification](STACK-RELEASE-QUALIFICATION-2026-09-18.md).
+
 ## Stable stack upgrade candidate, 18 September 2026
 
 Isolated worktree `.worktrees/stack-upgrade-20260918`, branch
@@ -34,8 +55,9 @@ Hosted run35269888137 passed every gate, including desktop/phone modal bounds,
 focus, scroll, dismissal, analytics scheduling and preview activation. All seven
 captures were visually inspected and retained in
 `docs/evidence/stack-upgrade-2026-09-18/`. PR3 merged as `d2ac40b`.
-A fresh `/projects` request returns503 DEPLOYMENT_PAUSED, so source is merged
-but this upgrade is not live. No host or billing setting changed.
+At source-merge verification, `/projects` returned503 DEPLOYMENT_PAUSED. The
+release-qualification section above supersedes that availability result; the
+upgrade is still not live. No host or billing setting changed.
 The existing checkout and its unrelated audit-document edit are preserved.
 
 ## Cross-project repair checkpoint, 17 September 2026
