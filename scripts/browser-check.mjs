@@ -49,7 +49,7 @@ try {
       return route.fulfill({ status: 200, contentType: "application/json", body: "{}" });
     });
     const page = await context.newPage();
-    page.on("pageerror", error => errors.push(error.message));
+    page.on("pageerror", error => { errors.push(error.message); console.error("Browser page error:", error.message); });
     const sdkRequests = [];
     const previewRequests = [];
     page.on("request", request => {
@@ -118,7 +118,7 @@ try {
       return route.continue();
     });
     const page = await context.newPage();
-    page.on("pageerror", error => errors.push(error.message));
+    page.on("pageerror", error => { errors.push(error.message); console.error("Browser page error:", error.message); });
     const completed = [];
     page.on("requestfinished", request => {
       if (previewPaths.includes(new URL(request.url()).pathname)) completed.push(request.url());

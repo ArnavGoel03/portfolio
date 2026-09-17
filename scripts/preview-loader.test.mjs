@@ -8,7 +8,17 @@ const source = ts.transpileModule(
   readFileSync(new URL("../src/lib/preview-loader.ts", import.meta.url), "utf8"),
   { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 } },
 ).outputText;
-const context = { exports: {}, setTimeout, clearTimeout };
+const context = {
+  exports: {},
+  setTimeout(callback, delay) {
+    assert.ok(this == null || this === context, "Timer must not be invoked with the loader as receiver");
+    return setTimeout(callback, delay);
+  },
+  clearTimeout(timer) {
+    assert.ok(this == null || this === context, "Timer must not be invoked with the loader as receiver");
+    clearTimeout(timer);
+  },
+};
 vm.runInNewContext(source, context);
 const { createPreviewLoader, PREVIEW_WAIT_MS } = context.exports;
 const settle = () => new Promise(resolve => setImmediate(resolve));
@@ -96,4 +106,12 @@ test("failed downloads fall back once and a later card can retry", async () => {
   f.attempts[1].resolve("recovered modal");
   await settle();
   assert.deepEqual(f.events.at(-1), ["retry", "ready", "recovered modal"]);
+});
+
+test("default timer adapter preserves browser timer invocation and clears on completion", async () => {
+  const events = [];
+  const loader = createPreviewLoader(async () => "modal");
+  loader.request({ ready: value => events.push(value), failed: assert.fail, cancelled: assert.fail });
+  await settle();
+  assert.deepEqual(events, ["modal"]);
 });

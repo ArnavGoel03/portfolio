@@ -10,7 +10,10 @@ type Callbacks<T> = {
 // cannot open an old card, navigate after Escape, or update an unmounted card.
 export function createPreviewLoader<T>(
   load: () => Promise<T>,
-  clock = { setTimeout, clearTimeout },
+  clock = {
+    setTimeout: (callback: () => void, delay: number) => setTimeout(callback, delay),
+    clearTimeout: (timer: ReturnType<typeof setTimeout>) => clearTimeout(timer),
+  },
 ) {
   let loading: Promise<T> | undefined;
   let activeCancel: (() => void) | undefined;
