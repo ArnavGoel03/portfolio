@@ -48,9 +48,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
-      # The build does not do this, which is the whole reason the file exists.
+      # Run the same explicit native compiler command locally and in CI.
       - name: Typecheck
-        run: npx tsc --noEmit
+        run: pnpm typecheck
 
       # The two files a crawler reads, against the site they describe.
       - name: Check llms.txt
