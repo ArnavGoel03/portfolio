@@ -46,3 +46,31 @@ receipts. It remains local in standards, which intentionally has no remote.
 Atlas records were updated; its Power Grid identity addition is committed source
 only because Atlas has a separate pre-existing undeployed application rebuild.
 Do not deploy that larger rebuild as a side effect of updating this audit index.
+
+## Continuation authorized, 2026-09-17
+
+Owner requested "finish all" again. Recheck held release blockers, then process
+remaining actionable audit findings one project at a time. This is the current
+work queue; the previous final-pass section is a dated checkpoint.
+
+| Status | Remaining work |
+|---|---|
+| Active | Fevicreate: recheck browser/runtime access and complete release acceptance |
+| Pending | Glass Table Games: exact runtime/browser certification, publish and studio mirror |
+| Pending | PITCREW: desktop/phone render and network acceptance, publish |
+| Pending | Trove: diagnose CLI failure, verify release and publish |
+| Pending | Serenity: repair release gates/client contracts and establish native build |
+| Pending | SOMA: pause offscreen/idle rendering |
+| Pending | Watch Together: idle demo and failed-embed polling |
+| Pending | Quiver: release-request deduplication and scroll work |
+| Pending | Fitout and Upkeep: index-cache failure handling and ranking/payload work |
+| Pending | Fevicryl: share repeated scoring work |
+| Pending | Portfolio: attribute and defer preview/analytics modules |
+| Pending | Vaani: repair runnable baseline before optimizing |
+| Pending | Saycut: cancellation and bounded transcription/playback work |
+| Pending | Stature: batch cart reads and separate schema work |
+| Pending | Meshport and micromobility: reconcile lazy work with offline precache |
+| Pending | Meridian, Halation/Emulsion and Larder: measure conditional opportunities before changing |
+
+Coursework entries without identifiable computation source remain artifact-only
+audits; no artificial runtime changes are warranted for hosted video links.
