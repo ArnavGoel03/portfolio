@@ -28,10 +28,13 @@ try {
   });
   const chunks = await readdir(".next/static/chunks");
   const sdkPaths = [];
+  const previewPaths = [];
   for (const name of chunks.filter(name => name.endsWith(".js"))) {
     const bytes = await readFile(`.next/static/chunks/${name}`);
+    if (bytes.includes("Cite (DOI)") && bytes.includes("max-w-2xl")) previewPaths.push(`/_next/static/chunks/${name}`);
     if (bytes.includes("capture_dead_clicks") && bytes.includes("sessionRecordingStarted")) sdkPaths.push(`/_next/static/chunks/${name}`);
   }
+  assert.ok(previewPaths.length, "Preview positive control missing");
   assert.ok(sdkPaths.length, "SDK positive control missing");
   await mkdir(".firecrawl/browser-20260918", { recursive: true });
   browser = await chromium.launch();
@@ -48,10 +51,13 @@ try {
     const page = await context.newPage();
     page.on("pageerror", error => errors.push(error.message));
     const sdkRequests = [];
+    const previewRequests = [];
     page.on("request", request => {
+      if (previewPaths.includes(new URL(request.url()).pathname)) previewRequests.push(request.url());
       if (sdkPaths.includes(new URL(request.url()).pathname)) sdkRequests.push(request.url());
     });
     await page.goto(`${origin}/projects`, { waitUntil: "networkidle" });
+    assert.equal(previewRequests.length, 0, "Preview loaded before intent");
     assert.equal(sdkRequests.length, 0, "SDK loaded before idle or interaction");
     const card = page.locator(".card-3d").filter({ has: page.getByRole("heading", { name: "Halation: Two Apps on One Core", exact: true }) });
     await card.scrollIntoViewIfNeeded();
@@ -93,6 +99,82 @@ try {
     await page.screenshot({ path: `.firecrawl/browser-20260918/projects-${viewport.width}.png` });
     await context.close();
     console.log(`Browser ${viewport.width}x${viewport.height}: deferred SDK, modal bounds, focus, inner scroll, background lock and dismissal pass`);
+  }
+  // Fresh contexts keep module cache from hiding chunk failures or delays.
+  for (const scenario of ["delayed", "escape", "unmount", "failed", "timeout", "latest"]) {
+    const context = await browser.newContext({ viewport: { width: 393, height: 852 }, serviceWorkers: "block" });
+    await context.addInitScript(() => { window.requestIdleCallback = () => 1; });
+    let release;
+    let intercepted = 0;
+    const held = new Promise(resolve => { release = resolve; });
+    await context.route("**/*", async route => {
+      const url = new URL(route.request().url());
+      if (url.origin !== origin) return route.fulfill({ status: 200, contentType: "application/json", body: "{}" });
+      if (previewPaths.includes(url.pathname)) {
+        intercepted++;
+        if (scenario === "failed") return route.abort("failed");
+        await held;
+      }
+      return route.continue();
+    });
+    const page = await context.newPage();
+    page.on("pageerror", error => errors.push(error.message));
+    const completed = [];
+    page.on("requestfinished", request => {
+      if (previewPaths.includes(new URL(request.url()).pathname)) completed.push(request.url());
+    });
+    try {
+      await page.goto(`${origin}/projects`, { waitUntil: "networkidle" });
+      assert.equal(intercepted, 0, "Preview requested before intent");
+      const cards = page.locator(".card-3d");
+      const card = cards.filter({ has: page.getByRole("heading", { name: "Halation: Two Apps on One Core", exact: true }) });
+      const detail = await card.getByRole("link", { name: "Details", exact: true }).getAttribute("href");
+      await card.click({ position: { x: 30, y: 30 } });
+      await expect.poll(() => intercepted).toBeGreaterThan(0);
+      const dialog = page.getByRole("dialog");
+      if (scenario === "failed") {
+        await expect(page).toHaveURL(`${origin}${detail}`);
+        await expect(dialog).toHaveCount(0);
+      } else {
+        await expect(card).toHaveAttribute("aria-busy", "true");
+        await expect(card.getByRole("status")).toBeVisible();
+        await expect(dialog).toHaveCount(0);
+        if (scenario === "delayed") {
+          await page.screenshot({ path: ".firecrawl/browser-20260918/preview-pending-393.png" });
+          release();
+          await expect(dialog).toBeVisible();
+          await expect(card).toHaveAttribute("aria-busy", "false");
+        } else if (scenario === "latest") {
+          const next = cards.filter({ hasNot: page.getByRole("heading", { name: "Halation: Two Apps on One Core", exact: true }) }).first();
+          const title = await next.getByRole("heading").innerText();
+          await next.click({ position: { x: 30, y: 30 } });
+          await expect(card).toHaveAttribute("aria-busy", "false");
+          release();
+          await expect(dialog.getByRole("heading", { name: title, exact: true })).toBeVisible();
+          await expect(dialog).toHaveCount(1);
+        } else {
+          if (scenario === "escape") {
+            await page.keyboard.press("Escape");
+            await expect(card).toHaveAttribute("aria-busy", "false");
+          } else if (scenario === "unmount") {
+            await card.getByRole("link", { name: "Details", exact: true }).click();
+            await expect(page).toHaveURL(`${origin}${detail}`);
+          } else {
+            await expect(page).toHaveURL(`${origin}${detail}`, { timeout: 10_000 });
+          }
+          release();
+          await expect.poll(() => completed.length).toBeGreaterThan(0);
+          // Allow the imported module and React update to settle after download.
+          await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+          await expect(dialog).toHaveCount(0);
+          await expect(page).toHaveURL(`${origin}${scenario === "escape" ? "/projects" : detail}`);
+        }
+      }
+      console.log(`Preview ${scenario}: pass`);
+    } finally {
+      release();
+      await context.close();
+    }
   }
   assert.deepEqual(errors, [], "Browser page errors");
 } finally {

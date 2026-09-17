@@ -62,7 +62,7 @@ jobs:
           NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN: phc_ci_fixture
 
       - name: Analytics behavior and initial bundle
-        run: node --test scripts/analytics.test.mjs && node scripts/check-initial-analytics.mjs
+        run: node --test scripts/*.test.mjs && node scripts/check-initial-analytics.mjs
 
       - name: Install browser for hosted verification
         run: pnpm exec playwright install --with-deps chromium
