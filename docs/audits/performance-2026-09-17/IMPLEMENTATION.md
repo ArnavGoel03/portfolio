@@ -55,8 +55,8 @@ work queue; the previous final-pass section is a dated checkpoint.
 
 | Status | Remaining work |
 |---|---|
-| Active | Fevicreate: recheck browser/runtime access and complete release acceptance |
-| Pending | Glass Table Games: exact runtime/browser certification, publish and studio mirror |
+| Blocked on browser access | Fevicreate: 3f38352 fixes refresh/focus and export races; build and228 HTTP checks pass. Private Actions attempt2 still refused, no connected browser. Initial fixture transfer increases about5%; no bandwidth win claimed. |
+| Active | Glass Table Games: exact runtime/browser certification, publish and studio mirror |
 | Pending | PITCREW: desktop/phone render and network acceptance, publish |
 | Pending | Trove: diagnose CLI failure, verify release and publish |
 | Pending | Serenity: repair release gates/client contracts and establish native build |
