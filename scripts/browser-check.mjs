@@ -63,10 +63,13 @@ try {
     const bounds = await dialog.boundingBox();
     assert.ok(bounds && bounds.y >= 0 && bounds.y + bounds.height <= viewport.height + 1);
     assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= viewport.width + 1);
+    await page.screenshot({ path: `.firecrawl/browser-20260918/modal-open-${viewport.width}.png` });
     await expect.poll(() => dialog.evaluate(node => node.contains(document.activeElement))).toBe(true);
     for (let n = 0; n < 12; n++) {
       await page.keyboard.press(n < 6 ? "Tab" : "Shift+Tab");
-      assert.ok(await dialog.evaluate(node => node.contains(document.activeElement)), "Focus escaped modal");
+      // Base UI redirects focus guards on the next frame. Observe settled
+      // containment, not the transient sentinel immediately after Tab.
+      await expect.poll(() => dialog.evaluate(node => node.contains(document.activeElement))).toBe(true);
     }
     const pageScroll = await page.evaluate(() => scrollY);
     await dialog.hover();

@@ -142,7 +142,7 @@ application output.
 
 | | |
 |---|---|
-| Repo | `ArnavGoel03/portfolio`, private |
+| Repo | `ArnavGoel03/portfolio`, public (GitHub API rechecked 18 September 2026) |
 | Working copy | `~/dev/portfolio`, branch `main` |
 | Host | Vercel, project `arnavgoel03s-projects/portfolio` |
 | Domain | https://arnavgoel.dev |
