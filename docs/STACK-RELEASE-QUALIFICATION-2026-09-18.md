@@ -49,3 +49,21 @@ rendered acceptance of a new release.
 Once the provider allowance resets, requeue the exact verified source (or a
 proven documentation-only successor), then verify the new READY source, alias
 and live assets. No recurring or scheduled job was created.
+
+## Read-only continuation, 18 September 2026, 07:39 UTC
+
+Fresh project/team metadata still reports paused=false and softBlock=null. The
+canonical alias and READY deployment still identify old source `82a4fd4`. Home,
+projects and llms.txt return 200 with expected content types and site identity.
+The five newest deployment records remain BLOCKED from the earlier project pause;
+the newest is `dpl_8hjrzqz2GUzAqdcL4e9Da8Y8riyG`, source `a25ff95`. No newer
+successful stack deployment appeared.
+
+Fetched main is `c709026`; comparison with `d2ac40b` still finds no changes outside
+docs, so the certified source/browser acceptance remains applicable. No build or
+browser rerun is needed for unchanged source. The prior API response is the latest
+quota evidence: remaining 0, reset 23:12:08.379 UTC, still in the future at this
+check. Project unpaused does not establish that this separate quota has cleared.
+No deployment POST was repeated, and no host setting was changed. The only release
+step left is an exact verified GitHub-source requeue after the allowance resets,
+followed by READY-source, alias and live-asset verification.

@@ -40,6 +40,12 @@ release. After the daily allowance resets, requeue the verified GitHub source,
 then verify the new source, alias and live assets. No automated retry was armed.
 Details: [release qualification](STACK-RELEASE-QUALIFICATION-2026-09-18.md).
 
+Read-only recheck at 07:39 UTC: the alias still serves `82a4fd4`; home, projects
+and llms.txt return 200. Main `c709026` remains source-equivalent to certified
+`d2ac40b` outside docs. Recent upgrade deployments are still historically BLOCKED.
+The recorded quota reset is still in the future; no evidence of cleared allowance
+was found and no deployment POST was repeated. No source preparation remains.
+
 ## Stable stack upgrade candidate, 18 September 2026
 
 Isolated worktree `.worktrees/stack-upgrade-20260918`, branch
