@@ -1,13 +1,5 @@
 # Portfolio: state of play
 
-Last updated 18 September 2026. This is the pick-it-up-later document for
-arnavgoel.dev. Read it before touching anything; it exists so the next session
-does not re-derive the same five facts, and so nobody has to discover the way
-this repo can silently stop deploying by watching it happen.
-
-Written the day the site spent two days serving a stale build without anybody
-noticing.
-
 ## Audit, accessibility and dependency upgrade, 31 October 2026 (newest)
 
 Reading order: this section first, then the September sections downward (their
@@ -52,6 +44,27 @@ used for typecheck only).
 Gates: lint, typecheck, check:llms, build, check-initial-analytics, 9 node tests,
 all clean. Full-page captures at 390 and 1440 wide matched the pre-change live
 site except a scroll-reveal timing difference on one card image.
+
+## Listed projects available, 30 September 2026
+
+The deployed `/projects` inventory was read and its hosting aliases resolved.
+Seven paused listed Vercel projects were resumed with the owner's authorization:
+SOMA, SYN100, Meshport, Region Earth, Pitcrew, Fevicryl and Serenity. Independent
+Vercel readback reports each unpaused. All 29 enumerated public URL probes return
+HTTP 200 after following existing redirects, including the portfolio homepage.
+
+No candidate release, host, spending cap or billing plan was changed. Browser and
+signed-in acceptance are not established by these HTTP checks. Existing candidate
+holds remain. The September paused-host observations below are historical.
+Sanitized evidence: Atlas `docs/operations/RESUME-LISTED-PROJECTS-20260930.json`.
+
+Last updated 18 September 2026. This is the pick-it-up-later document for
+arnavgoel.dev. Read it before touching anything; it exists so the next session
+does not re-derive the same five facts, and so nobody has to discover the way
+this repo can silently stop deploying by watching it happen.
+
+Written the day the site spent two days serving a stale build without anybody
+noticing.
 
 ## Completion continuation, 18 September 2026
 
