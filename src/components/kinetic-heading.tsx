@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface KineticHeadingProps {
   text: string;
@@ -17,13 +17,15 @@ export default function KineticHeading({
   duration = 0.9,
   delay = 0,
 }: KineticHeadingProps) {
-  const prefersReduced = useReducedMotion();
   const words = text.split(" ");
 
-  if (prefersReduced) {
-    return <span className={className}>{text}</span>;
-  }
-
+  // One markup for everyone. This used to return a plain <span> when
+  // useReducedMotion() was true, but that hook is null on the server, so a
+  // reduced-motion reader got different HTML from the client than from the
+  // server: React error #418, and a full client re-render of the root that
+  // also reset <html>'s class. Reduced motion is already honoured globally by
+  // <MotionConfig reducedMotion="user"> in motion-provider.tsx, which skips
+  // the transform below.
   return (
     <span
       className={className}

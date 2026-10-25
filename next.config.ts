@@ -17,8 +17,9 @@ const POSTHOG = "https://*.posthog.com https://*.i.posthog.com";
 // needs per-request nonces, and a nonce has to come from middleware, which
 // would make every page dynamic and give up the CDN cache that is the whole
 // point of the rest of this pass. The XSS surface it would buy back is close
-// to nil: nothing here renders user input, the one dangerouslySetInnerHTML is
-// JSON-LD built from hardcoded objects, and there is no comment or search box
+// to nil: nothing here renders user input, the dangerouslySetInnerHTML uses are
+// JSON-LD built from hardcoded objects and the constant theme boot script in
+// src/lib/theme.ts, and there is no comment or search box
 // to inject through. frame-ancestors, base-uri, form-action and object-src do
 // the load-bearing work and none of them are weakened by inline scripts.
 const CSP = [

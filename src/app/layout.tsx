@@ -9,6 +9,7 @@ import ScrollProgress from "@/components/scroll-progress";
 import PageTransition from "@/components/page-transition";
 import CommandPalette from "@/components/command-palette";
 import ServiceWorkerRegister from "@/components/sw-register";
+import { THEME_BOOT_SCRIPT } from "@/lib/theme";
 import {
   PersonJsonLd,
   WebSiteJsonLd,
@@ -130,6 +131,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${geistMono.variable} ${fraunces.variable} dark`}
+      // The theme script below may swap `dark` off before React hydrates, for a
+      // reader who chose Light. That one attribute differing is expected.
+      suppressHydrationWarning
       style={
         {
           "--font-heading": "var(--font-serif)",
@@ -137,6 +141,10 @@ export default function RootLayout({
       }
     >
       <head>
+        {/* Applies the saved colour scheme before first paint. Server HTML is
+            dark (the default), so without this a Light reader would see a dark
+            flash on every load. See src/lib/theme.ts. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         {/*
           There were preconnects to fonts.googleapis.com and fonts.gstatic.com
           here. next/font/google downloads these three families at build time
