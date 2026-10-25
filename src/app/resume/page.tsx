@@ -334,15 +334,15 @@ export default function Resume() {
         <ResumeBlock title={BLOCK.experience}>
           <div className="space-y-6">
             {experience.map((e) => (
-              <div key={`${e.company}-${e.period}`}>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <p className="font-serif text-base font-semibold tracking-tight text-foreground">
+              <article key={`${e.company}-${e.period}`}>
+                <header className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-serif text-base font-semibold tracking-tight text-foreground">
                     {e.role} · {e.company}
-                  </p>
+                  </h3>
                   <p className="font-mono text-xs text-muted-foreground">
-                    {e.period}
+                    <Period text={e.period} />
                   </p>
-                </div>
+                </header>
                 <p className="mt-0.5 text-xs text-muted-foreground/85">
                   {e.location}
                 </p>
@@ -359,7 +359,7 @@ export default function Resume() {
                     {e.skills.join(" · ")}
                   </p>
                 )}
-              </div>
+              </article>
             ))}
           </div>
         </ResumeBlock>
@@ -367,22 +367,22 @@ export default function Resume() {
         <ResumeBlock title={BLOCK.education}>
           <div className="space-y-5">
             {educationItems.map((edu) => (
-              <div key={edu.school}>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <p className="font-serif text-base font-semibold tracking-tight text-foreground">
+              <article key={edu.school}>
+                <header className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="font-serif text-base font-semibold tracking-tight text-foreground">
                     {edu.school}
-                  </p>
+                  </h3>
                   <p className="font-mono text-xs text-muted-foreground">
-                    {edu.period}
+                    <Period text={edu.period} />
                   </p>
-                </div>
+                </header>
                 <p className="mt-0.5 text-sm font-medium text-foreground/85">
                   {edu.degree}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {edu.detail}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </ResumeBlock>
@@ -440,7 +440,7 @@ export default function Resume() {
                   {c.name}
                 </p>
                 <p className="font-mono text-xs text-muted-foreground">
-                  {c.issuer} · {c.date}
+                  {c.issuer} · <Period text={c.date} />
                 </p>
               </div>
             ))}
@@ -456,6 +456,39 @@ export default function Resume() {
           </p>
         </div>
       </Section>
+    </>
+  );
+}
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** "Jul 2024" -> "2024-07", "2022" -> "2022"; null for anything else ("Present"). */
+function toDateTime(part: string): string | null {
+  const m = part.trim().match(/^(?:([A-Z][a-z]{2}) )?(\d{4})$/);
+  if (!m) return null;
+  if (!m[1]) return m[2];
+  const month = MONTHS.indexOf(m[1]);
+  return month < 0 ? null : `${m[2]}-${String(month + 1).padStart(2, "0")}`;
+}
+
+/**
+ * A resume date or range, printed exactly as written, with each date that is
+ * a real date wrapped in <time datetime>. The text a reader sees is unchanged;
+ * a parser (or a screen reader, or an ATS) gets a machine-readable date.
+ */
+function Period({ text }: { text: string }) {
+  const parts = text.split(": ");
+  return (
+    <>
+      {parts.map((part, i) => {
+        const dateTime = toDateTime(part);
+        return (
+          <span key={i}>
+            {i > 0 && ": "}
+            {dateTime ? <time dateTime={dateTime}>{part}</time> : part}
+          </span>
+        );
+      })}
     </>
   );
 }
