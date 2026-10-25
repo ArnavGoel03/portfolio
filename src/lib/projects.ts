@@ -743,3 +743,44 @@ export function accentFor(id: string): string {
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
   return `var(--accent-${(h % 6) + 1})`;
 }
+
+// The year lives in its own module so the client-side card can read it without
+// pulling every project description in this file into the browser bundle.
+export { projectYear } from "@/lib/project-year";
+
+/**
+ * The newest `count` projects by date, newest first, skipping any id in
+ * `exclude` (so a section never repeats a card another section on the same
+ * page already shows). Ties keep declaration order, which is the editorial
+ * order in this file.
+ */
+export function latestProjects(
+  projects: Project[],
+  count: number,
+  exclude: ReadonlySet<string> = new Set(),
+): Project[] {
+  return projects
+    .map((p, i) => ({ p, i }))
+    .filter(({ p }) => !exclude.has(p.id) && !isSuiteApp(p))
+    .sort((a, b) => b.p.date.localeCompare(a.p.date) || a.i - b.i)
+    .slice(0, count)
+    .map(({ p }) => p);
+}
+
+/**
+ * Built, kept on the site, but out of the shipped-work sections on /projects
+ * (see the note there). Lives here so the home page can keep them out of its
+ * "latest" row too, rather than holding a second copy of the list.
+ */
+export const ASIDE_IDS: ReadonlySet<string> = new Set([
+  "buzz",
+  "vaani",
+  "serenity",
+  "claude-skills",
+  "redbull-youtube-analytics",
+  "pitcrew",
+  "meridian",
+  "qbranch",
+  "cutroom",
+  "stature",
+]);
