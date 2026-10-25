@@ -16,7 +16,8 @@ import SectionRail from "@/components/section-rail";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { SOCIAL_LINKS } from "@/lib/constants";
+import { EMAIL, SOCIAL_LINKS } from "@/lib/constants";
+import { contactMailto } from "@/lib/mailto";
 import { track } from "@/lib/analytics";
 
 const socials = [
@@ -66,11 +67,15 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+  // When sending fails, the message is not lost: this is the same message as a
+  // prefilled email the visitor can send from their own mail app.
+  const [fallbackHref, setFallbackHref] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
     setError("");
+    setFallbackHref("");
 
     const form = e.currentTarget;
     const data = {
@@ -79,18 +84,25 @@ export default function Contact() {
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     };
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    let ok = false;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      ok = res.ok;
+    } catch {
+      // Offline or the request never completed: treated as a failed send.
+    }
 
     setSending(false);
-    if (res.ok) {
+    if (ok) {
       track("contact_form_submit");
       setSubmitted(true);
     } else {
-      setError("Something went wrong. Please try again or email me directly.");
+      setError("That didn’t send. Your message is still here.");
+      setFallbackHref(contactMailto(EMAIL, data));
     }
   }
 
@@ -191,7 +203,16 @@ export default function Contact() {
                     aria-live="polite"
                     className="text-sm text-destructive"
                   >
-                    {error}
+                    {error}{" "}
+                    {fallbackHref && (
+                      <a
+                        href={fallbackHref}
+                        data-testid="contact-mailto-fallback"
+                        className="font-medium text-foreground underline decoration-foreground/30 underline-offset-4 hover:decoration-foreground"
+                      >
+                        Open it in your email app instead
+                      </a>
+                    )}
                   </p>
                 )}
                 <Button
