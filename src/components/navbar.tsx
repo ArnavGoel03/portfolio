@@ -3,12 +3,29 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, isCurrentHref, isExternalHref } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import ThemeSwitcher from "@/components/theme-switcher";
 
 const links = NAV_LINKS;
+
+/**
+ * The attributes every nav link gets from its data: current-page marking for
+ * internal links, a new tab for external ones. The desktop bar and the mobile
+ * menu both spread this, so they cannot come to treat a link differently.
+ */
+function linkProps(href: string, pathname: string | null) {
+  const external = isExternalHref(href);
+  return {
+    current: isCurrentHref(href, pathname),
+    external,
+    attrs: external
+      ? { target: "_blank", rel: "noopener noreferrer" }
+      : {},
+  };
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -32,29 +49,44 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={pathname === link.href ? "page" : undefined}
-                className={cn(
-                  "relative rounded-xl px-3 py-2 text-sm font-medium transition-all duration-300",
-                  pathname === link.href
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {pathname === link.href && (
-                  <motion.span
-                    layoutId="nav-pill"
-                    className="absolute inset-0 rounded-xl bg-foreground/5 border border-foreground/10"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-                <span className="relative z-10">{link.label}</span>
-              </Link>
-            ))}
+            {links.map((link) => {
+              const { current, external, attrs } = linkProps(link.href, pathname);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  {...attrs}
+                  aria-current={current ? "page" : undefined}
+                  className={cn(
+                    "relative rounded-xl px-3 py-2 text-sm font-medium transition-all duration-300",
+                    current
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {current && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-xl bg-foreground/5 border border-foreground/10"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  <span className="relative z-10 inline-flex items-center gap-0.5">
+                    {link.label}
+                    {external && (
+                      <ArrowUpRight size={12} aria-hidden="true" className="opacity-60" />
+                    )}
+                    {external && <span className="sr-only"> (opens in a new tab)</span>}
+                  </span>
+                </Link>
+              );
+            })}
+            <span aria-hidden="true" className="mx-1 h-5 w-px bg-foreground/10" />
+            <ThemeSwitcher />
           </div>
+
+          <div className="flex items-center gap-1 md:hidden">
+            <ThemeSwitcher />
 
           <button
             onClick={() => setOpen(!open)}
@@ -69,6 +101,7 @@ export default function Navbar() {
           >
             {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
+          </div>
         </div>
 
         {open && (
@@ -80,22 +113,30 @@ export default function Navbar() {
             className="mt-3 border-t border-border/50 pt-3 md:hidden"
           >
             <div className="flex flex-col gap-1">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  aria-current={pathname === link.href ? "page" : undefined}
-                  className={cn(
-                    "rounded-xl px-4 py-3 text-sm font-medium transition-all",
-                    pathname === link.href
-                      ? "bg-foreground/5 text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {links.map((link) => {
+                const { current, external, attrs } = linkProps(link.href, pathname);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    {...attrs}
+                    onClick={() => setOpen(false)}
+                    aria-current={current ? "page" : undefined}
+                    className={cn(
+                      "flex items-center gap-1 rounded-xl px-4 py-3 text-sm font-medium transition-all",
+                      current
+                        ? "bg-foreground/5 text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    {link.label}
+                    {external && (
+                      <ArrowUpRight size={13} aria-hidden="true" className="opacity-60" />
+                    )}
+                    {external && <span className="sr-only"> (opens in a new tab)</span>}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}
