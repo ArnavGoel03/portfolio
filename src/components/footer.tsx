@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail, ArrowUpRight, Rss } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaOrcid } from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
-import { SOCIAL_LINKS, NAV_LINKS, SECONDARY_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS, NAV_LINKS, SECONDARY_LINKS, isExternalHref } from "@/lib/constants";
 
 const socials = [
   { icon: FaGithub, href: SOCIAL_LINKS.github, label: "GitHub" },
@@ -68,6 +68,9 @@ export default function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  {...(isExternalHref(link.href)
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}

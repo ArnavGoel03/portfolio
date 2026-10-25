@@ -147,7 +147,7 @@ export default function SectionRail({ stops }: { stops: RailStop[] }) {
                   className="block rounded-lg px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors duration-300"
                   style={{
                     color: on ? stop.accent : "var(--muted-foreground)",
-                    background: on ? "rgba(237, 230, 213, 0.06)" : undefined,
+                    background: on ? "color-mix(in srgb, var(--foreground) 6%, transparent)" : undefined,
                     opacity: on ? 1 : 0.7,
                   }}
                 >

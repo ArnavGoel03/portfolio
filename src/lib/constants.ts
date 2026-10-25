@@ -66,6 +66,11 @@ export const SOCIAL_LINKS = {
 // literally scan nav bars for that word. Pages demoted from the top-level
 // nav are still live and reachable via on-page cross-links, Cmd+K, the
 // footer, and sitemap: /ideas, /experience, /coursework, /now, /uses.
+//
+// One array drives the desktop bar, the mobile menu and the footer column.
+// An entry whose href is absolute is external: it opens in a new tab and is
+// never marked current, decided from the URL rather than a flag so the two
+// cannot disagree.
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
@@ -73,7 +78,24 @@ export const NAV_LINKS = [
   { href: "/work", label: "Work" },
   { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact" },
+  { href: SOCIAL_LINKS.github, label: "GitHub" },
 ] as const;
+
+/** True for a link that leaves this site. */
+export const isExternalHref = (href: string) => /^https?:\/\//.test(href);
+
+/**
+ * Whether `href` is the page being viewed, or the section it sits in.
+ *
+ * Exact match alone left Projects unlit on every /projects/[slug] page, which
+ * is most of the pages a visitor reaches from it. Home is exact-only, since
+ * every path starts with "/".
+ */
+export function isCurrentHref(href: string, pathname: string | null): boolean {
+  if (!pathname || isExternalHref(href)) return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 // Everything reachable from the footer "Also" column and from Cmd+K, but not
 // in the top nav, kept out of the primary scan.

@@ -9,6 +9,7 @@ import { FaGithub } from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 import { Project, memberName } from "@/lib/types";
 import { getCollection } from "@/lib/collections";
+import { projectYear } from "@/lib/project-year";
 import { track } from "@/lib/analytics";
 import { isYoutube } from "@/lib/utils";
 
@@ -29,12 +30,23 @@ const CASE_STUDY_SLUGS = new Set([
 // but no "Details" link is shown.
 const NO_DETAIL_PAGE = new Set<string>();
 
+/** Heading levels a card title may take. Anything else is not a heading. */
+export type ProjectHeadingLevel = "h2" | "h3" | "h4" | "h5" | "h6";
+
 interface ProjectCardProps {
   project: Project;
   index: number;
+  /**
+   * The level of the card's title, chosen by the page that places the card so
+   * the outline stays correct wherever it lands: under a page h1 directly the
+   * cards are h2, under a section's h2 they are h3 (the default).
+   */
+  headingLevel?: ProjectHeadingLevel;
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project, index, headingLevel = "h3" }: ProjectCardProps) {
+  const Heading = headingLevel;
+  const year = projectYear(project);
   const Icon = projectIcons[project.id] || DefaultProjectIcon;
   const collection = getCollection(project.collection);
   const [open, setOpen] = useState(false);
@@ -119,9 +131,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           <div className="p-6">
-            <h3 className="font-serif text-lg font-semibold tracking-tight">
+            {year !== null && (
+              <time
+                dateTime={project.date}
+                className="mb-1.5 block font-mono text-[10px] tabular-nums uppercase tracking-[0.16em] text-muted-foreground-dim"
+              >
+                {year}
+              </time>
+            )}
+            <Heading className="font-serif text-lg font-semibold tracking-tight">
               {project.title}
-            </h3>
+            </Heading>
             {project.team && (
               <p className="mt-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
                 {project.team.members && project.team.members.length > 0

@@ -4,7 +4,12 @@ import ProjectsView from "./projects-view";
 import FlagshipShowcase from "@/components/flagship-showcase";
 import { getProjects } from "@/lib/notion";
 import { Project } from "@/lib/types";
-import { staticProjects, isSuiteApp, flagshipProjects } from "@/lib/projects";
+import {
+  staticProjects,
+  isSuiteApp,
+  flagshipProjects,
+  ASIDE_IDS,
+} from "@/lib/projects";
 import { sortByRelevance } from "@/lib/project-ranking";
 
 // Graded course deliverables. Nothing is removed from the site: these keep
@@ -40,19 +45,7 @@ const isCoursework = (p: Project) => COURSEWORK_IDS.has(p.id);
 // being carried. A concept armoury, a globe, a studio showcase, an investor
 // site and a pre-launch brand are pieces being explored, and this band is
 // where the site says so out loud instead of letting the grid imply otherwise.
-const ASIDE_IDS = new Set([
-  "buzz",
-  "vaani",
-  "serenity",
-  "claude-skills",
-  "redbull-youtube-analytics",
-  "pitcrew",
-  "meridian",
-  "qbranch",
-  "cutroom",
-  "stature",
-]);
-
+// The id list itself lives in lib/projects.ts (ASIDE_IDS), shared with home.
 const isAside = (p: Project) => ASIDE_IDS.has(p.id);
 
 // Folded into another entry rather than listed beside it. Library Walk and the
@@ -133,20 +126,33 @@ export default async function Projects() {
   // Bull weeks after they were demoted, so the strip contradicted the flag.
   const flagships = merged.filter((p) => flagshipIds.has(p.id));
 
+  // Counted from what this page actually renders as cards, so the number in
+  // the heading is the number a reader can count below it.
+  const shownCount =
+    flagships.length +
+    inProgress.length +
+    personal.length +
+    coursework.length +
+    aside.length;
+
   return (
     <>
       <Section className="pt-36 pb-6">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/80">
-          Projects
+          Projects{" "}
+          <span className="projects-count font-mono tabular-nums text-muted-foreground">
+            · {shownCount}
+          </span>
         </p>
-        <h1 className="mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
+        <h1 className="projects-title mt-3 font-serif text-5xl font-bold tracking-tight md:text-6xl">
           Things I&apos;ve{" "}
           <span className="heading-gradient text-glow">Built</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-          Work spanning machine learning, full-stack platforms, and data science
-         , split into what I&apos;m building now, solo work, and collaborations
-          with named teammates. Click a tag to filter.
+          Work spanning machine learning, full-stack platforms, and data
+          science, split into what I&apos;m building now, solo work, and collaborations
+          with named teammates. {shownCount} projects in all. Click a tag to
+          filter.
         </p>
       </Section>
 
