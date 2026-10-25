@@ -11,7 +11,14 @@ import KineticHeading from "@/components/kinetic-heading";
 import Magnetic from "@/components/magnetic";
 import FocusParagraph from "@/components/focus-paragraph";
 import { getFeaturedProjects } from "@/lib/notion";
-import { allProjects, flagshipProjects, isSuiteApp } from "@/lib/projects";
+import {
+  allProjects,
+  flagshipProjects,
+  isSuiteApp,
+  latestProjects,
+  ASIDE_IDS,
+} from "@/lib/projects";
+import GitHubStats from "@/components/github-stats";
 import { Project } from "@/lib/types";
 import { UC_GPA, formatGpa } from "@/lib/constants";
 
@@ -33,6 +40,7 @@ const staticFeatured: Project[] = flagshipProjects;
 const RAIL_STOPS = [
   { id: "about-section", label: "About", accent: "var(--accent-1)" },
   { id: "work-section", label: "Featured Work", accent: "var(--accent-2)" },
+  { id: "latest-section", label: "Latest", accent: "var(--accent-3)" },
 ];
 
 export default async function Home() {
@@ -53,6 +61,16 @@ export default async function Home() {
     ...merged.filter(hasLinks),
     ...merged.filter((p) => !hasLinks(p)),
   ];
+
+  // The three most recent pieces of work, from the same data and rendered by
+  // the same card as /projects. Flagships are already on screen above, and the
+  // aside band is work the projects page deliberately keeps out of the shipped
+  // sections, so neither is repeated here.
+  const latest = latestProjects(
+    allProjects,
+    3,
+    new Set([...featured.map((p) => p.id), ...ASIDE_IDS]),
+  );
 
   return (
     <>
@@ -260,6 +278,42 @@ export default async function Home() {
           {featured.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
+        </div>
+      </Section>
+
+      <Section className="pt-0">
+        <div className="mb-14 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <SectionMarker
+              index={3}
+              id="latest-section"
+              kicker="Latest"
+              title="Most recent work"
+            />
+          </div>
+          <Link
+            href="/projects"
+            className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            All projects
+            <ArrowRight
+              size={14}
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          </Link>
+        </div>
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+          {latest.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={i}
+              headingLevel="h3"
+            />
+          ))}
+        </div>
+        <div className="mt-16">
+          <GitHubStats />
         </div>
       </Section>
     </>
