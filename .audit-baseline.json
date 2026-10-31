@@ -26,5 +26,33 @@
       "tbtMs": 0
     },
     "axe": []
+  },
+  "mobile https://arnavgoel.dev/": {
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "lcpMs": 1111,
+      "cls": 0,
+      "tbtMs": 64
+    },
+    "axe": []
+  },
+  "desktop https://arnavgoel.dev/": {
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "lcpMs": 431,
+      "cls": 0,
+      "tbtMs": 0
+    },
+    "axe": []
   }
 }
