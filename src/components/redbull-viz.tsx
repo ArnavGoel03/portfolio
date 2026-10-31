@@ -63,9 +63,9 @@ const SENTIMENT_BY_VIDEO: {
 ];
 
 const SENTIMENT_COLORS = {
-  positive: "#8a8c5a", // sage (kept on-brand with the warm palette)
+  positive: "var(--chart-3)", // sage (kept on-brand with the warm palette)
   neutral: "rgba(237, 230, 213, 0.22)",
-  negative: "#c66a5e", // terracotta-red for negative
+  negative: "var(--chart-4)", // terracotta-red for negative
 };
 
 export default function RedBullViz() {

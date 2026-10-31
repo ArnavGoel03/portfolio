@@ -135,6 +135,12 @@
   --sidebar-accent-foreground: #ede6d5;
   --sidebar-border: rgba(237, 230, 213, 0.10);
   --sidebar-ring: rgba(237, 230, 213, 0.35);
+  /* Print is a light page on paper; /resume prints through these. */
+  --print-background: #fff;
+  --print-ink: #111;
+  --print-ink-muted: #333;
+  --print-rule: #ddd;
+  --primary-hover: #dcb478;
 }
 
 .dark {
@@ -205,7 +211,7 @@
   }
   ::selection {
     background: rgba(212, 169, 106, 0.25);
-    color: #ede6d5;
+    color: var(--accent-foreground);
   }
 }
 
@@ -247,8 +253,8 @@
 /* Print styles, for /resume. Strip chrome and enforce a print-safe palette. */
 @media print {
   body {
-    background: #fff !important;
-    color: #111 !important;
+    background: var(--print-background) !important;
+    color: var(--print-ink) !important;
   }
   nav,
   footer,
@@ -258,19 +264,19 @@
     display: none !important;
   }
   a {
-    color: #111 !important;
+    color: var(--print-ink) !important;
     text-decoration: none !important;
   }
   .text-muted-foreground,
   .text-foreground\/75,
   .text-foreground\/80,
   .text-foreground\/85 {
-    color: #333 !important;
+    color: var(--print-ink-muted) !important;
   }
   .border-foreground\/10,
   .border-foreground\/15,
   .border-foreground\/20 {
-    border-color: #ddd !important;
+    border-color: var(--print-rule) !important;
   }
   .bg-foreground\/5,
   .bg-foreground\/8 {
@@ -378,7 +384,7 @@
 }
 
 .btn-glow:hover {
-  background-color: #dcb478;
+  background-color: var(--primary-hover);
 }
 
 .btn-glow:active {

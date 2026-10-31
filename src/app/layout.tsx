@@ -154,7 +154,7 @@ export default function RootLayout({
         />
         <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" /* slop-ok: read by Windows, outside the CSS cascade */ />
         <meta name="msapplication-tap-highlight" content="no" />
         <link rel="me" href={SOCIAL_LINKS.github} />
         <link rel="me" href={SOCIAL_LINKS.linkedin} />
