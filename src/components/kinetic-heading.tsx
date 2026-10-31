@@ -28,12 +28,10 @@ export default function KineticHeading({
     <span
       className={className}
       style={{ display: "inline-block" }}
-      aria-label={text}
     >
       {words.map((word, i) => (
         <span
           key={i}
-          aria-hidden="true"
           style={{
             display: "inline-block",
             overflow: "hidden",

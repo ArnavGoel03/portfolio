@@ -45,6 +45,7 @@ export default function Footer() {
                 >
                   <social.icon
                     size={14}
+                    aria-hidden="true"
                     className="text-muted-foreground transition-colors group-hover:text-foreground/80"
                   />
                 </a>
@@ -60,10 +61,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+            <p
+              id="footer-navigation-heading"
+              className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground"
+            >
               Navigation
             </p>
-            <nav className="mt-4 flex flex-col gap-2.5">
+            <nav aria-labelledby="footer-navigation-heading" className="mt-4 flex flex-col gap-2.5">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -81,10 +85,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+            <p
+              id="footer-also-heading"
+              className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground"
+            >
               Also
             </p>
-            <nav className="mt-4 flex flex-col gap-2.5">
+            <nav aria-labelledby="footer-also-heading" className="mt-4 flex flex-col gap-2.5">
               {secondaryLinks.map((link) => (
                 <Link
                   key={link.href}
