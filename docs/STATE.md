@@ -8,6 +8,51 @@ this repo can silently stop deploying by watching it happen.
 Written the day the site spent two days serving a stale build without anybody
 noticing.
 
+## Audit, accessibility and dependency upgrade, 31 October 2026 (newest)
+
+Reading order: this section first, then the September sections downward (their
+"older READY deployment", "not live" and 503 statements are historical and
+superseded: `main` deployed on 31 October and the live site serves it), then
+sections 0 to 7 (oldest, August 2026). Dependency versions in section 2 are
+superseded by this section.
+
+Measured with `~/.claude/skills/audit` (Lighthouse plus axe, chrome-headless-shell).
+`.audit-baseline.json` at the repo root holds the accepted numbers for the local
+production build (port 3111) and the live site, mobile and desktop.
+
+| Mobile | Before (live) | After (local build) | After (live) |
+|---|---|---|---|
+| Performance / A11y / BP / SEO | 96 / 96 / 96 / 100 | 100 / 100 / 96 / 100 | 98 / 100 / 100 / 100 |
+| LCP / CLS / TBT | 1381 ms / 0.001 / 163 ms | 910 ms / 0 / 20 ms | 1751 ms / 0.001 / 89 ms |
+| axe violations | 3 | 0 | 0 |
+
+Live LCP varies run to run (1.2 to 1.9 s over five runs, 3.1 s in one earlier
+measurement); the local build sits at about 920 ms, which equals FCP. The LCP
+element is the hero paragraph text, so there is no image or font fix. Tried and
+reverted because neither moved the median: `experimental.inlineCss` and
+`preload: false` on Geist Mono. Do not retry them without a new measurement.
+
+Fixed: `aria-prohibited-attr` (aria-label on a plain span in
+`kinetic-heading.tsx`), `svg-img-alt` (decorative react-icons svg in the footer
+social links now `aria-hidden`), `landmark-unique` (two footer navs now named by
+their visible headings through `aria-labelledby`). Raw hex now goes through
+`globals.css` tokens (`--print-*`, `--primary-hover`, existing `--chart-3/4`,
+`--accent-foreground`); unused `gem-icon.tsx` removed. Remaining scanner hits are
+under `.dormant/`.
+
+Dependencies: next 16.4.3, react and react-dom 19.3.1, @base-ui/react 1.9.0,
+lucide-react 1.63.0, posthog-js 1.441.2, resend 6.35.0, tailwind-merge 3.7.0,
+wrangler 4.155.0, @opennextjs/cloudflare 1.20.14, shadcn 4.23.0 and dev tooling,
+all inside pnpm's minimum release age (releases under two days old were skipped
+on purpose; do not add release-age excludes). framer-motion 14.7.1 taken: its
+14.0.0 changelog only removes internal APIs. Not taken: @notionhq/client 5
+(dormant overlay, query rewrite), ESLint 10 (eslint-plugin-react still peers up
+to ^9.7), TypeScript 7 for typescript-eslint (peer still `<6.1.0`; native 7 is
+used for typecheck only).
+Gates: lint, typecheck, check:llms, build, check-initial-analytics, 9 node tests,
+all clean. Full-page captures at 390 and 1440 wide matched the pre-change live
+site except a scroll-reveal timing difference on one card image.
+
 ## Completion continuation, 18 September 2026
 
 Restaurant PR9 and Quiver website PR6 are merged after source/browser acceptance;
