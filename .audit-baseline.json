@@ -1,0 +1,30 @@
+{
+  "mobile http://localhost:3111/": {
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100
+    },
+    "metrics": {
+      "lcpMs": 917,
+      "cls": 0,
+      "tbtMs": 32
+    },
+    "axe": []
+  },
+  "desktop http://localhost:3111/": {
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 96,
+      "seo": 100
+    },
+    "metrics": {
+      "lcpMs": 249,
+      "cls": 0,
+      "tbtMs": 0
+    },
+    "axe": []
+  }
+}
