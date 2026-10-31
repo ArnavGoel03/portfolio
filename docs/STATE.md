@@ -2,6 +2,17 @@
 
 ## Audit, accessibility and dependency upgrade, 31 October 2026 (newest)
 
+Live performance re-check, 31 October 2026 (after deploy of 99ee388): three
+independent sets of 5 Lighthouse runs on https://arnavgoel.dev/ gave mobile
+median performance 100 every time (ranges 97 to 100, 98 to 100, 92 to 100; median
+LCP 1.1 to 1.3 s, TBT 17 to 39 ms, server response 46 to 48 ms), desktop 100 on
+all 5 runs (LCP about 340 ms, TBT 0). Accessibility, best practices and SEO are
+100 and axe reports 0 violations. The home page is static at the edge
+(`x-vercel-cache: HIT`, 26 KB brotli, curl TTFB about 0.2 s from this machine), so
+there is nothing origin-side to cut. The earlier 94 to 98 readings were run to
+run variance, with occasional slow outliers (one run at LCP 2.2 s). No code change
+was made for this; `.audit-baseline.json` live keys were refreshed to 100.
+
 Reading order: this section first, then the September sections downward (their
 "older READY deployment", "not live" and 503 statements are historical and
 superseded: `main` deployed on 31 October and the live site serves it), then

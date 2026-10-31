@@ -35,9 +35,9 @@
       "seo": 100
     },
     "metrics": {
-      "lcpMs": 1111,
+      "lcpMs": 1122,
       "cls": 0,
-      "tbtMs": 64
+      "tbtMs": 11
     },
     "axe": []
   },
@@ -49,7 +49,7 @@
       "seo": 100
     },
     "metrics": {
-      "lcpMs": 431,
+      "lcpMs": 336,
       "cls": 0,
       "tbtMs": 0
     },
